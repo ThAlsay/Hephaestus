@@ -1,89 +1,127 @@
 \begin{thebibliography}{10}
 
+\bibitem{agilemanifesto}
+{Firmantes del manifiesto}.
+\newblock Manifesto for agile software development.
+\newblock \url{https://agilemanifesto.org/}, 2001.
+\newblock [Online; último acceso 27-Diciembre-2025].
+
+\bibitem{hughes2009software}
+Bob~Hughes y~Mike~Cotterell.
+\newblock {\em Software Project Management}.
+\newblock McGraw Hill, 2009.
+
+\bibitem{elixir_tcp_server}
+{El equipo de Elixir}.
+\newblock Elixir ejemplo servidor tcp.
+\newblock \url{https://hexdocs.pm/elixir/task-and-gen-tcp.html#echo-server},
+  2025.
+\newblock [Online; último acceso 28-Diciembre-2025].
+
+\bibitem{thousand_island}
+mtrudel.
+\newblock Biblioteca thousand island.
+\newblock \url{https://hexdocs.pm/thousand_island/ThousandIsland.html}, 2025.
+\newblock [Online; último acceso 28-Diciembre-2025].
+
+\bibitem{docsify}
+docsifyjs.
+\newblock Biblioteca docsify.
+\newblock \url{https://docsify.js.org/#/}, 2025.
+\newblock [Online; último acceso 28-Diciembre-2025].
+
+\bibitem{sommerville2016software}
+Ian Sommerville.
+\newblock {\em Software engineering 10th Edition}.
+\newblock Pearson, 2016.
+
+\bibitem{salario}
+{Ministerio de Trabajo y Economía Socila, Gobierno de España}.
+\newblock El boe publica el smi para 2025 que se establece en 1.184 euros.
+\newblock
+  \url{https://www.sepe.es/HomeSepe/es/que-es-el-sepe/comunicacion-institucional/noticias/detalle-noticia.html?folder=/SEPE/2025/Febrero/&detail=boe-publica-smi-2025-se-establece-1184-euros},
+  2025.
+\newblock [Online; último acceso 31-Diciembre-2025].
+
+\bibitem{salario12pagas}
+{Taxfix}.
+\newblock Salario mínimo interprofesional (smi).
+\newblock
+  \url{https://taxfix.com/es-es/diccionario/salario-minimo-interprofesional-smi/#:~:text=Gracias%20al%20acuerdo%20en%202025%20del%20Gobierno,trabajadores%20a%20jornada%20completa%20(40%20horas%20semanales).},
+  2025.
+\newblock [Online; último acceso 31-Diciembre-2025].
+
+\bibitem{secondlife}
+{Wikipedia}.
+\newblock Second life.
+\newblock \url{https://en.wikipedia.org/wiki/Second_Life}, 2025.
+\newblock [Online; último acceso 31-Diciembre-2025].
+
+\bibitem{bond2015design}
+David~Alexander Bond.
+\newblock Design and implementation of a massively multi-player online
+  historical role-playing game.
+\newblock {\em MSc Advanced Internet Applications. Heriot-Watt School of
+  Mathematical and Computer Sciences}, 2015.
+
 \bibitem{elixir}
-{The Elixir team}.
+{El equipo de Elixir}.
 \newblock Elixir.
 \newblock \url{https://elixir-lang.org/}, 2025.
-\newblock [Online; accessed 21-June-2025].
-
-\bibitem{dungeons_and_dragons}
-{Wizards of the Coast}.
-\newblock Dungeons and dragons.
-\newblock \url{https://dnd.wizards.com/es}, 2025.
-\newblock [Online; accessed 22-June-2025].
+\newblock [Online; último acceso 21-Junio-2025].
 
 \bibitem{phoenix}
-The~Phoenix framework team.
+El~equipo~de Phoenix.
 \newblock Phoenix framework.
 \newblock \url{https://www.phoenixframework.org/}, 2025.
-\newblock [Online; accessed 01-July-2025].
+\newblock [Online; último acceso 01-Julio-2025].
 
 \bibitem{java}
 {Oracle}.
 \newblock Java.
 \newblock \url{https://www.java.com/es/}, 2025.
-\newblock [Online; accessed 01-July-2025].
-
-\bibitem{docker}
-{The docker team}.
-\newblock Docker.
-\newblock \url{https://www.docker.com/}, 2025.
-\newblock [Online; accessed 01-July-2025].
-
-\bibitem{kubernetes}
-{The linux foundation}.
-\newblock Kubernetes.
-\newblock \url{https://kubernetes.io/es/}, 2025.
-\newblock [Online; accessed 01-July-2025].
+\newblock [Online; último acceso 01-Julio-2025].
 
 \bibitem{sql}
 {Wikipedia}.
 \newblock Sql.
 \newblock \url{https://en.wikipedia.org/wiki/SQL}, 2025.
-\newblock [Online; accessed 01-July-2025].
+\newblock [Online; último acceso 01-Julio-2025].
 
 \bibitem{json}
 {Douglas Crockford}.
 \newblock Json.
 \newblock \url{https://www.json.org/json-en.html}, 2001.
-\newblock [Online; accessed 01-July-2025].
+\newblock [Online; último acceso 01-Julio-2025].
 
 \bibitem{javascript}
 {Mozilla foundation}.
 \newblock Javascript.
 \newblock \url{https://developer.mozilla.org/es/docs/Web/JavaScript}, 2025.
-\newblock [Online; accessed 01-July-2025].
+\newblock [Online; último acceso 01-Julio-2025].
 
 \bibitem{postgres}
-{The postgresql team}.
+{El equipo de Postgresql}.
 \newblock Postgresql.
 \newblock \url{https://www.postgresql.org/}, 2025.
-\newblock [Online; accessed 01-July-2025].
+\newblock [Online; último acceso 01-Julio-2025].
 
-\bibitem{agile_scrum}
-{cprime}.
-\newblock What is scrum.
-\newblock \url{https://www.cprime.com/resources/what-is-agile-what-is-scrum/},
-  2025.
-\newblock [Online; accessed 01-July-2025].
+\bibitem{docker}
+{El equipo de Docker}.
+\newblock Docker.
+\newblock \url{https://www.docker.com/}, 2025.
+\newblock [Online; último acceso 01-Julio-2025].
 
-\bibitem{scrum_events}
-{Mary Iqbal}.
-\newblock Which scrum events are time boxed?
-\newblock
-  \url{https://www.scrum.org/resources/blog/which-scrum-events-are-time-boxed},
-  2024.
-\newblock [Online; accessed 01-July-2025].
+\bibitem{kubernetes}
+{The linux foundation}.
+\newblock Kubernetes.
+\newblock \url{https://kubernetes.io/es/}, 2025.
+\newblock [Online; último acceso 01-Julio-2025].
 
-\bibitem{scrum_artifacts}
-{Chandler Harris}.
-\newblock Agile scrum artifacts.
-\newblock \url{https://www.atlassian.com/agile/scrum/artifacts}, 2025.
-\newblock [Online; accessed 01-July-2025].
-
-\bibitem{hughes2009software}
-Bob Hughes.
-\newblock {\em Software Project Management 5e}.
-\newblock McGraw Hill, 2009.
+\bibitem{jsonrpc}
+{Matt Morley}.
+\newblock Json-rpc.
+\newblock \url{https://www.jsonrpc.org/}, 2005.
+\newblock [Online; último acceso 03-Enero-2026].
 
 \end{thebibliography}

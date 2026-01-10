@@ -1,0 +1,58 @@
+\chapter{Pruebas}\label{Cap6}
+
+La gestión de la calidad del software se asegura que el desarrollo de los sistemas software desarrollados se encuentran en un estado correcto para el propósito para el que fueron diseñados. Esto implica que el sistema debe asegurar las necesidades de los clientes que tiene y ser eficiente y fiable durante su periodo de funcionamiento \cite{sommerville2016software}.
+
+Existen diferentes tipos de pruebas para determinar la calidad del software, las cuales se enfocan en diferentes propiedades de un sistema. De esta manera se puede asegurar que el sistema no contenga errores que impidan su utilización. Además, existen técnicas que permiten asegurar que cada parte del sistema funcione correctamente sin producir resultados inesperados. La división de estas partes puede ser a nivel más general o más concreta, siendo por ejemplo una parte general un componente del sistema y una parte más concreta una función dentro de un componente del sistema.
+
+Durante el proyecto se emplean tres tipos diferentes de pruebas para los distintos entregables. Debido al tiempo disponible, el rango de actuación y la cantidad de tipos de pruebas realizadas a cada una de las partes se ve disminuido. Por ello se prioriza el correcto funcionamiento del sistema y una experiencia como mínimo adecuada para el alumno, se deja de lado pruebas más profundas y se centra el mayor esfuerzo en el motor, como pieza central del proyecto.
+
+La cantidad de pruebas y profundidad de las mismas se ve afectado por el tiempo disponible. Por ello y debido a que la posibilidad de recuperar el sistema y dejarlo en un estado anterior es muy sencillo, gracias al empleo de Docker, se hicieron recortes en este punto del proyecto, siendo las pruebas realizadas suficientes para asegurar el correcto funcionamiento del sistema, pero dejando de lado la integridad del mismo.
+
+\section{Pruebas unitarias}
+
+Las pruebas unitarias en el desarrollo de software sirven para verificar el funcionamiento de las partes más pequeñas del sistema que está siendo probado. Se aseguran de que las partes verificadas se comporten como se espera y no surjan ningún error.
+
+Por lo general las pruebas unitarias requieren de un tiempo mayor a otro tipo de pruebas para su implementación ya que, al centrarse en las partes más pequeñas del sistema evaluado, requieren de múltiples pruebas por unidad del sistema de manera que se abarquen todos los escenarios posibles.
+
+Debido a su naturaleza, las pruebas unitarias son muy útiles para probar sistemas o aplicaciones software que normalmente no cuentan con interacción directa del usuario, sino que son empleados por otros sistemas, por ejemplo las bibliotecas de algún lenguaje. Por ello, y debido al recorte por tiempo ya mencionado, estas pruebas solo se emplean para asegurar el correcto funcionamiento del motor Hephaestus.
+
+Al tratarse de Hephaestus el lenguaje para las pruebas del motor es Elixir, por lo tanto se hace uso de las herramientas proporcionadas por el propio lenguaje para hacer las pruebas, tal y como se muestra en el ejemplo \ref{cod:ejemplo_test_unitario_elixir}. Mediante estas pruebas se asegura el correcto funcionamiento de las piezas del motor necesarias para crear un videojuego, incluyendo todo lo implementado mediante \textit{GenServer}, para lo cual las pruebas se centran en el código que produce algún cambio en el estado, esto es se excluye de las pruebas todo código que no modifique el comportamiento de la biblioteca \textit{GenServer} como puede ser un \textit{getter} de un campo del estado.
+\\
+
+\begin{lstlisting}[language=erlang, caption=Snippet test unitario Elixir, label=cod:ejemplo_test_unitario_elixir, breaklines, showstringspaces=false, captionpos=b]
+defmodule ConnectionTest do
+  use ExUnit.Case, async: true
+
+  setup do
+    connection =
+    start_supervised!(
+      {Engine.Connection,
+        %Engine.GameEntity{
+	      name: "test_connection",
+	      state: %Engine.Connection{
+		    level: 1,
+		    location_1: "location_test",
+		    location_2: "second_location_test",
+		    object: nil
+	      }
+      }}
+    )
+
+    %{test_connection: connection}
+  end
+
+  test "get location from location_1", 
+  	%{test_connection: test_connection} do
+    assert Engine.Connection.get_next_location(test_connection, 
+            "location_test") === "second_location_test"
+  end
+end
+\end{lstlisting}
+
+\section{Pruebas end-to-end}
+
+Las pruebas end-to-end simulan el flujo completo del sistema desde la perspectiva del usuario final. De esta manera se prueba la experiencia de usuario obtenida al interactuar con el sistema. Por lo tanto estas pruebas son las más adecuadas para probar el juego didáctico, puesto que el alumno, el cual actúa como usuario final en este proyecto, interactúa con dicha parte del proyecto.
+
+Para la realización de las pruebas end-to-end se crean una serie de escenarios los cuales el juego debe cumplir para poder ser considerado exitoso. Dichos escenarios derivan, más adelante en el desarrollo del proyecto, en las soluciones a las prácticas presentadas a los alumnos, puesto que el juego está diseñado específicamente para cumplir con ese propósito.
+
+El juego didáctico actúa como hilo conductor de las prácticas y, por lo tanto, es natural que se enlace las pruebas end-to-end del mismo con las prácticas proporcionadas a los alumnos, en este caso como solución de las mismas.

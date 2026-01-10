@@ -1,60 +1,81 @@
 \documentclass[a4paper,12pt,twoside,onecolumn,openright,svgnames]{book}
 
-% Paquetes varios
-\usepackage{graphicx}
-\usepackage[table,xcdraw]{xcolor}
-\usepackage{longtable}
-\usepackage{tabularx}
-\usepackage{multirow}
-\usepackage{array}
-\usepackage{enumitem}
-
-
-% PDF/A-1b
-\usepackage[a-1b]{pdfx}
-\usepackage[utf8]{inputenc}
+%%%%%%%%%%%%%%%%%%%%%%%%%% PAQUETES 
+\usepackage[a4paper,left=2cm,top=2.5cm,right=1.5cm,bottom=2.5cm]{geometry}
 \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}       % códificación de símbolos
+\usepackage{amsmath}
 \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+\unaccentedoperators              % babel acentúa operadores math. por defecto
+\usepackage{times}                % (times roman, helvetica, courier)
+\usepackage[official]{eurosym}    % €€€
+\usepackage{graphicx}             % Imprescindible para gráficos
+\usepackage{svg}                  % para incluír gráficos svg
+% \usepackage{svg-inkscape}       % útil con inkscape
+\usepackage{xurl}                  % para que latex pueda partir URLs
+\usepackage{xcolor}     % Texto en color diferente
 
-% Márgenes
-\usepackage{geometry}
-\geometry{
-	top=1.5cm,
-	bottom=1.5cm,
-	inner=1.5cm,
-	outer=2cm
-}
 
-% Espaciado interlineal
-\usepackage{setspace}
-\setstretch{1.2}
+\usepackage[newfloat]{minted}
+\usepackage{listings} 
+\renewcommand{\lstlistingname}{Código}
+\renewcommand{\lstlistlistingname}{Índice de \lstlistingname s}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Código Fuente}
 
-% Justificación completa y sangría de párrafos
-\usepackage{ragged2e}
-\justifying
-\setlength{\parindent}{0.5cm}
+%%%%%%%%%%%%%  UTILIDADES
+\usepackage{pdfpages}   % Incluir pdfs como paginas del documento (para anexos)
+\usepackage[hidelinks]{hyperref} % para incluir links intra/extra documento
+\usepackage{colortbl}   % tablas con colores
+%%% Tablas, arrays, etc.
+\usepackage{ltablex}
+\usepackage{multirow}   % Para tablas con multifilas
+\usepackage{array}      % Para los nuevos tipos de columnas en tabla
 
-% Encabezados y pies de página
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\fancyfoot[LE,RO]{\thepage}
+% caption para gestionar los listados en floats -como figuras o tablas-
+\usepackage{caption}              % con mejor control de captions
+\usepackage{setspace}             % facilita la gestión de distancias
+\usepackage{cite}                 % mejora aspecto bibliografía numérica
+\usepackage[toc,page]{appendix}   % control extra para apéndices.
+\usepackage{subfig}               % para figuras dentro de figuras
+\usepackage{float}                % mejor control de posiciones en float
+\usepackage{xspace}               % busca pequeños errores en nombres latex
+\usepackage{enumitem}             % http://ctan.org/pkg/enumitem
+\usepackage[nottoc,notlot,notlof]{tocbibind} % bibliografía a tabla Contenidos
 
-% Documento
-\begin{document}	
+\renewcommand{\arraystretch}{1.5} % padding tablas
+\renewcommand{\baselinestretch}{1.2} % (latex neutro) esponja el texto.
+\setlength{\parindent}{0.5cm}     % sangrado de primera línea de párrafo.
+\usepackage{microtype}            % Soluciona algunos problemas de Overfullness
+\usepackage[section]{placeins}    % Fuerza a que los floats se queden en su section
+\addtolength{\parskip}{1em}       % Separa un poquito los parrafos
+
+%%%%%%%%%%%%%%%  FIN DE PAQUETES
+
+
+\begin{document}
+	\raggedbottom
+	\addtolength{\headsep}{4mm}
+
 	\frontmatter
 		\include{tex_files/frontmatter/title}
-		\include{tex_files/frontmatter/resumen}
 		\tableofcontents
 		\listoffigures
 		\listoftables
-		
+		\lstlistoflistings
+	
 	\mainmatter
-		\include{tex_files/mainmatter/cap_1/objetivo}
-		\include{tex_files/mainmatter/cap_2/planificacion}
+		\include{tex_files/mainmatter/chapter_1/introduccion}
+		\include{tex_files/mainmatter/chapter_2/planificacion}
+		\include{tex_files/mainmatter/chapter_3/estado_arte}
+		\include{tex_files/mainmatter/chapter_4/analisis}
+		\include{tex_files/mainmatter/chapter_5/diseno}
+		\include{tex_files/mainmatter/chapter_6/pruebas}
+		\include{tex_files/mainmatter/chapter_7/conclusion}
+		\appendix\setcounter{chapter}{0}
+		
 		
 		\bibliographystyle{unsrt}
 		\bibliography{refs}
-		
-		
+	\backmatter
 \end{document}

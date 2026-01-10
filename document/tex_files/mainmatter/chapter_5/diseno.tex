@@ -1,0 +1,136 @@
+\chapter{Diseño}\label{Cap5}
+
+\section{Hephaestus}
+
+En el capítulo \ref{Cap4} se hizo el análisis del motor de videojuegos Hephaestus, en este se realiza el diseño conceptual del mismo. Para ello se empieza por el diagrama de clases del motor.
+
+\section{Juego didáctico}
+
+\section{Prácticas}
+
+Al contrario que las secciones anteriores, la prácticas para los alumnos no cuentan con un análisis debido a la naturaleza de estas. El objetivo de las prácticas es crear documentos que ayuden al alumno a asimilar el conocimiento adquirido en las clases de teoría. Por lo tanto, el entregable principal de las prácticas para los alumnos son los documentos descriptivos con las instrucciones que los alumnos tienen que seguir para completar las prácticas, incluyendo un reto a completar por el alumno con todo lo aprendido durante la práctica.
+
+Se decide hacer tres prácticas las cuales están relacionadas entre sí, continúan a raíz de la práctica anterior, e incrementan su dificultad siendo la primera la más fácil y la última la más difícil. A estas tres prácticas se añade un cuarto documento que actúa como introducción a las prácticas.
+
+A estas tres prácticas se les añade sus soluciones y otros programas escritos en Java que complementan las prácticas escritas. Todo este código Java está pensado para su uso por el profesor de la asignatura ya sea para tener una solución ya construida para entregar a los alumnos una vez terminado el periodo de la práctica, o para mostrar el funcionamiento de alguna de las partes del enunciado mediante el resto de programas que no son soluciones.
+
+Por lo tanto, el diseño de las prácticas se trata de una labor de diseño didáctico sin código lo suficiente complejo para justificar un análisis y diseño exhaustivo. A continuación se describe el diseño didáctico de cada una de las prácticas y como se relacionan entre sí.
+
+\subsection{Introducción a las prácticas}
+
+Como ya se ha mencionado se crea un documento diseñado para introducir las tres prácticas al alumno. Para ello el documento cuenta con varias secciones. En estas secciones el alumno cuenta con las instrucciones para instalar todas las tecnologías necesarias para desarrollar las prácticas, las instrucciones necesarias para poner en funcionamiento el juego y un resumen de los objetivos de las prácticas a las que el alumno va a enfrentarse.
+
+Con este documento el alumno es capaz de encontrar soluciones para los problemas más comunes que se pueda encontrar durante el transcurso de las prácticas, como, por ejemplo, levantar los contenedores del proyecto, modificar la base de datos o reiniciar el sistema si surgen algún problema.
+
+\subsection{Primera práctica}
+
+Durante la primera práctica se presenta la base del funcionamiento del sistema. Debido al nivel de los alumnos para los que están pensadas las prácticas, la primera sección de la práctica introduce la arquitectura para sistemas distribuidos cliente-servidor, de esta manera el alumno se introduce en la estructura que van a seguir los clientes que va a programar para resolver las prácticas.
+
+Tras la introducción a la arquitectura distribuida cliente-servidor, la otra pieza fundamental para que el alumno pueda resolver las prácticas es el protocolo JSON-RPC. Por este motivo la siguiente sección de la práctica consiste en una introducción a este protocolo. En esta introducción se añaden ejemplos del formato de las peticiones que admite el protocolo al igual que el formato que sigue el protocolo para las respuesta que se dan en el mismo.
+
+Una vez se hacen las introducciones a los dos conceptos anteriores, la práctica finaliza con el ejercicio a realizar por el alumno. Pero, antes de presentar el enunciado, es necesario realizar un ejemplo de un cliente Java para que el alumno tenga un apoyo visual de lo que se le pide, ilustrado en \ref{cod:ejemplo_cliente_java}. A partir de este cliente, la premisa de esta primera práctica es emular el cliente puesto como ejemplo y, realizar una serie de acciones dentro del juego mediante un solo cliente de Java o varios de ellos.
+
+Con el fin de facilitar al alumno la resolución de la práctica, tanto en esta como en las siguientes prácticas, se proporciona un listado con todas las primitivas necesarias para la resolución de la misma. A su vez, como ya se vio en el capitulo de análisis (\ref{Cap4}) y en la sección anterior sobre el diseño del juego didáctico, este cuenta con una primitiva la cual devuelve todas las primitivas disponibles en el juego y como llamarlas.
+\\
+
+\begin{lstlisting}[language=Java, caption=Snippet cliente Java entregado a los alumnos, label=cod:ejemplo_cliente_java, breaklines, showstringspaces=false, captionpos=b]
+public class JavaClient {
+  public static void main(String[] args) throws IOException {
+    Gson jsonParser = new Gson();
+    Socket socket = new Socket("localhost", 3000);
+
+    // Abrir el canal de comunicacion con el servidor
+    PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+    BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+    // Preparar los datos
+    HashMap<String, Object> mapa = new HashMap<String, Object>();
+    mapa.put("jsonrpc", "2.0");
+    mapa.put("method", "info");
+    mapa.put("id", "1");
+
+    // Enviar datos
+    out.println(jsonParser.toJson(mapa));
+
+    // Obtener respuesta
+    HashMap<String, Object> respuesta = jsonParser.fromJson(in.readLine(), new TypeToken<HashMap<String, Object>>(){}.getType());
+
+    printServerResult(respuesta); // Imprimir respuesta
+    socket.close(); // Cerrar el canal
+  }
+
+  private static void printServerResult(HashMap<String, Object> mapa) {
+    Object resultado = mapa.get("result");
+    Object error = mapa.get("error");
+    Object id = mapa.get("id");
+
+    if (resultado == null) {
+      if (error == null) {
+        System.out.println("Algo salio mal en el servidor \n");
+      } else {
+        System.out.println("Error al realizar la accion del mensaje con id " + id + ": " + error + "\n");
+      }
+    } else {
+      System.out.println("Resultado del mensaje con id " + id + ": " + resultado + "\n");
+    }
+  }
+}
+\end{lstlisting}
+
+\subsection{Segunda práctica}
+
+En esta segunda práctica se profundiza en uno de los conceptos vistos en teoría, los actores. Además se profundiza en una de las partes de los actores como son las colas de mensajes. Con este objetivo, se comienza la práctica recordando lo visto en teoría sobre los actores, esto ubica a los alumnos en el nuevo contexto y les ayuda a encontrar la información necesaria si lo requieren en la teoría.
+
+Tras la introducción a los actores, la práctica explora en profundidad el concepto de las colas de mensaje, un concepto informático empleado en muchos tipos de sistemas y que, en este caso, forman parte de los actores. Tras estas introducciones se le muestra al alumno cómo se emplean estos conceptos en el desarrollo y contexto del sistema empleado para las prácticas, el motor Hephaestus y el juego didáctico.
+
+Con el contexto de estos conceptos, se prepara la práctica para los alumnos. Al ser la segunda práctica la dificultad de la misma tiene que aumentar y, como ya se ha mencionado, continúa con el hilo de la práctica anterior, jugar al juego didáctico. Para ello se diseña la práctica empleando programación asíncrona. El concepto de la programación asíncrona es un concepto nuevo para el nivel de los alumnos a los que va dirigido el proyecto, por lo tanto, y teniendo en cuenta que ya se ha mostrado en la práctica anterior como se construye un cliente para jugar al juego, se le da al alumno el esqueleto base para poder realizar la práctica mediante programación asíncrona, tal y como se muestra en el código \ref{cod:ejemplo_asincrono_java}.
+
+Con todo lo entregado en esta práctica y lo mostrado en la práctica anterior el alumno debe ser capaz de resolver la premisa de la práctica. Los conocimientos que el alumno adquiere de esta práctica son el funcionamiento y uso de los actores y las colas de mensajes, dentro de estos, en un sistema distribuido y la programación asíncrona.
+\\
+
+\begin{lstlisting}[language=Java, caption=Snippet codigo asíncrono Java entregado a los alumnos, label=cod:ejemplo_asincrono_java, breaklines, showstringspaces=false, captionpos=b]
+private static void interactWithNpc(Gson jsonParser) throws IOException, InterruptedException, ExecutionException {
+  // Parametros comunes a todas las llamadas
+  HashMap<String, String> params = new HashMap<String, String>();
+  params.put("npc", "sabio");
+  params.put("character_name", "tim");
+
+  // Ejecutor de tareas asincronas
+  ExecutorService executor = Executors.newFixedThreadPool(10);
+  // Lista de tareas asincronas
+  List<Future<HashMap<String, Object>>> futures = new ArrayList<>();
+
+  // Bucle de creacion y lanzamiento de tareas asincronas
+  for (int i = 1; i < 7; i++) {
+	HashMap<String, Object> mapa = new HashMap<String, Object>();
+	mapa.put("jsonrpc", "2.0");
+	mapa.put("method", "interact");
+	mapa.put("params", params);
+	mapa.put("id", String.valueOf(i));
+	
+	Callable<HashMap<String, Object>> task = () -> {
+	  // Implementacion de un cliente
+	  return respuesta;
+	};
+	
+	futures.add(executor.submit(task));
+  }
+
+  // Muestra de resultados por pantalla
+  for (Future<HashMap<String, Object>> future : futures) {
+    printServerResult(future.get());
+  }
+
+  executor.shutdown();
+}
+\end{lstlisting}
+
+\subsection{Tercera práctica}
+
+En la tercera y última práctica se diseña una práctica basada no tanto en conceptos vistos en teoría, sino en el desarrollo de sistemas distribuidos y cómo funciona, en concreto, el sistema empleado en las prácticas. 
+
+Con este objetivo la práctica comienza con una introducción a la programación en Elixir, debido al cambio que supone este lenguaje frente a Java. Se explican los fundamentos necesarios para realizar la práctica, esto incluye el funcionamiento del "pattern matching" o las construcciones condicionales, entre otros conceptos.
+
+Una vez se muestra el funcionamiento de Elixir, la práctica continúa con la premisa a resolver por el alumno, en esta práctica dicha premisa consiste en emplear ambos lenguajes para resolver lo planteado. En primer lugar se emplea Elixir para modificar el motor del juego Hephaestus y, en segundo lugar, se emplea Java para completar el juego, dando por finalizada la práctica. 
+
+Mediante este diseño de la práctica se incrementa la dificultad de la misma, mientras que se muestra el funcionamiento de un sistema distribuido y se continúa con el hilo de todas estas prácticas que es la finalización del juego didáctico.

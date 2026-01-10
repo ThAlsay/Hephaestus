@@ -1,0 +1,574 @@
+\chapter{Planificación}\label{Cap2}
+
+Todo proyecto requiere de una planificación previa que estime el tiempo que conlleva la ejecución del mismo y el coste, tanto del desarrollo del proyecto como de la ejecución a lo largo del tiempo de vida que tenga el resultado final.
+
+A la planificación temporal se le tiene que añadir la elección de tecnologías base con las que se ejecuta el proyecto. Es raro que una tecnología encaje perfectamente en los requisitos para realizar el proyecto, por tanto, estas tecnologías tienen que ser escogidas de acuerdo a un balance entre aspectos positivos que pueden aportar al proyecto y aspectos negativos que puedan suponer un retraso en el mismo.
+
+\section{Metodología empleada} \label{methodology}
+
+En el desarrollo software existen múltiples metodologías pensadas para organizar un proyecto, las más empleadas actualmente son el desarrollo en cascada, pionero en la planificación de proyectos de software; Scrum o desarrollo en espiral.
+
+Todas estas metodologías están diseñadas para proyectos en los que existe un producto final claro, que todas las funciones que tiene que realizar ya se han pensado y no van a sufrir modificaciones.
+
+Este proyecto, por el contrario, no cuenta con un estado final claro, evoluciona a lo largo del tiempo. Teniendo esto en cuenta, las metodologías mencionadas anteriormente no pueden ser aplicadas. 
+
+Para la situación del proyecto, lo más adecuado es emplear una metodología ágil basada en prototipos. La metodología ágil nace a partir del manifiesto ágil, publicado en 2001, con la intención de cambiar la forma de hacer software \cite{agilemanifesto}. De esta forma el desarrollo de software estaría centrado, según el mencionado manifiesto, en:
+
+\begin{itemize}
+	\item Individuos e interacciones sobre los procesos y herramientas.
+	\item Software funcional sobre extensa documentación.
+	\item Colaboración con el cliente sobre negociaciones contractuales.
+	\item Responder a los cambios sobre seguir un plan rígido.
+\end{itemize}
+
+A partir de entonces múltiples metodologías han surgido siguiendo los principios de este manifiesto y poniéndolos en práctica de diferentes maneras.
+
+Debido a las restricciones de personal y tiempo para el proyecto, la metodología empleada sigue algunos de los principios de las metodologías ágiles \textit{Atern} y \textit{Extreme Programming} tal y como se explican en el libro \textit{Software project managemet} \cite{hughes2009software}. Los principios que se siguen en el proyecto son los siguientes:
+
+\begin{itemize}
+	\item Entregas a tiempo. Se aplican ventanas de tiempo para realizar las entregas. Cada entrega cuenta con entregables con algún valor propio sin el resto del conjunto del proyecto, evitando el retraso de las fechas de entrega debido a que alguno de los productos sufre algún retraso.
+	\item Desarrollo iterativo. Se crean prototipos los cuales van evolucionando en cada iteración; añadiendo, modificando o eliminando características del entregable; adquiriendo conocimiento sobre el sistema y el proyecto. De esta manera el proyecto se puede modificar añadiendo características que surgen de nuevas ideas derivadas del conocimiento proporcionado por los prototipos. Este punto es fundamental para el proyecto debido a la incertidumbre inicial sobre el producto final.
+	\item Desarrollo incremental. El proyecto se divide en partes más pequeñas las cuales se implementan y entregan de manera secuencial. De esta forma añadir un nuevo componente al proyecto se simplifica al reducirse en añadir una nueva parte.
+	\item Comunicación y retroalimentación. La comunicación se realizará cara a cara siempre que sea posible, haciendo uso de la comunicación telemática en caso de no poderse dar lo anterior. Al estar compuesto el equipo del proyecto por dos personas, se realizará una reunión semanal, siempre que sea posible, en la que se pondrá en común con el tutor los prototipos que el alumno a implementado en ese tiempo. En esa misma reunión se pondrá en común nuevas ideas para la consecución del proyecto y el tutor decidirá con el alumno la siguiente parte del proyecto a comenzar, en caso de haber terminado con la actual.
+	\item Diseño simple. Se prefiere el diseño más simple que cumpla con los requisitos del cliente o del proyecto.
+	\item Refactorización. Se evitará el código espagueti haciendo uso de la refactorización cuando sea necesario. Nunca en partes pequeñas del código y siempre sin miedo a eliminar grandes bloques del mismo si así se requiere.
+\end{itemize}
+
+Con estos principios se pretende dar forma a la idea inicial planteada para el proyecto, añadiendo nuevas ideas y partes durante la creación de las anteriores, hasta llegar al resultado final que se presenta mediante este documento.
+
+\section{Entregables}
+
+Tal y como se ha explicado en el apartado anterior, la metodología empleada para el desarrollo del proyecto hace uso de prototipos iterativos para desarrollar cada una de las partes que conforman el conjunto completo del proyecto, las cuales forman parte del desarrollo incremental de la metodología. Por lo tanto, se tiene que hacer una distinción entre los entregables que pertenecen a la parte incremental de al metodología y aquellos que pertenecen a la parte iterativa. A partir de este punto, en el documento se referirá a aquellos elementos que pertenecen a la parte incremental mencionada como entregables y a aquellos que pertenecen a la parte iterativa como prototipos.
+
+El proyecto cuenta con tres entregables finales: El motor Hephaestus, un juego educativo y un conjunto de prácticas para alumnos de segundo curso del Grado de Ingeniería Informática de la Universidad de Valladolid, cursando la asignatura de Sistemas Distribuidos.
+
+\subsection{Hephaestus}
+
+El motor de videojuegos Hephaestus, cuyas características a alto nivel se han detallado en la sección \ref{objetivos}, es la pieza central del proyecto, por lo tanto, es lógico que sea el primer entregable de dicho proyecto. El motor final se trata de un conjunto de piezas ya configuradas para su uso en un videojuego, a la vez que contiene utilidades básicas para el manejo del estado del juego, elección de turnos, supervisión de procesos o enrutamiento de procesos distribuidos.
+
+\subsubsection{Primer prototipo}
+
+Se toma como primera aproximación al motor un prototipo mínimo implementando una pieza mínima del motor, mediante actores, con algunas funciones simples encargadas de modificar el estado interno del actor. Además, se emplea la supervisión de procesos propia de Elixir para el control de procesos vivos como son los actores.
+
+Mediante este prototipo se adquiere conocimiento sobre la implementación de actores en Elixir empleando la biblioteca estándar \textit{GenServer}. También, se obtiene conocimiento sobre el empleo de supervisores de las bibliotecas estándar \textit{Supervisor} y \textit{DynamicSupervisor}.
+
+\subsubsection{Segundo prototipo}
+
+La evolución lógica al primer prototipo es ampliar la pieza anterior para finalizar su implementación y obtener la pieza final. Esta primera pieza implementa un elemento básico en cualquier videojuego como es el personaje.
+
+A partir de este prototipo se finaliza la implementación de la pieza personaje del motor. Esta pieza está lista para ser utilizada por un juego ya que contiene todas las funciones necesarias para la modificación de su estado interno, así como para devolver información sobre dicho estado.
+
+\subsubsection{Tercer prototipo}
+
+Una vez se ha adquirido el conocimiento necesario para la implementación de una de las piezas que proporciona Hephaestus al juego, la implementación del resto de piezas se convierte en algo trivial. Siguiendo esta premisa el tercer prototipo está formado por esto mismo, el resto de piezas que Hephaestus proporciona.
+
+El prototipo finaliza con el siguiente conjunto de piezas: Personaje, conexión, enemigo, ubicación, NPC y objeto. Además se adquiere conocimiento sobre la comunicación entre actores.
+
+\subsubsection{Cuarto prototipo}
+
+Una vez finalizadas las piezas que proporciona Hephaestus, el motor también tiene que incluir ayudas para la gestión del estado del juego, esto es, almacenar permanentemente el estado global de la partida. Para ello se hace uso de una base de datos relacional. Este prototipo es lo mínimo necesario para interactuar desde Elixir con una base de datos.
+
+Se adquiere el conocimiento necesario para conectarse con una base de datos Postgresql, así como, insertar, leer y modificar datos de la misma. En este prototipo todavía no se puede almacenar los datos del juego.
+
+\subsubsection{Quinto prototipo}
+
+A partir del prototipo anterior, el paso lógico es almacenar el estado del juego en la base de datos y leerlo de vuelta cuando sea necesario.
+
+Se crean las funciones necesarias para este cometido. El resultado permite guardar el estado de todos los actores activos en el momento que se utiliza la función e iniciar los actores almacenados con el estado guardado. Incluye funciones auxiliares para leer únicamente un tipo de pieza, en caso de ser relevante para el juego construido.
+
+\subsubsection{Sexto prototipo}
+
+Una función fundamental relacionada con la base de datos es el manejo de los usuarios, la cual no es tratada en el prototipo anterior. En este el objetivo es, precisamente, permitir la creación de nuevos usuarios, con sus respectivos personajes, y, una vez estén creado, que puedan identificarse y obtener su personaje. También se tiene que modificar la función de guardado del juego para que modifique el estado del personaje del jugador que ha guardado la partida.
+
+Al finalizar el prototipo, un juego creado con este prototipo tiene a su disposición todo lo necesario para crear un juego, ya que cuenta tanto con las piezas, las cuales están preparadas para ser empleadas de forma distribuida, para crear el juego como con las utilidades necesarias para guardar el estado de la partida.
+
+\subsubsection{Séptimo prototipo}
+
+Prototipo final del motor, dando por finalizado este entregable. Se añaden funciones auxiliares para facilitar el desarrollo de juegos de rol distribuidos, evitando al desarrollador la implementación de estas funciones.
+
+El entregable final, en comparación con el prototipo anterior, cuenta con utilidades para seleccionar turnos entre un personaje y un enemigo dependiendo de sus niveles y utilidades para encontrar rutas a partir del identificador de un \textit{GenServer} en una tabla de rutas, la cual contiene pares identificador-dirección del servidor en el que se encuentra el actor.
+
+\subsection{Juego educativo}
+
+El juego educativo es el siguiente entregable después del motor, ya que hace uso de él. Se trata de un videojuego sencillo con dos partes distribuidas, los personajes jugables y los enemigos, de manera que se puede usar para enseñar el funcionamiento de estos sistemas. Cuenta con cuatro habitaciones por las que tiene que pasar el personaje, sin ser opcional ninguna, y presentan una oportunidad de enseñanza sobre algún concepto de los sistemas distribuidos y la programación de actores.
+
+La interfaz de juego está basada en un servidor TCP y comunicación mediante JSON-RPC (\ref{tecnologias}) y, al igual que el motor, pasa por varios prototipos para obtener el entregable final.
+
+\subsubsection{Primer prototipo}
+
+Para comenzar a implementar un juego se tiene que diseñar en primer lugar, este diseño se puede ver con más detalle en el \ref{Cap5}. Del entregable anterior se tiene el formato a seguir para que el motor pueda leer de la base de datos el juego.
+
+Se obtiene una traducción del diseño del videojuego a JSON siguiendo el esquema que lee el motor.
+
+\subsubsection{Segundo prototipo}
+
+La base de cualquier juego es poder jugarlo, para que esto sea posible en este es necesario el empleo de un servidor TCP. Por ello, el primer prototipo es un simple servidor TCP.
+
+El resultado del prototipo es una variación del servidor TCP que presenta la propia documentación de Elixir \cite{elixir_tcp_server}. Dicha variación permite al servidor admitir diferentes rutas y no solamente actuar como un servidor eco, tal y como lo presenta el ejemplo.
+
+
+\subsubsection{Tercer Prototipo}
+
+Una vez existe un servidor TCP que admite diferentes rutas, se tienen que preparar dichas rutas para admitir únicamente JSON-RPC. Este protocolo sigue un formato estricto y cualquier petición que llegue la cual no lo siga tiene que ser rechazada.
+
+De este prototipo se obtiene un servidor TCP funcional y concurrente, el cual solo admite peticiones que sigan el protocolo JSON-RPC con algunas rutas sin funcionalidad real del juego.
+
+\subsubsection{Cuarto Prototipo}
+
+Con todo el conocimiento adquirido mediante los prototipos anteriores se está preparado para implementar las rutas en el servidor necesarias para poder superar el juego que se ha diseñado.
+
+Este prototipo permite por primera vez jugar al juego de manera no distribuida.
+
+\subsubsection{Quinto prototipo}
+
+Uno de los requisitos del videojuego es que este tenga partes distribuidas. Para ello se necesitan controladores para cada una de las piezas que se tienen que distribuir en diferentes servidores, en este caso se necesitan controladores para los personajes y los enemigos.
+
+Llegado este punto el juego está ya disponible para poder ser jugado en ambas modalidades, tanto distribuida como no distribuida. Pero, aún así, el entregable no es final.
+
+\subsubsection{Sexto prototipo}
+
+El servidor TCP creado en el primer prototipo sirve como forma de aprendizaje, pero, como el propio equipo de desarrollo de Elixir explica, no está pensado para producción. Por lo tanto se requiere de una refactorización de la parte del servidor y las rutas del mismo para prepararlo de cara a producción.
+
+La biblioteca que se selecciona para la refactorización es \textit{Thousand Island} \cite{thousand_island}. La refactorización del código adaptándolo a esta nueva biblioteca permite la eliminación completa del código del servidor, ya que lo implementa la propia biblioteca. También resulta en una simplificación de las rutas del servidor, disminuyendo la cantidad de código necesaria para hacer lo mismo.
+
+Tras esta refactorización, el juego se da por terminado, siendo este prototipo la versión final del entregable.
+
+\subsection{Prácticas para alumnos}
+
+El siguiente entregable del proyecto consiste en tres prácticas pensadas para reforzar conocimientos obtenidos en segundo curso del Grado de Ingeniería Informática de la Universidad de Valladolid, concretamente, conocimientos de la asignatura de Sistemas Distribuidos. Además de las prácticas el entregable consta de toda la documentación necesaria para que el alumno pueda poner en funcionamiento el juego y de las soluciones a estas.
+
+\subsubsection{Primer prototipo}
+
+Se inicia la secuencia de iteración creando la primera práctica, esta propone al alumno una introducción a la arquitectura de distribución cliente-servidor y al protocolo JSON-RPC.
+
+Se trata de una primera toma de contacto con un documento didáctico para futuros desarrolladores. Por lo tanto el resultado pone en contexto la idea por la que se mueve la práctica sin llegar a producir un documento didáctico completo.
+
+\subsubsection{Segundo prototipo}
+
+Una vez la idea de la primera práctica está planteada, se tiene que modificar el documento anterior para que sea adecuado para el usuario objetivo.
+
+Se produce un documento satisfactorio para el nivel del alumno, obteniendo a su vez conocimiento sobre la estructura de un documento de estas características.
+
+\subsubsection{Tercer prototipo}
+
+Con el conocimiento anterior, se plantea en este prototipo las otras dos prácticas. La segunda práctica del conjunto de tres trata del empleo de actores en los sistemas distribuidos y de las colas de mensajes, elemento fundamental en el funcionamiento de los actores. La tercera y última práctica se adentra en la programación de actores haciendo uso de Hephaestus y permitiendo al alumno modificarlo.
+
+Se crean dos documentos didácticos empleando el conocimiento adquirido con los dos prototipos anteriores. Se finaliza de esta forma todos los documentos referentes a las tres prácticas, pero no es el final del entregable, puesto que faltan las soluciones y el documento de puesta en marcha.
+
+\subsubsection{Cuarto prototipo}
+
+Es importante tener una referencia de cómo se resuelven las prácticas, de esta forma también se asegura que estas se puedan resolver y no sean imposibles. Debido a que el lenguaje de estudio manejado por la institución es Java, todo código no referente a Hephaestus o el juego se escribe en este lenguaje de programación.
+
+Como resultado se crean tres archivos Java con la solución a cada práctica, otros dos archivos Java con ejemplos para ilustrar algunos conceptos presentados en dichas prácticas y un archivo, también Java, con utilidades para iniciar el juego y sesión con alguno de los personajes.
+
+\subsubsection{Quinto prototipo}
+
+El último prototipo del entregable es otro documento escrito que sirve como introducción a la sección de las prácticas de la asignatura en la cuál este proyecto se emplea.
+
+Siguiendo el formato de los tres documentos didácticos anteriores, se crea la práctica cero en la cuál se explica lo que se va a hacer a lo largo de las tres prácticas siguientes, se hace una descripción del videojuego, qué tecnologías se van a emplear durante el desarrollo de dichas prácticas y cómo se pone en marcha todo el proyecto.
+
+Mediante este prototipo se da por finalizado este tercer entregable, cumpliendo así todos los requisitos del proyecto.
+
+\subsection{Distribución}
+
+Tal y como se explicó en la metodología empleada, esta nos permite añadir nuevos entregables al final de la línea temporal de ser necesario. En este caso, tras la finalización del proyecto surge la duda de la distribución del mismo. Esto se materializa como un nuevo entregable.
+
+Mediante este entregable se resuelve el problema de simular un sistema distribuido dentro de la máquina empleada por el alumno, así como la distribución del motor y el juego a los mismo alumnos o a cualquier usuario que así lo requiera. Para ello se hace uso de la tecnología Docker.
+
+\subsubsection{Primer prototipo}
+
+Se crea un archivo imagen de Docker de manera que el juego se pueda ejecutar haciendo uso de esa imagen.
+
+Como resultado, se crea el archivo Dockerfile necesario para la construcción de la imagen del juego. Esta imagen contiene tanto el juego como el motor, ya que es una dependencia del propio juego.
+
+\subsubsection{Segundo prototipo}
+
+Mediante la imagen creada anteriormente no es posible emplear una arquitectura distribuida, ya que usar múltiples veces la imagen daría lugar a tener varias copias del videojuego incomunicadas entre sí, no a tener un videojuego distribuido. Teniendo en cuenta que el juego se dedica a organizar las piezas que le proporciona el motor, lo que se necesita para distribuir el videojuego es una imagen del motor Hephaestus.
+
+Gracias al conocimiento obtenido en el prototipo anterior, la creación de una imagen Docker del motor es una tarea trivial.
+
+\subsubsection{Tercer prototipo}
+
+Con las dos imágenes Docker ya creadas, se finaliza el entregable creando un archivo \textit{docker-compose} el cual emplee dichas imágenes para simular un sistema distribuido dentro de la misma máquina.
+
+El resultado se trata de un fichero el cual al ejecutarse mediante Docker levanta dos imágenes del motor y otra más del juego. Además se incluye también la imagen de la base de datos, para hacer más portable el proyecto.
+
+\subsubsection{Cuarto prototipo}
+
+Al tratarse de un juego distribuido es importante definir las rutas dentro del juego, para que este pueda iniciar cada pieza en la máquina correcta.
+
+Se modifica el código del juego de manera que se emplean rutas hacia la máquina encargada de los personajes para los personajes y, hacia la máquina encargada de los enemigos para los enemigos.
+
+Con esta refactorización del código del videojuego se da por finalizado este entregable.
+
+\subsection{Web de documentación para desarrolladores de videojuegos}
+
+El último entregable del proyecto se trata de una expansión hacia desarrolladores externos, en este caso no para mejorar el motor sino para desarrollar videojuegos empleando el motor. Con ese objetivo se crea una página web empleando la biblioteca \textit{docsify} \cite{docsify} escrita en Javascript. Esta biblioteca permite escribir documentos Markdown y servirlos como páginas estáticas web.
+
+\subsubsection{Primer prototipo}
+
+Se prueba el funcionamiento de la navegación haciendo uso de la biblioteca. Esto es especialmente importante debido a que la biblioteca hace uso de un archivo especial en el cuál se tienen que describir las rutas a los archivos creados.
+
+Resulta en una página web inicial con varios documentos Markdown como prueba para navegar entre ellos. Se observa que es más sencillo agrupar cada uno de los grupos de documentación en su propio archivo, aunque este sea largo, y emplear las cabeceras para navegación.
+
+\subsubsection{Segundo prototipo}
+
+Se crea la página web final, haciendo uso del conocimiento obtenido en el prototipo anterior, con la descripción necesaria de los elementos disponibles en el motor para la creación de videojuegos.
+
+El entregable final cuenta con tres ficheros Markdown en los cuales se describe las piezas proporcionadas por Hephaestus, así como las funciones que estas tienen para poder interactuar con ellas desde Elixir; una descripción sobre cómo está diseñado el motor, con el fin de guiar a los desarrolladores a la hora de crear un juego y una introducción sobre Hephaestus, su origen y motivación.
+
+\section{Organización temporal}
+
+Tal y como se ha mencionado en la sección \ref{methodology}, el proyecto está dividido en varios entregables, los cuales a su vez están divididos en varios prototipos. Cada uno de estos prototipos requiere de una retroalimentación con el fin de corregir problemas que puedan haber surgido o, establecer el nuevo camino por el que avanzar una vez el prototipo está finalizado.
+
+En la medida de lo posible, todas las semanas se organiza una reunión entre el tutor y el alumno para que este último ponga en conocimiento común el proceso seguido y el estado del proyecto. En estas reuniones se establece el prototipo que se debe crear para la siguiente reunión, ya sea una corrección del prototipo anterior o el siguiente prototipo necesario para la finalización del entregable actual.
+
+\begin{longtable}[c]{|l|cc|}
+	\hline
+	\textbf{Evento} & \multicolumn{1}{c|}{\textbf{Fecha Inicio}} & \textbf{Fecha Fin} \\ \hline
+	\endfirsthead
+	%
+	\endhead
+	%
+	Reunión inicial sobre el proyecto & \multicolumn{2}{c|}{13/02/2025} \\ \hline
+	Investigación inicial & \multicolumn{1}{c|}{13/02/2025} & 26/02/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{27/02/2025} \\ \hline
+	Hephaestus, prototipo 1 & \multicolumn{1}{c|}{27/02/2025} & 05/03/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{06/03/2025} \\ \hline
+	Hephaestus, prototipo 2 & \multicolumn{1}{c|}{06/03/2025} & 12/03/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{13/03/2025} \\ \hline
+	Hephaestus, prototipo 3 & \multicolumn{1}{c|}{13/03/2025} & 19/03/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{20/03/2025} \\ \hline
+	Hephaestus, prototipo 4 & \multicolumn{1}{c|}{20/03/2025} & 26/03/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{27/03/2025} \\ \hline
+	Hephaestus, prototipo 5 & \multicolumn{1}{c|}{27/03/2025} & 02/04/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{03/04/2025} \\ \hline
+	Hephaestus, prototipo 6 & \multicolumn{1}{c|}{03/04/2025} & 09/04/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{10/04/2025} \\ \hline
+	Hephaestus, prototipo 7 & \multicolumn{1}{c|}{10/04/2025} & 23/04/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{24/04/2025} \\ \hline
+	Juego, prototipo 1 & \multicolumn{1}{c|}{24/04/2025} & 07/05/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{08/05/2025} \\ \hline
+	Juego, prototipo 2 & \multicolumn{1}{c|}{08/05/2025} & 14/05/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{15/05/2025} \\ \hline
+	Juego, prototipo 3 & \multicolumn{1}{c|}{15/05/2025} & 21/05/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{22/05/2025} \\ \hline
+	Juego, prototipo 4 & \multicolumn{1}{c|}{22/05/2025} & 28/05/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{29/05/2025} \\ \hline
+	Juego, prototipo 5 & \multicolumn{1}{c|}{29/05/2025} & 04/06/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{05/06/2025} \\ \hline
+	Juego, prototipo 6 & \multicolumn{1}{c|}{05/06/2025} & 11/06/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{12/06/2025} \\ \hline
+	Prácticas, prototipo 1 & \multicolumn{1}{c|}{12/06/2025} & 18/06/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{19/06/2025} \\ \hline
+	Prácticas, prototipo 2 & \multicolumn{1}{c|}{19/06/2025} & 25/06/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{26/06/2025} \\ \hline
+	Prácticas, prototipo 3 & \multicolumn{1}{c|}{26/06/2025} & 02/07/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{03/07/2025} \\ \hline
+	Prácticas, prototipo 4 & \multicolumn{1}{c|}{03/07/2025} & 09/07/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{10/07/2025} \\ \hline
+	Prácticas, prototipo 5 & \multicolumn{1}{c|}{10/07/2025} & 16/07/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{17/07/2025} \\ \hline
+	Parón de verano & \multicolumn{1}{c|}{21/07/2025} & 09/09/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{11/09/2025} \\ \hline
+	Distribución, prototipo 1 & \multicolumn{1}{c|}{11/09/2025} & 24/09/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{25/09/2025} \\ \hline
+	Distribución, prototipo 2 & \multicolumn{1}{c|}{25/09/2025} & 08/10/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{09/10/2025} \\ \hline
+	Distribución, prototipo 3 & \multicolumn{1}{c|}{09/10/2025} & 29/10/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{30/10/2025} \\ \hline
+	Distribución, prototipo 4 & \multicolumn{1}{c|}{30/10/2025} & 10/11/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{11/11/2025} \\ \hline
+	Web, prototipo 1 & \multicolumn{1}{c|}{11/11/2025} & 17/11/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{17/11/2025} \\ \hline
+	Web, prototipo 2 & \multicolumn{1}{c|}{17/11/2025} & 24/11/2025 \\ \hline
+	Reunión final & \multicolumn{2}{c|}{25/11/2025} \\ \hline
+	\caption{Planificación en el tiempo del proyecto}
+	\label{tab:sprints}
+\end{longtable}
+
+La tabla \ref{tab:sprints} muestra las fechas en las que cada uno de los prototipos ya descritos fueron creados, también incluye las reuniones ya mencionadas y las épocas en las que se produjo un parón.
+
+En algunas ocasiones la posibilidad de hacer una reunión en la semana era nula, debido a sucesos de fuerza mayor, esto se ve reflejado en la tabla mediante saltos de más de una semana entre la fecha inicial y la fecha final de un prototipo.
+
+En total se dedican 31 semanas a la investigación y desarrollo del proyecto, el tiempo medio semanal dedicado es de 16 horas, por lo tanto el tiempo total, en horas, que se dedica al proyecto es una aproximación de 496 horas.
+
+\section{Riesgos}
+
+Un riesgo es una situación potencial que puede acarrear un retraso en el proyecto o lo puede acelerar. Todo riesgo tiene un posibilidad de ocurrir y un impacto sobre el proyecto. Es natural que cualquier proyecto que sea ejecutado esté expuesto a una serie de riesgos que modifiquen los tiempos de ejecución del mismo ya que toda planificación de un proyecto está basada en estimaciones y sujeta a incertidumbres.
+
+Todo proyecto de desarrollo software requiere de un análisis de riesgos que se puedan producir durante la ejecución del mismo. Los riesgos se dividen en diversos tipos dependiendo del área al que afecten:
+
+\begin{itemize}
+	\item Estimación. Fallos a la hora de estimar los tiempos de desarrollo o el tamaño del software, entre otros muchos casos.
+	\item Organizativos. Reestructuraciones en mitad del proceso de desarrollo, problemas económicos o derivados de estos.
+	\item Personas. Falta de personal, enfermedades o personal sin el entrenamiento adecuado son algunos de los riesgos que pertenecen a esta categoría.
+	\item Requisitos. Principalmente cambios de requisitos que supongan grandes cambios en el diseño.
+	\item Tecnológicos. Bases de datos que no consiguen procesar todas las transacciones que se esperan, por ejemplo.
+	\item Herramientas. Fallos de hardware o de herramientas de generación de código forman parte de este tipo de riesgos.
+\end{itemize}
+
+El análisis de riesgos realizado cuenta con los siguientes elementos, los cuales identifican, en la medida de lo posible, todas las variables para la prevención y recuperación de los riesgos \cite{hughes2009software} \cite{sommerville2016software}.
+
+\begin{itemize}
+	\item \textbf{Probabilidad}: Nivel de posibilidad de que el riesgo suceda. Puede ser baja, media o alta.
+	\item \textbf{Impacto}: Nivel del impacto que tiene el daño producido en caso de que el riesgo suceda sobre la ejecución del proyecto. Puede ser muy bajo, bajo, medio, alto o muy alto.
+	\item \textbf{Plan de mitigación}: Lista de acciones que se pueden tomar para reducir la probabilidad de que le riesgo suceda.
+	\item \textbf{Plan de contingencia}: Lista de acciones que se pueden llevar a cabo una vez el riesgo ha sucedido para reducir el impacto sobre los tiempos de ejecución del proyecto.
+\end{itemize}
+
+Las siguientes tablas describen los riesgos identificados en el análisis de riesgos del proyecto. A parte de los elementos descritos anteriormente, cada tabla incluye también una descripción del riesgo al que se refieren.
+
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Riesgo R01}  & \textbf{Falta de disponibilidad} \\ \hline
+		Descripción          & Durante el desarrollo pueden surgir imprevistos, ya sean de salud o de otra índole, que impidan la participación de alguno de los dos integrantes del proyecto, el impacto será mayor si es el alumno el que sufre un imprevisto que le impida avanzar con el proyecto.\\ \hline
+		Probabilidad         & Media \\ \hline
+		Impacto              & Medio \\ \hline
+		Plan de mitigación   & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item Evitar situaciones que puedan poner en riesgo la salud o la integridad física.
+			\end{itemize}
+		\end{minipage} \\ \hline
+		Plan de contingencia & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item Aprovechar periodos de parada o con baja carga de trabajo para recuperar el tiempo que se pudiera haber perdido.
+				\item Considerar tomar vacaciones en el trabajo para dedicarle más tiempo al proyecto.
+			\end{itemize}
+		\end{minipage} \\ \hline
+	\end{tabularx}
+	\caption{Riesgo R01}
+	\label{tab:riesgo_1}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Riesgo R02}  & \textbf{Fallos de hardware} \\ \hline
+		Descripción          & Todo equipo electrónico puede llegar a fallar, lo que puede suponer retrasos y perdida de información. \\ \hline
+		Probabilidad         & Baja \\ \hline
+		Impacto              & Muy alto \\ \hline
+		Plan de mitigación   & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item Disponer de un dispositivo de repuesto.
+				\item Realizar copias de seguridad de todo lo relacionado con el proyecto de forma habitual.
+				\item No mantener las copias de seguridad en el mismo equipo que el que se usa para trabajar en el proyecto, de ser posible almacenarlas en la nube.
+				\item Instalar sistemas SAI para evitar perder datos ante un corte de luz.
+			\end{itemize}
+		\end{minipage} \\ \hline
+		Plan de contingencia & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item Recuperar las copias de seguridad, de existir, en otro dispositivo.
+				\item En caso de archivos corruptos intentar usar programas de recuperación para este tipo de archivos.
+			\end{itemize}
+		\end{minipage} \\ \hline
+	\end{tabularx}
+	\caption{Riesgo R02}
+	\label{tab:riesgo_2}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Riesgo R03}  & \textbf{Error en la estimación de tiempo de desarrollo o tamaño de software} \\ \hline
+		Descripción          & La novedad para el alumno de muchas de las tecnologías empleadas pueden provocar en la incorrecta estimación tanto del tiempo que puede llevar la ejecución de un prototipo como el tamaño de dicho prototipo. Una mala estimación del tamaño conlleva también un retraso en el proyecto. \\ \hline
+		Probabilidad         & Alta \\ \hline
+		Impacto              & Muy alto \\ \hline
+		Plan de mitigación   & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item Realizar análisis en profundidad de las tareas para obtener estimaciones más precisas.
+				\item Dar prioridad a las partes del proyecto que resulten críticas.
+				\item Emplear tiempo extra de tareas sencillas o cuya estimación haya sido positiva para aprender en mayor profundidad las tecnologías empleadas.
+			\end{itemize}
+		\end{minipage} \\ \hline
+		Plan de contingencia & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item Reorganizar el proyecto eliminando partes no importantes de manera que su objetivo principal no se vea afectado.
+				\item En última instancia, retrasar el final del proyecto para poder incluir todos los aspectos básicos del mismo.
+			\end{itemize}
+		\end{minipage} \\ \hline
+	\end{tabularx}
+	\caption{Riesgo R03}
+	\label{tab:riesgo_3}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Riesgo R04}  & \textbf{Falta de conocimiento sobre las tecnologías} \\ \hline
+		Descripción          & Aunque se inicia el proyecto sabiendo que una de las tecnologías supone un nuevo reto para el alumno (Elixir), existe el riesgo de subestimar la complejidad de dicha tecnología o sobrestimar el conocimiento sobre el resto de tecnologías que puedan llegar a ser empleadas en el proyecto. \\ \hline
+		Probabilidad         & Media \\ \hline
+		Impacto              & Alto \\ \hline
+		Plan de mitigación   & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item Estudio de la documentación oficial de las tecnologías empleadas.
+				\item Seleccionar tecnologías conocidas para las partes del proyecto en las que no haya que emplear \textit{Elixir}.
+				\item Contar con un conjunto de tecnologías que puedan reemplazar alguna de las ya empleadas.
+			\end{itemize}
+		\end{minipage} \\ \hline
+		Plan de contingencia & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item Cambiar tecnologías las cuales supongan una mayor complejidad a la esperada con alguno de los sustitutos investigados.
+				\item Redistribuir los tiempos de desarrollo para priorizar las tecnologías que conlleven un mayor tiempo debido al escaso conocimiento.
+				\item Emplear herramientas o bibliotecas que simplifiquen las partes menos importantes. 
+			\end{itemize}
+		\end{minipage} \\ \hline
+	\end{tabularx}
+	\caption{Riesgo R04}
+	\label{tab:riesgo_4}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Riesgo R05}  & \textbf{Cambios bruscos en los requerimientos que obliguen a un rediseño} \\ \hline
+		Descripción          & Debido a la naturaleza del proyecto, pueden llegar a surgir cambios en los requerimientos de alguno de sus componentes que obliguen a realizar un rediseño completo del componente afectado, suponiendo un retraso en los tiempos del resto de prototipos y entregables \\ \hline
+		Probabilidad         & Baja \\ \hline
+		Impacto              & Medio \\ \hline
+		Plan de mitigación   & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item Optar por una implementación modular, debido a que un cambio de diseño puede afectar a unos pocos módulos y no a todo código.
+				\item Estudiar los puntos del proyecto que puedan ser más propensos a recibir muchos cambios de requisitos y no implementarlos hasta que sea estrictamente necesario.
+				\item Hacer uso de herramientas de generación de código que puedan asistir con la modificación del código.
+			\end{itemize}
+		\end{minipage} \\ \hline
+		Plan de contingencia & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item Descartar cambios de requisitos cuyo aporte al proyecto frente al coste que suponga implementarlos sea muy negativo.
+				\item Eliminar requisitos menos importantes en favor de cambios a requisitos importantes.
+				\item En caso de falta de tiempo, adaptar los requisitos al código y no al revés.
+			\end{itemize}
+		\end{minipage} \\ \hline
+	\end{tabularx}
+	\caption{Riesgo R05}
+	\label{tab:riesgo_5}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Riesgo R06}  & \textbf{Fallo en el uso de herramientas de inteligencia artificial} \\ \hline
+		Descripción          & El avance en las herramientas de inteligencia artificial es claro y muy útil para el desarrollo de software, pero, al igual que otras herramientas, la inteligencia artificial puede fallar y entorpecer el desarrollo en lugar de acelerarlo. \\ \hline
+		Probabilidad         & Baja \\ \hline
+		Impacto              & Bajo \\ \hline
+		Plan de mitigación   & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item No emplear las herramientas para la generación de código, hacer uso de ellas únicamente para búsqueda de fallos o asistencia con la refactorización del código.
+				\item Supervisar el trabajo realizado por la inteligencia artificial.
+				\item Si se emplea en la refactorización de grandes bloques de código, implementar la refactorización de manera gradual y probando si el nuevo código no falla.
+			\end{itemize}
+		\end{minipage} \\ \hline
+		Plan de contingencia & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item Si se detectan fallos continuados sin mejora, dejar de hacer uso de las herramientas.
+			\end{itemize}
+		\end{minipage} \\ \hline
+	\end{tabularx}
+	\caption{Riesgo R06}
+	\label{tab:riesgo_6}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Riesgo R07}  & \textbf{Fallos de entendimiento a la hora de definir los requerimientos} \\ \hline
+		Descripción          & Toda comunicación humana es propensa a que se produzcan malentendidos. Una mala comunicación entre tutor y alumno puede suponer retrasos en el proyecto debido a reescrituras de código que, de no haberse producido el malentendido, no habrían sido necesarias. \\ \hline
+		Probabilidad         & Baja \\ \hline
+		Impacto              & Muy bajo \\ \hline
+		Plan de mitigación   & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item Asegurar la claridad de la idea antes de proponer requerimientos.
+				\item Estudiar todas las posibles ramificaciones que puedan surgir de un requerimiento.
+			\end{itemize}
+		\end{minipage} \\ \hline
+		Plan de contingencia & \begin{minipage}[t]{\linewidth}
+			\begin{itemize}[leftmargin=*, noitemsep]
+				\item Adaptar un punto medio entre la idea original y el código producido.
+				\item Eliminar requerimientos no esenciales para el proyecto en el caso de que produzcan mucha confusión.
+			\end{itemize}
+		\end{minipage} \\ \hline
+	\end{tabularx}
+	\caption{Riesgo R07}
+	\label{tab:riesgo_7}
+\end{table}
+
+\section{Costes}
+
+Además del análisis de riesgos de un proyecto, es crucial realizar también un análisis de costes del mismo. Dicho análisis tiene que tener en cuenta los costes acarreados en la etapa de desarrollo del proyecto y los costes que va a tener el producto final durante su vida útil.
+
+Cada una de las etapas cuenta con costes comunes entre sí y costes que son específicos de la etapa concreta. A su vez, los costes de cada etapa se pueden dividir en costes recurrentes o costes fijos. Un coste recurrente es todo aquel coste que se produzca de manera periódica, por ejemplo una subscripción a un servicio, mientras que un coste fijo es aquel que solo se produce en un momento concreto y, una vez realizado el desembolso, no hay necesidad de que se vuelva a producir, por ejemplo la compra de un equipo.
+
+\subsection{Desarrollo}
+
+Durante el desarrollo del proyecto, se producen unos costes relacionados con la mano de obra, el equipo empleado, el coste de alojamiento del control de versiones del código, las licencias de software necesarias y el alojamiento web.
+
+\subsubsection{Mano de obra}
+
+El gobierno de España establece el salario mínimo mensual en 1184 euros en 14 pagas \cite{salario}. Si se tiene en cuenta que semanalmente se le han dedicado 16 horas al proyecto de media, se puede aproximar el sueldo mensual a 518 euros \cite{salario12pagas}. Habiéndose alargado el desarrollo del proyecto hasta los 10 meses, el coste aproximado de mano de obra es de 5180 euros.
+
+\subsubsection{Equipo empleado}
+
+Para el desarrollo del proyecto se han empleado dos equipos, un ordenador fijo de sobremesa, para el desarrollo diario del mismo, y un ordenador portátil, para aquellas ocasiones en las que se necesitara la portabilidad que ofrece un equipo de estas características.
+
+El coste del ordenador de sobremesa es de 1600 euros mientras que el portátil se valora en 700 euros. Estos costes se toman del precio pagado en el momento de la compra de los mismo.
+
+En total, el coste en equipo de trabajo es de 2300 euros.
+
+\subsubsection{Control de versiones}
+
+El código se aloja en un servicio de control de versiones en la nube llamado Github. El modelo de precios de Github no supone coste alguno para todo aquel repositorio de código que sea público, tal y cómo es este proyecto. Por lo tanto el coste de alojamiento del control de versiones es de 0 euros.
+
+\subsubsection{Licencias de software}
+
+El uso del lenguaje de programación Elixir es gratuito, al igual que el empleo de Docker y Postgresql. 
+
+Por otro lado, Java tiene un modelo de financiación variado en el cual el empleo del lenguaje de programación en su variante empresarial es de pago, mientras que la propia Oracle mantiene una implementación de la plataforma Java, licenciada baja la licencia GPL-2.0, llamada Open-JDK. Esta variante sufre actualizaciones cada semestre por lo que normalmente se encuentra por detrás de la versión empresarial. Para el empleo dado en el proyecto, la versión libre y gratuita es suficiente.
+
+El editor empleado para el desarrollo del proyecto es Visual Studio Code, editor de texto creado por Microsoft y que está orientado a la programación, supone un coste nulo, ya que es gratuito.
+
+Por último, se hace uso de ChatGPT como herramienta de inteligencia artificial. Pese a que este cuenta con varias opciones de pago, el nivel básico gratuito es suficiente para las tareas acometidas durante el desarrollo del proyecto.
+
+Con todo esto en cuenta, el coste de licencias de software es de 0 euros.
+
+\subsubsection{Alojamiento web}
+
+Una de las partes del proyecto es una página web pensada para todo aquel desarrollador de videojuegos que quiera hacer uso del motor Hephaestus. Esta web tiene que ser alojada en un servidor web para que sea visible públicamente. Github ofrece alojamiento de páginas web estáticas sin ningún coste para repositorios de código públicos.
+
+Por lo tanto el coste del alojamiento es también de 0 euros y el coste de desarrollo de todo el proyecto asciende a 7480 euros.
+
+\subsection{Producción}
+
+Una vez finalizado el proyecto la etapa de producción del mismo puede tener unos costes asociados. Al igual que a la etapa de desarrollo, a esta etapa también le afectan los costes de licencias de software, alojamiento web y alojamiento del control de versiones. Estos costes ya han sido establecidos como nulos en el apartado anterior.
+
+Los costes propios de la etapa de producción son el alojamiento de las imágenes Docker del proyecto y el equipo necesario para ponerlo en funcionamiento.
+
+\subsubsection{Alojamiento de imágenes}
+
+Las imágenes Docker del proyecto se pueden construir a partir del código disponible en el repositorio de Github, pero, en caso de querer almacenar las imágenes ya construidas en un repositorio público  para un acceso más sencillo, existen productos que ofrecen estos servicios.
+
+DockerHub es el repositorio en la nube más conocido. Propiedad también de los dueños de Docker, su modelo de precios permite el alojamiento de una imagen privada, en caso de necesitar más se tiene que optar por una opción de pago, y alojamiento ilimitado de imágenes públicas.
+
+En el caso del proyecto las imágenes son públicas, por lo tanto coste 0.
+
+\subsubsection{Hardware}
+
+El proyecto completo está pensado para poder ser usado en una sola máquina y, como se estableció en el apartado de desarrollo, un ordenador valorado en 700 euros es capaz de ejecutarlo.
+
+A parte de poder ser usado en una sola máquina, la naturaleza del proyecto es distribuida y por lo tanto se puede desplegar de esa manera. Para ello son necesarias tres máquinas independientes, si se opta por el empleo de VPS (Servidor Virtual Privado, por sus siglas en inglés) el coste se puede estimar en 4 euros mensuales por máquina.
+
+Por lo tanto, si se opta por la primera opción, el coste de la producción del proyecto es únicamente de un mínimo de 700 euros como coste fijo. En caso de optar por la segunda opción el coste sería recurrente costando 12 euros mensuales, dependiendo siempre del distribuidor de VPS elegido.

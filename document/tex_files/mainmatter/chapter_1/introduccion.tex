@@ -1,0 +1,101 @@
+\chapter{Introducción}\label{Cap1}
+
+Todos los alumnos que cursan alguna carrera universitaria o de grado superior se encuentran con una gran diversidad de métodos de aprendizaje. Durante esos años, los alumnos pueden enfrentar pruebas escritas, orales o prácticas de diversos estilos, algunos más antiguos, otros más modernos.
+
+La docencia, al igual que otras muchas áreas, está en constante evolución, adaptándose a las necesidades del alumnado según las épocas y la tecnología avanzan. Una de las últimas incorporaciones al mundo docente es la gamificación de los conceptos. Esta trata de emplear juegos, diseñados para el caso concreto, con el fin de que el alumno interiorice el concepto que se trata de explicar de una forma más sencilla.
+
+A raíz de esta gamificación surge el problema de cómo implementarla en el ámbito educativo. Este proyecto trata de resolver ese problema para la asignatura de Sistemas Distribuidos de la Escuela de Ingeniería Informática de Valladolid.
+
+Los sistemas distribuidos adquieren más importancia en un mundo en el que todo está conectado por la web y el usuario cada vez tiene menos tolerancia a la ralentización de los servicios a los que accede. Esto obliga a diseñar sistemas distribuidos que permitan un escalado horizontal sencillo y rápido, asegurando la disponibilidad y ajustando el coste a las necesidades puntuales de los usuarios.
+
+Con todo esto en cuenta, la premisa del proyecto es crear un motor de videojuegos que permita arquitecturas tanto de sistemas distribuidos como de no distribuidos. Alrededor del motor, nombrado como \textbf{Hephaestus}, se crean un juego, diseñado para el aprendizaje de conceptos de los sistemas distribuidos, haciendo uso del motor y una serie de prácticas para la asignatura, basadas en lo que permite el videojuego.
+
+\section{Motivación}
+
+La motivación aparece a partir de los retos que plantea el proyecto. Dichos retos incluyen el diseño de un motor de videojuegos distribuidos, el diseño de un videojuego pensado para el aprendizaje de un alumno o el empleo de lenguajes de programación que siguen el paradigma funcional.
+
+Todos estos retos suponen un aprendizaje que igual no se daba en otra ocasión y, también, obligan a cambiar el pensamiento imperativo a la hora de programar por uno más flexible que permita la convivencia de ambos paradigmas al mismo tiempo, ya que así lo requieren los lenguajes empleados durante el proyecto.
+
+\section{Objetivos} \label{objetivos}
+
+El proyecto consta de varios objetivos. El primero se trata de diseñar y programar un motor de videojuegos con las siguientes restricciones:
+
+\begin{itemize}
+	\item Se debe poder utilizar para crear videojuegos tanto distribuidos cómo no distribuidos.
+	\item Debe estar programado en Elixir.
+	\item Debe estar especializado en juegos de tipo rol. 
+\end{itemize}
+
+Una vez se cuenta con el motor, el siguiente objetivo es emplear dicho motor y crear un videojuego. El videojuego, al igual que el motor, cuenta con una serie de características que se deben cumplir:
+
+\begin{itemize}
+	\item Se debe diseñar con el fin de enseñar conceptos de los sistemas distribuidos.
+	\item Debido a la restricción del motor, debe estar escrito en Elixir.
+	\item La longitud y complejidad del mismo tiene que estar adaptado al contexto de los escenarios que se le plantean a los alumnos.
+\end{itemize}
+
+Como último objetivo del proyecto se debe proporcionar una serie de prácticas, ya mencionadas en el último punto del listado de características anterior, mediante las cuales el alumno pueda adquirir conocimientos nuevos sobre los sistemas distribuidos y pueda reforzar o comprender conceptos vistos en la teoría de la asignatura. Por ello, estas prácticas o escenarios cuentan también con una serie de restricciones:
+
+\begin{itemize}
+	\item El número de prácticas no puede exceder las tres, debido a que estas forman parte de un conjunto más grande de prácticas que se realizan durante el curso.
+	\item Se debe adaptar la dificultad de las mismas al nivel de los alumnos del curso.
+	\item Se debe adaptar la longitud de las mismas para que, en conjunto con la dificultad, no supongan una inversión de tiempo requerido por el alumno superior a lo establecido por la guía docente.
+	\item Deben estar diseñadas para poder resolverse mediante Java, aunque se puede incluir partes a resolver en Elixir.
+\end{itemize}
+
+\section{Arquitectura de alto nivel}
+
+Se muestra la arquitectura final del proyecto. Esta arquitectura es de alto nivel y por lo tanto no se centra en los detalles, estos se pueden ver en los capítulos \ref{Cap4} y \ref{Cap5}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_1/diagrama_alto_nivel/arquitectura_alto_nivel.png}
+	\caption{Diagrama de bloques de la arquitectura del proyecto}
+	\label{fig:chap1_architecture}
+\end{figure}
+
+La distribución del código del proyecto se hace mediante Docker, esto permite la simulación de sistemas distribuidos en una única máquina y la posibilidad de desplegar la misma imagen en un sistema verdaderamente distribuido, es decir, en varias máquinas distintas. Todo ello sin necesidad de modificar ningún aspecto de la imagen Docker.
+
+Tal y como se muestra en la figura \ref{fig:chap1_architecture}, el alumno interactúa, mediante un cliente Java, con la imagen Docker del videojuego mediante el puerto 3000. Dicha imagen contiene el código Elixir del juego y del motor Hephaestus. Esta imagen forma parte de la plataforma Docker encargada de la organización de los contenedores, en los cuales se ejecuta el código de las imágenes. Además de la imagen del juego, la plataforma Docker cuenta con dos imágenes de Hephaestus, las cuales son controladas por la imagen del juego y contienen, únicamente, el código del motor Hephaestus. A la plataforma también se le añade una base de datos Postgresql a la cual se puede acceder desde el juego.
+
+De esta forma se da una visión total de la arquitectura de despliegue final del proyecto. Una plataforma Docker pensada para ser ejecutada en las máquinas de los alumnos, con todo lo necesario para el funcionamiento del proyecto incluido.
+
+\section{Esta memoria}
+
+El documento presentado trata todos los aspectos relacionados con el proyecto que pudieran ser de relevancia.
+
+Siguiendo el orden mostrado en el índice de este documento, los capítulos que se pueden leer son los siguientes: Introducción, planificación, estado del arte, análisis, diseño, pruebas y conclusión.
+
+\subsection{Introducción}
+
+Capítulo en el que se encuentra esta sección, introducción al proyecto y objetivos que se pretenden cumplir con la realización del mismo.
+
+\subsection{Planificación}
+
+En este capítulo se describe la metodología empleada durante la ejecución del proyecto, los artefactos producidos por la metodología empleada y cómo se ha organizado el trabajo a lo largo del tiempo empleado.
+
+También se realiza el análisis de riesgos del proyecto y el análisis de costes, tanto aquellos a la hora de ejecutar el proyecto, como los recurrentes por ejecución a lo largo del tiempo.
+
+\subsection{Estado del arte}
+
+Capítulo sobre otros proyectos con índole similar que hayan podido servir de inspiración. Se describen los proyecto referenciados de manera general y a partir de los aportes realizados a este proyecto. 
+
+También se describen las tecnologías empleadas en el proyecto, las características de las mismas y los motivos para su uso.
+
+\subsection{Análisis}
+
+Capítulo centrado en el análisis como ingeniero informático del proyecto. Se incluye un listado de los requisitos funcionales y no funcionales del proyecto, centrado en la pieza principal del mismo, el motor \textbf{Hephaestus}. También incluye una descripción escrita y gráfica de la arquitectura del motor y del sistema completo.
+
+\subsection{Diseño}
+
+Este capítulo se centra en el diseño software del sistema, incluyendo la descripción escrita y gráfica del diseño final del motor. 
+
+También se incluye en el capítulo, una descripción del diseño del juego y las decisiones tomadas para dicho diseño, así como, una descripción de las prácticas diseñadas para reforzar conocimientos de la asignatura Sistemas Distribuidos.
+
+\subsection{Pruebas}
+
+Capítulo dedicado a las pruebas de calidad realizadas sobre todo el proyecto, centrando la mayor parte sobre el motor.
+
+\subsection{Conclusión}
+
+Capítulo final, últimas reflexiones sobre el proyecto y su ejecución, puntos de enfoque para el desarrollo futuro del mismo y problemas encontrados durante la implementación del código.

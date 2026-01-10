@@ -1,0 +1,57 @@
+\chapter{Conclusión}\label{Cap7}
+
+Una vez finalizado el proyecto, se analizan los problemas encontrados durante el desarrollo del mismo y el desarrollo futuro del mismo tras el estado en el que termina con este documento.
+
+\section{Problemas en la implementación del código}
+
+Una vez se concluye el análisis y el diseño del proyecto se procede a la implementación del código de acuerdo a lo diseñado. Durante este proceso, como en todo proceso de implementación, se encuentran varios problemas los cuales se tienen que solucionar.
+
+El proyecto cuenta con varias partes de las cuales dos de ellas están escritas en Elixir mientras que la última está escrita en Java. Ya se ha mencionado en capítulos anteriores que el código escrito en Java forma parte de las soluciones para las prácticas, por lo tanto es código sencillo que no requiere de análisis y diseños profundos y que, además, no supone un problema su implementación.
+
+Por lo tanto, los focos de problemas durante la implementación del código se concentran en Elixir y Docker. Elixir supone un reto debido a la novedad del lenguaje para el alumno, mientras que el reto que supone Docker deriva de Elixir y la construcción de las imágenes para la ejecución de programas en este lenguaje.
+
+\subsection{Elixir}
+
+Al ser Elixir un lenguaje de programación que sigue el paradigma de programación funcional y no cuenta con herramientas para la programación orientada a objetos. Estas dos características del diseño del lenguaje desarrollan los dos primeros problemas a la hora de implementar el código. El cambio de paradigma del imperativo al funcional supone el mayor coste temporal al proyecto, debido a que las diferencias son demasiado pronunciadas. Respecto a la programación orientada a objetos, se adapta el código empleando los elementos que ofrece el lenguaje, esto no supone tanto costo temporal al proyecto.
+
+El siguiente elemento del lenguaje que se presenta problemático son los \textit{GenServer}. Estos elementos presentan unas características que los hacen buenos candidatos a representar actores distribuidos dentro del sistema. Tras algunas vueltas se acaba por decidir por ellos para hacer esta labor, además de ser la solución a la adaptación del problema de la programación orientada a objetos. Debido a las características de los \textit{GenServer} pueden actuar como una especie de objetos tradicionales, de esta manera se consigue una simulación parcial, no pudiendo conseguir la composición y la herencia características de este paradigma. Por lo tanto no se puede evitar cierta repetición de código.
+
+Una vez se superan estos problemas ya descritos, el siguiente problema que surge es la transformación de estructuras de Elixir a JSON. Debido a que el estado del juego se almacena como JSON en la base de datos, es fundamental poder transformar estructuras de Elixir a JSON. Elixir cuenta con mapas como estructura para el almacenamiento de datos en tiempo de ejecución, estos mapas tienen transformación directa a JSON al emplear la biblioteca con la que se hace uso de la base de datos desde el motor. Por lo tanto es un problema con fácil solución y que no supone ningún retraso.
+
+Finalmente, el último problema que se presenta por usar Elixir son los monitores. Los monitores son un elemento de Elixir que sirven para vigilar la ejecución de procesos hijos, en el caso de Hephaestus se emplean para vigilar la ejecución de los \textit{GenServer}. Los monitores no solo vigilan los procesos sino que actúan sobre ellos en caso de que se produzca un error, pudiendo reiniciarlos o eliminarlos dependiendo de las instrucciones que tengan. El problema surge de los diferentes tipos de monitores que existen y de como se relacionan entre sí. Se evalúan todas las opciones y se opta por emplear monitores dinámicos por la sencillez que supone su uso. Este tipo de monitores es adecuado para juegos pequeños como lo es el juego didáctico, pero para su uso en juegos más grandes el desarrollador debe evaluar si merece la pena emplear monitores estáticos, los cuales permiten más opciones.
+
+\subsection{Docker}
+
+Los problemas surgidos por el empleo de Docker son derivados de Elixir. La distribución de Elixir difiere en gran medida del proceso de desarrollo, por lo tanto la construcción de las imágenes es más complicado de lo que sería en caso de ser un entorno de desarrollo. Otro factor determinante es la falta de documentación, Elixir es un lenguaje relativamente pequeño en lo que respecta a comunidad y, por lo tanto, hay ciertas tareas que no son tan populares y que no cuentan con la suficiente documentación para su ejecución.
+
+En este caso la solución pasa por adaptar los pocos ejemplos existentes, sin relación con la tarea específica, y emplear herramientas de inteligencia artificial para generar el código restante. Finalmente, se hace uso de estos métodos para solucionar el problema, costando bastante tiempo de proyecto.
+
+\section{Desarrollo a futuro}
+
+Una vez se finaliza el desarrollo del proyecto descrito en este documento dicho proyecto puede seguir siendo desarrollado. Para ello se presentan tareas o partes enteras del proyecto que no se han podido llegar a realizar. Mediante este listado, cualquier futuro desarrollador cuenta con una imagen global de lo que falta, así como de ideas lanzadas que puedan ser interesantes.
+
+\subsection{Mejora en el proceso de pruebas}
+
+Como ya se ha mencionado en el capítulo \ref{Cap6}, debido a la falta de tiempo, las pruebas realizadas sobre el motor Hephaestus y el juego didáctico solamente aseguran el correcto funcionamiento de estos. 
+
+Con el fin de mejorar la calidad del código se plantea la introducción de un mayor número de pruebas unitarias que mejoren la integridad de Hephaestus, así como la integración de este tipo de pruebas en el juego didáctico.
+
+\subsection{Ampliación del motor}
+
+Desde el principio se ha declarado que el motor debe ser ampliable y tener la capacidad de añadir más módulos para crear juegos más complejos o incluir una mayor cantidad de utilidades para los desarrolladores.
+
+En el capítulo \ref{Cap4} se muestra una serie de elementos que fueron descartados por la falta de tiempo. Estos elementos se pueden ver en la figura \ref{fig:chap4_motor_completo} y son un buen punto de inicio para una futura expansión del motor Hephaestus.
+
+\subsection{Separación en motores más pequeños}
+
+Aunque el motor se ha diseñado para ser distribuido y actuar como base de ejecución para diferentes piezas en diferentes máquinas, existe la posibilidad de especializar aún más esta labor.
+
+Se propone la división del propio motor en motores más pequeños con los módulos del motor original necesarios para ejecutar una pieza o piezas específicas en cada máquina.
+
+Este aumento de la complejidad de la arquitectura y la mantenibilidad del código solo es justificable si el tamaño del motor y los recursos necesarios para hacerlo funcionar aumentan, de tal manera que su ejecución en cada máquina suponga un coste operacional tan alto que desincentive su uso en sistemas distribuidos.
+
+\subsection{Generalizar y aumentar la especialidad del motor}
+
+Al final del proyecto, el motor Hephaestus es un motor diseñado para crear videojuegos distribuidos de tipo RPG basados en Dungeons and Dragons. Se trata de una especialización muy concreta que reduce el mercado en el que se puede emplear dicho motor.
+
+Una futura modificación del motor puede generalizar tanto el género de juegos RPG al que afecta, no solo a los que están basados en Dungeons and Dragons, cómo el tipo de juego que se puede construir con dicho motor. De esta manera se avanza hacia un motor más generalista como pueden ser Godot, Unity o Unreal Engine.

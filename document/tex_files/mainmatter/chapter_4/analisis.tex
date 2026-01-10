@@ -1,0 +1,153 @@
+\chapter{Análisis}\label{Cap4}
+
+El proyecto cuenta con tres grandes bloques de contenido con código: el motor Hephaestus, el juego didáctico y las prácticas para los alumnos. El código de las prácticas para los alumnos, al tratarse de las soluciones de estas, es sencillo y orientativo, por lo tanto queda excluido del análisis formal del proyecto.
+
+\section{Motor Hephaestus}
+
+Se trata del foco principal del proyecto, por lo tanto el grueso del análisis se concentra en el motor de videojuegos distribuidos Hephaestus.
+
+\subsection{Requisitos}
+
+Hephaestus se describe como un motor para el desarrollo de videojuegos distribuidos escrito en Elixir. Por lo tanto dicho motor deberá contar, fundamentalmente, con: la capacidad de ser distribuido; la posibilidad de emplearlo para manejar el almacenamiento del estado del juego, ya sea de manera permanente o efímera; la capacidad de simplificar el desarrollo de videojuegos y la modularidad suficiente para admitir futuras extensiones de capacidades.
+
+Con esta descripción como base, a continuación se muestran las tablas de requisitos funcionales y no funcionales del motor Hephaestus.
+
+
+\begin{tabularx}{\textwidth}{|X|}	
+	\hline
+	\rowcolor[HTML]{C0C0C0} 
+	\textbf{Requisito} \\ \hline
+	Tiene que tener la capacidad de autenticar y autorizar a los usuarios. \\ \hline
+	Cada pieza que actúe como actor debe tener un identificador único que sirva para su identificación en todo el sistema. \\ \hline
+	Tiene que permitir la creación de los siguientes actores: Personaje, conexión, enemigo, ubicación, NPC y objeto. \\ \hline
+	Los actores personaje, NPC y enemigo tienen que tener las siguientes estadísticas: Carisma, sabiduría, inteligencia, constitución, destreza y fuerza. \\ \hline
+	Todos los actores tienen que poder devolver el estado actual en el que se encuentran. \\ \hline
+	El actor personaje tiene que poder almacenar objetos en un inventario. \\ \hline
+	El actor personaje tiene que poder equiparse objetos de su inventario para aumentar o disminuir sus estadísticas. \\ \hline
+	El actor personaje tiene que poder subir de nivel tras llegar a un umbral de experiencia conseguida. \\ \hline
+	El actor personaje, el actor NPC y el actor enemigo deben contar con un nivel con el fin de realizar resoluciones de conflictos. \\ \hline 
+	El actor personaje y el actor enemigo deben contar con un contador de vida que al llegar a cero cambie su estado a no vivo pero no destruya el actor. \\ \hline
+	El actor personaje tiene que indicar si se encuentra en combate o no. \\ \hline
+	El actor personaje tiene que tener al capacidad de recordar la ubicación en la que se encuentra y cambiarla si se requiere. \\ \hline
+	Tiene que tener los mecanismos necesarios para asociar un personaje a un usuario. \\ \hline
+	El actor enemigo tiene que proporcionar una cantidad de experiencia arbitraria si su vida a llegado a cero. \\ \hline
+	El actor enemigo tiene que contar con una estadística a partir de la cual se derive el daño de ataque que tiene. \\ \hline
+	El actor NPC tiene que contar con un resultado para una interacción exitosa. \\ \hline
+	El actor NPC tiene que contar con un límite de interacciones que pueda ser opcional. En caso de no ser opcional, el resultado de obtener la interacción debe ser exitoso hasta que se consuman todos los intentos. \\ \hline
+	El actor conexión debe almacenar exactamente dos ubicaciones. \\ \hline
+	El actor conexión debe mostrar la siguiente ubicación en función de la ubicación actual. \\ \hline
+	El actor conexión debe tener un nivel fijo. \\ \hline
+	El actor conexión debe tener la capacidad de tener un objeto que se pueda emplear desde el juego para no permitir el cruce hasta la obtención del objeto. \\ \hline
+	El actor objeto tiene que tener un nivel fijo. \\ \hline
+	El actor objeto tiene que tener el tipo de objeto del que se trata. \\ \hline
+	El actor objeto tiene que tener un valor numérico que represente diferentes cosas dependiendo del tipo de objeto. \\ \hline
+	El actor objeto tiene que tener al opción de añadir una estadística sobre la que actúe el objeto. \\ \hline
+	El estado del juego se tiene que poder almacenar de forma permanente en una base de datos. \\ \hline
+	Tiene que proporcionar utilidades para simplificar el enrutamiento de actores en arquitecturas distribuidas. \\ \hline
+	Tiene que proporcionar utilidades para la supervisión de procesos. \\ \hline
+	
+	\caption{Hephaestus. Requisitos funcionales}
+	\label{tab:hephaestus-req-func} \\
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{|X|}
+	\hline
+	\rowcolor[HTML]{C0C0C0}
+	\textbf{Requisito} \\ \hline
+	Tiene que estar escrito en el lenguaje de programación Elixir. \\ \hline
+	Tiene que estar especializado en juegos de rol en mundos de fantasía. \\ \hline
+	Las contraseñas deben ser almacenadas empleando una función hash. \\ \hline
+	Tiene que estar pensado para su futura modificación haciendo uso de una arquitectura de módulos. \\ \hline
+	La definición de tipos de objetos tiene que ser dependiente del juego que emplea el motor. \\ \hline
+	La base de datos empleada debe ser Postgresql. \\ \hline
+	El control de los actores debe residir en el motor. \\ \hline
+	
+	\caption{Hephaestus. Requisitos no funcionales}
+	\label{tab:hephaestus-req-nfunc} \\
+\end{tabularx}
+
+\subsection{Modelos}
+
+En esta sección se muestran los diagramas del análisis llevado a cabo sobre el motor. En primer lugar el análisis inicial muestra el análisis completo del motor.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/analisis_inicial_motor.png}
+	\caption{Diagrama de análisis Hephaestus completo}
+	\label{fig:chap4_motor_completo}
+\end{figure}
+
+De este análisis inicial del motor completo, se tienen que eliminar algunos elementos, que no suponen la imposibilidad de crear juegos sin ellos, debido a la falta de tiempo que supone la implementación completa del motor, además del resto del proyecto. Los elementos eliminados son los siguientes:
+
+\begin{itemize}
+	\item Acción.
+	\item Coordinador.
+	\item Acción conjunta.
+	\item Combate.
+	\item Interacción.
+	\item Conflicto.
+\end{itemize}
+
+Una vez eliminados estos componentes el diagrama final de análisis del motor Hephaestus queda de la siguiente forma.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/analisis_final_motor.png}
+	\caption{Diagrama de análisis Hephaestus}
+	\label{fig:chap4_motor_final}
+\end{figure}
+
+\section{Juego didáctico}
+
+Al tratarse de un foco menor respecto a Hephaestus, el análisis del juego didáctico no es tan extenso y profundo como lo es el del motor. Pese a ello, el análisis es suficiente para que el diseño posterior cumpla con las condiciones suficientes para el correcto funcionamiento de las prácticas.
+
+\subsection{Requisitos}
+
+El juego didáctico se caracteriza por actuar como servidor para clientes creados por los alumnos, mediante los cuales se puede resolver el juego. Es fundamental que se adapte a las necesidades del curso en el que se emplea.
+
+Por lo tanto las siguientes listas muestran los requisitos funcionales y no funcionales del juego didáctico.
+
+\begin{tabularx}{\textwidth}{|X|}
+	\hline
+	\rowcolor[HTML]{C0C0C0}
+	\textbf{Requisito} \\ \hline
+	Tiene que implementar un servidor de tipo TCP que admita comunicaciones concurrentes. \\ \hline
+	El cliente tiene que poder conectarse empleando el puerto 3000 TCP. \\ \hline
+	Tiene que admitir, únicamente, comunicaciones que empleen el protocolo JSON-RPC. \\ \hline
+	Tiene que controlar todos los actores de tipo personaje y enemigo de forma remota. \\ \hline
+	Tiene que definir las rutas de las máquinas en la que los actores de tipo personaje y enemigo se van a ejecutar. \\ \hline
+	Tiene que contar con los suficientes procedimientos remotos para ser completado. \\ \hline
+	Tiene que contar con un procedimiento remoto que devuelva la información correcta para la ejecución del resto de procedimientos. \\ \hline
+	Toda gestión de la base de datos se tiene que delegar al motor Hephaestus. \\ \hline
+	Los procedimientos tienen que delegar la gestión de estados de los actores al motor Hephaestus. \\ \hline
+	
+	\caption{Juego didáctico. Requisitos funcionales}
+	\label{tab:juego-req-func}
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{|X|}
+	\hline
+	\rowcolor[HTML]{C0C0C0}
+	\textbf{Requisito} \\ \hline
+	Tiene que estar escrito en el lenguaje de programación Elixir. \\ \hline
+	Tiene que hacer uso del motor Hephaestus. \\ \hline
+	La definición del juego tiene que estar escrita en JSON. \\ \hline
+	Su longitud tiene que estar adaptada para el contexto de la asignatura en el que es utilizado. \\ \hline
+	Tiene que desarrollarse sobre un mundo compartido. Esto es, en caso de que se conecten dos personajes, las acciones de uno de los personajes sobre el mundo afecta al mundo que ve el otro personaje, es decir, es el mismo mundo. \\ \hline
+	Tiene que implementar un procedimiento que ejecute un guardado del estado del juego de manera permanente. \\ \hline
+	Tiene que implementar un procedimiento para la autenticación de usuarios. \\ \hline
+	
+	\caption{Juego didáctico. Requisitos no funcionales}
+	\label{tab:juego-req-nfunc}
+\end{tabularx}
+
+\subsection{Modelos}
+
+Teniendo en cuenta las características y los requisitos anteriores. El análisis completo del juego didáctico se muestra en el siguiente diagrama.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_juego/analisis_final_juego.png}
+	\caption{Diagrama de análisis juego didáctico}
+	\label{fig:chap4_juego_final}
+\end{figure}

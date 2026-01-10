@@ -1,0 +1,127 @@
+\chapter{Estado del arte}\label{Cap3}
+
+Aunque una idea sea original existen otros muchos trabajos que pueden servir para aportar nuevas ideas, encontrar soluciones a problemas que pueda llegar a tener el proyecto o simplemente afianzar la idea inicial al ver otro proyecto que comparte un concepto que se va a emplear en el nuevo.
+
+La construcción del proyecto depende enteramente de las tecnologías que lo conforman, sin estas el proyecto no tendría entidad y solamente existiría como concepto abstracto.
+
+\section{Antecedentes}
+
+Dado que el foco principal del proyecto es el motor de videojuegos distribuidos Hephaestus, el foco de la investigación inicial es la búsqueda de otros ejemplos de videojuegos distribuidos y, por lo tanto, que cuenten con un motor distribuido.
+
+\subsection{Second Life}
+
+Second Life es un mundo virtual multijugador que permite a los usuarios crearse un avatar para ellos mismos e interactuar a través del avatar con otros usuarios y con el contenido creado por estos. Fue lanzado en Junio de 2003 por la compañía Linden Lab.
+
+Se puede acceder al mundo virtual mediante el cliente software propio de la empresa o mediante clientes creados por terceros, ya que la tecnología del cliente es de código abierto.
+
+La tecnología sobre la que se construye Second Life está formada por el cliente, ejecutado en la máquina del usuario, y miles de servidores bajo el mando de Linden Lab \cite{secondlife}.
+
+\subsubsection{Cliente}
+
+El cliente renderiza gráficos 3D utilizando la tecnología OpenGL y su código fuente está licenciado bajo LGPL desde 2010, permitiendo la creación de clientes por partes de terceros los cuales añaden funcionalidades que el oficial no tiene.
+
+\subsubsection{Servidor}
+
+Cada región del mundo virtual (256x256 metros de área) se ejecuta en un núcleo en un servidor con un procesador multinúcleo. Además del alojamiento de la región del mundo correspondiente los servidores se encargan de la comunicación entre usuarios y objetos presentes en la región de la que se encargan. Además realizan los cálculos de colisiones entre avatares y objetos.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{images/second_life_example.jpg}
+	\caption{Algunos avatares dentro del juego. Imagen por HyacintheLuynes}
+	\label{fig:chap3_second_life}
+\end{figure}
+
+De este proyecto se puede obtener la confirmación del uso de servidores distribuidos encargados cada uno de un elemento concreto. Aunque todos corren el mismo conjunto de operaciones, cada uno se especializa en una de las regiones del mundo virtual y se comunica con el resto de servidores y con los clientes para conservar la integridad de dicho mundo.
+
+Esto se puede extrapolar al proyecto confirmando que el motor puede ser distribuido sin realizar modificaciones al código del mismo y que cada servidor se puede especializar en un elemento concreto del juego.
+
+\subsection{JominiEngine}
+
+El JominiEngine es un motor de videojuegos distribuidos creado por David Alexander Bond en 2015 como parte del estudio \textit{Design and implementation of a massively multi-player online historical role-playing game}. En este estudio se presenta la funcionalidad imprescindible del motor así como guías para su futuro desarrollo \cite{bond2015design}.
+
+Este proyecto permite confirmar la posibilidad de hacer algo parecido con este proyecto. Pese a que la premisa de motor de videojuegos distribuidos de rol es igual para ambos proyectos, el JominiEngine está especializado en juegos de rol históricos, mientras que Hephaestus se enfoca en la fantasía clásica popularizada por juegos de rol de mesa como Dungeons and Dragons.
+
+Se pueden encontrar otras muchas diferencias entre motores debido a las diferencias entre requisitos de un proyecto al otro, mientras que JominiEngine enfoca su evolución hacia los juegos MMORPG, Hephaestus tiene un enfoque más didáctico y de un jugador, aunque esto no impide que se utilice en juegos multijugador.
+
+Pese a las diferencias JominiEngine es un buen punto de conocimiento para el desarrollo de motores de videojuegos que permitan la creación de juegos distribuidos.
+
+\section{Tecnologías empleadas} \label{tecnologias}
+
+La elección de tecnologías se realiza teniendo en cuenta las necesidades del proyecto. Estas necesidades que se necesitan suplir son los lenguajes de programación en los que se va a realizar el proyecto, el gestor de bases de datos empleado y otras herramientas o tecnologías necesarias para el correcto desarrollo del mismo.
+
+\subsection{Lenguajes de programación}
+
+Un proyecto software está sostenido por los lenguajes de programación en los que se construye. La elección de lenguajes de programación se guía por las características que estos tengan o por requisitos que tenga el proyecto.
+
+\subsubsection{Elixir}
+
+Elixir \cite{elixir} es un lenguaje de programación que ofrece unas características que lo hacen especialmente apto para el diseño y programación de sistemas distribuidos. Sigue el paradigma de programación funcional y está diseñado para ser implementado en una arquitectura modular.
+
+Es un lenguaje basado en Erlang y emplea la misma máquina virtual que este. De esta manera se puede hacer uso de bibliotecas originalmente pensadas para Erlang desde el propio Elixir de forma nativa.
+
+Además, Elixir ofrece otra serie de características, algunas de ellas heredadas de Erlang, que lo siguen posicionando como un lenguaje muy interesante para el desarrollo de sistemas distribuidos y desarrollo web:
+
+\begin{itemize}
+	\item \textbf{Tolerancia a los fallos}. Si algún componente del sistema falla, es posible recuperar la parte del sistema en la que se encuentra este fallo sin poner en riesgo el funcionamiento del resto del sistema. Esto se debe al sistema de supervisores que Elixir hereda de Erlang.
+	\item \textbf{Distribuido}. Elixir puede ejecutar partes del código en procesos ligeros que están aislados y se comunican mediante mensajes. Estos procesos se pueden ejecutar en cualquier máquina que cuente con una máquina virtual de Erlang y el propio lenguaje cuenta con mecanismos nativos para facilitar la comunicación entre procesos localizados en máquinas diferentes, siempre que estas se puedan comunicar entre sí.
+	\item \textbf{Escalable}. Gracias a la característica del punto anterior, el código de Elixir se puede lanzar nuevos procesos sin afectar el funcionamiento del resto. Estos nuevos procesos se pueden lanzar en máquinas diferentes si se requiere.
+\end{itemize}
+
+Todas estas características le han hecho posicionarse como un lenguaje muy interesante en el mundo de la programación web, gracias al framework de desarrollo de aplicaciones web Phoenix \cite{phoenix} y lo hacen el lenguaje elegido para la implementación del motor de videojuegos y el juego didáctico.
+
+\subsubsection{Java}
+
+Java \cite{java} es un lenguaje de programación diseñado para seguir el paradigma de programación orientada a objetos y cuyas fortalezas residen en:
+
+\begin{itemize}
+	\item \textbf{Independiente de la plataforma}. Java es un lenguaje de programación compilado. El resultado de los lenguaje compilados, tradicionalmente, está sujeto a la arquitectura del sistema operativo en el que se compila y, por ejemplo, un binario de un lenguaje compilado en Windows no se puede ejecutar en Linux. Java toma otro acercamiento y se ejecuta sobre una máquina virtual, la JVM (Java Virtual Machine). Gracias a esto, el resultado de la compilación es un binario que se puede ejecutar sobre cualquier JVM independientemente del sistema operativo sobre el que se ejecute. El único requisito es que el sistema operativo sobre el que se ejecuta el programa tiene que tener instalada la máquina virtual de Java.
+	\item \textbf{Fuertemente tipado}. Los lenguajes de programación fuertemente tipados evitan la asignación de valores a variables cuando el tipo de ambos no coincide y obligan a asignarle un tipo a cada variable, no pudiendo haber variables sin tipo hasta que se las asigna un valor. Esto evita errores durante la programación que puedan llevar al programa a fallar durante la ejecución.
+	\item \textbf{Recolector de basura}. Java cuenta con un recolector de basura. El recolector de basura es un mecanismo que tienen algunos lenguajes de programación que permite liberar espacio de memoria de manera automática en tiempo de ejecución. Para ello el recolector de basura libera el espacio ocupado por variables que ya han sido utilizadas y no tienen uso en el futuro de la ejecución.
+	\item \textbf{Amplia comunidad}. Es un lenguaje utilizado en multitud de sistemas que aún siguen en funcionamiento y, pese a su antigüedad, sigue siendo escogido por multitud de empresas y personas. Esto hace que Java cuente con una gran comunidad de programadores e ingenieros y por consiguiente se pueden encontrar una gran cantidad de recursos para cualquier necesidad que pueda surgir durante un proyecto.
+\end{itemize}
+
+Estas características hacen de Java un lenguaje muy asequible para los alumnos que se inician en la carrera universitaria de la ingeniería informática. Por este motivo y debido a que es el lenguaje en el que se realizan el resto de prácticas de la asignatura, se emplea Java para proporcionar las soluciones a las prácticas de los alumnos.
+
+\subsubsection{SQL}
+
+Structured Query Language \cite{sql}, más conocido como SQL, es el lenguaje de programación de dominio específico diseñado para gestionar datos estructurados en sistemas de gestión de bases de datos o RDBMS por sus siglas en inglés.
+
+SQL permite al motor Hephaestus comunicarse con la base de datos relacional elegida y su uso es obligatorio debido a que dicha base de datos no admite otro lenguaje. Para ello se hace uso de una biblioteca de Elixir llamada Ecto, la cual permite hacer consultas a la base de datos mediante una abstracción propia o mediante código SQL directamente. Esta biblioteca emplea SQL para sus consultas aunque no se haga uso de la opción de código SQL directo.
+
+\subsubsection{JSON}
+
+JSON (JavaScript Object Notation) \cite{json} es un formato de intercambio de datos diseñado para poder ser legible para los humanos. Basado en un subconjunto de JavaScript \cite{javascript}, es completamente independiente a este y puede ser empleado para transmitir datos entre diferentes lenguajes de programación.
+
+Es el lenguaje empleado por el protocolo admitido por el juego didáctico, el cual se verá en el apartado de otras tecnologías de esta misma sección, y también se usa para almacenar los estados de los actores en la base de datos, por lo tanto es el lenguaje que define el juego.
+
+\subsection{Gestor de bases de datos}
+
+El gestor de bases de datos es el encargado de procesar las consultas realizadas en SQL y modificar la base de datos acorde a esas consultas de ser necesario.
+
+\subsubsection{Postgresql}
+
+Postgresql \cite{postgres} es un gestor de bases de datos relacionales de código abierto. Cuenta con su propia extensión del lenguaje SQL y admite tanto la extensión como SQL estándar. Se caracteriza por su robustez, seguridad y rendimiento. Asegura la integridad de los datos al realizar operaciones sobre estos y cuenta con una gran variedad de tipos de datos que pueden ser almacenados. Además cuenta con la posibilidad de extender sus capacidades mediante plugins.
+
+Se elige este gestor debido a sus grandes capacidades y a su extenso catálogo de tipos de datos, el cual incluye JSONB un tipo de dato que permite el almacenamiento de documentos JSON en formato binario y la capacidad de hacer cálculos sobre estos.
+
+\subsection{Otras tecnologías}
+
+\subsubsection{Docker}
+
+Docker \cite{docker} es un sistema de gestión y ejecución de contenedores. Un contenedor es una pieza de software que simula un sistema operativo reducido dentro del sistema operativo de la máquina que ejecuta Docker, permitiendo ejecutar programas dentro de este sistema operativo en miniatura empleando los recursos del sistema operativo donde se ejecuta el contenedor. Para la construcción o ejecución de un contenedor se emplean imágenes, estas imágenes contienen la definición del contenedor y del código que se ejecuta dentro de este. Esto le permite a Docker contar con varias ventajas a la hora de distribuir programas a servidores o usuarios:
+
+\begin{itemize}
+	\item \textbf{Control de versiones}. Al crear un contenedor este tiene la capacidad de otorgarle una etiqueta con la versión de la que se trata. Esto permite que el cambio de versiones consista únicamente en crear una nueva imagen con la nueva versión del código y una nueva etiqueta de versión.
+	\item \textbf{Portabilidad}. Los contenedores se pueden ejecutar en cualquier sistema con Docker instalado.
+	\item \textbf{Escalabilidad}. Existen tecnologías que permiten la duplicación de contenedores, el balance de carga sobre contenedores duplicados y creación y destrucción automática de contenedores. Una de las tecnologías más populares que permite esto es Kubernetes \cite{kubernetes}.
+\end{itemize}
+
+Aunque la portabilidad de Docker no es de mucha utilidad ya que no proporciona nada nuevo a lo que ya ofrecen Elixir y Java, Docker permite simular un sistema distribuido en la misma máquina física sin necesidad de configurar máquinas virtuales. Esto supone una ventaja a la hora de que los alumnos instalen el proyecto al solo necesitar un archivo \textit{docker-compose} para poner todo el sistema en funcionamiento.
+
+\subsubsection{JSON-RPC}
+
+JSON-RPC \cite{jsonrpc} es un protocolo de hilo basado en JSON para realizar llamadas de procedimiento remoto (RPC por sus siglas en inglés). Este protocolo permite notificaciones al servidor y el envío de múltiples llamadas al servidor, las cuales pueden ser respondidas asíncronamente o síncronamente.
+
+El protocolo es independiente del protocolo de transporte empleado, en este proyecto se transporta empleando el protocolo TCP. Otra de las características es que no incluye ningún tipo de autenticación o autorización, se tiene que implementar aparte.
+
+Se trata del protocolo empleado en el proyecto para la comunicación entre los clientes Java y el juego didáctico. Transportado, como ya se ha mencionado, mediante TCP.
