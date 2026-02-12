@@ -2,7 +2,29 @@
 
 \section{Hephaestus}
 
-En el capítulo \ref{Cap4} se hizo el análisis del motor de videojuegos Hephaestus, en este se realiza el diseño conceptual del mismo. Para ello se empieza por el diagrama de clases del motor.
+Tras el análisis realizado en el capítulo \ref{Cap4} se pasa a la fase de diseño del sistema. En concreto, este apartado trata sobre el diseño del motor Hephaestus. Al tratarse de la parte del proyecto más complicada, el apartado sobre el diseño se centra principalmente en este.
+
+En primer lugar se realiza el diagrama de clases del diseño completo del motor. Este diagrama completa el análisis realizado en el capítulo ya mencionado en el párrafo anterior.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_engine/diseno_motor_final.png}
+	\caption{Diagrama de clases del motor Hephaestus}
+	\label{fig:chap5_engine_class_diagram}
+\end{figure}
+
+\section{Base de datos}
+
+En este proyecto la base de datos toma un rol sencillo, almacena la información sobre el estado del juego actualmente y sobre los jugadores que tienen acceso al juego.
+
+El diseño de la misma, por lo tanto, refleja la sencillez de esta labor a la vez que muestra la flexibilidad de la que dispone el desarrollador de los videojuegos que emplean Hephaestus para adaptarla a sus necesidades.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_database/diseno_base_datos.png}
+	\caption{Diagrama entidad-relación de la base de datos}
+	\label{fig:chap5_base_datos}
+\end{figure}
 
 \section{Juego didáctico}
 

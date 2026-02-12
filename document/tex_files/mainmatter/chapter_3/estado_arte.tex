@@ -10,7 +10,7 @@ Dado que el foco principal del proyecto es el motor de videojuegos distribuidos 
 
 \subsection{Second Life}
 
-Second Life es un mundo virtual multijugador que permite a los usuarios crearse un avatar para ellos mismos e interactuar a través del avatar con otros usuarios y con el contenido creado por estos. Fue lanzado en Junio de 2003 por la compañía Linden Lab.
+Second Life es un mundo virtual multijugador que permite a los usuarios crearse un avatar para ellos mismos e interactuar a través del avatar con otros usuarios y con el contenido creado por estos. Fue lanzado en junio de 2003 por la compañía Linden Lab.
 
 Se puede acceder al mundo virtual mediante el cliente software propio de la empresa o mediante clientes creados por terceros, ya que la tecnología del cliente es de código abierto.
 
@@ -18,7 +18,7 @@ La tecnología sobre la que se construye Second Life está formada por el client
 
 \subsubsection{Cliente}
 
-El cliente renderiza gráficos 3D utilizando la tecnología OpenGL y su código fuente está licenciado bajo LGPL desde 2010, permitiendo la creación de clientes por partes de terceros los cuales añaden funcionalidades que el oficial no tiene.
+El cliente renderiza gráficos 3D utilizando la tecnología OpenGL y su código fuente está licenciado bajo LGPL (Lesser General Public License) desde 2010, permitiendo la creación de clientes por parte de terceros los cuales añaden funcionalidades que el oficial no tiene.
 
 \subsubsection{Servidor}
 
@@ -41,7 +41,7 @@ El JominiEngine es un motor de videojuegos distribuidos creado por David Alexand
 
 Este proyecto permite confirmar la posibilidad de hacer algo parecido con este proyecto. Pese a que la premisa de motor de videojuegos distribuidos de rol es igual para ambos proyectos, el JominiEngine está especializado en juegos de rol históricos, mientras que Hephaestus se enfoca en la fantasía clásica popularizada por juegos de rol de mesa como Dungeons and Dragons.
 
-Se pueden encontrar otras muchas diferencias entre motores debido a las diferencias entre requisitos de un proyecto al otro, mientras que JominiEngine enfoca su evolución hacia los juegos MMORPG, Hephaestus tiene un enfoque más didáctico y de un jugador, aunque esto no impide que se utilice en juegos multijugador.
+Se pueden encontrar otras muchas diferencias entre motores debido a las diferencias entre requisitos de un proyecto a otro, mientras que JominiEngine enfoca su evolución hacia los juegos MMORPG, Hephaestus tiene un enfoque más didáctico y de un jugador, aunque esto no impide que se utilice en juegos multijugador.
 
 Pese a las diferencias JominiEngine es un buen punto de conocimiento para el desarrollo de motores de videojuegos que permitan la creación de juegos distribuidos.
 
@@ -64,10 +64,26 @@ Además, Elixir ofrece otra serie de características, algunas de ellas heredada
 \begin{itemize}
 	\item \textbf{Tolerancia a los fallos}. Si algún componente del sistema falla, es posible recuperar la parte del sistema en la que se encuentra este fallo sin poner en riesgo el funcionamiento del resto del sistema. Esto se debe al sistema de supervisores que Elixir hereda de Erlang.
 	\item \textbf{Distribuido}. Elixir puede ejecutar partes del código en procesos ligeros que están aislados y se comunican mediante mensajes. Estos procesos se pueden ejecutar en cualquier máquina que cuente con una máquina virtual de Erlang y el propio lenguaje cuenta con mecanismos nativos para facilitar la comunicación entre procesos localizados en máquinas diferentes, siempre que estas se puedan comunicar entre sí.
-	\item \textbf{Escalable}. Gracias a la característica del punto anterior, el código de Elixir se puede lanzar nuevos procesos sin afectar el funcionamiento del resto. Estos nuevos procesos se pueden lanzar en máquinas diferentes si se requiere.
+	\item \textbf{Escalable}. Gracias a la característica del punto anterior, el código de Elixir puede lanzar nuevos procesos sin afectar el funcionamiento del resto. Estos nuevos procesos se pueden lanzar en máquinas diferentes si se requiere.
 \end{itemize}
 
-Todas estas características le han hecho posicionarse como un lenguaje muy interesante en el mundo de la programación web, gracias al framework de desarrollo de aplicaciones web Phoenix \cite{phoenix} y lo hacen el lenguaje elegido para la implementación del motor de videojuegos y el juego didáctico.
+Elixir cuenta con el conjunto de patrones de diseño y comportamientos OTP (Open Telecom Platform). Diseñado para proporcionar la estructura necesaria para aplicar la filosofía de dejar que falle, se traduce en un conjunto de bibliotecas estándar del lenguaje de Elixir que facilitan el desarrollo software. En el contexto de este proyecto, el conjunto proporciona una serie de elementos interesantes para cumplir con los objetivos planteados.
+
+En primer lugar, Elixir cuenta con una biblioteca estándar encargada de abstraer la implementación de un proceso cliente-servidor. Dicha biblioteca se llama "GenServer" y permite levantar procesos que admiten peticiones síncronas y asíncronas, haciendola idónea para implementar actores en un sistema distribuido.
+
+Acompañando a los "GenServer", Elixir cuenta con árboles de supervisión como parte del conjunto OTP. Implementados mediante las bibliotecas "Supervisor" y "DynamicSupervisor", los árboles de supervisión controlan los procesos que se les ha encargado supervisar, de manera que, si uno falla, el supervisor puede reiniciarlo en un estado anterior estable. Todos los supervisores implementados en Elixir son procesos, por lo tanto se puede encargar a un supervisor que supervise a otro, el cual a su vez tiene otros procesos a los que supervisar, de ahí que se denominen árboles de supervisión.
+
+La máquina virtual sobre la que la se ejecuta el código Elixir se conoce como BEAM. Surge con el nacimiento de Erlang y permite a este lenguaje de programación, y también a Elixir, aprovecha varias de sus características. Ya se ha mencionado la característica distribuida de la máquina virtual, gracias a sus procesos ligeros y aislados. Además de esta característica, la máquina virtual ofrece otras dos características que aumentan el interés por el empleo de Elixir para este proyecto.
+
+La primera de las características consiste en el tipo de planificación preferente, mediante la cual se distribuyen los recursos de la máquina física para el programa. BEAM emplea un planificador por cada núcleo de CPU disponible, cada uno de estos planificadores otorga un número de pasos finito para cada proceso ejecutado en ese planificador. Una vez agotados los pasos disponibles, el planificador pausa el proceso forzosamente y permite la ejecución del siguiente proceso. Esta característica es especialmente interesante en el contexto de los videojuegos debido a que evita que el servidor se quede bloqueado mucho tiempo si se tiene que ejecutar un proceso pesado, como puede ser la carga de un mapa o un elemento no jugable buscando una ruta.
+
+La segunda de las características se trata de la gestión de memoria. A diferencia de otros lenguajes como Java, la máquina virtual BEAM tiene un "Garbage Collector" (GC) por proceso, lo que permite liberar la memoria no utilizada sin bloquear todo el sistema, únicamente el proceso que necesita liberarla.
+
+Todas estas características, tanto del propio Elixir como de la máquina virtual BEAM, le han hecho posicionarse como un lenguaje muy interesante en el mundo de la programación web, gracias al framework de desarrollo de aplicaciones web Phoenix \cite{phoenix} y lo hacen el lenguaje elegido para la implementación del motor de videojuegos y el juego didáctico.
+
+La programación de un servidor TCP en Elixir es una tarea trivial que no requiere de mucho esfuerzo, incluso forma parte de la documentación oficial del propio lenguaje. Esta sencillez solo se traduce en un servidor simple que puede servir para probar conceptos o visualizar comportamientos del sistema, pero no está preparado para ser utilizado en producción. Para este cometido existen bibliotecas preparadas para los retos que presenta ejecutar el servidor en producción.
+
+Phoenix emplea Cowboy/Ranch como servidor HTTP preparado para producción. Aunque, en el caso del proyecto, la biblioteca empleada como servidor TCP/IP es Thousand Island \cite{thousand_island}, servidor de sockets moderno preparado para su uso en producción.
 
 \subsubsection{Java}
 
@@ -125,3 +141,15 @@ JSON-RPC \cite{jsonrpc} es un protocolo de hilo basado en JSON para realizar lla
 El protocolo es independiente del protocolo de transporte empleado, en este proyecto se transporta empleando el protocolo TCP. Otra de las características es que no incluye ningún tipo de autenticación o autorización, se tiene que implementar aparte.
 
 Se trata del protocolo empleado en el proyecto para la comunicación entre los clientes Java y el juego didáctico. Transportado, como ya se ha mencionado, mediante TCP.
+
+\subsection{Herramientas de documentación}
+
+Existen numerosas posibilidades para crear una página web, dependiendo de las necesidades del proyecto se pueden emplear distintas tecnologías como pueden ser HTML y CSS puros, usar bibliotecas JavaScript como Angular o React, o hacer uso de generadores estáticos. Este último grupo presenta una ventaja frente al resto, el creador de la página web no se tiene que preocupar del estilo de la página ni de otros elementos técnicos del desarrollo web, simplemente tiene que escribir el contenido. Esta ventaja los hace especialmente adecuados para generar documentación web.
+
+\subsubsection{Docsify}
+
+Docsify \cite{docsify} es una biblioteca Javascript que genera documentación a partir de documentos Markdown. La generación del contenido web se realiza de manera dinámica, la biblioteca se encarga de cargar los documentos en la página web y realizar las transformaciones necesarias para que el lenguaje Markdown se pueda visualizar como un documento HTML.
+
+Además, Docsify presenta varios temas para personalizar la página web generada al gusto del creador e incluye, por defecto, varios elementos imprescindibles en un página dedicada a la documentación como pueden ser las barras de navegación.
+
+La elección de Docsify para el proyecto surge de la necesidad de crear una página web estática, requisito imprescindible para poder ser alojada en Github Pages. El empleo de otras tecnologías web, como puede ser Angular, suponían el empleo del sistema de CI/CD de Github para poder ser desplegados. Por lo tanto, la elección más lógica significa emplear Docsify, por su despliegue inmediato y su sencillez a la hora de desarrollar la documentación. 

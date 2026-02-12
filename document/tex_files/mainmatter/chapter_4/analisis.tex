@@ -28,9 +28,9 @@ Con esta descripción como base, a continuación se muestran las tablas de requi
 	El actor personaje, el actor NPC y el actor enemigo deben contar con un nivel con el fin de realizar resoluciones de conflictos. \\ \hline 
 	El actor personaje y el actor enemigo deben contar con un contador de vida que al llegar a cero cambie su estado a no vivo pero no destruya el actor. \\ \hline
 	El actor personaje tiene que indicar si se encuentra en combate o no. \\ \hline
-	El actor personaje tiene que tener al capacidad de recordar la ubicación en la que se encuentra y cambiarla si se requiere. \\ \hline
+	El actor personaje tiene que tener la capacidad de recordar la ubicación en la que se encuentra y cambiarla si se requiere. \\ \hline
 	Tiene que tener los mecanismos necesarios para asociar un personaje a un usuario. \\ \hline
-	El actor enemigo tiene que proporcionar una cantidad de experiencia arbitraria si su vida a llegado a cero. \\ \hline
+	El actor enemigo tiene que proporcionar una cantidad de experiencia arbitraria si su vida ha llegado a cero. \\ \hline
 	El actor enemigo tiene que contar con una estadística a partir de la cual se derive el daño de ataque que tiene. \\ \hline
 	El actor NPC tiene que contar con un resultado para una interacción exitosa. \\ \hline
 	El actor NPC tiene que contar con un límite de interacciones que pueda ser opcional. En caso de no ser opcional, el resultado de obtener la interacción debe ser exitoso hasta que se consuman todos los intentos. \\ \hline
@@ -41,7 +41,7 @@ Con esta descripción como base, a continuación se muestran las tablas de requi
 	El actor objeto tiene que tener un nivel fijo. \\ \hline
 	El actor objeto tiene que tener el tipo de objeto del que se trata. \\ \hline
 	El actor objeto tiene que tener un valor numérico que represente diferentes cosas dependiendo del tipo de objeto. \\ \hline
-	El actor objeto tiene que tener al opción de añadir una estadística sobre la que actúe el objeto. \\ \hline
+	El actor objeto tiene que tener la opción de añadir una estadística sobre la que actúe el objeto. \\ \hline
 	El estado del juego se tiene que poder almacenar de forma permanente en una base de datos. \\ \hline
 	Tiene que proporcionar utilidades para simplificar el enrutamiento de actores en arquitecturas distribuidas. \\ \hline
 	Tiene que proporcionar utilidades para la supervisión de procesos. \\ \hline
@@ -66,9 +66,22 @@ Con esta descripción como base, a continuación se muestran las tablas de requi
 	\label{tab:hephaestus-req-nfunc} \\
 \end{tabularx}
 
+\subsection{Casos de uso}
+
+Una vez se han determinado los requisitos de esta parte del proyecto, se acotan los casos de uso a implementar durante el transcurso de todo el proyecto. El diagrama \ref{fig:chap4_motor_casos_uso} muestra los casos de uso del motor Hephaestus. Gracias a los casos de uso se puede tomar un métrica del estado del proyecto, si todos los casos de uso están implementados este se puede dar por finalizado.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/casos_uso_motor.png}
+	\caption{Diagrama de casos de uso de Hephaestus}
+	\label{fig:chap4_motor_casos_uso}
+\end{figure}
+
 \subsection{Modelos}
 
-En esta sección se muestran los diagramas del análisis llevado a cabo sobre el motor. En primer lugar el análisis inicial muestra el análisis completo del motor.
+Aunque durante todo el transcurso del análisis y del diseño se van a utilizar diagramas de UML con notación de clases por estandarización, se tiene que hacer notar que Elixir no cuenta con estos mecanismos y a la hora de implementar la solución diseñada se tiene que hacer uso de módulos, structs y comportamientos, conceptos propios de Elixir. De la misma manera se emplea herencia, tampoco estando esta disponible en Elixir, y por los mismos motivos se traduce una vez llegada la implementación. De esta forma el análisis y el diseño se pueden emplear para recrear el proyecto en otros lenguajes de programación.
+
+En primer lugar, en el diagrama \ref{fig:chap4_motor_completo} se muestra un concepto inicial, tomando en cuenta más casos de uso que los que se mostraron anteriormente y que proporciona una imagen mayor de los componentes internos del motor de videojuegos Hephaestus. Desarrollando la información proporcionada por este diagrama se pueden realizar modificaciones al motor en un futuro.
 
 \begin{figure}[h]
 	\centering
@@ -77,7 +90,7 @@ En esta sección se muestran los diagramas del análisis llevado a cabo sobre el
 	\label{fig:chap4_motor_completo}
 \end{figure}
 
-De este análisis inicial del motor completo, se tienen que eliminar algunos elementos, que no suponen la imposibilidad de crear juegos sin ellos, debido a la falta de tiempo que supone la implementación completa del motor, además del resto del proyecto. Los elementos eliminados son los siguientes:
+De este análisis inicial se eliminan elementos opcionales, cuya ausencia no impide la creación de juegos funcionales, debido a la falta de tiempo que supone la implementación completa del motor, además del resto del proyecto. Los elementos eliminados son los siguientes:
 
 \begin{itemize}
 	\item Acción.
@@ -88,14 +101,20 @@ De este análisis inicial del motor completo, se tienen que eliminar algunos ele
 	\item Conflicto.
 \end{itemize}
 
-Una vez eliminados estos componentes el diagrama final de análisis del motor Hephaestus queda de la siguiente forma.
+Al eliminar estos elementos la implementación de la lógica que proporcionan estos elementos se delega en el juego que hace uso del motor, dándole a este mayor flexibilidad.
+
+A partir de la eliminación de estos elementos se crea el diagrama de análisis final, mostrado en la figura \ref{fig:chap4_motor_final}. Este diagrama deja atrás la simpleza del diagrama inicial, puesto que este sirve como punto de partida pero no se encuentra desarrollado por completo, y desarrolla el análisis completo del motor. 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/analisis_final_motor.png}
-	\caption{Diagrama de análisis Hephaestus}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/analisis_motor.png}
+	\caption{Diagrama de análisis de Hephaestus}
 	\label{fig:chap4_motor_final}
 \end{figure}
+
+Se puede apreciar el cambio que sufre el análisis final, mostrado en el diagrama de la figura \ref{fig:chap4_motor_final}, respecto al diagrama inicial, mostrado en la figura \ref{fig:chap4_motor_completo}. El análisis inicial del motor, al tratarse de una primera iteración sobre lo que se quiere conseguir al finalizar el proyecto, cuenta con una distribución de clases la cual difiere de la distribución final. Este análisis final cuenta ya con una estructura completamente adaptada a los requisitos funcionales y no funcionales de esta parte del proyecto. Por ende, prescinde de clases no necesarias y adapta la herencia de todas ellas para cumplir con las restricciones del lenguaje empleado.
+
+El mayor cambio conceptual que se aprecia en el análisis final sobre el inicial es la transformación del concepto de entidad. Al iniciar el análisis \textit{Entity} hace referencia a los elementos del videojuego, de los cuales el motor está encargado, que se encuentran en una ubicación (\textit{Location}). Una vez se profundiza el análisis el concepto de \textit{Entity} se transforma y pasa a representar todo elemento del cual el motor está a cargo. Por ello, toda entidad cuenta con un identificador único, por el cual puede ser referenciada desde el contexto del videojuego y, que el motor sepa sobre que entidad se debe ejecutar la acción solicitada por dicho contexto.
 
 \section{Juego didáctico}
 
@@ -119,7 +138,10 @@ Por lo tanto las siguientes listas muestran los requisitos funcionales y no func
 	Tiene que contar con los suficientes procedimientos remotos para ser completado. \\ \hline
 	Tiene que contar con un procedimiento remoto que devuelva la información correcta para la ejecución del resto de procedimientos. \\ \hline
 	Toda gestión de la base de datos se tiene que delegar al motor Hephaestus. \\ \hline
+	Tiene que implementar un procedimiento que ejecute un guardado del estado del juego de manera permanente. \\ \hline
 	Los procedimientos tienen que delegar la gestión de estados de los actores al motor Hephaestus. \\ \hline
+	Tiene que desarrollarse sobre un mundo compartido. Esto es, en caso de que se conecten dos personajes, las acciones de uno de los personajes sobre el mundo afecta al mundo que ve el otro personaje, es decir, es el mismo mundo. \\ \hline
+	Tiene que implementar un procedimiento para la autenticación de usuarios. \\ \hline
 	
 	\caption{Juego didáctico. Requisitos funcionales}
 	\label{tab:juego-req-func}
@@ -133,21 +155,31 @@ Por lo tanto las siguientes listas muestran los requisitos funcionales y no func
 	Tiene que hacer uso del motor Hephaestus. \\ \hline
 	La definición del juego tiene que estar escrita en JSON. \\ \hline
 	Su longitud tiene que estar adaptada para el contexto de la asignatura en el que es utilizado. \\ \hline
-	Tiene que desarrollarse sobre un mundo compartido. Esto es, en caso de que se conecten dos personajes, las acciones de uno de los personajes sobre el mundo afecta al mundo que ve el otro personaje, es decir, es el mismo mundo. \\ \hline
-	Tiene que implementar un procedimiento que ejecute un guardado del estado del juego de manera permanente. \\ \hline
-	Tiene que implementar un procedimiento para la autenticación de usuarios. \\ \hline
 	
 	\caption{Juego didáctico. Requisitos no funcionales}
 	\label{tab:juego-req-nfunc}
 \end{tabularx}
 
-\subsection{Modelos}
+\subsection{Casos de uso}
 
-Teniendo en cuenta las características y los requisitos anteriores. El análisis completo del juego didáctico se muestra en el siguiente diagrama.
+Al igual que se ha hecho con Hephaestus, esta parte del proyecto cuenta con su diagrama de casos de uso derivado de los requisitos acotados para el juego didáctico y a partir del cual se realiza el análisis completo del mismo en la siguiente sección. En la figura \ref{fig:chap4_juego_casos_uso} se muestra dicho diagrama.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_juego/analisis_final_juego.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_juego/casos_uso_juego.png}
+	\caption{Diagrama de casos de uso del juego didáctico}
+	\label{fig:chap4_juego_casos_uso}
+\end{figure}
+
+\subsection{Modelos}
+
+Teniendo en cuenta las características y los requisitos anteriores. El análisis completo del juego didáctico se muestra en el diagrama representado en la figura \ref{fig:chap4_juego_final}.
+
+En este diagrama se aprecia cómo el juego no supone un análisis tan profundo como el motor debido a su sencillez. Además se aprecia como este depende de los diferentes módulos que proporciona el motor Hephaestus.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_juego/analisis_juego.png}
 	\caption{Diagrama de análisis juego didáctico}
 	\label{fig:chap4_juego_final}
 \end{figure}

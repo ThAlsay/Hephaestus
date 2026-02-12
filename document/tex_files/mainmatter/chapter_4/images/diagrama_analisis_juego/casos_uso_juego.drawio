@@ -1,0 +1,84 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="Casos de Uso Game" id="UseCaseGame">
+    <mxGraphModel dx="1426" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Sys_Hephaestus" parent="1" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" value="Juego" vertex="1">
+          <mxGeometry height="860" width="420" x="250" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="UC_Login" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Iniciar Sesión" vertex="1">
+          <mxGeometry height="60" width="140" x="35" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="UC_Save" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Guardar Partida" vertex="1">
+          <mxGeometry height="60" width="140" x="190" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="UC_Insp_Char" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Inspeccionar Personaje" vertex="1">
+          <mxGeometry height="60" width="150" x="170" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="UC_Insp_Loc" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Inspeccionar Ubicación" vertex="1">
+          <mxGeometry height="60" width="160" x="180" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="UC_Insp_Conn" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Inspeccionar Conexión" vertex="1">
+          <mxGeometry height="60" width="160" x="180" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="UC_Equip" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Equipar Objeto" vertex="1">
+          <mxGeometry height="60" width="140" x="190" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="UC_Take" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Coger Objeto" vertex="1">
+          <mxGeometry height="60" width="140" x="190" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="UC_Move" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Moverse" vertex="1">
+          <mxGeometry height="60" width="140" x="190" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="UC_Interact" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Interactuar con NPC" vertex="1">
+          <mxGeometry height="60" width="140" x="190" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="UC_Attack" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Atacar Enemigo" vertex="1">
+          <mxGeometry height="60" width="140" x="80" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="UC_Die" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Morir" vertex="1">
+          <mxGeometry height="50" width="120" x="260" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_Attack_Die" edge="1" parent="Sys_Hephaestus" source="UC_Die" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="UC_Attack" value="&amp;lt;include&amp;gt;">
+          <mxGeometry relative="1" x="-0.2999" y="-6" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Actor_Player" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Jugador" vertex="1">
+          <mxGeometry height="120" width="60" x="80" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_P_Login" edge="1" parent="1" source="Actor_Player" target="UC_Login">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_P_Save" edge="1" parent="1" source="Actor_Player" target="UC_Save">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_P_IChar" edge="1" parent="1" source="Actor_Player" target="UC_Insp_Char">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_P_ILoc" edge="1" parent="1" source="Actor_Player" target="UC_Insp_Loc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_P_IConn" edge="1" parent="1" source="Actor_Player" target="UC_Insp_Conn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_P_Equip" edge="1" parent="1" source="Actor_Player" target="UC_Equip">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_P_Take" edge="1" parent="1" source="Actor_Player" target="UC_Take">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_P_Move" edge="1" parent="1" source="Actor_Player" target="UC_Move">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_P_Interact" edge="1" parent="1" source="Actor_Player" target="UC_Interact">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_P_Attack" edge="1" parent="1" source="Actor_Player" target="UC_Attack">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

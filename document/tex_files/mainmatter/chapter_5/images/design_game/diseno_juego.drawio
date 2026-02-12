@@ -1,0 +1,184 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="Diseño Game Completo" id="GameFullDesign">
+    <mxGraphModel dx="3080" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="yioTxdpsl_bEEN9xEkL7-1" edge="1" parent="1" source="Class_GameApp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;" target="Class_Rpc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Class_GameApp" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Game.Application&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="112" width="320" x="-50" y="424" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_App_1" parent="Class_GameApp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ start(type, args)" vertex="1">
+          <mxGeometry height="26" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Sep_App" parent="Class_GameApp" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="320" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_App_2" parent="Class_GameApp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- connect_nodes_with_retry(nodes)" vertex="1">
+          <mxGeometry height="26" width="320" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_App_3" parent="Class_GameApp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- connect_node(node, attempts)" vertex="1">
+          <mxGeometry height="26" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="Class_Game" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Game" vertex="1">
+          <mxGeometry height="220" width="340" x="410" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_G_1" parent="Class_Game" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ start()" vertex="1">
+          <mxGeometry height="26" width="340" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_G_2" parent="Class_Game" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ routes()" vertex="1">
+          <mxGeometry height="26" width="340" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="Sep_G" parent="Class_Game" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="340" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_G_3" parent="Class_Game" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- init_connections(array, s)" vertex="1">
+          <mxGeometry height="26" width="340" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_G_4" parent="Class_Game" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- init_locations(array, s)" vertex="1">
+          <mxGeometry height="26" width="340" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_G_5" parent="Class_Game" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- init_objects(array, s)" vertex="1">
+          <mxGeometry height="26" width="340" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_G_6" parent="Class_Game" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- init_npcs(array, s)" vertex="1">
+          <mxGeometry height="26" width="340" y="168" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_G_7" parent="Class_Game" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- init_enemies(array)" vertex="1">
+          <mxGeometry height="26" width="340" y="194" as="geometry" />
+        </mxCell>
+        <mxCell id="Class_Rpc" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=36;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&amp;lt;&amp;lt;ThousandIsland&amp;gt;&amp;gt;&lt;/div&gt;Game.RpcHandler" vertex="1">
+          <mxGeometry height="408" width="340" x="410" y="384" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_1" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ handle_data(data, socket, state)" vertex="1">
+          <mxGeometry height="26" width="340" y="36" as="geometry" />
+        </mxCell>
+        <mxCell id="Sep_Rpc" parent="Class_Rpc" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="340" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_2" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- login(socket, user, pass, id)" vertex="1">
+          <mxGeometry height="26" width="340" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_3" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- inspect_character(socket, char, id)" vertex="1">
+          <mxGeometry height="26" width="340" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_4" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- inspect_current_location(sock, char, id)" vertex="1">
+          <mxGeometry height="26" width="340" y="122" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_5" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- take_object(sock, char, obj, id)" vertex="1">
+          <mxGeometry height="26" width="340" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_6" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- equip_object(sock, char, obj, id)" vertex="1">
+          <mxGeometry height="26" width="340" y="174" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_7" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- inspect_location(sock, char, conn, id)" vertex="1">
+          <mxGeometry height="26" width="340" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_8" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- cross_connection(sock, char, conn, id)" vertex="1">
+          <mxGeometry height="26" width="340" y="226" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_9" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- attack(sock, char, enemy, id)" vertex="1">
+          <mxGeometry height="26" width="340" y="252" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_10" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- interact(sock, char, npc, id)" vertex="1">
+          <mxGeometry height="26" width="340" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_11" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- move_character(sock, char, conn, loc, id)" vertex="1">
+          <mxGeometry height="26" width="340" y="304" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_12" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- get_total_damage(enemies)" vertex="1">
+          <mxGeometry height="26" width="340" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_13" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- response_wrapper(socket, result, id)" vertex="1">
+          <mxGeometry height="26" width="340" y="356" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_Rpc_14" parent="Class_Rpc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- error_wrapper(socket, code, reason, id)" vertex="1">
+          <mxGeometry height="26" width="340" y="382" as="geometry" />
+        </mxCell>
+        <mxCell id="Class_RChar" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&amp;lt;&amp;lt;Proxy&amp;gt;&amp;gt;&lt;/div&gt;Game.RemoteCharacterManager" vertex="1">
+          <mxGeometry height="404" width="280" x="1050" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_1" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ start_remote_character(char, node)" vertex="1">
+          <mxGeometry height="26" width="280" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_2" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ get_state(id)" vertex="1">
+          <mxGeometry height="26" width="280" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_3" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ get_current_location(id)" vertex="1">
+          <mxGeometry height="26" width="280" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_4" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ add_to_inventory(id, object)" vertex="1">
+          <mxGeometry height="26" width="280" y="118" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_5" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ equip_object(id, object, type)" vertex="1">
+          <mxGeometry height="26" width="280" y="144" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_6" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ get_inventory(id)" vertex="1">
+          <mxGeometry height="26" width="280" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_7" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ is_in_combat?(id)" vertex="1">
+          <mxGeometry height="26" width="280" y="196" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_8" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ get_attack_damage(id)" vertex="1">
+          <mxGeometry height="26" width="280" y="222" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_9" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ hit(id, dmg)" vertex="1">
+          <mxGeometry height="26" width="280" y="248" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_10" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ is_alive?(id)" vertex="1">
+          <mxGeometry height="26" width="280" y="274" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_11" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ change_combat_status(id, status)" vertex="1">
+          <mxGeometry height="26" width="280" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_12" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ get_level(id)" vertex="1">
+          <mxGeometry height="26" width="280" y="326" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_13" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ get_health(id)" vertex="1">
+          <mxGeometry height="26" width="280" y="352" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RC_14" parent="Class_RChar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ change_location(id, location)" vertex="1">
+          <mxGeometry height="26" width="280" y="378" as="geometry" />
+        </mxCell>
+        <mxCell id="Class_REnemy" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&amp;lt;&amp;lt;Proxy&amp;gt;&amp;gt;&lt;/div&gt;Game.RemoteEnemyManager" vertex="1">
+          <mxGeometry height="196" width="280" x="820" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RE_1" parent="Class_REnemy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ start_remote_enemy(enemy, node)" vertex="1">
+          <mxGeometry height="26" width="280" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RE_2" parent="Class_REnemy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ hit(id, dmg)" vertex="1">
+          <mxGeometry height="26" width="280" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RE_3" parent="Class_REnemy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ is_alive?(id)" vertex="1">
+          <mxGeometry height="26" width="280" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RE_4" parent="Class_REnemy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ get_attack_damage(id)" vertex="1">
+          <mxGeometry height="26" width="280" y="118" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RE_5" parent="Class_REnemy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ get_level(id)" vertex="1">
+          <mxGeometry height="26" width="280" y="144" as="geometry" />
+        </mxCell>
+        <mxCell id="Meth_RE_6" parent="Class_REnemy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ get_health(id)" vertex="1">
+          <mxGeometry height="26" width="280" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_App_Game" edge="1" parent="1" source="Class_GameApp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;curved=0;endArrow=open;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="Class_Game">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_Rpc_RChar" edge="1" parent="1" source="Meth_Rpc_3" style="rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=open;endFill=0;" target="Class_RChar">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_Rpc_REnemy" edge="1" parent="1" source="Class_Rpc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;curved=0;endArrow=open;endFill=0;" target="Class_REnemy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_Game_REnemy" edge="1" parent="1" source="Class_Game" style="rounded=0;edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;" target="Class_REnemy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yioTxdpsl_bEEN9xEkL7-2" edge="1" parent="1" source="Meth_G_2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=open;endFill=0;" target="Meth_RC_2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
