@@ -21,7 +21,7 @@ Para la situación del proyecto, lo más adecuado es emplear una metodología á
 	\item Responder a los cambios sobre seguir un plan rígido.
 \end{itemize}
 
-A partir de entonces múltiples metodologías han surgido siguiendo los principios de este manifiesto y poniéndolos en práctica de diferentes maneras.
+A partir de entonces, múltiples metodologías han surgido siguiendo los principios de este manifiesto y poniéndolos en práctica de diferentes maneras.
 
 Debido a las restricciones de personal y tiempo para el proyecto, la metodología empleada sigue algunos de los principios de las metodologías ágiles \textit{Atern} y \textit{Extreme Programming} tal y como se explican en el libro \textit{Software project management} \cite{hughes2009software}. Los principios que se siguen en el proyecto son los siguientes:
 
@@ -40,7 +40,19 @@ Con estos principios se pretende dar forma a la idea inicial planteada para el p
 
 Tal y como se ha explicado en el apartado anterior, la metodología empleada para el desarrollo del proyecto hace uso de prototipos iterativos para desarrollar cada una de las partes que conforman el conjunto completo del proyecto, las cuales forman parte del desarrollo incremental de la metodología. Por lo tanto, se tiene que hacer una distinción entre los entregables que pertenecen a la parte incremental de al metodología y aquellos que pertenecen a la parte iterativa. A partir de este punto, en el documento se referirá a aquellos elementos que pertenecen a la parte incremental mencionada como entregables y a aquellos que pertenecen a la parte iterativa como prototipos.
 
-El proyecto cuenta con tres entregables finales: El motor Hephaestus, un juego educativo y un conjunto de prácticas para alumnos de segundo curso del Grado de Ingeniería Informática de la Universidad de Valladolid, cursando la asignatura de Sistemas Distribuidos.
+El proyecto cuenta con tres entregables finales: El motor Hephaestus, un juego didáctico y un conjunto de prácticas para alumnos de segundo curso del Grado de Ingeniería Informática de la Universidad de Valladolid, cursando la asignatura de Sistemas Distribuidos.
+
+En el diagrama de la figura \ref{fig:chap2_pbs_diagram} se muestra el PBS (Project Breakdown Study) del proyecto. Este diagrama muestra las diferentes partes que componen todo el sistema o proyecto y, a su vez, en las subpartes en las que están divididas. Cada una de estas subpartes corresponde a un entregable del proyecto.
+
+Al tratarse de una metodología iterativa cada entregable pasa por varias versiones antes de decantarse por la final. Cada una de estas versiones corresponde a una iteración de ese entregable y produce un prototipo. En la planificación de este proyecto, cada iteración se estima en una duración de entre 1 y 2 semanas de trabajo, esto es debido a las restricciones laborales con las que cuenta el alumno a la hora de completar la iteración. Por eso mismo, y dependiendo de la cantidad de iteraciones necesarias para llegar a la versión final de un entregable, la ejecución del proyecto se alarga sustancialmente a lo largo del tiempo.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_2/images/pbs_diagram.png}
+	\caption{PBS del sistema}
+	\label{fig:chap2_pbs_diagram}
+\end{figure}
+
 
 \subsection{Hephaestus}
 
@@ -88,9 +100,9 @@ Prototipo final del motor, dando por finalizado este entregable. Se añaden func
 
 El entregable final, en comparación con el prototipo anterior, cuenta con utilidades para seleccionar turnos entre un personaje y un enemigo dependiendo de sus niveles y utilidades para encontrar rutas a partir del identificador de un \textit{GenServer} en una tabla de rutas, la cual contiene pares identificador-dirección del servidor en el que se encuentra el actor.
 
-\subsection{Juego educativo}
+\subsection{Juego didáctico}
 
-El juego educativo es el siguiente entregable después del motor, ya que hace uso de él. Se trata de un videojuego sencillo con dos partes distribuidas, los personajes jugables y los enemigos, de manera que se puede usar para enseñar el funcionamiento de estos sistemas. Cuenta con cuatro habitaciones por las que tiene que pasar el personaje, sin ser opcional ninguna, y presentan una oportunidad de enseñanza sobre algún concepto de los sistemas distribuidos y la programación de actores.
+El juego didáctico es el siguiente entregable después del motor, ya que hace uso de él. Se trata de un videojuego sencillo con dos partes distribuidas, los personajes jugables y los enemigos, de manera que se puede usar para enseñar el funcionamiento de estos sistemas. Cuenta con cuatro habitaciones por las que tiene que pasar el personaje, sin ser opcional ninguna, y presentan una oportunidad de enseñanza sobre algún concepto de los sistemas distribuidos y la programación de actores.
 
 La interfaz de juego está basada en un servidor TCP y comunicación mediante JSON-RPC (\ref{tecnologias}) y, al igual que el motor, pasa por varios prototipos para obtener el entregable final.
 

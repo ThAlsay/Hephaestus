@@ -4,13 +4,39 @@
 
 Tras el análisis realizado en el capítulo \ref{Cap4} se pasa a la fase de diseño del sistema. En concreto, este apartado trata sobre el diseño del motor Hephaestus. Al tratarse de la parte del proyecto más complicada, el apartado sobre el diseño se centra principalmente en este.
 
-En primer lugar se realiza el diagrama de clases del diseño completo del motor. Este diagrama completa el análisis realizado en el capítulo ya mencionado en el párrafo anterior.
+En primer lugar se realiza el diagrama de clases del diseño completo del motor. Este diagrama, mostrado en la figura \ref{fig:chap5_engine_class_diagram}, completa el análisis realizado en el capítulo ya mencionado en el párrafo anterior.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_engine/diseno_motor_final.png}
 	\caption{Diagrama de clases del motor Hephaestus}
 	\label{fig:chap5_engine_class_diagram}
+\end{figure}
+
+Una vez el diagrama de clases está completo se necesita establecer el comportamiento del sistema. Para ello, se cuenta con varios tipos de diagrama que permiten modelar el comportamiento del sistema. En este caso se opta por realizar diagramas de secuencia, por ser estos sobre los que mayor conocimiento se tiene.
+
+Los diagramas de secuencia modelan la secuencia, valga la redundancia, que ocurre a la hora de ejecutar un caso de uso. Debido a la cantidad de casos de uso, no corresponde colocar todos los diagramas dentro de este documento, todos los diagramas se pueden encontrar en el repositorio del proyecto, el cual se puede encontrar en los anexos de este documento.
+
+El primer diagrama, representado en la figura \ref{fig:chap5_change_location_secuence_diagram}, muestra el diseño para solucionar el caso de uso cambiar ubicación. Este caso de uso le corresponde a la pieza actor dentro del motor y es una acción asíncrona, tal y como se aprecia en el diagrama.
+
+El proceso de comunicación entre el juego y las piezas que conforman el motor se realiza mediante la biblioteca estándar de Elixir "GenServer", esta biblioteca proporciona procesos observables, con un estado interno modificable y persistentes durante la ejecución del programa, esto significa que el colector de basura no elimina estos procesos aunque estén en un estado de inactividad. Los "GenServers"  están formados por una API pública, empleada por el juego para enviar órdenes al motor, y el proceso interno del "GenServer", el cual se encarga de realizar las operaciones necesarias y actualiza el estado interno del proceso.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_engine/secuence_diagrams/change_location.png}
+	\caption{Diagrama de secuencia del caso de uso cambiar ubicación}
+	\label{fig:chap5_change_location_secuence_diagram}
+\end{figure}
+
+En el diseño anterior el caso de uso era completamente asíncrono. En el caso de uso de la figura \ref{fig:chap5_hit_secuence_diagram}, el mensaje enviado al "GenServer" es síncrono, por lo tanto el juego no puede continuar por ese hilo de ejecución hasta que reciba el mensaje de respuesta del servidor.
+
+Hay que destacar en este punto también, el comportamiento del "GenServer", el cual cuenta con las características de un sistema servidor en la arquitectura cliente-servidor. Recibe mensajes a través de la API pública que ya se ha mencionado, los guarda en una cola de mensajes y los va procesando por orden. La cola que emplea es una cola FIFO (First In First Out).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_engine/secuence_diagrams/hit.png}
+	\caption{Diagrama de secuencia del caso de uso herir}
+	\label{fig:chap5_hit_secuence_diagram}
 \end{figure}
 
 \section{Base de datos}
@@ -27,6 +53,39 @@ El diseño de la misma, por lo tanto, refleja la sencillez de esta labor a la ve
 \end{figure}
 
 \section{Juego didáctico}
+
+Una vez realizados el diseño del motor y de la base de datos, el siguiente diseño es el correspondiente al jeugo didáctico. Al igual que ha sucedido con el motor el diagrama mostrado en la figura \ref{fig:chap5_game_class_diagram} muestra el resultado final del diseño derivado del análisis realizado en el capítulo anterior.
+
+Hasta este momento el juego didáctico se ha nombrado así, como juego didáctico, en esta fase el juego toma mayor forma y ya no es un juego didáctico genérico, toma forma y, por lo tanto, se le nombra como Alfa desde este punto en adelante.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_game/diseno_juego.png}
+	\caption{Diagrama de clases de Alfa}
+	\label{fig:chap5_game_class_diagram}
+\end{figure}
+
+El diseño de Alfa requiere de un servidor con el que el jugador se pueda comunicar. Alfa emplea una librería externa que proporciona un servidor ya preparado para un contexto de producción, de esta manera el diseño solo se tiene que centrar en las primitivas que se proporcionan al usuario.
+
+Al igual que sucede con Hephaestus, Alfa requiere de varios diagramas de secuencia para definir su comportamiento completo. En este caso, todos los casos de uso corresponden a una primitiva a la que tiene acceso el jugador. Como en la sección anterior, todos los diagramas están disponibles en el repositorio, no siendo viable mostrarlos todos en esta documentación. La dirección al repositorio se encuentra en los anexos de este mismo documento.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_game/secuence_diagrams/inspect_current_location.png}
+	\caption{Diagrama de secuencia del caso de uso inspeccionar ubicación actual}
+	\label{fig:chap5_inspect_current_location_secuence_diagram}
+\end{figure}
+
+La figura \ref{fig:chap5_change_location_secuence_diagram} muestra el diagrama de secuencia mediante el cual se modela el caso de uso "inspeccionar ubicación actual". Alfa se comporta como un servidor para el jugador, el cual tiene que realizar peticiones mediante un cliente que envíe una petición, empleando el protocolo JSON-RPC, al servidor. Este, una vez recibida la petición, evalúa la primitiva que pretende emplear el usuario y deriva el flujo del programa hacia la sección del código dedicada a resolver dicha primitiva. Durante la resolución de la primitiva, y no antes, el juego hace uso de las piezas proporcionadas por el motor Hephaestus para gestionar el estado en tiempo real de la partida, este estado es volátil y no se almacena en la base de datos hasta que no se le indica al motor. Todo este proceso se muestra en el diagrama mencionado anteriormente.
+
+Uno de los puntos claves de cualquier videojuego es el inicio del propio juego, se tienen que cargar todos los elementos necesarios para jugar la partida previo al inicio de la misma. Existen múltiples estrategias donde elegir para realizar la carga de elementos, en el caso de Alfa se opta por cargar todos los actores relacionados con la partida pero no con el jugador, estos son los enemigos, ubicaciones, conexiones, objetos y NPCs, de esta manera el único actor que falta es el que dirige el rumbo del juego, el personaje. Como la partida puede estar empezado y encontrarse en un punto intermedio, la carga del estado de los actores se realiza desde la base de datos, la cual almacena el estado en el último punto de guardado. En la figura \ref{fig:chap5_start_game_session_secuence_diagram} se muestra como es el diseño del proceso descrito arriba.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_game/secuence_diagrams/start_game_session.png}
+	\caption{Diagrama de secuencia del caso de uso iniciar sesión de juego}
+	\label{fig:chap5_start_game_session_secuence_diagram}
+\end{figure}
 
 \section{Prácticas}
 

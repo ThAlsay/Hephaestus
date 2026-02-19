@@ -1,0 +1,81 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="Página-1" id="XgVkyGltDXbThWSwGKaN">
+    <mxGraphModel dx="983" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Actor_Game" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Juego" vertex="1">
+          <mxGeometry height="60" width="30" x="100" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Line_Game" edge="1" parent="1" source="Actor_Game" style="endArrow=none;dashed=1;html=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="115" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Obj_CharAPI" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":Engine.Character&#xa;(Client API)" vertex="1">
+          <mxGeometry height="400" width="160" x="260" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Act_API" parent="Obj_CharAPI" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
+          <mxGeometry height="260" width="10" x="75" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Obj_CharProc" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="CharacterProcess&#xa;(:GenServer)" vertex="1">
+          <mxGeometry height="400" width="160" x="580" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Act_Proc" parent="Obj_CharProc" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
+          <mxGeometry height="180" width="10" x="75" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Msg_1" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" target="Obj_CharAPI" value="hit(name, damage)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="115" y="130" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Msg_2" edge="1" parent="1" source="Obj_CharAPI" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" target="Obj_CharProc" value="GenServer.call(pid, {:hit, damage})">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="160" />
+            </Array>
+            <mxPoint x="340" y="160" as="sourcePoint" />
+            <mxPoint x="650" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Msg_3_Loop" edge="1" parent="1" source="Act_Proc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;" target="Act_Proc" value="new_health = state.health - damage">
+          <mxGeometry relative="1" x="0.0294" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="710" y="200" />
+              <mxPoint x="710" y="250" />
+            </Array>
+            <mxPoint x="665" y="200" as="sourcePoint" />
+            <mxPoint x="665" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Msg_4_Loop" edge="1" parent="1" source="Act_Proc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;" target="Act_Proc" value="update_state(health: new_health)">
+          <mxGeometry relative="1" x="0.0294" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="710" y="260" />
+              <mxPoint x="710" y="310" />
+            </Array>
+            <mxPoint x="665" y="260" as="sourcePoint" />
+            <mxPoint x="665" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Msg_5" edge="1" parent="1" source="Obj_CharProc" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" target="Obj_CharAPI" value="{:reply, new_health, new_state}">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="510" y="330" />
+            </Array>
+            <mxPoint x="650" y="330" as="sourcePoint" />
+            <mxPoint x="350" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Msg_6" edge="1" parent="1" source="Obj_CharAPI" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" value="new_health">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="330" y="360" as="sourcePoint" />
+            <mxPoint x="115" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

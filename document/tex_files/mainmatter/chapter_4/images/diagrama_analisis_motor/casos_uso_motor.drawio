@@ -5,82 +5,66 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="Actor_Game" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Juego" vertex="1">
-          <mxGeometry height="80" width="40" x="190" y="555" as="geometry" />
+          <mxGeometry height="80" width="40" x="40" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="Actor_DB" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Base de Datos" vertex="1">
+          <mxGeometry height="80" width="40" x="870" y="70" as="geometry" />
         </mxCell>
         <mxCell id="Sys_Engine" parent="1" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" value="Engine API" vertex="1">
-          <mxGeometry height="1020" width="530" x="340" y="140" as="geometry" />
+          <mxGeometry height="870" width="610" x="160" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="UC_Auth" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;" value="Autenticar/Crear Usuario" vertex="1">
-          <mxGeometry height="50" width="160" x="260" y="40" as="geometry" />
+        <mxCell id="UC_Auth" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;" value="Autenticar/Crear Usuario" vertex="1">
+          <mxGeometry height="50" width="160" x="60" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="UC_Persistence" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;" value="Cargar/Guardar Estado" vertex="1">
-          <mxGeometry height="50" width="160" x="260" y="100" as="geometry" />
+        <mxCell id="UC_Persistence" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;" value="Cargar/Guardar Estado" vertex="1">
+          <mxGeometry height="50" width="160" x="150" y="90" as="geometry" />
         </mxCell>
-        <mxCell id="UC_Create" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;" value="Crear Entidad (Factory)" vertex="1">
-          <mxGeometry height="50" width="160" x="260" y="170" as="geometry" />
+        <mxCell id="UC_Create" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=light-dark(#666666,#FEFEFE);" value="Crear Entidad (Factory)" vertex="1">
+          <mxGeometry height="50" width="160" x="200" y="150" as="geometry" />
         </mxCell>
         <mxCell id="UC_Char_Exp" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Añadir Experiencia" vertex="1">
-          <mxGeometry height="50" width="150" x="270" y="230" as="geometry" />
-        </mxCell>
-        <mxCell id="UC_Char_Inv" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Modificar Inventario" vertex="1">
-          <mxGeometry height="50" width="150" x="280" y="300" as="geometry" />
+          <mxGeometry height="50" width="150" x="330" y="790" as="geometry" />
         </mxCell>
         <mxCell id="UC_Char_Loc" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Cambiar Ubicación" vertex="1">
-          <mxGeometry height="50" width="150" x="275" y="450" as="geometry" />
+          <mxGeometry height="50" width="150" x="330" y="700" as="geometry" />
         </mxCell>
-        <mxCell id="UC_Char_Combat" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Cambiar Estado Combate" vertex="1">
-          <mxGeometry height="50" width="150" x="275" y="520" as="geometry" />
+        <mxCell id="UC_Enemy_Read" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Consultar Estado" vertex="1">
+          <mxGeometry height="50" width="150" x="300" y="220" as="geometry" />
         </mxCell>
         <mxCell id="UC_Enemy_Hit" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Herir" vertex="1">
-          <mxGeometry height="50" width="150" x="280" y="380" as="geometry" />
+          <mxGeometry height="50" width="150" x="330" y="385" as="geometry" />
         </mxCell>
-        <mxCell id="UC_NPC_Read" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Consultar Estado" vertex="1">
-          <mxGeometry height="50" width="150" x="235" y="740" as="geometry" />
-        </mxCell>
-        <mxCell id="UC_NPC_Interact" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Interactuar&#xa;(interact)" vertex="1">
-          <mxGeometry height="50" width="150" x="270" y="600" as="geometry" />
+        <mxCell id="UC_NPC_Interact" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Interactuar" vertex="1">
+          <mxGeometry height="50" width="150" x="330" y="480" as="geometry" />
         </mxCell>
         <mxCell id="UC_NPC_Limit" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Modificar Límite" vertex="1">
-          <mxGeometry height="50" width="150" x="250" y="670" as="geometry" />
+          <mxGeometry height="50" width="150" x="330" y="540" as="geometry" />
         </mxCell>
-        <mxCell id="UC_Loc_Read" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Consultar Contenido" vertex="1">
-          <mxGeometry height="50" width="150" x="50" y="950" as="geometry" />
-        </mxCell>
-        <mxCell id="UC_Loc_Mod" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Modificar Contenido" vertex="1">
-          <mxGeometry height="50" width="150" x="115" y="880" as="geometry" />
+        <mxCell id="UC_Loc_Mod" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Modificar Estado" vertex="1">
+          <mxGeometry height="50" width="150" x="320" y="290" as="geometry" />
         </mxCell>
         <mxCell id="UC_Conn_Next" parent="Sys_Engine" style="ellipse;whiteSpace=wrap;html=1;" value="Obtener Siguiente&#xa;Ubicación" vertex="1">
-          <mxGeometry height="50" width="150" x="165" y="810" as="geometry" />
+          <mxGeometry height="50" width="150" x="330" y="620" as="geometry" />
         </mxCell>
-        <mxCell id="R_C1" edge="1" parent="1" source="Actor_Game" style="entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="UC_Auth">
+        <mxCell id="R_C1" edge="1" parent="1" source="Actor_Game" target="UC_Auth">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="R_C2" edge="1" parent="1" source="Actor_Game" style="entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="UC_Persistence">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="517" y="273" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="R_C2" edge="1" parent="1" source="Actor_Game" target="UC_Persistence">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="R_C3" edge="1" parent="1" source="Actor_Game" style="entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="UC_Create">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="512" y="332" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="R_C3" edge="1" parent="1" source="Actor_Game" target="UC_Create">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="R_Ch3" edge="1" parent="1" source="Actor_Game" target="UC_Char_Exp">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="R_Ch4" edge="1" parent="1" source="Actor_Game" target="UC_Char_Inv">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="R_Ch5" edge="1" parent="1" source="Actor_Game" target="UC_Char_Loc">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="R_Ch6" edge="1" parent="1" source="Actor_Game" target="UC_Char_Combat">
+        <mxCell id="R_En1" edge="1" parent="1" source="Actor_Game" target="UC_Enemy_Read">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="R_En2" edge="1" parent="1" source="Actor_Game" target="UC_Enemy_Hit">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="R_Np1" edge="1" parent="1" source="Actor_Game" target="UC_NPC_Read">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="R_Np2" edge="1" parent="1" source="Actor_Game" target="UC_NPC_Interact">
@@ -89,30 +73,81 @@
         <mxCell id="R_Np3" edge="1" parent="1" source="Actor_Game" target="UC_NPC_Limit">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="R_Lc1" edge="1" parent="1" source="Actor_Game" target="UC_Loc_Read">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="R_Lc2" edge="1" parent="1" source="Actor_Game" target="UC_Loc_Mod">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="R_Cn2" edge="1" parent="1" source="Actor_Game" target="UC_Conn_Next">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="R_DB1" edge="1" parent="1" source="UC_Auth" style="entryX=0;entryY=0;entryDx=0;entryDy=27.5;entryPerimeter=0;" target="-xCaYjN2UBH9d9F7_EB_-1">
+        <mxCell id="R_DB1" edge="1" parent="1" source="UC_Auth" target="Actor_DB">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="R_DB2" edge="1" parent="1" source="UC_Persistence" target="Actor_DB">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-25" edge="1" parent="1" source="ITD4AZtUsk9m0ToKtASm-1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1020" y="228.6111111111111" as="targetPoint" />
+            <mxPoint x="890" y="480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="R_DB2" edge="1" parent="1" source="UC_Persistence" style="entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="-xCaYjN2UBH9d9F7_EB_-1">
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-1" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Personaje" vertex="1">
+          <mxGeometry height="80" width="40" x="870" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-2" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Entidad" vertex="1">
+          <mxGeometry height="80" width="40" x="870" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-24" edge="1" parent="1" source="ITD4AZtUsk9m0ToKtASm-8" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1020" y="231.94444444444434" as="targetPoint" />
+            <mxPoint x="890" y="310" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="-xCaYjN2UBH9d9F7_EB_-1" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
-          <mxGeometry height="80" width="60" x="920" y="190" as="geometry" />
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-8" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Ubicación" vertex="1">
+          <mxGeometry height="80" width="40" x="1080" y="630" as="geometry" />
         </mxCell>
-        <mxCell id="-xCaYjN2UBH9d9F7_EB_-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="Base de datos" vertex="1">
-          <mxGeometry height="30" width="100" x="900" y="280" as="geometry" />
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-22" edge="1" parent="1" source="ITD4AZtUsk9m0ToKtASm-10" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="890" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-10" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="NPC" vertex="1">
+          <mxGeometry height="80" width="40" x="970" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-12" edge="1" parent="1" source="UC_Create" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="ITD4AZtUsk9m0ToKtASm-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1080" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-13" edge="1" parent="1" source="UC_Enemy_Read" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="ITD4AZtUsk9m0ToKtASm-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-14" edge="1" parent="1" source="UC_Loc_Mod" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="ITD4AZtUsk9m0ToKtASm-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-15" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Con vida" vertex="1">
+          <mxGeometry height="80" width="40" x="870" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-16" edge="1" parent="1" source="UC_Enemy_Hit" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="ITD4AZtUsk9m0ToKtASm-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-18" edge="1" parent="1" source="ITD4AZtUsk9m0ToKtASm-15" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="890" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-20" edge="1" parent="1" source="UC_NPC_Interact" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="ITD4AZtUsk9m0ToKtASm-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-21" edge="1" parent="1" source="UC_NPC_Limit" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="ITD4AZtUsk9m0ToKtASm-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-23" edge="1" parent="1" source="UC_Conn_Next" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="ITD4AZtUsk9m0ToKtASm-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-26" edge="1" parent="1" source="UC_Char_Loc" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="ITD4AZtUsk9m0ToKtASm-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ITD4AZtUsk9m0ToKtASm-29" edge="1" parent="1" source="UC_Char_Exp" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="ITD4AZtUsk9m0ToKtASm-1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

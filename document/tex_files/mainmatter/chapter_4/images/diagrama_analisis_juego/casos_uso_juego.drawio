@@ -5,45 +5,48 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="Sys_Hephaestus" parent="1" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" value="Juego" vertex="1">
-          <mxGeometry height="860" width="420" x="250" y="40" as="geometry" />
+          <mxGeometry height="930" width="420" x="260" y="60" as="geometry" />
         </mxCell>
         <mxCell id="UC_Login" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Iniciar Sesión" vertex="1">
-          <mxGeometry height="60" width="140" x="35" y="40" as="geometry" />
+          <mxGeometry height="60" width="140" x="190" y="120" as="geometry" />
         </mxCell>
         <mxCell id="UC_Save" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Guardar Partida" vertex="1">
-          <mxGeometry height="60" width="140" x="190" y="50" as="geometry" />
+          <mxGeometry height="60" width="140" x="205" y="190" as="geometry" />
         </mxCell>
         <mxCell id="UC_Insp_Char" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Inspeccionar Personaje" vertex="1">
-          <mxGeometry height="60" width="150" x="170" y="150" as="geometry" />
+          <mxGeometry height="60" width="150" x="200" y="270" as="geometry" />
         </mxCell>
         <mxCell id="UC_Insp_Loc" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Inspeccionar Ubicación" vertex="1">
-          <mxGeometry height="60" width="160" x="180" y="230" as="geometry" />
+          <mxGeometry height="60" width="160" x="200" y="340" as="geometry" />
         </mxCell>
         <mxCell id="UC_Insp_Conn" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Inspeccionar Conexión" vertex="1">
-          <mxGeometry height="60" width="160" x="180" y="310" as="geometry" />
+          <mxGeometry height="60" width="160" x="200" y="410" as="geometry" />
         </mxCell>
         <mxCell id="UC_Equip" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Equipar Objeto" vertex="1">
-          <mxGeometry height="60" width="140" x="190" y="390" as="geometry" />
+          <mxGeometry height="60" width="140" x="190" y="480" as="geometry" />
         </mxCell>
         <mxCell id="UC_Take" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Coger Objeto" vertex="1">
-          <mxGeometry height="60" width="140" x="190" y="470" as="geometry" />
+          <mxGeometry height="60" width="140" x="180" y="550" as="geometry" />
         </mxCell>
         <mxCell id="UC_Move" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Moverse" vertex="1">
-          <mxGeometry height="60" width="140" x="190" y="550" as="geometry" />
+          <mxGeometry height="60" width="140" x="154" y="630" as="geometry" />
         </mxCell>
         <mxCell id="UC_Interact" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Interactuar con NPC" vertex="1">
-          <mxGeometry height="60" width="140" x="190" y="640" as="geometry" />
+          <mxGeometry height="60" width="140" x="120" y="700" as="geometry" />
         </mxCell>
         <mxCell id="UC_Attack" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Atacar Enemigo" vertex="1">
-          <mxGeometry height="60" width="140" x="80" y="720" as="geometry" />
+          <mxGeometry height="60" width="140" x="70" y="780" as="geometry" />
         </mxCell>
         <mxCell id="UC_Die" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Morir" vertex="1">
-          <mxGeometry height="50" width="120" x="260" y="770" as="geometry" />
+          <mxGeometry height="50" width="120" x="250" y="850" as="geometry" />
         </mxCell>
         <mxCell id="Rel_Attack_Die" edge="1" parent="Sys_Hephaestus" source="UC_Die" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="UC_Attack" value="&amp;lt;include&amp;gt;">
           <mxGeometry relative="1" x="-0.2999" y="-6" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-1" parent="Sys_Hephaestus" style="ellipse;whiteSpace=wrap;html=1;" value="Iniciar Sesión de Juego" vertex="1">
+          <mxGeometry height="60" width="140" x="154" y="40" as="geometry" />
         </mxCell>
         <mxCell id="Actor_Player" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Jugador" vertex="1">
           <mxGeometry height="120" width="60" x="80" y="350" as="geometry" />
@@ -76,6 +79,51 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Rel_P_Attack" edge="1" parent="1" source="Actor_Player" target="UC_Attack">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-2" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Hephaestus" vertex="1">
+          <mxGeometry height="120" width="60" x="990" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-3" edge="1" parent="1" source="DlVGiI4G1MEBoYBJD7JE-1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="DlVGiI4G1MEBoYBJD7JE-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="730" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-4" edge="1" parent="1" source="UC_Login" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="DlVGiI4G1MEBoYBJD7JE-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-5" edge="1" parent="1" source="UC_Save" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="DlVGiI4G1MEBoYBJD7JE-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="950" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-6" edge="1" parent="1" source="UC_Insp_Char" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="DlVGiI4G1MEBoYBJD7JE-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-7" edge="1" parent="1" source="UC_Insp_Loc" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="DlVGiI4G1MEBoYBJD7JE-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="950" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-8" edge="1" parent="1" source="UC_Insp_Conn" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="DlVGiI4G1MEBoYBJD7JE-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-9" edge="1" parent="1" source="UC_Equip" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="DlVGiI4G1MEBoYBJD7JE-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-10" edge="1" parent="1" source="UC_Take" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="DlVGiI4G1MEBoYBJD7JE-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-11" edge="1" parent="1" source="UC_Move" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="DlVGiI4G1MEBoYBJD7JE-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-12" edge="1" parent="1" source="UC_Interact" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="DlVGiI4G1MEBoYBJD7JE-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-13" edge="1" parent="1" source="UC_Attack" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="DlVGiI4G1MEBoYBJD7JE-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DlVGiI4G1MEBoYBJD7JE-14" edge="1" parent="1" source="UC_Die" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="DlVGiI4G1MEBoYBJD7JE-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>

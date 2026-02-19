@@ -1,0 +1,70 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="Página-1" id="GZcJrU1kmGZG0Gjr5NdC">
+    <mxGraphModel dx="983" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Actor_Game" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Juego" vertex="1">
+          <mxGeometry height="60" width="30" x="120" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Line_Game" edge="1" parent="1" source="Actor_Game" style="endArrow=none;dashed=1;html=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="135" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Obj_CharAPI" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":Engine.Character&#xa;(Client API)" vertex="1">
+          <mxGeometry height="400" width="160" x="280" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Act_API" parent="Obj_CharAPI" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
+          <mxGeometry height="80" width="10" x="75" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Obj_CharProc" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="CharacterProcess&#xa;(:GenServer)" vertex="1">
+          <mxGeometry height="400" width="160" x="600" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Act_Proc" parent="Obj_CharProc" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
+          <mxGeometry height="140" width="10" x="75" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="Msg_5_Loop" edge="1" parent="Obj_CharProc" source="Act_Proc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;" target="Act_Proc" value="update_state(state, location)">
+          <mxGeometry relative="1" x="0.0063" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="130" y="230" />
+              <mxPoint x="130" y="290" />
+            </Array>
+            <mxPoint x="90" y="230" as="sourcePoint" />
+            <mxPoint x="90" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Msg_1" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" target="Obj_CharAPI" value="change_location(name, location)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="135" y="140" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Msg_2" edge="1" parent="1" source="Obj_CharAPI" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" target="Obj_CharProc" value="GenServer.cast(pid, {:change_location, location})">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="170" />
+            </Array>
+            <mxPoint x="360" y="170" as="sourcePoint" />
+            <mxPoint x="670" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Msg_3" edge="1" parent="1" source="Obj_CharProc" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" value=":ok">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="530" y="200" />
+            </Array>
+            <mxPoint x="670" y="200" as="sourcePoint" />
+            <mxPoint x="360" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Msg_4" edge="1" parent="1" source="Obj_CharAPI" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" value=":ok">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="355" y="220" as="sourcePoint" />
+            <mxPoint x="135" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
