@@ -68,13 +68,27 @@ Con esta descripción como base, a continuación se muestran las tablas de requi
 
 \subsection{Casos de uso}
 
-Una vez se han determinado los requisitos de esta parte del proyecto, se acotan los casos de uso a implementar durante el transcurso de todo el proyecto. El diagrama \ref{fig:chap4_motor_casos_uso} muestra los casos de uso del motor Hephaestus. Gracias a los casos de uso se puede tomar un métrica del estado del proyecto, si todos los casos de uso están implementados este se puede dar por finalizado.
+Una vez se han determinado los requisitos de esta parte del proyecto, se acotan los casos de uso a implementar durante el transcurso de todo el proyecto. Los diagramas \ref{fig:chap4_motor_casos_uso_1}, \ref{fig:chap4_motor_casos_uso_2} y \ref{fig:chap4_motor_casos_uso_3} muestran los casos de uso del motor Hephaestus. Se divide el diagrama en varios subdiagramas debido al tamaño que tendría un único diagrama con todos los casos de uso de Hephaestus, de esta manera se consigue una mejor legibilidad de los casos de uso. Gracias a los casos de uso se puede tomar un métrica del estado del proyecto, si todos los casos de uso están implementados este se puede dar por finalizado.
 
-\begin{figure}[h]
+\begin{figure}[p]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/casos_uso_motor.png}
-	\caption{Diagrama de casos de uso de Hephaestus}
-	\label{fig:chap4_motor_casos_uso}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/casos_uso_motor_1.png}
+	\caption{Diagrama de casos de uso de Hephaestus (Base de datos y Enemigo)}
+	\label{fig:chap4_motor_casos_uso_1}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/casos_uso_motor_2.png}
+	\caption{Diagrama de casos de uso de Hephaestus (Conexión, Objeto y Personaje)}
+	\label{fig:chap4_motor_casos_uso_2}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/casos_uso_motor_3.png}
+	\caption{Diagrama de casos de uso de Hephaestus (Ubicación y NPC)}
+	\label{fig:chap4_motor_casos_uso_3}
 \end{figure}
 
 \subsection{Modelos}
@@ -125,6 +139,8 @@ Al tratarse de un foco menor respecto a Hephaestus, el análisis del juego didá
 El juego didáctico se caracteriza por actuar como servidor para clientes creados por los alumnos, mediante los cuales se puede resolver el juego. Es fundamental que se adapte a las necesidades del curso en el que se emplea.
 
 Por lo tanto las siguientes listas muestran los requisitos funcionales y no funcionales del juego didáctico.
+
+\vspace{1cm}
 
 \begin{tabularx}{\textwidth}{|X|}
 	\hline

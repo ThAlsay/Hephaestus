@@ -38,13 +38,13 @@ Con estos principios se pretende dar forma a la idea inicial planteada para el p
 
 \section{Entregables}
 
-Tal y como se ha explicado en el apartado anterior, la metodología empleada para el desarrollo del proyecto hace uso de prototipos iterativos para desarrollar cada una de las partes que conforman el conjunto completo del proyecto, las cuales forman parte del desarrollo incremental de la metodología. Por lo tanto, se tiene que hacer una distinción entre los entregables que pertenecen a la parte incremental de al metodología y aquellos que pertenecen a la parte iterativa. A partir de este punto, en el documento se referirá a aquellos elementos que pertenecen a la parte incremental mencionada como entregables y a aquellos que pertenecen a la parte iterativa como prototipos.
+Tal y como se ha explicado en el apartado anterior, la metodología empleada para el desarrollo del proyecto hace uso de prototipos iterativos para desarrollar cada una de las partes que conforman el conjunto completo del proyecto, las cuales forman parte del desarrollo incremental de la metodología. Por lo tanto, se tiene que hacer una distinción entre los entregables que pertenecen a la parte incremental de la metodología y aquellos que pertenecen a la parte iterativa. A partir de este punto, en el documento se referirá a aquellos elementos que pertenecen a la parte incremental mencionada como entregables y a aquellos que pertenecen a la parte iterativa como prototipos.
 
-El proyecto cuenta con tres entregables finales: El motor Hephaestus, un juego didáctico y un conjunto de prácticas para alumnos de segundo curso del Grado de Ingeniería Informática de la Universidad de Valladolid, cursando la asignatura de Sistemas Distribuidos.
+El proyecto cuenta con cinco partes finales: El motor Hephaestus, un juego didáctico, un conjunto de prácticas para alumnos de segundo curso del Grado de Ingeniería Informática de la Universidad de Valladolid, cursando la asignatura de Sistemas Distribuidos, una página web con la documentación necesaria para usar Hephaestus como motor de un videojuego y todos los archivos necesarios para la distribución del proyecto.
 
-En el diagrama de la figura \ref{fig:chap2_pbs_diagram} se muestra el PBS (Project Breakdown Study) del proyecto. Este diagrama muestra las diferentes partes que componen todo el sistema o proyecto y, a su vez, en las subpartes en las que están divididas. Cada una de estas subpartes corresponde a un entregable del proyecto.
+En el diagrama de la figura \ref{fig:chap2_pbs_diagram} se muestra el PBS (Project Breakdown Study) del proyecto. Este diagrama muestra las diferentes partes que componen todo el sistema o proyecto, así como los entregables que conforman cada una de las partes. 
 
-Al tratarse de una metodología iterativa cada entregable pasa por varias versiones antes de decantarse por la final. Cada una de estas versiones corresponde a una iteración de ese entregable y produce un prototipo. En la planificación de este proyecto, cada iteración se estima en una duración de entre 1 y 2 semanas de trabajo, esto es debido a las restricciones laborales con las que cuenta el alumno a la hora de completar la iteración. Por eso mismo, y dependiendo de la cantidad de iteraciones necesarias para llegar a la versión final de un entregable, la ejecución del proyecto se alarga sustancialmente a lo largo del tiempo.
+Al tratarse de una metodología iterativa cada entregable pasa por varias versiones antes de decantarse por la final. Cada una de estas versiones corresponde a una iteración de ese entregable y produce un prototipo. En la planificación de este proyecto, cada iteración se estima en una duración de una semana de trabajo, esto es debido a las restricciones laborales con las que cuenta el alumno a la hora de completar la iteración. Por eso mismo, y dependiendo de la cantidad de iteraciones necesarias para llegar a la versión final de un entregable, la ejecución del proyecto se alarga sustancialmente a lo largo del tiempo.
 
 \begin{figure}[h]
 	\centering
@@ -56,254 +56,259 @@ Al tratarse de una metodología iterativa cada entregable pasa por varias versio
 
 \subsection{Hephaestus}
 
-El motor de videojuegos Hephaestus, cuyas características a alto nivel se han detallado en la sección \ref{objetivos}, es la pieza central del proyecto, por lo tanto, es lógico que sea el primer entregable de dicho proyecto. El motor final se trata de un conjunto de piezas ya configuradas para su uso en un videojuego, a la vez que contiene utilidades básicas para el manejo del estado del juego, elección de turnos, supervisión de procesos o enrutamiento de procesos distribuidos.
+El motor de videojuegos Hephaestus, cuyas características a alto nivel se han detallado en la sección \ref{objetivos}, es la pieza central del proyectoo. El motor final se trata de un conjunto de piezas ya configuradas para su uso en un videojuego, a la vez que contiene utilidades básicas para el manejo del estado del juego, elección de turnos, supervisión de procesos o enrutamiento de procesos distribuidos. Todos estos elementos forman el conjunto de entregables que conforman Hephaestus. Cada una de las piezas, ya preparadas para representar un elemento clásico de los juegos RPG, se consideran un entregable de Hephaestus, dando lugar a los siguientes seis entregables: Personaje, enemigo, NPC, objeto, ubicación y conexión. A estos seis entregables se les añade otros dos que abarcan tanto las utilidades para leer y modificar la base de datos, como todas las utilidades referentes a la ayuda prestada al desarrollador de videojuegos y que implementan elementos comunes de los juegos de este tipo.
 
-\subsubsection{Primer prototipo}
+\subsubsection{Personaje}
 
-Se toma como primera aproximación al motor un prototipo mínimo implementando una pieza mínima del motor, mediante actores, con algunas funciones simples encargadas de modificar el estado interno del actor. Además, se emplea la supervisión de procesos propia de Elixir para el control de procesos vivos como son los actores.
+Primer entregable de Hephaestus. El personaje representa la entidad jugable del sistema, toda modificación del estado del juego que se produzca por la acción de un jugador tiene que pasar por el personaje de ese mismo jugador y será esta situación la única que provoque que el personaje realice una acción. Esto no implica que el escenario no pueda cambiar por acciones externas al jugador, otros tipos de elementos del juego pueden disparar cambios en el estado del juego sin necesidad de recibir una acción por parte del jugador.
 
-Mediante este prototipo se adquiere conocimiento sobre la implementación de actores en Elixir empleando la biblioteca estándar \textit{GenServer}. También, se obtiene conocimiento sobre el empleo de supervisores de las bibliotecas estándar \textit{Supervisor} y \textit{DynamicSupervisor}.
+A nivel técnico el personaje actúa como un actor dentro del sistema del juego. El control del estado del mismo lo tiene el motor Hephaestus, el cual recibe órdenes por parte del juego didáctico. A nivel de código este entregable supone el primer contacto con un nuevo lenguaje de programación y varios conceptos nuevos, por lo tanto se planifican cinco prototipos para este entregable. De esta manera se asegura la correcta asimilación de todos los conocimientos necesarios. De este modo se sacrifica tiempo en realizar más prototipos de los que pueden ser necesarios con el fin de reducir el número de prototipos en los siguientes entregables, pues todos hacen uso de las mismas tecnologías.
 
-\subsubsection{Segundo prototipo}
+\subsubsection{Enemigo}
 
-La evolución lógica al primer prototipo es ampliar la pieza anterior para finalizar su implementación y obtener la pieza final. Esta primera pieza implementa un elemento básico en cualquier videojuego como es el personaje.
+El siguiente entregable de Hephaestus es el actor que representa un enemigo en el sistema. Un enemigo representa una entidad opuesta al personaje, al entrar ambos en contacto dentro del juego estos pueden, a elección del desarrollador del videojuego, entrar en un estado de combate y reducir al vida que tienen ambos a base de golpes al contrario. Por ello estos dos actores son los únicos que cuentan con una estadística de vida. Por estos motivos, tanto el personaje como el enemigo son actores que deben contar con la posibilidad de recibir mensajes que permitan al contrario modificar su estado interno.
 
-A partir de este prototipo se finaliza la implementación de la pieza personaje del motor. Esta pieza está lista para ser utilizada por un juego ya que contiene todas las funciones necesarias para la modificación de su estado interno, así como para devolver información sobre dicho estado.
+A nivel técnico el enemigo es un actor, como ya se ha mencionado, por lo tanto se beneficia del conocimiento obtenido en el entregable anterior. Gracias a eso a la hora de planificar el tiempo y número de prototipos que pueden llegar a ser necesarios para implementar el entregable se reduce en gran medida. Con el fin de asegurar la correcta implementación en caso de fallo, al entregable se le asignan dos prototipos o iteraciones.
 
-\subsubsection{Tercer prototipo}
+\subsubsection{NPC}
 
-Una vez se ha adquirido el conocimiento necesario para la implementación de una de las piezas que proporciona Hephaestus al juego, la implementación del resto de piezas se convierte en algo trivial. Siguiendo esta premisa el tercer prototipo está formado por esto mismo, el resto de piezas que Hephaestus proporciona.
+Al igual que los anteriores entregables, el NPC es también un actor del cual Hephaestus está encargado de controlar su funcionamiento. Un NPC representa un personaje no jugable con el cual se puede interactuar. Por su definición el NPC tiene que permitir a los actores que se lo soliciten iniciar una interacción con él. El resultado de dicha interacción dependerá totalmente del desarrollador que haga uso del motor, por lo tanto el código ha de estar preparado para admitir una gran variedad de posibilidades como resultado a la acción de interactuar. Además de la flexibilidad a la hora de resolver la interacción, cabe la posibilidad de que el desarrollador limite el número de interacciones que permite el NPC.
 
-El prototipo finaliza con el siguiente conjunto de piezas: Personaje, conexión, enemigo, ubicación, NPC y objeto. Además se adquiere conocimiento sobre la comunicación entre actores.
+A nivel técnico es idéntico a los dos entregables anteriores, por consiguiente se le asignan el mismo número de iteraciones que al entregable del enemigo, dos. De la misma manera que en el entregable anterior, la segunda iteración establece un colchón en caso de error al realizar la implementación durante el primer prototipo.
 
-\subsubsection{Cuarto prototipo}
+\subsubsection{Objeto}
 
-Una vez finalizadas las piezas que proporciona Hephaestus, el motor también tiene que incluir ayudas para la gestión del estado del juego, esto es, almacenar permanentemente el estado global de la partida. Para ello se hace uso de una base de datos relacional. Este prototipo es lo mínimo necesario para interactuar desde Elixir con una base de datos.
+A continuación, el siguiente entregable consta del cuarto actor con el que cuenta el motor Hephaestus, el objeto. Un objeto es una entidad que puede ser entregada por otra entidad y que se puede almacenar en el inventario del actor personaje. Además un objeto puede ser volátil, una vez usado desaparece, o equipable, no desaparece una vez empleado y puede desequiparse y volver al inventario. Dependiendo del tipo de objeto utilizará una estadísticas u otras para desempeñar su papel, teniendo en cuenta que el tipo y utilidad del objeto se dejan a valoración del desarrollador del videojuego.
 
-Se adquiere el conocimiento necesario para conectarse con una base de datos Postgresql, así como, insertar, leer y modificar datos de la misma. En este prototipo todavía no se puede almacenar los datos del juego.
+Al igual que los actores anteriores, a nivel técnico la implementación no difiere demasiado del resto de actores que se han planificado hasta este momento, por ello, al igual que en el entregable anterior, el periodo de tiempo previsto para la implementación del entregable es de dos iteraciones.
 
-\subsubsection{Quinto prototipo}
+\subsubsection{Ubicación}
 
-A partir del prototipo anterior, el paso lógico es almacenar el estado del juego en la base de datos y leerlo de vuelta cuando sea necesario.
+Continuando con los actores que ofrece Hephaestus, el siguiente en la planificación es la ubicación. Una ubicación define los emplazamientos sobre los que transcurre el juego. Por ello el resto de actores están colocados en una de estas ubicaciones. A elección del desarrollador un actor puede cambiar su ubicación durante el transcurso de la partida, el ejemplo más claro es el personaje, el cual necesita de esta característica para avanzar por el mapa del juego.
 
-Se crean las funciones necesarias para este cometido. El resultado permite guardar el estado de todos los actores activos en el momento que se utiliza la función e iniciar los actores almacenados con el estado guardado. Incluye funciones auxiliares para leer únicamente un tipo de pieza, en caso de ser relevante para el juego construido.
+Siguiendo la línea del resto de entregables anteriores, a nivel técnico la ubicación se implementa de la misma manera que los entregables vistos hasta este momento y, al igual que con el resto de entregables, se le planifican dos iteraciones para la ejecución del entregable.
 
-\subsubsection{Sexto prototipo}
+\subsubsection{Conexión}
 
-Una función fundamental relacionada con la base de datos es el manejo de los usuarios, la cual no es tratada en el prototipo anterior. En este el objetivo es, precisamente, permitir la creación de nuevos usuarios, con sus respectivos personajes, y, una vez estén creados, que puedan identificarse y obtener su personaje. También se tiene que modificar la función de guardado del juego para que modifique el estado del personaje del jugador que ha guardado la partida.
+El último de los actores proporcionados y controlados por Hephaestus. Una conexión permite viajar entre ubicaciones, pudiendo tener restricciones para realizar dicho viaje. El viaje se realiza entre dos ubicaciones contiguas cuya contigüidad se determina por el hecho de ser ambas dependientes de la misma conexión.
 
-Al finalizar el prototipo, un juego creado con este prototipo tiene a su disposición todo lo necesario para crear un juego, ya que cuenta tanto con las piezas, las cuales están preparadas para ser empleadas de forma distribuida, para crear el juego como con las utilidades necesarias para guardar el estado de la partida.
+A nivel técnico este es último entregable con características parecidas a los ya tratados hasta ahora, por lo tanto es el último beneficiado por el trabajo realizado en el primer entregable y al que se le estiman dos prototipos para los trabajos de implementación.
 
-\subsubsection{Séptimo prototipo}
+\subsubsection{Base de datos}
 
-Prototipo final del motor, dando por finalizado este entregable. Se añaden funciones auxiliares para facilitar el desarrollo de juegos de rol distribuidos, evitando al desarrollador la implementación de estas funciones.
+La planificación de este entregable incluye todas las funciones necesarias para transferir el estado del juego al almacenamiento permanente de la base de datos. Además del guardado y carga de la partida, se necesitan otras funciones relacionadas con la base de datos, las cuales facilitan todo el control de acceso a los personajes por parte de los jugadores.
 
-El entregable final, en comparación con el prototipo anterior, cuenta con utilidades para seleccionar turnos entre un personaje y un enemigo dependiendo de sus niveles y utilidades para encontrar rutas a partir del identificador de un \textit{GenServer} en una tabla de rutas, la cual contiene pares identificador-dirección del servidor en el que se encuentra el actor.
+A nivel técnico, el manejo de base de datos es un problema ya resuelto a muchos niveles en el mundo de la informática. Por lo tanto, al no tratarse de un problema nuevo y simplemente necesitar de la adaptación correcta al lenguaje empleado, tres prototipos para la implementación del entregable, optando por una visión pesimista, son suficientes.
+
+\subsubsection{Utilidades}
+
+El último entregable de Hephaestus y, posiblemente, el más sencillo. En el entregable de utilidades se agrupan todas las funciones que puedan ser de utilidad para el desarrollador de videojuegos y ahorren tiempo de desarrollo de los proyectos que empleen Hephaestus.
+
+El entregable a nivel técnico supone un conjunto de funciones ya preparadas y separadas en módulos para su utilización. Con el fin de resolver el problema, se establece un límite de dos iteraciones para la implementación del entregable, en las cuales se prioriza las funciones necesarias para el resto de partes del proyecto.
 
 \subsection{Juego didáctico}
 
-El juego didáctico es el siguiente entregable después del motor, ya que hace uso de él. Se trata de un videojuego sencillo con dos partes distribuidas, los personajes jugables y los enemigos, de manera que se puede usar para enseñar el funcionamiento de estos sistemas. Cuenta con cuatro habitaciones por las que tiene que pasar el personaje, sin ser opcional ninguna, y presentan una oportunidad de enseñanza sobre algún concepto de los sistemas distribuidos y la programación de actores.
+El juego didáctico es la siguiente pieza del proyecto después del motor. Ya que hace uso de él, el juego didáctico depende directamente de los actores y funciones que proporcione Hephaestus. Debido a la dependencia directa que tiene el juego respecto a Hephaestus, supone la evolución de este último a lo largo del desarrollo del juego. De esta manera el desarrollo de los prototipos de ambas partes se entrelazan a lo largo del tiempo de ejecución del proyecto. 
+
+Se trata de un videojuego sencillo con dos partes distribuidas, los personajes jugables y los enemigos, de manera que se puede usar para enseñar el funcionamiento de estos sistemas. Cuenta con cuatro habitaciones por las que tiene que pasar el personaje, sin ser opcional ninguna, y presentan una oportunidad de enseñanza sobre algún concepto de los sistemas distribuidos y la programación de actores.
 
 La interfaz de juego está basada en un servidor TCP y comunicación mediante JSON-RPC (\ref{tecnologias}) y, al igual que el motor, pasa por varios prototipos para obtener el entregable final.
 
-\subsubsection{Primer prototipo}
+\subsubsection{Servidor}
 
-Para comenzar a implementar un juego se tiene que diseñar en primer lugar, este diseño se puede ver con más detalle en el \ref{Cap5}. Del entregable anterior se tiene el formato a seguir para que el motor pueda leer de la base de datos el juego.
+La estructura del proyecto obliga al jugador a emplear uno o varios clientes para comunicarse con el juego. Por lo tanto el juego ha de ser un servidor que pueda recibir instrucciones por parte de los clientes. Las características de este servidor incluyen admitir peticiones mediante TCP/IP, emplear el protocolo JSON-RPC y estar preparado para un entorno profesional con varias peticiones concurrentes y múltiples usuarios.
 
-Se obtiene una traducción del diseño del videojuego a JSON siguiendo el esquema que lee el motor.
+A nivel técnico el servidor supone la combinación de múltiples tecnologías con el fin de devolver la respuesta correcta al mensaje recibido. Para ello se necesita recibir el mensaje, deserializarlo, interpretar que acción se requiere para resolver el mensaje, solicitar al handler correcto el resultado de la acción, esperar dicho resultado, serializar el resultado y, por último, devolverlo. Toda esta secuencia es muy común en el ámbito web y por tanto no faltan recursos para solucionar el problema. Aún con toda la documentación, el hecho de preparar el servidor para soportar cargas de trabajo propias de producción supone un trabajo extra que hay que tener en cuenta a la hora de planificar su asignación de iteraciones. Teniendo todo esto en cuenta, y la posibilidad de emplear bibliotecas externas para esta labor se establecen dos iteraciones para la ejecución de esta parte del proyecto.
 
-\subsubsection{Segundo prototipo}
+\subsubsection{Handlers}
 
-La base de cualquier juego es poder jugarlo, para que esto sea posible en este es necesario el empleo de un servidor TCP. Por ello, el primer prototipo es un simple servidor TCP.
+En el entregable anterior se hace mención a los handlers. Los handlers son los encargados de resolver un mensaje concreto recibido por el servidor, dados los datos necesarios para la labor. El servidor es el encargado de solicitar la resolución de un mensaje al handler específico y estos devuelven el resultado al servidor, por lo tanto, toda la lógica de negocio para poder superar el videojuego recae sobre los handlers. A la hora de resolver el resultado los handlers tienen que interactuar con el motor y mandarle instrucciones para modificar el estado de la partida.
 
-El resultado del prototipo es una variación del servidor TCP que presenta la propia documentación de Elixir \cite{elixir_tcp_server}. Dicha variación permite al servidor admitir diferentes rutas y no solamente actuar como un servidor eco, tal y como lo presenta el ejemplo.
+A nivel técnico este entregable abarca toda al lógica necesaria para poder jugar al videojuego, por lo tanto es uno de los entregables con más contenido. Además, hay una gran variedad de escenarios que se necesitan tener en cuenta con el fin de cubrir todas las posibilidades. Pero, por otro lado, la sencillez del juego reduce la carga de trabajo en mayor medida. Teniendo todo en cuenta, la estimación de tiempo y prototipos para este entregable se establece en cuatro prototipos. 
 
+\subsubsection{Gestores de elementos remotos}
 
-\subsubsection{Tercer Prototipo}
+El último entregable de esta parte del proyecto son los gestores de elementos remotos. Uno de los objetivos del juego es enseñar a los alumnos el funcionamiento de sistemas distribuidos y, para ello, el juego se trata como uno de estos sistemas. Los actores del juego están distribuidos entre varias máquinas independientes, tal y como se requiere en un sistema distribuido, y para poder mantener la comunicación con los actores alojados en máquinas diferentes a la que está alojado el juego este requiere de la ayuda de un gestor de elementos remotos. Estos gestores se encargan de buscar a los actores por la red que se les indique, comprobar que estos están conectados, enviar la petición que requiera el handler y devolver la respuesta que reciban del elemento remoto.
 
-Una vez existe un servidor TCP que admite diferentes rutas, se tienen que preparar dichas rutas para admitir únicamente JSON-RPC. Este protocolo sigue un formato estricto y cualquier petición que llegue la cual no lo siga tiene que ser rechazada.
-
-De este prototipo se obtiene un servidor TCP funcional y concurrente, el cual solo admite peticiones que sigan el protocolo JSON-RPC con algunas rutas sin funcionalidad real del juego.
-
-\subsubsection{Cuarto Prototipo}
-
-Con todo el conocimiento adquirido mediante los prototipos anteriores se está preparado para implementar las rutas en el servidor necesarias para poder superar el juego que se ha diseñado.
-
-Este prototipo permite por primera vez jugar al juego de manera no distribuida.
-
-\subsubsection{Quinto prototipo}
-
-Uno de los requisitos del videojuego es que este tenga partes distribuidas. Para ello se necesitan controladores para cada una de las piezas que se tienen que distribuir en diferentes servidores, en este caso se necesitan controladores para los personajes y los enemigos.
-
-Llegado este punto el juego está ya disponible para poder ser jugado en ambas modalidades, tanto distribuida como no distribuida. Pero, aún así, el entregable no es final.
-
-\subsubsection{Sexto prototipo}
-
-El servidor TCP creado en el primer prototipo sirve como forma de aprendizaje, pero, como el propio equipo de desarrollo de Elixir explica, no está pensado para producción. Por lo tanto se requiere de una refactorización de la parte del servidor y las rutas del mismo para prepararlo de cara a producción.
-
-La biblioteca que se selecciona para la refactorización es \textit{Thousand Island} \cite{thousand_island}. La refactorización del código adaptándolo a esta nueva biblioteca permite la eliminación completa del código del servidor, ya que lo implementa la propia biblioteca. También resulta en una simplificación de las rutas del servidor, disminuyendo la cantidad de código necesaria para hacer lo mismo.
-
-Tras esta refactorización, el juego se da por terminado, siendo este prototipo la versión final del entregable.
+Este último entregable no requiere de mucho tiempo ya que los gestores son una abstracción de lógica común que se repite en varios handlers y que se puede concentrar en un módulo propio. Hay que tener en cuenta además que los únicos actores que cuentan con máquinas propias son los enemigos y los personajes, por lo tanto solo son necesarios gestores para estos dos tipo de elementos remotos, el resto de actores se ejecutan en la misma máquina en la que corre el juego. Por estas razones, se planifican tres iteraciones para completar este entregable.
 
 \subsection{Prácticas para alumnos}
 
-El siguiente entregable del proyecto consiste en tres prácticas pensadas para reforzar conocimientos obtenidos en segundo curso del Grado de Ingeniería Informática de la Universidad de Valladolid, concretamente, conocimientos de la asignatura de Sistemas Distribuidos. Además de las prácticas el entregable consta de toda la documentación necesaria para que el alumno pueda poner en funcionamiento el juego y de las soluciones a estas.
+A los dos apartados anteriores les sigue este, las prácticas para los alumnos del segundo curso de ingeniería informática en la Universidad de Valladolid. Estas prácticas se plantean como una serie de retos a resolver por el alumno haciendo uso de clientes escritos en Java. Todo ello con la excusa de finalizar el juego didáctico planteado en la sección anterior.
 
-\subsubsection{Primer prototipo}
+Las prácticas consisten en una serie de documentos que describen las labores que tendrá que realizar el alumno con el fin de completar la práctica correspondiente al documento, además de todas las instrucciones necesarias para poner en funcionamiento el juego en el estado correcto para comenzar la práctica. Además de la práctica escrita se incluye una serie de documentos de código Java con la posible solución de cada una de las prácticas. Estos documentos no corresponden a una solución única, sino a una de las múltiples opciones mediante las cuales se pueden resolver.
 
-Se inicia la secuencia de iteración creando la primera práctica, esta propone al alumno una introducción a la arquitectura de distribución cliente-servidor y al protocolo JSON-RPC.
+\subsubsection{Práctica introductoria}
 
-Se trata de una primera toma de contacto con un documento didáctico para futuros desarrolladores. Por lo tanto el resultado pone en contexto la idea por la que se mueve la práctica sin llegar a producir un documento didáctico completo.
+La primera práctica con la que se encuentra el alumno no se trata de una práctica per se. Consiste en un documento introductorio que incluye un resumen del resto de las prácticas, dando una visión global al alumno de lo que se va a encontrar a lo largo de las sesiones. Complementando la introducción a las prácticas, este documento ofrece un listado de todas las tecnologías necesarias para poder desarrollar las prácticas, así como las instrucciones para operar el despliegue del juego en una máquina local.
 
-\subsubsection{Segundo prototipo}
+Al tratarse de un documento didáctico, supone un área nueva de conocimiento, por lo tanto requiere de un lenguaje y una estructura de documento diferente a lo acostumbrado. Por este motivo y por ser la primera de las prácticas se planifican dos iteraciones para este entregable, dando margen a poder realizar retoques al lenguaje empleado.
 
-Una vez la idea de la primera práctica está planteada, se tiene que modificar el documento anterior para que sea adecuado para el usuario objetivo.
+\subsubsection{Práctica 1}
 
-Se produce un documento satisfactorio para el nivel del alumno, obteniendo a su vez conocimiento sobre la estructura de un documento de estas características.
+Una vez realiza la introducción, el siguiente entregable comprende la primera de las prácticas. En esta práctica se le presentan al alumno elementos fundamentales de la comunicación cliente-servidor que se va a emplear durante todas las prácticas, de esta manera el alumno adquiere los conocimientos básicos necesarios para superar las prácticas. Entre estos conocimientos básicos se encuentra también el funcionamiento del protocolo JSON-RPC, la otra pieza fundamental en la comunicación entre los cliente Java y juego, que actúa como servidor.
 
-\subsubsection{Tercer prototipo}
+Al tratarse de un nuevo documento didáctico, la novedad supuesta en el entregable anterior se considera subsanada en este. Por lo tanto la necesidad de iteraciones dedicadas a la finalización del entregable se reduce drásticamente. Teniendo esto en cuenta se planifican una única iteración.
 
-Con el conocimiento anterior, se plantea en este prototipo las otras dos prácticas. La segunda práctica del conjunto de tres trata del empleo de actores en los sistemas distribuidos y de las colas de mensajes, elemento fundamental en el funcionamiento de los actores. La tercera y última práctica se adentra en la programación de actores haciendo uso de Hephaestus y permitiendo al alumno modificarlo.
+\subsubsection{Práctica 2}
 
-Se crean dos documentos didácticos empleando el conocimiento adquirido con los dos prototipos anteriores. Se finaliza de esta forma todos los documentos referentes a las tres prácticas, pero no es el final del entregable, puesto que faltan las soluciones y el documento de puesta en marcha.
+A continuación de la primera práctica se le muestra a los alumnos el funcionamiento interno de los actores en un sistema distribuido. Esto enmarca la segunda práctica y el segundo entregable del proyecto. Un actor en un sistema distribuido son unidades de cómputo que representan una parte de la lógica de la aplicación. El control de estos actores recae sobre el motor y el juego hace uso de dicho motor para enviar mensajes a los actores. Son un elemento fundamental en muchos sistemas distribuidos y, por lo tanto, parte del temario de la asignatura. Mediante esta práctica se pretende que el alumno afiance los conocimientos obtenidos sobre los actores mediante la puesta en práctica.
 
-\subsubsection{Cuarto prototipo}
+Siendo igualmente un documento didáctico sigue la misma planificación del entregable anterior. Una única iteración se considera suficiente teniendo en cuenta el conocimiento adquirido con anterioridad.
 
-Es importante tener una referencia de cómo se resuelven las prácticas, de esta forma también se asegura que estas se puedan resolver y no sean imposibles. Debido a que el lenguaje de estudio manejado por la institución es Java, todo código no referente a Hephaestus o el juego se escribe en este lenguaje de programación.
+\subsubsection{Práctica 3}
 
-Como resultado se crean tres archivos Java con la solución a cada práctica, otros dos archivos Java con ejemplos para ilustrar algunos conceptos presentados en dichas prácticas y un archivo, también Java, con utilidades para iniciar el juego y sesión con alguno de los personajes.
+Este entregable consta de la última práctica a la que tendrán que hacer frente los alumnos. En esta última práctica se pretende enseñar al alumno un poco más sobre el funcionamiento interno de Hephaestus. Esto permite una ligera introducción a un lenguaje de programación al que el alumno no se ha enfrentado previamente, con un paradigma completamente diferente a lo habitual durante la carrera. Además muestra al alumno como se implementan los actores en un caso real, poniendo en perspectiva lo aprendido y mostrando la utilidad real de la teoría vista en clase.
 
-\subsubsection{Quinto prototipo}
+Al igual que el resto de entregables vistos en esta sección hasta ahora, la tercera práctica se trata de un documento didáctico con las instrucciones necesarias para realizar la práctica. Por ello, se le planifican las mismas iteraciones que a las otras dos prácticas, un prototipo.
 
-El último prototipo del entregable es otro documento escrito que sirve como introducción a la sección de las prácticas de la asignatura en la cual este proyecto se emplea.
+\subsubsection{Soluciones}
 
-Siguiendo el formato de los tres documentos didácticos anteriores, se crea la práctica cero en la cual se explica lo que se va a hacer a lo largo de las tres prácticas siguientes, se hace una descripción del videojuego, qué tecnologías se van a emplear durante el desarrollo de dichas prácticas y cómo se pone en marcha todo el proyecto.
+Al igual que se proporciona documentación para proponer unas prácticas de laboratorio a los alumnos, es también necesario proporcionar una posible solución al docente con el fin de facilitar la labor de corrección. Cada práctica cuenta con su solución, la cual consiste en un cliente Java que envía los mensajes necesarios para solucionar la práctica.
 
-Mediante este prototipo se da por finalizado este tercer entregable, cumpliendo así todos los requisitos del proyecto.
+La elección de Java como lenguaje de programación para estas soluciones se realiza para que la realización de estas prácticas no suponga un cambio radical para el alumno. Hasta este momento el lenguaje empleado por las prácticas de la asignatura es Java y, al tratarse estas prácticas parte de todo el conjunto de prácticas de la asignatura, de esta manera se continua haciendo uso del mismo lenguaje.
+
+Este entregable consta de tres soluciones, las cuales hacen uso de Java por primera vez en el proyecto, las cuales tienen que ser correctas. Por este motivo, se planifican dos iteraciones de las soluciones.
+
+\subsubsection{Código auxiliar}
+
+Al igual que se proporciona el código de las soluciones al docente, los alumnos pueden necesitar ciertos ejecutables con el fin de facilitar el transcurso de las prácticas o visualizar alguna explicación dada en estas. Por ello se proporcionan varios ficheros Java con ejemplos de código visto en las prácticas y listo para se ejecutado. Además se proporciona un fichero de utilidades pensado para simplificar el inicio de sesión y el guardado de la partida al alumno.
+
+Estos ficheros no difieren mucho del código entregado en el apartado anterior y puede hacer uso del conocimiento adquirido en dicho apartado para necesitar menos prototipos a la hora de implementar el entregable. Por ello, se planifica una iteración, debido a que se retroalimenta del conocimiento obtenido en entregables anteriores.
+
+\subsection{Documentación web}
+
+La siguiente parte del proyecto consiste en una página web orientada hacia desarrolladores externos, en este caso no para mejorar el motor sino para desarrollar videojuegos empleando el motor. Con el objetivo de documentar el funcionamiento de todas las partes del motor que sean relevantes para un desarrollador de videojuego, se emplea la biblioteca \textit{docsify} \cite{docsify} escrita en Javascript. Esta biblioteca permite escribir documentos Markdown y servirlos como páginas estáticas web, simplificando el proceso de documentación.
+
+El empleo de markdown como lenguaje de documentación permite la portabilidad de toda la documentación al formato físico de ser necesario, pues markdown cuenta con la posibilidad de convertir el fichero en un PDF.
+
+\subsubsection{Documentación para el desarrollo de videojuegos}
+
+El entregable supone un esfuerzo de selección y documentación exhaustivo. El objetivo de este entregable no es documentar todo el código de Hephaestus, sino seleccionar las partes que son necesarias para el desarrollo de un videojuego y describir sus capacidades y el funcionamiento. No se pretende detallar el funcionamiento exacto a nivel técnico de todos y cada uno de los módulos que componen el motor.
+
+Como ya se ha mencionado el empleo de la biblioteca \textit{docsify} permite la escritura de la documentación en markdown, además todo lo relacionado con la navegación propia de una página web también lo autogenera la propia biblioteca. Esto reduce en gran medida las decisiones a tomar en áreas como aspecto de la página web o reactividad de los diferentes componentes que conforman la página web, decisiones naturales a la hora de enfrentar un desarrollo web. Todo lo relacionado con la parte web se genera mediante la biblioteca, dejando únicamente como incertidumbre la estructura que va a seguir la documentación.
+
+Teniendo en cuenta todo lo mencionado, el resumen del trabajo a realizar en este entregable consiste en seleccionar y documentar las partes de Hephaestus que sean relevantes a la hora de realizar un desarrollo de un videojuego, estructurar la documentación de manera que sea fácilmente navegable en un contexto web y configurar la biblioteca para que autogenere la página web de manera correcta.
+
+Al tratarse de una labor de documentación extensa y un proceso arduo de selección, siendo mitigada por el hecho de no ser una labor de una complejidad elevada, por lo tanto, se planifican dos iteraciones para concluir este entregable del proyecto.
 
 \subsection{Distribución}
 
-Tal y como se explicó en la metodología empleada, esta nos permite añadir nuevos entregables al final de la línea temporal de ser necesario. En este caso, tras la finalización del proyecto surge la duda de la distribución del mismo. Esto se materializa como un nuevo entregable.
+El último punto, fundamental en el desarrollo de un proyecto, es como se va a distribuir el mismo. La distribución del proyecto tiene que posibilitar el acceso al mismo a toda persona interesada en el. En este caso, el juego tiene que estar disponible para los alumnos y el motor del juego para el público en general.
 
-Mediante este entregable se resuelve el problema de simular un sistema distribuido dentro de la máquina empleada por el alumno, así como la distribución del motor y el juego a los mismos alumnos o a cualquier usuario que así lo requiera. Para ello se hace uso de la tecnología Docker.
+Además del método de distribución, la tecnología empleada con el fin de empaquetar el código tiene que permitir la simulación de un sistema distribuido en un entorno local. Esto se puede conseguir mediante máquinas virtuales, pero estas suponen una cantidad demasiado grande de configuración por parte del alumno como para ser viables, en el contexto de los alumnos de segundo grado. La siguiente opción, y la escogida para este proyecto, es Docker. Docker es una tecnología que permite crear contenedores dentro de la máquina física que ejecutan un sistema operativo en su interior, teniendo la ventaja con una máquina virtual tradicional de que es fácilmente reproducible y distribuible.
 
-\subsubsection{Primer prototipo}
+\subsubsection{Imagen Hephaestus}
 
-Se crea un archivo imagen de Docker de manera que el juego se pueda ejecutar haciendo uso de esa imagen.
+Con el fin de levantar un contenedor y que ejecute el programa correspondiente es necesario crear una imagen de dicho contenedor primero. Esta imagen permite a Docker saber que comandos tiene que ejecutar y en que orden con el fin de poner en funcionamiento el contenedor. La imagen contiene también el código necesario para la ejecución.
 
-Como resultado, se crea el archivo Dockerfile necesario para la construcción de la imagen del juego. Esta imagen contiene tanto el juego como el motor, ya que es una dependencia del propio juego.
+En primer lugar, es necesario crear una imagen del motor Hephaestus, con el fin de distribuirla a quien la requiera y, concretamente, para usarla en nuestro entorno distribuido local controlando los actores remotos.
 
-\subsubsection{Segundo prototipo}
+Elixir es un lenguaje que no está relacionado comúnmente con Docker, debido a que pierde una de sus fortalezas al emplear este entorno de ejecución, el hot swapping de código. Como esta característica no es de utilidad para el proyecto, el empleo de Docker no supone un problema, pero significa que la documentación que se puede encontrar para realizar la labor de crear una imagen Docker ejecutando un programa escrito en Elixir es escasa. Por ese motivo, se le asignan dos iteraciones al entregable, permitiendo pulir la imagen final para que ocupe el menor espacio posible.
 
-Mediante la imagen creada anteriormente no es posible emplear una arquitectura distribuida, ya que usar múltiples veces la imagen daría lugar a tener varias copias del videojuego incomunicadas entre sí, no a tener un videojuego distribuido. Teniendo en cuenta que el juego se dedica a organizar las piezas que le proporciona el motor, lo que se necesita para distribuir el videojuego es una imagen del motor Hephaestus.
+\subsubsection{Imagen juego didáctico}
 
-Gracias al conocimiento obtenido en el prototipo anterior, la creación de una imagen Docker del motor es una tarea trivial.
+Al igual que sucede con el entregable anterior, el juego didáctico necesita una imagen propia para poder ser ejecutado en el entorno distribuido local de los alumnos. La única característica diferente respecto a la imagen del motor consiste en tener que indicar a Docker que se el código ejecutado se trata de un servidor y, por lo tanto, tiene que hacer uso de un puerto para poder comunicarse. Por defecto los contenedores Docker, si no se les indica los contrario, se ejecutan en su propia red virtual y, si se quiere comunicar con la máquina local o con el exterior, hay que indicar que puerto se quiere enlazar.
 
-\subsubsection{Tercer prototipo}
+Debido a que el conocimiento en creación de imágenes Docker obtenido en el entregable anterior es completamente reutilizable para este entregable. La planificación de prototipos se limita a un único prototipo.
 
-Con las dos imágenes Docker ya creadas, se finaliza el entregable creando un archivo \textit{docker-compose} el cual emplee dichas imágenes para simular un sistema distribuido dentro de la misma máquina.
+\subsubsection{Archivo docker-compose}
 
-El resultado se trata de un fichero el cual al ejecutarse mediante Docker levanta dos imágenes del motor y otra más del juego. Además se incluye también la imagen de la base de datos, para hacer más portable el proyecto.
+La tecnología que permite a Docker ser reproducible en cualquier entorno que tenga instalado su motor se denomina Docker Compose. Con el fin de que los alumnos tengan todos el mismo punto de inicio para realizar las prácticas, ya configurado y preparado para estas mismas, se tiene que crear un fichero docker-compose que reproduzca la misma secuencia de inicio de contenedores para todos los alumnos. Este fichero debe levantar y configurar dos contenedores del motor que actúen como máquinas remotas al juego, un contenedor del juego que permita recibir peticiones por el puerto correspondiente y un contenedor de la base de datos para almacenar el estado del juego de forma permanente.
 
-\subsubsection{Cuarto prototipo}
-
-Al tratarse de un juego distribuido es importante definir las rutas dentro del juego, para que este pueda iniciar cada pieza en la máquina correcta.
-
-Se modifica el código del juego de manera que se emplean rutas hacia la máquina encargada de los personajes para los personajes y, hacia la máquina encargada de los enemigos para los enemigos.
-
-Con esta refactorización del código del videojuego se da por finalizado este entregable.
-
-\subsection{Web de documentación para desarrolladores de videojuegos}
-
-El último entregable del proyecto se trata de una expansión hacia desarrolladores externos, en este caso no para mejorar el motor sino para desarrollar videojuegos empleando el motor. Con ese objetivo se crea una página web empleando la biblioteca \textit{docsify} \cite{docsify} escrita en Javascript. Esta biblioteca permite escribir documentos Markdown y servirlos como páginas estáticas web.
-
-\subsubsection{Primer prototipo}
-
-Se prueba el funcionamiento de la navegación haciendo uso de la biblioteca. Esto es especialmente importante debido a que la biblioteca hace uso de un archivo especial en el cual se tienen que describir las rutas a los archivos creados.
-
-Resulta en una página web inicial con varios documentos Markdown como prueba para navegar entre ellos. Se observa que es más sencillo agrupar cada uno de los grupos de documentación en su propio archivo, aunque este sea largo, y emplear las cabeceras para navegación.
-
-\subsubsection{Segundo prototipo}
-
-Se crea la página web final, haciendo uso del conocimiento obtenido en el prototipo anterior, con la descripción necesaria de los elementos disponibles en el motor para la creación de videojuegos.
-
-El entregable final cuenta con tres ficheros Markdown en los cuales se describe las piezas proporcionadas por Hephaestus, así como las funciones que estas tienen para poder interactuar con ellas desde Elixir; una descripción sobre cómo está diseñado el motor, con el fin de guiar a los desarrolladores a la hora de crear un juego y una introducción sobre Hephaestus, su origen y motivación.
+Al contrario que ocurre con la creación de las imágenes, la documentación para la creación de archivos docker-compose está ampliamente documentada y estandarizada. Por este motivo, una iteración es suficiente a la hora de planificar la implementación del entregable.
 
 \section{Organización temporal}
 
 Tal y como se ha mencionado en la sección \ref{methodology}, el proyecto está dividido en varios entregables, los cuales a su vez están divididos en varios prototipos. Cada uno de estos prototipos requiere de una retroalimentación con el fin de corregir problemas que puedan haber surgido o, establecer el nuevo camino por el que avanzar una vez el prototipo está finalizado.
 
-En la medida de lo posible, todas las semanas se organiza una reunión entre el tutor y el alumno para que este último ponga en conocimiento común el proceso seguido y el estado del proyecto. En estas reuniones se establece el prototipo que se debe crear para la siguiente reunión, ya sea una corrección del prototipo anterior o el siguiente prototipo necesario para la finalización del entregable actual.
+En la medida de lo posible, cada una o dos semanas se organiza una reunión entre el tutor y el alumno para que este último ponga en conocimiento común el proceso seguido y el estado del proyecto. En estas reuniones se establece el estado del prototipo actual y se determina si se da por terminado el entregable o se tiene que realizar un nuevo prototipo mejorando lo presentado en el anterior.
+
+\vspace{1cm}
 
 \begin{longtable}[c]{|l|cc|}
 	\hline
-	\textbf{Evento} & \multicolumn{1}{c|}{\textbf{Fecha Inicio}} & \textbf{Fecha Fin} \\ \hline
+	Evento & \multicolumn{1}{c|}{Fecha Inicio} & Fecha Fin \\ \hline
 	\endfirsthead
 	%
 	\endhead
 	%
 	Reunión inicial sobre el proyecto & \multicolumn{2}{c|}{13/02/2025} \\ \hline
-	Investigación inicial & \multicolumn{1}{c|}{13/02/2025} & 26/02/2025 \\ \hline
+	Investigación inicial & \multicolumn{1}{c|}{13/02/2025} & 27/02/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{27/02/2025} \\ \hline
-	Hephaestus, prototipo 1 & \multicolumn{1}{c|}{27/02/2025} & 05/03/2025 \\ \hline
+	Hephaestus, Personaje & \multicolumn{1}{c|}{27/02/2025} & 03/04/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{06/03/2025} \\ \hline
-	Hephaestus, prototipo 2 & \multicolumn{1}{c|}{06/03/2025} & 12/03/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{13/03/2025} \\ \hline
-	Hephaestus, prototipo 3 & \multicolumn{1}{c|}{13/03/2025} & 19/03/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{20/03/2025} \\ \hline
-	Hephaestus, prototipo 4 & \multicolumn{1}{c|}{20/03/2025} & 26/03/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{27/03/2025} \\ \hline
-	Hephaestus, prototipo 5 & \multicolumn{1}{c|}{27/03/2025} & 02/04/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{03/04/2025} \\ \hline
-	Hephaestus, prototipo 6 & \multicolumn{1}{c|}{03/04/2025} & 09/04/2025 \\ \hline
+	Hephaestus, Enemigo & \multicolumn{1}{c|}{03/04/2025} & 24/04/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{10/04/2025} \\ \hline
-	Hephaestus, prototipo 7 & \multicolumn{1}{c|}{10/04/2025} & 23/04/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{24/04/2025} \\ \hline
-	Juego, prototipo 1 & \multicolumn{1}{c|}{24/04/2025} & 07/05/2025 \\ \hline
+	Hephaestus, NPC & \multicolumn{1}{c|}{24/04/2025} & 08/05/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{30/04/2025} \\ \hline
 	Reunión & \multicolumn{2}{c|}{08/05/2025} \\ \hline
-	Juego, prototipo 2 & \multicolumn{1}{c|}{08/05/2025} & 14/05/2025 \\ \hline
+	Hephaestus, Objeto & \multicolumn{1}{c|}{08/05/2025} & 22/05/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{15/05/2025} \\ \hline
-	Juego, prototipo 3 & \multicolumn{1}{c|}{15/05/2025} & 21/05/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{22/05/2025} \\ \hline
-	Juego, prototipo 4 & \multicolumn{1}{c|}{22/05/2025} & 28/05/2025 \\ \hline
+	Hephaestus, Ubicación & \multicolumn{1}{c|}{22/05/2025} & 05/06/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{29/05/2025} \\ \hline
-	Juego, prototipo 5 & \multicolumn{1}{c|}{29/05/2025} & 04/06/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{05/06/2025} \\ \hline
-	Juego, prototipo 6 & \multicolumn{1}{c|}{05/06/2025} & 11/06/2025 \\ \hline
+	Hephaestus, Conexión & \multicolumn{1}{c|}{05/06/2025} & 19/06/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{12/06/2025} \\ \hline
-	Prácticas, prototipo 1 & \multicolumn{1}{c|}{12/06/2025} & 18/06/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{19/06/2025} \\ \hline
-	Prácticas, prototipo 2 & \multicolumn{1}{c|}{19/06/2025} & 25/06/2025 \\ \hline
+	Hephaestus, Base de datos & \multicolumn{1}{c|}{19/06/2025} & 10/07/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{26/06/2025} \\ \hline
-	Prácticas, prototipo 3 & \multicolumn{1}{c|}{26/06/2025} & 02/07/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{03/07/2025} \\ \hline
-	Prácticas, prototipo 4 & \multicolumn{1}{c|}{03/07/2025} & 09/07/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{03/06/2025} \\ \hline
 	Reunión & \multicolumn{2}{c|}{10/07/2025} \\ \hline
-	Prácticas, prototipo 5 & \multicolumn{1}{c|}{10/07/2025} & 16/07/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{17/07/2025} \\ \hline
-	Parón de verano & \multicolumn{1}{c|}{21/07/2025} & 09/09/2025 \\ \hline
+	Hephaestus, Utilidades & \multicolumn{1}{c|}{10/07/2025} & 24/07/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{17/06/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{24/07/2025} \\ \hline
+	Juego didáctico, Servidor & \multicolumn{1}{c|}{24/07/2025} & 11/09/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{31/07/2025} \\ \hline
 	Reunión & \multicolumn{2}{c|}{11/09/2025} \\ \hline
-	Distribución, prototipo 1 & \multicolumn{1}{c|}{11/09/2025} & 24/09/2025 \\ \hline
+	Parón de verano & \multicolumn{1}{c|}{01/08/2025} & 09/09/2025 \\ \hline
+	Juego didáctico, Handlers & \multicolumn{1}{c|}{11/09/2025} & 09/10/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{18/09/2025} \\ \hline
 	Reunión & \multicolumn{2}{c|}{25/09/2025} \\ \hline
-	Distribución, prototipo 2 & \multicolumn{1}{c|}{25/09/2025} & 08/10/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{02/10/2025} \\ \hline
 	Reunión & \multicolumn{2}{c|}{09/10/2025} \\ \hline
-	Distribución, prototipo 3 & \multicolumn{1}{c|}{09/10/2025} & 29/10/2025 \\ \hline
+	Juego didáctico, Gestores elementos remotos & \multicolumn{1}{c|}{09/10/2025} & 30/10/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{16/10/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{23/10/2025} \\ \hline
 	Reunión & \multicolumn{2}{c|}{30/10/2025} \\ \hline
-	Distribución, prototipo 4 & \multicolumn{1}{c|}{30/10/2025} & 10/11/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{11/11/2025} \\ \hline
-	Web, prototipo 1 & \multicolumn{1}{c|}{11/11/2025} & 17/11/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{17/11/2025} \\ \hline
-	Web, prototipo 2 & \multicolumn{1}{c|}{17/11/2025} & 24/11/2025 \\ \hline
-	Reunión final & \multicolumn{2}{c|}{25/11/2025} \\ \hline
+	Prácticas, Práctica introductoria & \multicolumn{1}{c|}{30/10/2025} & 13/11/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{06/11/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{13/11/2025} \\ \hline
+	Prácticas, Práctica 1 & \multicolumn{1}{c|}{13/11/2025} & 20/11/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{20/11/2025} \\ \hline
+	Prácticas, Práctica 2 & \multicolumn{1}{c|}{20/11/2025} & 27/11/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{27/11/2025} \\ \hline
+	Prácticas, Práctica 3 & \multicolumn{1}{c|}{27/11/2025} & 04/12/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{04/12/2025} \\ \hline
+	Prácticas, Soluciones & \multicolumn{1}{c|}{04/12/2025} & 18/12/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{11/12/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{18/12/2025} \\ \hline
+	Parón de Navidad & \multicolumn{1}{c|}{22/12/2025} & 08/01/2026 \\ \hline
+	Prácticas, Soluciones & \multicolumn{1}{c|}{18/12/2025} & 08/01/2026 \\ \hline
+	Reunión & \multicolumn{2}{c|}{08/01/2026} \\ \hline
+	Documentación web, Documentación & \multicolumn{1}{c|}{08/01/2026} & 22/01/2026 \\ \hline
+	Reunión & \multicolumn{2}{c|}{15/01/2026} \\ \hline
+	Reunión & \multicolumn{2}{c|}{22/01/2026} \\ \hline
+	Distribución, Imagen Hephaestus & \multicolumn{1}{c|}{22/01/2026} & 05/02/2026 \\ \hline
+	Reunión & \multicolumn{2}{c|}{29/01/2026} \\ \hline
+	Reunión & \multicolumn{2}{c|}{05/02/2026} \\ \hline
+	Distribución, Imagen juego didáctico & \multicolumn{1}{c|}{05/02/2026} & 12/02/2026 \\ \hline
+	Reunión & \multicolumn{2}{c|}{12/02/2026} \\ \hline
+	Distribución, Imagen juego didáctico & \multicolumn{1}{c|}{12/02/2026} & 19/02/2026 \\ \hline
+	Reunión & \multicolumn{2}{c|}{19/02/2026} \\ \hline
 	\caption{Planificación en el tiempo del proyecto}
 	\label{tab:sprints}
 \end{longtable}
 
-La tabla \ref{tab:sprints} muestra las fechas en las que cada uno de los prototipos ya descritos fueron creados, también incluye las reuniones ya mencionadas y las épocas en las que se produjo un parón.
+La tabla \ref{tab:sprints} muestra la planificación a lo largo del tiempo del proyecto. Se pueden apreciar las reuniones programadas para resolver dudas y discutir el estado del proyecto, del entregable o del prototipo actuales. Los prototipos se muestran en el caso menos óptimo, por lo tanto se aprecian dos semanas para la realización de cada prototipo. Por lo tanto, cada entregable establece las fechas de inicio y de final calculando el número de prototipos que se le han asignado en el apartado anterior por dos. Las reuniones correspondientes a cada entregable se muestran debajo del propio entregable en la tabla.
 
-En algunas ocasiones la posibilidad de hacer una reunión en la semana era nula, debido a sucesos de fuerza mayor, esto se ve reflejado en la tabla mediante saltos de más de una semana entre la fecha inicial y la fecha final de un prototipo.
-
-En total se dedican 31 semanas a la investigación y desarrollo del proyecto, el tiempo medio semanal dedicado es de 16 horas, por lo tanto el tiempo total, en horas, que se dedica al proyecto es una aproximación de 496 horas.
+En total se dedican 45 semanas a la investigación y desarrollo del proyecto, el tiempo medio semanal dedicado es de 10 horas, por lo tanto la estimación del tiempo total, en horas, que se dedica al proyecto es una aproximación de 450 horas.
 
 \section{Riesgos}
 
