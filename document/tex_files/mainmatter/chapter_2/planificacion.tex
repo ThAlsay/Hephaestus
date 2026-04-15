@@ -2,17 +2,13 @@
 
 Todo proyecto requiere de una planificación previa que estime el tiempo que conlleva la ejecución del mismo y el coste, tanto del desarrollo del proyecto como de la ejecución a lo largo del tiempo de vida que tenga el resultado final.
 
-A la planificación temporal se le tiene que añadir la elección de tecnologías base con las que se ejecuta el proyecto. Es poco común que una tecnología encaje perfectamente en los requisitos para realizar el proyecto, por tanto, estas tecnologías tienen que ser escogidas de acuerdo a un balance entre aspectos positivos que pueden aportar al proyecto y aspectos negativos que puedan suponer un retraso en el mismo.
+Una parte importante de la tareas de planificación es la elección de tecnologías base con las que se ejecuta el proyecto. Es poco común que una tecnología encaje perfectamente en los requisitos para realizar el proyecto, por tanto, estas tecnologías tienen que ser escogidas de acuerdo a un balance entre aspectos positivos que pueden aportar al proyecto y aspectos negativos que puedan suponer un retraso en el mismo. La elección tecnológica conlleva la aceptación de un cierto nivel riesgo que tendrá que tenerse en cuenta en la correspondiente lista de riesgos y nivel de tolerancia del proyecto.
 
 \section{Metodología empleada} \label{methodology}
 
-En el desarrollo software existen múltiples metodologías pensadas para organizar un proyecto, las más empleadas actualmente son el desarrollo en cascada, pionero en la planificación de proyectos de software; Scrum o desarrollo en espiral.
+En el desarrollo software existen múltiples aproximaciones metodológicas pensadas para organizar un proyecto, las más empleadas actualmente son el desarrollo en cascada, pionero en la planificación de proyectos de software; Scrum o desarrollo en espiral. Todas estas metodologías están diseñadas para proyectos en los que existe un producto final claro, que todas las funciones que tiene que realizar ya se han pensado y no van a sufrir modificaciones. Este proyecto, por el contrario, no cuenta con un estado final claro, evoluciona a lo largo del tiempo, en otras palabras, aunque el objetivo sea sencillo de decir, no consta de unos requisitos precisos, a priori, ni se conoce la dificultad de su construcción. Es previsible que algunos aspectos puedan cambiar a lo largo del desarrollo del proyecto a partir de los riesgos incurridos y los costes invertidos.
 
-Todas estas metodologías están diseñadas para proyectos en los que existe un producto final claro, que todas las funciones que tiene que realizar ya se han pensado y no van a sufrir modificaciones.
-
-Este proyecto, por el contrario, no cuenta con un estado final claro, evoluciona a lo largo del tiempo. Teniendo esto en cuenta, las metodologías mencionadas anteriormente no pueden ser aplicadas. 
-
-Para la situación del proyecto, lo más adecuado es emplear una metodología ágil basada en prototipos. La metodología ágil nace a partir del manifiesto ágil, publicado en 2001, con la intención de cambiar la forma de hacer software \cite{agilemanifesto}. De esta forma el desarrollo de software estaría centrado, según el mencionado manifiesto, en:
+Para la situación del proyecto, lo más adecuado es emplear una metodología ágil basada en prototipos. Las metodologías ágiles ofrecen un catálogo de técnicas útiles en el caso de tener que desarrollar proyectos, mediante prototipado con objetivos cambiantes y poco definidos. La gestión del tiempo resulta más flexible y se adapta a los resultados que se van obteniendo. Surge a principios de los 2000 a partir del manifiesto ágil, publicado en 2001, con la intención de cambiar la forma de hacer software \cite{agilemanifesto}. De esta forma el desarrollo de software estaría centrado, según el mencionado manifiesto, en:
 
 \begin{itemize}
 	\item Individuos e interacciones sobre los procesos y herramientas.
@@ -28,7 +24,7 @@ Debido a las restricciones de personal y tiempo para el proyecto, la metodologí
 \begin{itemize}
 	\item Entregas a tiempo. Se aplican ventanas de tiempo para realizar las entregas. Cada entrega cuenta con entregables con algún valor propio sin el resto del conjunto del proyecto, evitando el retraso de las fechas de entrega debido a que alguno de los productos sufre algún retraso.
 	\item Desarrollo iterativo. Se crean prototipos los cuales van evolucionando en cada iteración; añadiendo, modificando o eliminando características del entregable; adquiriendo conocimiento sobre el sistema y el proyecto. De esta manera el proyecto se puede modificar añadiendo características que surgen de nuevas ideas derivadas del conocimiento proporcionado por los prototipos. Este punto es fundamental para el proyecto debido a la incertidumbre inicial sobre el producto final.
-	\item Desarrollo incremental. El proyecto se divide en partes más pequeñas las cuales se implementan y entregan de manera secuencial. De esta forma añadir un nuevo componente al proyecto se simplifica al reducirse en añadir una nueva parte.
+	\item Desarrollo incremental. El proyecto se divide en partes más pequeñas las cuales se implementan y entregan de manera secuencial. De esta forma añadir un nuevo componente al proyecto se simplifica al reducirse en añadir una nueva parte. Un aspecto importante a definir en este punto es si estos incrementos se consolidan de modo definitivo o si están sujetos a posibles cambios. En este caso están sujetos a posibles cambios como resultado de crear prototipos evolutivos.
 	\item Comunicación y retroalimentación. La comunicación se realizará cara a cara siempre que sea posible, haciendo uso de la comunicación telemática en caso de no poderse dar lo anterior. Al estar compuesto el equipo del proyecto por dos personas, se realizará una reunión semanal, siempre que sea posible, en la que se pondrá en común con el tutor los prototipos que el alumno ha implementado en ese tiempo. En esa misma reunión se pondrá en común nuevas ideas para la consecución del proyecto y el tutor decidirá con el alumno la siguiente parte del proyecto a comenzar, en caso de haber terminado con la actual.
 	\item Diseño simple. Se prefiere el diseño más simple que cumpla con los requisitos del cliente o del proyecto.
 	\item Refactorización. Se evitará el código espagueti haciendo uso de la refactorización cuando sea necesario. Nunca en partes pequeñas del código y siempre sin miedo a eliminar grandes bloques del mismo si así se requiere.
@@ -42,95 +38,81 @@ Tal y como se ha explicado en el apartado anterior, la metodología empleada par
 
 El proyecto cuenta con cinco partes finales: El motor Hephaestus, un juego didáctico, un conjunto de prácticas para alumnos de segundo curso del Grado de Ingeniería Informática de la Universidad de Valladolid, cursando la asignatura de Sistemas Distribuidos, una página web con la documentación necesaria para usar Hephaestus como motor de un videojuego y todos los archivos necesarios para la distribución del proyecto.
 
-En el diagrama de la figura \ref{fig:chap2_pbs_diagram} se muestra el PBS (Project Breakdown Study) del proyecto. Este diagrama muestra las diferentes partes que componen todo el sistema o proyecto, así como los entregables que conforman cada una de las partes. 
+En el diagrama de la Figura \ref{fig:chap2_pbs_diagram} se muestra el PBS (Project Breakdown Structure) del proyecto. Este diagrama muestra las diferentes partes que componen todo el sistema o proyecto, así como los entregables que conforman cada una de las partes. El empleo de partes se realiza con el fin de categorizar cada uno de los entregables en subconjuntos para facilitar su localización en cada contexto específico, pero hay que destacar que una parte del proyecto no es una separación de la metodología de planificación y, por lo tanto, a la hora de planificar el proyecto se tienen en cuenta los entregables como un conjunto total sin divisiones internas.
 
 Al tratarse de una metodología iterativa cada entregable pasa por varias versiones antes de decantarse por la final. Cada una de estas versiones corresponde a una iteración de ese entregable y produce un prototipo. En la planificación de este proyecto, cada iteración se estima en una duración de una semana de trabajo, esto es debido a las restricciones laborales con las que cuenta el alumno a la hora de completar la iteración. Por eso mismo, y dependiendo de la cantidad de iteraciones necesarias para llegar a la versión final de un entregable, la ejecución del proyecto se alarga sustancialmente a lo largo del tiempo.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_2/images/pbs_diagram.png}
-	\caption{PBS del sistema}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_2/images/pbs_diagram.pdf}
+	\caption{Estructura de Descomposición de Productos (PBS) del proyecto}
 	\label{fig:chap2_pbs_diagram}
 \end{figure}
 
 
 \subsection{Hephaestus}
 
-El motor de videojuegos Hephaestus, cuyas características a alto nivel se han detallado en la sección \ref{objetivos}, es la pieza central del proyectoo. El motor final se trata de un conjunto de piezas ya configuradas para su uso en un videojuego, a la vez que contiene utilidades básicas para el manejo del estado del juego, elección de turnos, supervisión de procesos o enrutamiento de procesos distribuidos. Todos estos elementos forman el conjunto de entregables que conforman Hephaestus. Cada una de las piezas, ya preparadas para representar un elemento clásico de los juegos RPG, se consideran un entregable de Hephaestus, dando lugar a los siguientes seis entregables: Personaje, enemigo, NPC, objeto, ubicación y conexión. A estos seis entregables se les añade otros dos que abarcan tanto las utilidades para leer y modificar la base de datos, como todas las utilidades referentes a la ayuda prestada al desarrollador de videojuegos y que implementan elementos comunes de los juegos de este tipo.
+El motor de videojuegos Hephaestus, cuyas características a alto nivel se han detallado en la sección \ref{objetivos}, es la pieza central del proyecto. El motor final se trata de un conjunto de piezas ya configuradas para su uso en un videojuego, a su vez, contiene utilidades básicas para el manejo del estado del juego, elección de turnos, supervisión de procesos o enrutamiento de procesos distribuidos. Todos estos elementos forman el conjunto de entregables que conforman Hephaestus. Cada una de las piezas, ya preparadas para representar un elemento clásico de los juegos RPG, junto con las funciones auxiliares ya mencionadas y la imagen Docker del propio Hephaestus, se consideran un entregable de Hephaestus, dando lugar a los entregables de esta parte del proyecto.
 
-\subsubsection{Personaje}
+\subsubsection{Módulo Personaje}
 
-Primer entregable de Hephaestus. El personaje representa la entidad jugable del sistema, toda modificación del estado del juego que se produzca por la acción de un jugador tiene que pasar por el personaje de ese mismo jugador y será esta situación la única que provoque que el personaje realice una acción. Esto no implica que el escenario no pueda cambiar por acciones externas al jugador, otros tipos de elementos del juego pueden disparar cambios en el estado del juego sin necesidad de recibir una acción por parte del jugador.
+Primer entregable de Hephaestus. El personaje representa la entidad jugable del sistema y, a nivel técnico, actúa como un actor dentro del sistema del juego. El control del estado del mismo lo tiene el motor Hephaestus, el cual recibe órdenes por parte del juego didáctico. A nivel de código este entregable supone el primer contacto con un nuevo lenguaje de programación y varios conceptos nuevos, por lo tanto se planifican cinco prototipos para este entregable. De esta manera se asegura la correcta asimilación de todos los conocimientos necesarios. De este modo se sacrifica tiempo en realizar más prototipos de los que pueden ser necesarios con el fin de reducir el número de prototipos en los siguientes entregables, pues todos hacen uso de las mismas tecnologías.
 
-A nivel técnico el personaje actúa como un actor dentro del sistema del juego. El control del estado del mismo lo tiene el motor Hephaestus, el cual recibe órdenes por parte del juego didáctico. A nivel de código este entregable supone el primer contacto con un nuevo lenguaje de programación y varios conceptos nuevos, por lo tanto se planifican cinco prototipos para este entregable. De esta manera se asegura la correcta asimilación de todos los conocimientos necesarios. De este modo se sacrifica tiempo en realizar más prototipos de los que pueden ser necesarios con el fin de reducir el número de prototipos en los siguientes entregables, pues todos hacen uso de las mismas tecnologías.
-
-\subsubsection{Enemigo}
-
-El siguiente entregable de Hephaestus es el actor que representa un enemigo en el sistema. Un enemigo representa una entidad opuesta al personaje, al entrar ambos en contacto dentro del juego estos pueden, a elección del desarrollador del videojuego, entrar en un estado de combate y reducir al vida que tienen ambos a base de golpes al contrario. Por ello estos dos actores son los únicos que cuentan con una estadística de vida. Por estos motivos, tanto el personaje como el enemigo son actores que deben contar con la posibilidad de recibir mensajes que permitan al contrario modificar su estado interno.
+\subsubsection{Módulo Enemigo}
 
 A nivel técnico el enemigo es un actor, como ya se ha mencionado, por lo tanto se beneficia del conocimiento obtenido en el entregable anterior. Gracias a eso a la hora de planificar el tiempo y número de prototipos que pueden llegar a ser necesarios para implementar el entregable se reduce en gran medida. Con el fin de asegurar la correcta implementación en caso de fallo, al entregable se le asignan dos prototipos o iteraciones.
 
-\subsubsection{NPC}
+\subsubsection{Módulo NPC}
 
-Al igual que los anteriores entregables, el NPC es también un actor del cual Hephaestus está encargado de controlar su funcionamiento. Un NPC representa un personaje no jugable con el cual se puede interactuar. Por su definición el NPC tiene que permitir a los actores que se lo soliciten iniciar una interacción con él. El resultado de dicha interacción dependerá totalmente del desarrollador que haga uso del motor, por lo tanto el código ha de estar preparado para admitir una gran variedad de posibilidades como resultado a la acción de interactuar. Además de la flexibilidad a la hora de resolver la interacción, cabe la posibilidad de que el desarrollador limite el número de interacciones que permite el NPC.
+El NPC es, a nivel técnico, idéntico a los dos entregables anteriores, por consiguiente se le asignan el mismo número de iteraciones que al entregable del enemigo, dos. De la misma manera que en el entregable anterior, la segunda iteración establece un colchón en caso de error al realizar la implementación durante el primer prototipo.
 
-A nivel técnico es idéntico a los dos entregables anteriores, por consiguiente se le asignan el mismo número de iteraciones que al entregable del enemigo, dos. De la misma manera que en el entregable anterior, la segunda iteración establece un colchón en caso de error al realizar la implementación durante el primer prototipo.
-
-\subsubsection{Objeto}
-
-A continuación, el siguiente entregable consta del cuarto actor con el que cuenta el motor Hephaestus, el objeto. Un objeto es una entidad que puede ser entregada por otra entidad y que se puede almacenar en el inventario del actor personaje. Además un objeto puede ser volátil, una vez usado desaparece, o equipable, no desaparece una vez empleado y puede desequiparse y volver al inventario. Dependiendo del tipo de objeto utilizará una estadísticas u otras para desempeñar su papel, teniendo en cuenta que el tipo y utilidad del objeto se dejan a valoración del desarrollador del videojuego.
+\subsubsection{Módulo Objeto}
 
 Al igual que los actores anteriores, a nivel técnico la implementación no difiere demasiado del resto de actores que se han planificado hasta este momento, por ello, al igual que en el entregable anterior, el periodo de tiempo previsto para la implementación del entregable es de dos iteraciones.
 
-\subsubsection{Ubicación}
+\subsubsection{Módulo Ubicación}
 
-Continuando con los actores que ofrece Hephaestus, el siguiente en la planificación es la ubicación. Una ubicación define los emplazamientos sobre los que transcurre el juego. Por ello el resto de actores están colocados en una de estas ubicaciones. A elección del desarrollador un actor puede cambiar su ubicación durante el transcurso de la partida, el ejemplo más claro es el personaje, el cual necesita de esta característica para avanzar por el mapa del juego.
+Una ubicación define los emplazamientos sobre los que transcurre el juego. Siguiendo la línea del resto de entregables anteriores, a nivel técnico la ubicación se implementa de la misma manera que los entregables vistos hasta este momento y, al igual que con el resto de entregables, se le planifican dos iteraciones para la ejecución del entregable.
 
-Siguiendo la línea del resto de entregables anteriores, a nivel técnico la ubicación se implementa de la misma manera que los entregables vistos hasta este momento y, al igual que con el resto de entregables, se le planifican dos iteraciones para la ejecución del entregable.
+\subsubsection{Módulo Conexión}
 
-\subsubsection{Conexión}
+El último de los actores proporcionados y controlados por Hephaestus. Una conexión permite viajar entre ubicaciones y, a nivel técnico, este es último entregable con características parecidas a los ya tratados hasta ahora, por lo tanto es el último beneficiado por el trabajo realizado en el primer entregable y al que se le estiman dos prototipos para los trabajos de implementación.
 
-El último de los actores proporcionados y controlados por Hephaestus. Una conexión permite viajar entre ubicaciones, pudiendo tener restricciones para realizar dicho viaje. El viaje se realiza entre dos ubicaciones contiguas cuya contigüidad se determina por el hecho de ser ambas dependientes de la misma conexión.
+\subsubsection{Persistencia}
 
-A nivel técnico este es último entregable con características parecidas a los ya tratados hasta ahora, por lo tanto es el último beneficiado por el trabajo realizado en el primer entregable y al que se le estiman dos prototipos para los trabajos de implementación.
-
-\subsubsection{Base de datos}
-
-La planificación de este entregable incluye todas las funciones necesarias para transferir el estado del juego al almacenamiento permanente de la base de datos. Además del guardado y carga de la partida, se necesitan otras funciones relacionadas con la base de datos, las cuales facilitan todo el control de acceso a los personajes por parte de los jugadores.
-
-A nivel técnico, el manejo de base de datos es un problema ya resuelto a muchos niveles en el mundo de la informática. Por lo tanto, al no tratarse de un problema nuevo y simplemente necesitar de la adaptación correcta al lenguaje empleado, tres prototipos para la implementación del entregable, optando por una visión pesimista, son suficientes.
+Este entregable incluye todas las funciones necesarias para transferir el estado del juego al almacenamiento permanente de la base de datos. A nivel técnico, el manejo de base de datos es un problema ya resuelto a muchos niveles en el mundo de la informática. Por lo tanto, al no tratarse de un problema nuevo y simplemente necesitar de la adaptación correcta al lenguaje empleado, tres prototipos para la implementación del entregable, optando por una visión pesimista, son suficientes.
 
 \subsubsection{Utilidades}
 
-El último entregable de Hephaestus y, posiblemente, el más sencillo. En el entregable de utilidades se agrupan todas las funciones que puedan ser de utilidad para el desarrollador de videojuegos y ahorren tiempo de desarrollo de los proyectos que empleen Hephaestus.
+El último entregable de Hephaestus con componente de programación, a nivel técnico, supone un conjunto de funciones ya preparadas y separadas en módulos para su utilización. Con el fin de resolver el problema, se establece un límite de dos iteraciones para la implementación del entregable, en las cuales se prioriza las funciones necesarias para el resto de partes del proyecto.
 
-El entregable a nivel técnico supone un conjunto de funciones ya preparadas y separadas en módulos para su utilización. Con el fin de resolver el problema, se establece un límite de dos iteraciones para la implementación del entregable, en las cuales se prioriza las funciones necesarias para el resto de partes del proyecto.
+\subsubsection{Imagen Hephaestus}
+
+Con el fin de levantar un contenedor y que ejecute el programa correspondiente es necesario crear una imagen de dicho contenedor primero y por lo tanto el último entregable de esta parte del proyecto consiste en construir dicha imagen del motor Hephaestus. Elixir es un lenguaje que no está relacionado comúnmente con Docker, debido a que pierde una de sus fortalezas al emplear este entorno de ejecución, el hot swapping de código. Como esta característica no es de utilidad para el proyecto, el empleo de Docker no supone un problema, pero significa que la documentación que se puede encontrar para realizar la labor de crear una imagen Docker ejecutando un programa escrito en Elixir es escasa. Por ese motivo, se le asignan dos iteraciones al entregable, permitiendo pulir la imagen final para que ocupe el menor espacio posible.
 
 \subsection{Juego didáctico}
 
-El juego didáctico es la siguiente pieza del proyecto después del motor. Ya que hace uso de él, el juego didáctico depende directamente de los actores y funciones que proporcione Hephaestus. Debido a la dependencia directa que tiene el juego respecto a Hephaestus, supone la evolución de este último a lo largo del desarrollo del juego. De esta manera el desarrollo de los prototipos de ambas partes se entrelazan a lo largo del tiempo de ejecución del proyecto. 
-
-Se trata de un videojuego sencillo con dos partes distribuidas, los personajes jugables y los enemigos, de manera que se puede usar para enseñar el funcionamiento de estos sistemas. Cuenta con cuatro habitaciones por las que tiene que pasar el personaje, sin ser opcional ninguna, y presentan una oportunidad de enseñanza sobre algún concepto de los sistemas distribuidos y la programación de actores.
-
-La interfaz de juego está basada en un servidor TCP y comunicación mediante JSON-RPC (\ref{tecnologias}) y, al igual que el motor, pasa por varios prototipos para obtener el entregable final.
+El juego didáctico es la siguiente pieza del proyecto después del motor. Ya que hace uso de él, el juego didáctico depende directamente de los actores y funciones que proporcione Hephaestus. Debido a la dependencia directa que tiene el juego respecto a Hephaestus, supone la evolución de este último a lo largo del desarrollo del juego. Se trata de un videojuego sencillo con dos partes distribuidas, los personajes jugables y los enemigos, de manera que se puede usar para enseñar el funcionamiento de estos sistemas. Cuenta con cuatro habitaciones por las que tiene que pasar el personaje, sin ser opcional ninguna, y presentan una oportunidad de enseñanza sobre algún concepto de los sistemas distribuidos y la programación de actores. La interfaz de juego está basada en un servidor TCP y comunicación mediante JSON-RPC (\ref{tecnologias}) y, al igual que el motor, pasa por varios prototipos para obtener el entregable final.
 
 \subsubsection{Servidor}
-
-La estructura del proyecto obliga al jugador a emplear uno o varios clientes para comunicarse con el juego. Por lo tanto el juego ha de ser un servidor que pueda recibir instrucciones por parte de los clientes. Las características de este servidor incluyen admitir peticiones mediante TCP/IP, emplear el protocolo JSON-RPC y estar preparado para un entorno profesional con varias peticiones concurrentes y múltiples usuarios.
 
 A nivel técnico el servidor supone la combinación de múltiples tecnologías con el fin de devolver la respuesta correcta al mensaje recibido. Para ello se necesita recibir el mensaje, deserializarlo, interpretar que acción se requiere para resolver el mensaje, solicitar al handler correcto el resultado de la acción, esperar dicho resultado, serializar el resultado y, por último, devolverlo. Toda esta secuencia es muy común en el ámbito web y por tanto no faltan recursos para solucionar el problema. Aún con toda la documentación, el hecho de preparar el servidor para soportar cargas de trabajo propias de producción supone un trabajo extra que hay que tener en cuenta a la hora de planificar su asignación de iteraciones. Teniendo todo esto en cuenta, y la posibilidad de emplear bibliotecas externas para esta labor se establecen dos iteraciones para la ejecución de esta parte del proyecto.
 
 \subsubsection{Handlers}
 
-En el entregable anterior se hace mención a los handlers. Los handlers son los encargados de resolver un mensaje concreto recibido por el servidor, dados los datos necesarios para la labor. El servidor es el encargado de solicitar la resolución de un mensaje al handler específico y estos devuelven el resultado al servidor, por lo tanto, toda la lógica de negocio para poder superar el videojuego recae sobre los handlers. A la hora de resolver el resultado los handlers tienen que interactuar con el motor y mandarle instrucciones para modificar el estado de la partida.
-
-A nivel técnico este entregable abarca toda al lógica necesaria para poder jugar al videojuego, por lo tanto es uno de los entregables con más contenido. Además, hay una gran variedad de escenarios que se necesitan tener en cuenta con el fin de cubrir todas las posibilidades. Pero, por otro lado, la sencillez del juego reduce la carga de trabajo en mayor medida. Teniendo todo en cuenta, la estimación de tiempo y prototipos para este entregable se establece en cuatro prototipos. 
+En el entregable anterior se hace mención a los handlers. Los handlers son los encargados de resolver un mensaje concreto recibido por el servidor, dados los datos necesarios para la labor. A nivel técnico este entregable abarca toda al lógica necesaria para poder jugar al videojuego, por lo tanto es uno de los entregables con más contenido. Además, hay una gran variedad de escenarios que se necesitan tener en cuenta con el fin de cubrir todas las posibilidades. Pero, por otro lado, la sencillez del juego reduce la carga de trabajo en mayor medida. Teniendo todo en cuenta, la estimación de tiempo y prototipos para este entregable se establece en cuatro prototipos. 
 
 \subsubsection{Gestores de elementos remotos}
 
-El último entregable de esta parte del proyecto son los gestores de elementos remotos. Uno de los objetivos del juego es enseñar a los alumnos el funcionamiento de sistemas distribuidos y, para ello, el juego se trata como uno de estos sistemas. Los actores del juego están distribuidos entre varias máquinas independientes, tal y como se requiere en un sistema distribuido, y para poder mantener la comunicación con los actores alojados en máquinas diferentes a la que está alojado el juego este requiere de la ayuda de un gestor de elementos remotos. Estos gestores se encargan de buscar a los actores por la red que se les indique, comprobar que estos están conectados, enviar la petición que requiera el handler y devolver la respuesta que reciban del elemento remoto.
+El siguiente entregable de esta parte del proyecto son los gestores de elementos remotos. Uno de los objetivos del juego es enseñar a los alumnos el funcionamiento de sistemas distribuidos y, para ello, el juego se trata como uno de estos sistemas. Este entregable no requiere de mucho tiempo ya que los gestores son una abstracción de lógica común que se repite en varios handlers y que se puede concentrar en un módulo propio. Hay que tener en cuenta además que los únicos actores que cuentan con máquinas propias son los enemigos y los personajes, por lo tanto solo son necesarios gestores para estos dos tipo de elementos remotos, el resto de actores se ejecutan en la misma máquina en la que corre el juego. Por estas razones, se planifican tres iteraciones para completar este entregable.
 
-Este último entregable no requiere de mucho tiempo ya que los gestores son una abstracción de lógica común que se repite en varios handlers y que se puede concentrar en un módulo propio. Hay que tener en cuenta además que los únicos actores que cuentan con máquinas propias son los enemigos y los personajes, por lo tanto solo son necesarios gestores para estos dos tipo de elementos remotos, el resto de actores se ejecutan en la misma máquina en la que corre el juego. Por estas razones, se planifican tres iteraciones para completar este entregable.
+\subsubsection{Imagen juego didáctico}
+
+Al igual que sucede con Hephaestus, el juego didáctico necesita una imagen propia para poder ser ejecutado en el entorno distribuido local de los alumnos. La única característica diferente respecto a la imagen del motor consiste en tener que indicar a Docker que se el código ejecutado se trata de un servidor y, por lo tanto, tiene que hacer uso de un puerto para poder comunicarse. Debido a que el conocimiento en creación de imágenes Docker obtenido en el entregable de la imagen de Hephaestus es completamente reutilizable para este entregable. La planificación de prototipos se limita a un único prototipo.
+
+\subsubsection{Imagen de la base de datos}
+
+El último entregable del juego didáctico, consiste en una imagen Docker de la base de datos empleada por el juego ya configurada con todo lo necesario para poder ser ejecutado. Al igual que con el entregable anterior, un único prototipo es suficiente para completar este entregable.
 
 \subsection{Prácticas para alumnos}
 
@@ -140,181 +122,60 @@ Las prácticas consisten en una serie de documentos que describen las labores qu
 
 \subsubsection{Práctica introductoria}
 
-La primera práctica con la que se encuentra el alumno no se trata de una práctica per se. Consiste en un documento introductorio que incluye un resumen del resto de las prácticas, dando una visión global al alumno de lo que se va a encontrar a lo largo de las sesiones. Complementando la introducción a las prácticas, este documento ofrece un listado de todas las tecnologías necesarias para poder desarrollar las prácticas, así como las instrucciones para operar el despliegue del juego en una máquina local.
-
-Al tratarse de un documento didáctico, supone un área nueva de conocimiento, por lo tanto requiere de un lenguaje y una estructura de documento diferente a lo acostumbrado. Por este motivo y por ser la primera de las prácticas se planifican dos iteraciones para este entregable, dando margen a poder realizar retoques al lenguaje empleado.
+La primera práctica con la que se encuentra el alumno no se trata de una práctica per se. Consiste en un documento introductorio que incluye un resumen del resto de las prácticas. Al tratarse de un documento didáctico, supone un área nueva de conocimiento, por lo tanto requiere de un lenguaje y una estructura de documento diferente a lo acostumbrado. Por este motivo y por ser la primera de las prácticas se planifican dos iteraciones para este entregable, dando margen a poder realizar retoques al lenguaje empleado.
 
 \subsubsection{Práctica 1}
 
-Una vez realiza la introducción, el siguiente entregable comprende la primera de las prácticas. En esta práctica se le presentan al alumno elementos fundamentales de la comunicación cliente-servidor que se va a emplear durante todas las prácticas, de esta manera el alumno adquiere los conocimientos básicos necesarios para superar las prácticas. Entre estos conocimientos básicos se encuentra también el funcionamiento del protocolo JSON-RPC, la otra pieza fundamental en la comunicación entre los cliente Java y juego, que actúa como servidor.
-
-Al tratarse de un nuevo documento didáctico, la novedad supuesta en el entregable anterior se considera subsanada en este. Por lo tanto la necesidad de iteraciones dedicadas a la finalización del entregable se reduce drásticamente. Teniendo esto en cuenta se planifican una única iteración.
+Una vez se realiza la introducción, el siguiente entregable comprende la primera de las prácticas. Al tratarse de un nuevo documento didáctico, la novedad supuesta en el entregable anterior se considera subsanada en este. Por lo tanto la necesidad de iteraciones dedicadas a la finalización del entregable se reduce drásticamente. Teniendo esto en cuenta se planifican una única iteración.
 
 \subsubsection{Práctica 2}
 
-A continuación de la primera práctica se le muestra a los alumnos el funcionamiento interno de los actores en un sistema distribuido. Esto enmarca la segunda práctica y el segundo entregable del proyecto. Un actor en un sistema distribuido son unidades de cómputo que representan una parte de la lógica de la aplicación. El control de estos actores recae sobre el motor y el juego hace uso de dicho motor para enviar mensajes a los actores. Son un elemento fundamental en muchos sistemas distribuidos y, por lo tanto, parte del temario de la asignatura. Mediante esta práctica se pretende que el alumno afiance los conocimientos obtenidos sobre los actores mediante la puesta en práctica.
-
-Siendo igualmente un documento didáctico sigue la misma planificación del entregable anterior. Una única iteración se considera suficiente teniendo en cuenta el conocimiento adquirido con anterioridad.
+A continuación de la primera práctica se le muestra a los alumnos el funcionamiento interno de los actores en un sistema distribuido. Esto enmarca la segunda práctica y el segundo entregable del proyecto. Siendo igualmente un documento didáctico sigue la misma planificación del entregable anterior. Una única iteración se considera suficiente teniendo en cuenta el conocimiento adquirido con anterioridad.
 
 \subsubsection{Práctica 3}
 
-Este entregable consta de la última práctica a la que tendrán que hacer frente los alumnos. En esta última práctica se pretende enseñar al alumno un poco más sobre el funcionamiento interno de Hephaestus. Esto permite una ligera introducción a un lenguaje de programación al que el alumno no se ha enfrentado previamente, con un paradigma completamente diferente a lo habitual durante la carrera. Además muestra al alumno como se implementan los actores en un caso real, poniendo en perspectiva lo aprendido y mostrando la utilidad real de la teoría vista en clase.
-
-Al igual que el resto de entregables vistos en esta sección hasta ahora, la tercera práctica se trata de un documento didáctico con las instrucciones necesarias para realizar la práctica. Por ello, se le planifican las mismas iteraciones que a las otras dos prácticas, un prototipo.
+Este entregable consta de la última práctica a la que tendrán que hacer frente los alumnos. En esta última práctica se pretende enseñar al alumno un poco más sobre el funcionamiento interno de Hephaestus. Al igual que el resto de entregables vistos en esta sección hasta ahora, la tercera práctica se trata de un documento didáctico con las instrucciones necesarias para realizar la práctica. Por ello, se le planifican las mismas iteraciones que a las otras dos prácticas, un prototipo.
 
 \subsubsection{Soluciones}
 
-Al igual que se proporciona documentación para proponer unas prácticas de laboratorio a los alumnos, es también necesario proporcionar una posible solución al docente con el fin de facilitar la labor de corrección. Cada práctica cuenta con su solución, la cual consiste en un cliente Java que envía los mensajes necesarios para solucionar la práctica.
-
-La elección de Java como lenguaje de programación para estas soluciones se realiza para que la realización de estas prácticas no suponga un cambio radical para el alumno. Hasta este momento el lenguaje empleado por las prácticas de la asignatura es Java y, al tratarse estas prácticas parte de todo el conjunto de prácticas de la asignatura, de esta manera se continua haciendo uso del mismo lenguaje.
-
-Este entregable consta de tres soluciones, las cuales hacen uso de Java por primera vez en el proyecto, las cuales tienen que ser correctas. Por este motivo, se planifican dos iteraciones de las soluciones.
-
-\subsubsection{Código auxiliar}
-
-Al igual que se proporciona el código de las soluciones al docente, los alumnos pueden necesitar ciertos ejecutables con el fin de facilitar el transcurso de las prácticas o visualizar alguna explicación dada en estas. Por ello se proporcionan varios ficheros Java con ejemplos de código visto en las prácticas y listo para se ejecutado. Además se proporciona un fichero de utilidades pensado para simplificar el inicio de sesión y el guardado de la partida al alumno.
-
-Estos ficheros no difieren mucho del código entregado en el apartado anterior y puede hacer uso del conocimiento adquirido en dicho apartado para necesitar menos prototipos a la hora de implementar el entregable. Por ello, se planifica una iteración, debido a que se retroalimenta del conocimiento obtenido en entregables anteriores.
+Al igual que se proporciona documentación para proponer unas prácticas de laboratorio a los alumnos, es también necesario proporcionar una posible solución al docente con el fin de facilitar la labor de corrección. Este entregable consta de tres soluciones, las cuales hacen uso de Java por primera vez en el proyecto y tienen que ser correctas. Por este motivo, se planifican dos iteraciones de las soluciones.
 
 \subsection{Documentación web}
 
-La siguiente parte del proyecto consiste en una página web orientada hacia desarrolladores externos, en este caso no para mejorar el motor sino para desarrollar videojuegos empleando el motor. Con el objetivo de documentar el funcionamiento de todas las partes del motor que sean relevantes para un desarrollador de videojuego, se emplea la biblioteca \textit{docsify} \cite{docsify} escrita en Javascript. Esta biblioteca permite escribir documentos Markdown y servirlos como páginas estáticas web, simplificando el proceso de documentación.
-
-El empleo de markdown como lenguaje de documentación permite la portabilidad de toda la documentación al formato físico de ser necesario, pues markdown cuenta con la posibilidad de convertir el fichero en un PDF.
+La siguiente parte del proyecto consiste en una página web orientada hacia desarrolladores externos, en este caso no para mejorar el motor sino para desarrollar videojuegos empleando el motor. Con el objetivo de documentar el funcionamiento de todas las partes del motor que sean relevantes para un desarrollador de videojuego, se emplea la biblioteca \textit{docsify} \cite{docsify} escrita en Javascript. Esta biblioteca permite escribir documentos Markdown y servirlos como páginas estáticas web, simplificando el proceso de documentación. El empleo de markdown como lenguaje de documentación permite la portabilidad de toda la documentación al formato físico de ser necesario, pues markdown cuenta con la posibilidad de convertir el fichero en un PDF.
 
 \subsubsection{Documentación para el desarrollo de videojuegos}
 
-El entregable supone un esfuerzo de selección y documentación exhaustivo. El objetivo de este entregable no es documentar todo el código de Hephaestus, sino seleccionar las partes que son necesarias para el desarrollo de un videojuego y describir sus capacidades y el funcionamiento. No se pretende detallar el funcionamiento exacto a nivel técnico de todos y cada uno de los módulos que componen el motor.
-
-Como ya se ha mencionado el empleo de la biblioteca \textit{docsify} permite la escritura de la documentación en markdown, además todo lo relacionado con la navegación propia de una página web también lo autogenera la propia biblioteca. Esto reduce en gran medida las decisiones a tomar en áreas como aspecto de la página web o reactividad de los diferentes componentes que conforman la página web, decisiones naturales a la hora de enfrentar un desarrollo web. Todo lo relacionado con la parte web se genera mediante la biblioteca, dejando únicamente como incertidumbre la estructura que va a seguir la documentación.
-
-Teniendo en cuenta todo lo mencionado, el resumen del trabajo a realizar en este entregable consiste en seleccionar y documentar las partes de Hephaestus que sean relevantes a la hora de realizar un desarrollo de un videojuego, estructurar la documentación de manera que sea fácilmente navegable en un contexto web y configurar la biblioteca para que autogenere la página web de manera correcta.
-
-Al tratarse de una labor de documentación extensa y un proceso arduo de selección, siendo mitigada por el hecho de no ser una labor de una complejidad elevada, por lo tanto, se planifican dos iteraciones para concluir este entregable del proyecto.
+El entregable supone un esfuerzo de selección y documentación exhaustivo. El objetivo de este entregable no es documentar todo el código de Hephaestus, sino seleccionar las partes que son necesarias para el desarrollo de un videojuego y describir sus capacidades y el funcionamiento. Al tratarse de una labor de documentación extensa y un proceso arduo de selección, siendo mitigada por el hecho de no ser una labor de una complejidad elevada, se planifican dos iteraciones para concluir este entregable del proyecto.
 
 \subsection{Distribución}
 
-El último punto, fundamental en el desarrollo de un proyecto, es como se va a distribuir el mismo. La distribución del proyecto tiene que posibilitar el acceso al mismo a toda persona interesada en el. En este caso, el juego tiene que estar disponible para los alumnos y el motor del juego para el público en general.
-
-Además del método de distribución, la tecnología empleada con el fin de empaquetar el código tiene que permitir la simulación de un sistema distribuido en un entorno local. Esto se puede conseguir mediante máquinas virtuales, pero estas suponen una cantidad demasiado grande de configuración por parte del alumno como para ser viables, en el contexto de los alumnos de segundo grado. La siguiente opción, y la escogida para este proyecto, es Docker. Docker es una tecnología que permite crear contenedores dentro de la máquina física que ejecutan un sistema operativo en su interior, teniendo la ventaja con una máquina virtual tradicional de que es fácilmente reproducible y distribuible.
-
-\subsubsection{Imagen Hephaestus}
-
-Con el fin de levantar un contenedor y que ejecute el programa correspondiente es necesario crear una imagen de dicho contenedor primero. Esta imagen permite a Docker saber que comandos tiene que ejecutar y en que orden con el fin de poner en funcionamiento el contenedor. La imagen contiene también el código necesario para la ejecución.
-
-En primer lugar, es necesario crear una imagen del motor Hephaestus, con el fin de distribuirla a quien la requiera y, concretamente, para usarla en nuestro entorno distribuido local controlando los actores remotos.
-
-Elixir es un lenguaje que no está relacionado comúnmente con Docker, debido a que pierde una de sus fortalezas al emplear este entorno de ejecución, el hot swapping de código. Como esta característica no es de utilidad para el proyecto, el empleo de Docker no supone un problema, pero significa que la documentación que se puede encontrar para realizar la labor de crear una imagen Docker ejecutando un programa escrito en Elixir es escasa. Por ese motivo, se le asignan dos iteraciones al entregable, permitiendo pulir la imagen final para que ocupe el menor espacio posible.
-
-\subsubsection{Imagen juego didáctico}
-
-Al igual que sucede con el entregable anterior, el juego didáctico necesita una imagen propia para poder ser ejecutado en el entorno distribuido local de los alumnos. La única característica diferente respecto a la imagen del motor consiste en tener que indicar a Docker que se el código ejecutado se trata de un servidor y, por lo tanto, tiene que hacer uso de un puerto para poder comunicarse. Por defecto los contenedores Docker, si no se les indica los contrario, se ejecutan en su propia red virtual y, si se quiere comunicar con la máquina local o con el exterior, hay que indicar que puerto se quiere enlazar.
-
-Debido a que el conocimiento en creación de imágenes Docker obtenido en el entregable anterior es completamente reutilizable para este entregable. La planificación de prototipos se limita a un único prototipo.
+El último punto, fundamental en el desarrollo de un proyecto, es como se va a distribuir el mismo. Durante la planificación del proyecto ya se han mencionado las imágenes Docker a distribuir por cada una de las partes del proyecto, las cuales se pueden encuadrar también en esta sección del mismo. Como parte de la disciplina de la distribución existe también otros elementos que permiten la ejecución del código en las máquinas soportadas. Por lo tanto, además de las imágenes Docker vistas en otras partes de este proyecto, se requiere de un documento que permita iniciar el sistema de manera reproducible y sencilla en una máquina local.
 
 \subsubsection{Archivo docker-compose}
 
-La tecnología que permite a Docker ser reproducible en cualquier entorno que tenga instalado su motor se denomina Docker Compose. Con el fin de que los alumnos tengan todos el mismo punto de inicio para realizar las prácticas, ya configurado y preparado para estas mismas, se tiene que crear un fichero docker-compose que reproduzca la misma secuencia de inicio de contenedores para todos los alumnos. Este fichero debe levantar y configurar dos contenedores del motor que actúen como máquinas remotas al juego, un contenedor del juego que permita recibir peticiones por el puerto correspondiente y un contenedor de la base de datos para almacenar el estado del juego de forma permanente.
-
-Al contrario que ocurre con la creación de las imágenes, la documentación para la creación de archivos docker-compose está ampliamente documentada y estandarizada. Por este motivo, una iteración es suficiente a la hora de planificar la implementación del entregable.
+La tecnología que permite a Docker ser reproducible en cualquier entorno que tenga instalado su motor se denomina Docker Compose. Con el fin de que los alumnos tengan todos el mismo punto de inicio para realizar las prácticas, ya configurado y preparado para estas mismas, se tiene que crear un fichero docker-compose que reproduzca la misma secuencia de inicio de contenedores para todos los alumnos. Al contrario que ocurre con la creación de las imágenes, vistas en las partes del proyecto correspondientes a Hephaestus y al juego didáctico, la documentación para la creación de archivos docker-compose está ampliamente documentada y estandarizada. Por este motivo, una iteración es suficiente a la hora de planificar la implementación del entregable.
 
 \section{Organización temporal}
 
-Tal y como se ha mencionado en la sección \ref{methodology}, el proyecto está dividido en varios entregables, los cuales a su vez están divididos en varios prototipos. Cada uno de estos prototipos requiere de una retroalimentación con el fin de corregir problemas que puedan haber surgido o, establecer el nuevo camino por el que avanzar una vez el prototipo está finalizado.
+Tal y como se ha mencionado en la Sección \ref{methodology}, el proyecto está dividido en varios entregables, los cuales a su vez están divididos en varios prototipos. Cada uno de estos prototipos requiere de una retroalimentación con el fin de corregir problemas que puedan haber surgido o, establecer el nuevo camino por el que avanzar una vez el prototipo está finalizado.
 
 En la medida de lo posible, cada una o dos semanas se organiza una reunión entre el tutor y el alumno para que este último ponga en conocimiento común el proceso seguido y el estado del proyecto. En estas reuniones se establece el estado del prototipo actual y se determina si se da por terminado el entregable o se tiene que realizar un nuevo prototipo mejorando lo presentado en el anterior.
 
-\vspace{1cm}
+\begin{figure}[h]
+	\centering
+	\includegraphics[angle=90, height=0.9\textheight]{tex_files/mainmatter/chapter_2/images/diagrama_gantt.png}
+	\caption{Diagrama de Gantt del proyecto}
+	\label{fig:chap2_gantt_diagram}
+\end{figure}
 
-\begin{longtable}[c]{|l|cc|}
-	\hline
-	Evento & \multicolumn{1}{c|}{Fecha Inicio} & Fecha Fin \\ \hline
-	\endfirsthead
-	%
-	\endhead
-	%
-	Reunión inicial sobre el proyecto & \multicolumn{2}{c|}{13/02/2025} \\ \hline
-	Investigación inicial & \multicolumn{1}{c|}{13/02/2025} & 27/02/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{27/02/2025} \\ \hline
-	Hephaestus, Personaje & \multicolumn{1}{c|}{27/02/2025} & 03/04/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{06/03/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{13/03/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{20/03/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{27/03/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{03/04/2025} \\ \hline
-	Hephaestus, Enemigo & \multicolumn{1}{c|}{03/04/2025} & 24/04/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{10/04/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{24/04/2025} \\ \hline
-	Hephaestus, NPC & \multicolumn{1}{c|}{24/04/2025} & 08/05/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{30/04/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{08/05/2025} \\ \hline
-	Hephaestus, Objeto & \multicolumn{1}{c|}{08/05/2025} & 22/05/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{15/05/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{22/05/2025} \\ \hline
-	Hephaestus, Ubicación & \multicolumn{1}{c|}{22/05/2025} & 05/06/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{29/05/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{05/06/2025} \\ \hline
-	Hephaestus, Conexión & \multicolumn{1}{c|}{05/06/2025} & 19/06/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{12/06/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{19/06/2025} \\ \hline
-	Hephaestus, Base de datos & \multicolumn{1}{c|}{19/06/2025} & 10/07/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{26/06/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{03/06/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{10/07/2025} \\ \hline
-	Hephaestus, Utilidades & \multicolumn{1}{c|}{10/07/2025} & 24/07/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{17/06/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{24/07/2025} \\ \hline
-	Juego didáctico, Servidor & \multicolumn{1}{c|}{24/07/2025} & 11/09/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{31/07/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{11/09/2025} \\ \hline
-	Parón de verano & \multicolumn{1}{c|}{01/08/2025} & 09/09/2025 \\ \hline
-	Juego didáctico, Handlers & \multicolumn{1}{c|}{11/09/2025} & 09/10/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{18/09/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{25/09/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{02/10/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{09/10/2025} \\ \hline
-	Juego didáctico, Gestores elementos remotos & \multicolumn{1}{c|}{09/10/2025} & 30/10/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{16/10/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{23/10/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{30/10/2025} \\ \hline
-	Prácticas, Práctica introductoria & \multicolumn{1}{c|}{30/10/2025} & 13/11/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{06/11/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{13/11/2025} \\ \hline
-	Prácticas, Práctica 1 & \multicolumn{1}{c|}{13/11/2025} & 20/11/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{20/11/2025} \\ \hline
-	Prácticas, Práctica 2 & \multicolumn{1}{c|}{20/11/2025} & 27/11/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{27/11/2025} \\ \hline
-	Prácticas, Práctica 3 & \multicolumn{1}{c|}{27/11/2025} & 04/12/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{04/12/2025} \\ \hline
-	Prácticas, Soluciones & \multicolumn{1}{c|}{04/12/2025} & 18/12/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{11/12/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{18/12/2025} \\ \hline
-	Parón de Navidad & \multicolumn{1}{c|}{22/12/2025} & 08/01/2026 \\ \hline
-	Prácticas, Soluciones & \multicolumn{1}{c|}{18/12/2025} & 08/01/2026 \\ \hline
-	Reunión & \multicolumn{2}{c|}{08/01/2026} \\ \hline
-	Documentación web, Documentación & \multicolumn{1}{c|}{08/01/2026} & 22/01/2026 \\ \hline
-	Reunión & \multicolumn{2}{c|}{15/01/2026} \\ \hline
-	Reunión & \multicolumn{2}{c|}{22/01/2026} \\ \hline
-	Distribución, Imagen Hephaestus & \multicolumn{1}{c|}{22/01/2026} & 05/02/2026 \\ \hline
-	Reunión & \multicolumn{2}{c|}{29/01/2026} \\ \hline
-	Reunión & \multicolumn{2}{c|}{05/02/2026} \\ \hline
-	Distribución, Imagen juego didáctico & \multicolumn{1}{c|}{05/02/2026} & 12/02/2026 \\ \hline
-	Reunión & \multicolumn{2}{c|}{12/02/2026} \\ \hline
-	Distribución, Imagen juego didáctico & \multicolumn{1}{c|}{12/02/2026} & 19/02/2026 \\ \hline
-	Reunión & \multicolumn{2}{c|}{19/02/2026} \\ \hline
-	\caption{Planificación en el tiempo del proyecto}
-	\label{tab:sprints}
-\end{longtable}
+La figura \ref{fig:chap2_gantt_diagram} presenta el diagrama de Gantt parcial del proyecto, en él no se incluyen las reuniones acometidas durante el desarrollo del mismo. Se tiene que aclarar también sobre el diagrama, el hecho de que se toman en cuenta los parones por vacaciones de la Universidad de Valladolid como extensiones del tiempo empleado por los entregables que se ven afectados por dichos parones.
 
-La tabla \ref{tab:sprints} muestra la planificación a lo largo del tiempo del proyecto. Se pueden apreciar las reuniones programadas para resolver dudas y discutir el estado del proyecto, del entregable o del prototipo actuales. Los prototipos se muestran en el caso menos óptimo, por lo tanto se aprecian dos semanas para la realización de cada prototipo. Por lo tanto, cada entregable establece las fechas de inicio y de final calculando el número de prototipos que se le han asignado en el apartado anterior por dos. Las reuniones correspondientes a cada entregable se muestran debajo del propio entregable en la tabla.
-
-En total se dedican 45 semanas a la investigación y desarrollo del proyecto, el tiempo medio semanal dedicado es de 10 horas, por lo tanto la estimación del tiempo total, en horas, que se dedica al proyecto es una aproximación de 450 horas.
+Una vez finalizada la planificación temporal del proyecto se puede calcular una estimación total de horas que van a ser necesarias emplear para la elaboración del mismo. En total se dedican 46 semanas a la investigación y desarrollo del proyecto, el tiempo medio semanal estimado es de 10 horas, debido a las circunstancias laborales del alumno. Por lo tanto la estimación del tiempo total, en horas, que se dedica al proyecto es una aproximación de 460 horas.
 
 \section{Riesgos}
 
-Un riesgo es una situación potencial que puede acarrear un retraso en el proyecto o lo puede acelerar. Todo riesgo tiene un posibilidad de ocurrir y un impacto sobre el proyecto. Es natural que cualquier proyecto que sea ejecutado esté expuesto a una serie de riesgos que modifiquen los tiempos de ejecución del mismo ya que toda planificación de un proyecto está basada en estimaciones y sujeta a incertidumbres.
-
-Todo proyecto de desarrollo software requiere de un análisis de riesgos que se puedan producir durante la ejecución del mismo. Los riesgos se dividen en diversos tipos dependiendo del área al que afecten:
+Un riesgo es una situación potencial que puede acarrear un retraso en el proyecto o lo puede acelerar. Todo riesgo tiene un posibilidad de ocurrir y un impacto sobre el proyecto. Es natural que cualquier proyecto que sea ejecutado esté expuesto a una serie de riesgos que modifiquen los tiempos de ejecución del mismo ya que toda planificación de un proyecto está basada en estimaciones y sujeta a incertidumbres. Todo proyecto de desarrollo software requiere de un análisis de riesgos que se puedan producir durante la ejecución del mismo. Los riesgos se dividen en diversos tipos dependiendo del área al que afecten:
 
 \begin{itemize}
 	\item Estimación. Fallos a la hora de estimar los tiempos de desarrollo o el tamaño del software, entre otros muchos casos.
@@ -338,12 +199,13 @@ Las siguientes tablas describen los riesgos identificados en el análisis de rie
 
 \begin{table}[h]
 	\centering
+	\footnotesize
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline
 		\rowcolor[HTML]{C0C0C0} 
 		\textbf{Riesgo R01}  & \textbf{Falta de disponibilidad} \\ \hline
 		Descripción          & Durante el desarrollo pueden surgir imprevistos, ya sean de salud o de otra índole, que impidan la participación de alguno de los dos integrantes del proyecto, el impacto será mayor si es el alumno el que sufre un imprevisto que le impida avanzar con el proyecto.\\ \hline
-		Probabilidad         & Media \\ \hline
+		Probabilidad         & Alta \\ \hline
 		Impacto              & Medio \\ \hline
 		Plan de mitigación   & \begin{minipage}[t]{\linewidth}
 			\begin{itemize}[leftmargin=*, noitemsep]
@@ -361,8 +223,10 @@ Las siguientes tablas describen los riesgos identificados en el análisis de rie
 	\label{tab:riesgo_1}
 \end{table}
 
+
 \begin{table}[h]
 	\centering
+	\footnotesize
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline
 		\rowcolor[HTML]{C0C0C0} 
@@ -391,6 +255,7 @@ Las siguientes tablas describen los riesgos identificados en el análisis de rie
 
 \begin{table}[h]
 	\centering
+	\footnotesize
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline
 		\rowcolor[HTML]{C0C0C0} 
@@ -418,6 +283,7 @@ Las siguientes tablas describen los riesgos identificados en el análisis de rie
 
 \begin{table}[h]
 	\centering
+	\footnotesize
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline
 		\rowcolor[HTML]{C0C0C0} 
@@ -446,6 +312,7 @@ Las siguientes tablas describen los riesgos identificados en el análisis de rie
 
 \begin{table}[h]
 	\centering
+	\footnotesize
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline
 		\rowcolor[HTML]{C0C0C0} 
@@ -474,6 +341,7 @@ Las siguientes tablas describen los riesgos identificados en el análisis de rie
 
 \begin{table}[h]
 	\centering
+	\footnotesize
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline
 		\rowcolor[HTML]{C0C0C0} 
@@ -500,6 +368,7 @@ Las siguientes tablas describen los riesgos identificados en el análisis de rie
 
 \begin{table}[h]
 	\centering
+	\footnotesize
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline
 		\rowcolor[HTML]{C0C0C0} 
@@ -526,6 +395,7 @@ Las siguientes tablas describen los riesgos identificados en el análisis de rie
 
 \begin{table}[h]
 	\centering
+	\footnotesize
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline
 		\rowcolor[HTML]{C0C0C0} 
@@ -562,57 +432,47 @@ Durante el desarrollo del proyecto, se producen unos costes relacionados con la 
 
 \subsubsection{Mano de obra}
 
-El gobierno de España establece el salario mínimo mensual en 1184 euros en 14 pagas \cite{salario}. Si se tiene en cuenta que semanalmente se le han dedicado 16 horas al proyecto de media, se puede aproximar el sueldo mensual a 518 euros \cite{salario12pagas}. Habiéndose alargado el desarrollo del proyecto hasta los 10 meses, el coste aproximado de mano de obra es de 5180 euros.
+El gobierno de España establece el salario mínimo mensual en 1184 euros en 14 pagas \cite{salario}. Si se tiene en cuenta que semanalmente se le han dedicado 16 horas al proyecto de media, se puede aproximar el sueldo mensual a 518 euros \cite{salario12pagas}. Habiéndose alargado el desarrollo del proyecto hasta los 12 meses, el coste aproximado de mano de obra es de 6216 euros.
 
 Se emplea el salario mínimo interprofesional con el fin de simplificar los cálculos en este documento. En la realidad, el salario de un ingeniero informático junior puede variar mucho dependiendo del lugar en el que se encuentre la empresa y el sueldo que ofrezca dicha empresa contratante. Por ese motivo y, debido a que el SMI se encuentra dentro de la horquilla de posibles salarios para un ingeniero informático junior, se hace uso del ya mencionado SMI en el cálculo de la mano de obra.
 
 \subsubsection{Equipo empleado}
 
-Para el desarrollo del proyecto se han empleado dos equipos, un ordenador fijo de sobremesa, para el desarrollo diario del mismo, y un ordenador portátil, para aquellas ocasiones en las que se necesitara la portabilidad que ofrece un equipo de estas características.
-
-El coste del ordenador de sobremesa es de 1600 euros mientras que el portátil se valora en 700 euros. Estos costes se toman del precio pagado en el momento de la compra de los mismos.
+Para el desarrollo del proyecto se han empleado dos equipos, un ordenador fijo de sobremesa, para el desarrollo diario del mismo, y un ordenador portátil, para aquellas ocasiones en las que se necesitara la portabilidad que ofrece un equipo de estas características. El coste del ordenador de sobremesa es de 1600 euros mientras que el portátil se valora en 700 euros. Estos costes se toman del precio pagado en el momento de la compra de los mismos.
 
 En total, el coste en equipo de trabajo es de 2300 euros. Este coste no es el coste real de lo equipos, ya que al finalizar el proyecto estos no dejan de ser empleados, el coste real es el desgaste producido en estos durante la realización del mismo. Este coste se conoce como amortización y, en este caso, se calcula empleando la siguiente fórmula, ya que, por simplicidad, se emplea la amortización lineal \cite{amortizacion}:
 
 \[Coste = (Precio * TiempoUso) / VidaUtil\]
 
-La Agencia Tributaria proporciona una tabla para el cálculo de amortización lineal \cite{tabla_amortizacion}. Según esta tabla los equipos informáticos cuentan con una vida útil de 8 años y, por lo tanto, el coste de los equipos de trabajo durante el periodo de ejecución del proyecto resultan en aproximadamente 240 euros.
+La Agencia Tributaria proporciona una tabla para el cálculo de amortización lineal \cite{tabla_amortizacion}. Según esta tabla los equipos informáticos cuentan con una vida útil de 8 años y, por lo tanto, el coste de los equipos de trabajo durante el periodo de ejecución del proyecto resultan en 287,5 euros.
 
 \subsubsection{Control de versiones}
 
-El código se aloja en un servicio de control de versiones en la nube llamado Github. El modelo de precios de Github no supone coste alguno para todo aquel repositorio de código que sea público, tal y cómo es este proyecto. Por lo tanto el coste de alojamiento del control de versiones es de 0 euros.
+El código se aloja en un servicio de control de versiones en la nube llamado Github. El coste de alojamiento de Github se basa en un modelo por asientos. Existe una versión no profesional gratuita y dos profesionales, una enfocada a equipos más pequeños y otra enfocada a grandes empresas. En este caso, el modelo más adecuado para el proyecto es el profesional para equipos pequeños, el cual cuesta 4 dólares estadounidenses por miembro al mes. Para el proyecto el coste será, por lo tanto, de unos 4 euros aproximados al mes, ya que la conversión entre dólar y euro es cambiante y, en este caso, se estima de manera pesimista la conversión.
+
+El desarrollo del proyecto comienza en febrero del año 2025 y finaliza un año más tarde en febrero del año 2026. Teniendo en cuenta, que el único contribuidor al código del proyecto es el alumno, el coste total del alojamiento del proyecto durante el desarrollo del mismo en Github asciende a 48 euros aproximadamente.
 
 \subsubsection{Licencias de software}
 
-El uso del lenguaje de programación Elixir es gratuito, al igual que el empleo de Docker y Postgresql. 
+El uso del lenguaje de programación Elixir es gratuito, al igual que el empleo de Docker y Postgresql. Por otro lado, Java tiene un modelo de financiación variado en el cual el empleo del lenguaje de programación en su variante empresarial es de pago, siguiendo la misma estrategia de cobro que Github. En el caso de Java, el coste por usuario por mes de 15 dólares estadounidenses, que, por simplicidad de cálculos, se aproximan a 15 euros al mes. Por último, el editor empleado para el desarrollo del proyecto es Visual Studio Code, editor de texto creado por Microsoft y que está orientado a la programación, supone un coste nulo, ya que es gratuito.
 
-Por otro lado, Java tiene un modelo de financiación variado en el cual el empleo del lenguaje de programación en su variante empresarial es de pago, mientras que la propia Oracle mantiene una implementación de la plataforma Java, licenciada bajo la licencia GPL-2.0, llamada Open-JDK. Esta variante sufre actualizaciones cada semestre por lo que normalmente se encuentra por detrás de la versión empresarial. Para el empleo dado en el proyecto, la versión libre y gratuita es suficiente.
-
-El editor empleado para el desarrollo del proyecto es Visual Studio Code, editor de texto creado por Microsoft y que está orientado a la programación, supone un coste nulo, ya que es gratuito.
-
-Por último, se hace uso de ChatGPT como herramienta de inteligencia artificial. Pese a que este cuenta con varias opciones de pago, el nivel básico gratuito es suficiente para las tareas acometidas durante el desarrollo del proyecto.
-
-Con todo esto en cuenta, el coste de licencias de software es de 0 euros.
+Con todo esto en cuenta, el coste de licencias de software es de 180 euros al calcular el coste Java de 15 euros al mes por el año de desarrollo necesitado para el proyecto.
 
 \subsubsection{Alojamiento web}
 
-Una de las partes del proyecto es una página web pensada para todo aquel desarrollador de videojuegos que quiera hacer uso del motor Hephaestus. Esta web tiene que ser alojada en un servidor web para que sea visible públicamente. Github ofrece alojamiento de páginas web estáticas sin ningún coste para repositorios de código públicos.
-
-Por lo tanto el coste del alojamiento es también de 0 euros y el coste de desarrollo de todo el proyecto asciende a 5420 euros.
+Una de las partes del proyecto es una página web pensada para todo aquel desarrollador de videojuegos que quiera hacer uso del motor Hephaestus. Esta web tiene que ser alojada en un servidor web para que sea visible públicamente. Github ofrece alojamiento de páginas web estáticas sin ningún coste para repositorios de código públicos. Siendo este el caso el coste del alojamiento web es de 0 euros.
 
 \subsection{Producción}
 
-Una vez finalizado el proyecto la etapa de producción del mismo puede tener unos costes asociados. Al igual que a la etapa de desarrollo, a esta etapa también le afectan los costes de licencias de software, alojamiento web y alojamiento del control de versiones. Estos costes ya han sido establecidos como nulos en el apartado anterior.
+Una vez finalizado el proyecto la etapa de producción del mismo puede tener unos costes asociados. Al igual que a la etapa de desarrollo, a esta etapa también le afectan los costes de licencias de software, alojamiento web y alojamiento del control de versiones. Estos costes ya han sido establecidos en el apartado anterior.
 
 Los costes propios de la etapa de producción son el alojamiento de las imágenes Docker del proyecto y el equipo necesario para ponerlo en funcionamiento.
 
 \subsubsection{Alojamiento de imágenes}
 
-Las imágenes Docker del proyecto se pueden construir a partir del código disponible en el repositorio de Github, pero, en caso de querer almacenar las imágenes ya construidas en un repositorio público  para un acceso más sencillo, existen productos que ofrecen estos servicios.
+Las imágenes Docker del proyecto se pueden construir a partir del código disponible en el repositorio de Github, pero, en caso de querer almacenar las imágenes ya construidas en un repositorio público para un acceso más sencillo, existen productos que ofrecen estos servicios. DockerHub es el repositorio en la nube más conocido. Propiedad también de los dueños de Docker, su modelo de precios permite el alojamiento de una imagen privada, en caso de necesitar más se tiene que optar por una opción de pago, y alojamiento ilimitado de imágenes públicas.
 
-DockerHub es el repositorio en la nube más conocido. Propiedad también de los dueños de Docker, su modelo de precios permite el alojamiento de una imagen privada, en caso de necesitar más se tiene que optar por una opción de pago, y alojamiento ilimitado de imágenes públicas.
-
-En el caso del proyecto las imágenes son públicas, por lo tanto coste 0.
+En el caso del proyecto las imágenes son públicas, con el fin de que los alumnos puedan tener acceso a ellas, por lo tanto no tienen un coste asociado a su alojamiento.
 
 \subsubsection{Hardware}
 
@@ -621,3 +481,46 @@ El proyecto completo está pensado para poder ser usado en una sola máquina y, 
 A parte de poder ser usado en una sola máquina, la naturaleza del proyecto es distribuida y por lo tanto se puede desplegar de esa manera. Para ello son necesarias tres máquinas independientes, si se opta por el empleo de VPS (Servidor Virtual Privado, por sus siglas en inglés) el coste se puede estimar en 4 euros mensuales por máquina.
 
 Por lo tanto, si se opta por la primera opción, el coste de la producción del proyecto es únicamente de un mínimo de 700 euros como coste fijo. En caso de optar por la segunda opción el coste sería recurrente costando 12 euros mensuales, dependiendo siempre del distribuidor de VPS elegido.
+
+\subsection{Costes totales}
+
+\begin{table}[h]
+	\centering
+	\footnotesize
+	\begin{tabularx}{\textwidth}{|X|X|X|}
+		\hline
+		\rowcolor[HTML]{C0C0C0}
+		\textbf{Coste} & \textbf{Tipo de coste} & \textbf{Valor (€)} \\ \hline
+		Mano de obra & Mensual & 518 \\ \hline
+		Equipo hardware de desarrollo & Fijo amortizado & 287,5 \\ \hline
+		Control de versiones (Github) & Mensual por contribuidor & 4 \\ \hline
+		Licencias de software (Java) & Mensual por desarrollador & 15 \\ \hline
+	\end{tabularx}
+	\vspace{0.5cm}
+	\caption{Tabla de costes de desarrollo}
+	\label{tab:chap2_tabla_costes_desarrollo}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\footnotesize
+	\begin{tabularx}{\textwidth}{|X|X|X|}
+		\hline
+		\rowcolor[HTML]{C0C0C0}
+		\textbf{Coste} & \textbf{Tipo de coste} & \textbf{Valor (€)} \\ \hline
+		Control de versiones (Github) & Mensual por contribuidor & 4 \\ \hline
+		Equipo hardware & Fijo & 700 \\ \hline
+		Equipo hardware VPS & Mensual variable (depende de la máquina contratada) & 4 \\ \hline
+	\end{tabularx}
+	\vspace{0.5cm}
+	\caption{Tabla de costes en producción}
+	\label{tab:chap2_tabla_costes_producción}
+\end{table}
+
+Resumiendo lo visto en los dos apartados anteriores las Tablas \ref{tab:chap2_tabla_costes_desarrollo} y \ref{tab:chap2_tabla_costes_producción} muestran un resumen de los gastos que se pueden producir a lo largo del desarrollo y de la producción del proyecto. Teniendo en cuenta que el tiempo de desarrollo estimado es de un año, se puede realizar el cálculo de costes de desarrollo. Respecto a producción el coste varía de múltiples maneras mensualmente, por lo tanto, la estimación dada corresponde a un coste mensual aproximado, con los menores costes posibles.
+
+En primer lugar, el coste total de desarrollo consiste en la suma total, durante un año, de todos los costes vistos en la tabla. La mano de obra aporta un total de 6216 euros al coste final del desarrollo. A esto se le tienen que sumar el control de versiones y las licencias de software, teniendo en cuenta que solo hay que pagar por una asiento en cada una de las mensualidades, lo cual aportan un total de 228 euros. Finalmente a todo esto se le suma el coste amortizado por un año del equipo hardware dando un total de 6731,5 euros en el año de desarrollo que lleva el proyecto.
+
+Para finalizar el coste total de producción depende del tiempo que se tenga en funcionamiento el proyecto, por ello lo más adecuado es proporcionar el coste mensual del proyecto una vez a salido de la fase de desarrollo. En primer lugar, el coste de alojamiento en Github continua siendo el mismo. A este coste hay que añadirle el coste del equipo hardware, este puede ser mediante un equipo físico propio o haciendo uso de VPS para conseguir auténtica arquitectura distribuida. Si se escoge el equipo hardware propio hay que calcular la amortización del sistema mínimo conocido en el cual funciona. Esto constituye un gasto de 7,29 euros al mes dando un total de 11,29 euros mensuales. Si se escoge la opción de las VPS es necesario alquilar tres, por lo tanto el coste mensual aproximado es de 16 euros.
+
+Resumiendo el coste total de desarrollo es de 6731,5 euros mientras que la aproximación mensual de costes en producción depende de la elección de hardware donde se despliega, siendo de 7,29 euros al mes en caso de hardware propio o de 16 euros al mes en caso de desplegarlo haciendo uso de varias VPS.

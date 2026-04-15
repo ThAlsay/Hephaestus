@@ -19,6 +19,7 @@ Debido a su naturaleza, las pruebas unitarias son muy útiles para probar sistem
 Al tratarse de Hephaestus el lenguaje para las pruebas del motor es Elixir, por lo tanto se hace uso de las herramientas proporcionadas por el propio lenguaje para hacer las pruebas, tal y como se muestra en el ejemplo \ref{cod:ejemplo_test_unitario_elixir}. Mediante estas pruebas se asegura el correcto funcionamiento de las piezas del motor necesarias para crear un videojuego, incluyendo todo lo implementado mediante \textit{GenServer}, para lo cual las pruebas se centran en el código que produce algún cambio en el estado, esto es se excluye de las pruebas todo código que no modifique el comportamiento de la biblioteca \textit{GenServer} como puede ser un \textit{getter} de un campo del estado.
 \\
 
+{\footnotesize
 \begin{lstlisting}[language=erlang, caption=Snippet test unitario Elixir, label=cod:ejemplo_test_unitario_elixir, breaklines, showstringspaces=false, captionpos=b]
 defmodule ConnectionTest do
   use ExUnit.Case, async: true
@@ -48,6 +49,7 @@ defmodule ConnectionTest do
   end
 end
 \end{lstlisting}
+}
 
 \section{Pruebas end-to-end}
 

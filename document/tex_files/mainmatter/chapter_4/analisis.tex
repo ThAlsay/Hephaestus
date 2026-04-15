@@ -6,87 +6,508 @@ El proyecto cuenta con tres grandes bloques de contenido con código: el motor H
 
 Se trata del foco principal del proyecto, por lo tanto el grueso del análisis se concentra en el motor de videojuegos distribuidos Hephaestus.
 
+\subsection{Análisis inicial}
+
+En la planificación del proyecto se mostraron los entregables planeados para la ejecución del proyecto. Estos entregables se dividen en las cinco partes con la que cuenta el proyecto y marcan la pauta de desarrollo del mismo. Por lo tanto, al realizar el análisis de cada una de las partes se requiere de un análisis inicial de todos los entregables que contienen código y que forman cada una de estas, con el objetivo de determinar los requisitos y casos de uso necesarios para poder finalizar el proyecto. El motor Hephaestus cuenta con nueve entregables los cuales, en conjunto, conforman el motor al completo.
+
+\subsubsection{Módulo Personaje}
+
+El personaje representa la entidad jugable del sistema, toda modificación del estado del juego que se produzca por la acción de un jugador tiene que pasar por el personaje de ese mismo jugador y será esta situación la única que provoque que el personaje realice una acción. Esto no implica que el escenario no pueda cambiar por acciones externas al jugador, otros tipos de elementos del juego pueden disparar cambios en el estado del juego sin necesidad de recibir una acción por parte del jugador.
+
+\subsubsection{Módulo Enemigo}
+
+Un enemigo representa una entidad opuesta al personaje, al entrar ambos en contacto dentro del juego estos pueden, a elección del desarrollador del videojuego, entrar en un estado de combate y reducir al vida que tienen ambos a base de golpes al contrario. Por ello estos dos actores son los únicos que cuentan con una estadística de vida. Por estos motivos, tanto el personaje como el enemigo son actores que deben contar con la posibilidad de recibir mensajes que permitan al contrario modificar su estado interno.
+ 
+\subsubsection{Módulo NPC}
+
+Un NPC representa un personaje no jugable con el cual se puede interactuar. Por su definición el NPC tiene que permitir a los actores que se lo soliciten iniciar una interacción con él. El resultado de dicha interacción dependerá totalmente del desarrollador que haga uso del motor, por lo tanto el código ha de estar preparado para admitir una gran variedad de posibilidades como resultado a la acción de interactuar. Además de la flexibilidad a la hora de resolver la interacción, cabe la posibilidad de que el desarrollador limite el número de interacciones que permite el NPC.
+
+\subsubsection{Módulo Objeto}
+
+Un objeto es una entidad que puede ser entregada por otra entidad y que se puede almacenar en el inventario del actor personaje. Además un objeto puede ser volátil, una vez usado desaparece, o equipable, no desaparece una vez empleado y puede desequiparse y volver al inventario. Dependiendo del tipo de objeto utilizará una estadísticas u otras para desempeñar su papel, teniendo en cuenta que el tipo y utilidad del objeto se dejan a valoración del desarrollador del videojuego.
+
+\subsubsection{Módulo Ubicación}
+
+Una ubicación define los emplazamientos sobre los que transcurre el juego. Por ello el resto de actores están colocados en una de estas ubicaciones. A elección del desarrollador un actor puede cambiar su ubicación durante el transcurso de la partida, el ejemplo más claro es el personaje, el cual necesita de esta característica para avanzar por el mapa del juego.
+
+\subsubsection{Módulo Conexión}
+
+Una conexión permite viajar entre ubicaciones, pudiendo tener restricciones para realizar dicho viaje. El viaje se realiza entre dos ubicaciones contiguas cuya contigüidad se determina por el hecho de ser ambas dependientes de la misma conexión.
+
+\subsubsection{Persistencia}
+
+La persistencia incluye todas las funciones necesarias para transferir el estado del juego al almacenamiento permanente de la base de datos. Además del guardado y carga de la partida, se necesitan otras funciones relacionadas con la base de datos, las cuales facilitan todo el control de acceso a los personajes por parte de los jugadores.
+
+\subsubsection{Utilidades}
+
+En el entregable de utilidades se agrupan todas las funciones que puedan ser de utilidad para el desarrollador de videojuegos y ahorren tiempo de desarrollo de los proyectos que empleen Hephaestus.
+
 \subsection{Requisitos}
 
 Hephaestus se describe como un motor para el desarrollo de videojuegos distribuidos escrito en Elixir. Por lo tanto dicho motor deberá contar, fundamentalmente, con: la capacidad de ser distribuido; la posibilidad de emplearlo para manejar el almacenamiento del estado del juego, ya sea de manera permanente o efímera; la capacidad de simplificar el desarrollo de videojuegos y la modularidad suficiente para admitir futuras extensiones de capacidades.
 
 Con esta descripción como base, a continuación se muestran las tablas de requisitos funcionales y no funcionales del motor Hephaestus.
 
-
-\begin{tabularx}{\textwidth}{|X|}	
+{\footnotesize
+\begin{tabularx}{\textwidth}{|l|X|}	
 	\hline
 	\rowcolor[HTML]{C0C0C0} 
-	\textbf{Requisito} \\ \hline
-	Tiene que tener la capacidad de autenticar y autorizar a los usuarios. \\ \hline
-	Cada pieza que actúe como actor debe tener un identificador único que sirva para su identificación en todo el sistema. \\ \hline
-	Tiene que permitir la creación de los siguientes actores: Personaje, conexión, enemigo, ubicación, NPC y objeto. \\ \hline
-	Los actores personaje, NPC y enemigo tienen que tener las siguientes estadísticas: Carisma, sabiduría, inteligencia, constitución, destreza y fuerza. \\ \hline
-	Todos los actores tienen que poder devolver el estado actual en el que se encuentran. \\ \hline
-	El actor personaje tiene que poder almacenar objetos en un inventario. \\ \hline
-	El actor personaje tiene que poder equiparse objetos de su inventario para aumentar o disminuir sus estadísticas. \\ \hline
-	El actor personaje tiene que poder subir de nivel tras llegar a un umbral de experiencia conseguida. \\ \hline
-	El actor personaje, el actor NPC y el actor enemigo deben contar con un nivel con el fin de realizar resoluciones de conflictos. \\ \hline 
-	El actor personaje y el actor enemigo deben contar con un contador de vida que al llegar a cero cambie su estado a no vivo pero no destruya el actor. \\ \hline
-	El actor personaje tiene que indicar si se encuentra en combate o no. \\ \hline
-	El actor personaje tiene que tener la capacidad de recordar la ubicación en la que se encuentra y cambiarla si se requiere. \\ \hline
-	Tiene que tener los mecanismos necesarios para asociar un personaje a un usuario. \\ \hline
-	El actor enemigo tiene que proporcionar una cantidad de experiencia arbitraria si su vida ha llegado a cero. \\ \hline
-	El actor enemigo tiene que contar con una estadística a partir de la cual se derive el daño de ataque que tiene. \\ \hline
-	El actor NPC tiene que contar con un resultado para una interacción exitosa. \\ \hline
-	El actor NPC tiene que contar con un límite de interacciones que pueda ser opcional. En caso de no ser opcional, el resultado de obtener la interacción debe ser exitoso hasta que se consuman todos los intentos. \\ \hline
-	El actor conexión debe almacenar exactamente dos ubicaciones. \\ \hline
-	El actor conexión debe mostrar la siguiente ubicación en función de la ubicación actual. \\ \hline
-	El actor conexión debe tener un nivel fijo. \\ \hline
-	El actor conexión debe tener la capacidad de tener un objeto que se pueda emplear desde el juego para no permitir el cruce hasta la obtención del objeto. \\ \hline
-	El actor objeto tiene que tener un nivel fijo. \\ \hline
-	El actor objeto tiene que tener el tipo de objeto del que se trata. \\ \hline
-	El actor objeto tiene que tener un valor numérico que represente diferentes cosas dependiendo del tipo de objeto. \\ \hline
-	El actor objeto tiene que tener la opción de añadir una estadística sobre la que actúe el objeto. \\ \hline
-	El estado del juego se tiene que poder almacenar de forma permanente en una base de datos. \\ \hline
-	Tiene que proporcionar utilidades para simplificar el enrutamiento de actores en arquitecturas distribuidas. \\ \hline
-	Tiene que proporcionar utilidades para la supervisión de procesos. \\ \hline
+	\textbf{Identificador} & \textbf{Requisito} \\ \hline
+	RF-01 & Tiene que tener la capacidad de autenticar y autorizar a los usuarios. \\ \hline
+	RF-02 & Cada pieza que actúe como actor debe tener un identificador único que sirva para su identificación en todo el sistema. \\ \hline
+	RF-03 & Tiene que permitir la creación de los siguientes actores: Personaje, conexión, enemigo, ubicación, NPC y objeto. \\ \hline
+	RF-04 & Los actores personaje, NPC y enemigo tienen que tener las siguientes estadísticas: Carisma, sabiduría, inteligencia, constitución, destreza y fuerza. \\ \hline
+	RF-05 & Todos los actores tienen que poder devolver el estado actual en el que se encuentran. \\ \hline
+	RF-06 & El actor personaje tiene que poder almacenar objetos en un inventario. \\ \hline
+	RF-07 & El actor personaje tiene que poder equiparse objetos de su inventario para aumentar o disminuir sus estadísticas. \\ \hline
+	RF-08 & El actor personaje tiene que poder subir de nivel tras llegar a un umbral de experiencia conseguida. \\ \hline
+	RF-09 & El actor personaje, el actor NPC y el actor enemigo deben contar con un nivel con el fin de realizar resoluciones de conflictos. \\ \hline 
+	RF-10 & El actor personaje y el actor enemigo deben contar con un contador de vida. \\ \hline
+	RF-11 & El actor personaje tiene que indicar si se encuentra en combate o no. \\ \hline
+	RF-12 & El actor personaje tiene que tener la capacidad de recordar la ubicación en la que se encuentra y cambiarla si se requiere. \\ \hline
+	RF-13 & Tiene que tener los mecanismos necesarios para asociar un personaje a un usuario. \\ \hline
+	RF-14 & El actor enemigo tiene que proporcionar una cantidad de experiencia arbitraria si su vida ha llegado a cero. \\ \hline
+	RF-15 & El actor enemigo tiene que contar con una estadística a partir de la cual se derive el daño de ataque que tiene. \\ \hline
+	RF-16 & El actor NPC tiene que contar con un resultado para una interacción exitosa. \\ \hline
+	RF-17 & El actor NPC tiene que contar con un límite de interacciones que pueda ser opcional. En caso de no ser opcional, el resultado de obtener la interacción debe ser exitoso hasta que se consuman todos los intentos. \\ \hline
+	RF-18 & El actor conexión debe almacenar exactamente dos ubicaciones. \\ \hline
+	RF-19 & El actor conexión debe mostrar la siguiente ubicación en función de la ubicación actual. \\ \hline
+	RF-20 & El actor conexión debe tener un nivel fijo. \\ \hline
+	RF-21 & El actor conexión debe tener la capacidad de tener un objeto que se pueda emplear desde el juego para no permitir el cruce hasta la obtención del objeto. \\ \hline
+	RF-22 & El actor objeto tiene que tener un nivel fijo. \\ \hline
+	RF-23 & El actor objeto tiene que tener el tipo de objeto del que se trata. \\ \hline
+	RF-24 & El actor objeto tiene que tener un valor numérico que represente diferentes cosas dependiendo del tipo de objeto. \\ \hline
+	RF-25 & El actor objeto tiene que tener la opción de añadir una estadística sobre la que actúe el objeto. \\ \hline
+	RF-26 & El estado del juego se tiene que poder almacenar de forma permanente en una base de datos. \\ \hline
+	RF-27 & Tiene que proporcionar utilidades para simplificar el enrutamiento de actores en arquitecturas distribuidas. \\ \hline
+	RF-28 & Tiene que proporcionar utilidades para la supervisión de procesos. \\ \hline
+	RF-29 & Tiene que poder crear nuevos usuarios. \\ \hline
+	RF-30 & El actor ubicación debe poder añadir y eliminar actores objetos \\ \hline
+	RF-31 & El actor ubicación debe poder añadir actores conexión \\ \hline
+	RF-32 & El actor ubicación debe poder añadir actores NPC \\ \hline
+	RF-33 & El actor ubicación debe poder añadir actores enemigo \\ \hline
+	RF-34 & El actor ubicación debe devolver los actores enemigos que se encuentren en el actor ubicación y cuya vida sea mayor a cero \\ \hline
 	
 	\caption{Hephaestus. Requisitos funcionales}
-	\label{tab:hephaestus-req-func} \\
+	\label{tab:hephaestus-req-func}
 \end{tabularx}
+}
 
-\begin{tabularx}{\textwidth}{|X|}
+{\footnotesize
+\begin{tabularx}{\textwidth}{|l|X|}
 	\hline
 	\rowcolor[HTML]{C0C0C0}
-	\textbf{Requisito} \\ \hline
-	Tiene que estar escrito en el lenguaje de programación Elixir. \\ \hline
-	Tiene que estar especializado en juegos de rol en mundos de fantasía. \\ \hline
-	Las contraseñas deben ser almacenadas empleando una función hash. \\ \hline
-	Tiene que estar pensado para su futura modificación haciendo uso de una arquitectura de módulos. \\ \hline
-	La definición de tipos de objetos tiene que ser dependiente del juego que emplea el motor. \\ \hline
-	La base de datos empleada debe ser Postgresql. \\ \hline
-	El control de los actores debe residir en el motor. \\ \hline
+	\textbf{Identificador} & \textbf{Requisito} \\ \hline
+	RNF-01 & Tiene que estar escrito en el lenguaje de programación Elixir. \\ \hline
+	RNF-02 & Tiene que estar especializado en juegos de rol en mundos de fantasía. \\ \hline
+	RNF-03 & Las contraseñas deben ser almacenadas empleando una función hash. \\ \hline
+	RNF-04 & Tiene que estar pensado para su futura modificación haciendo uso de una arquitectura de módulos. \\ \hline
+	RNF-05 & La definición de tipos de objetos tiene que ser dependiente del juego que emplea el motor. \\ \hline
+	RNF-06 & La base de datos empleada debe ser Postgresql. \\ \hline
+	RNF-07 & El control de los actores debe residir en el motor. \\ \hline
 	
 	\caption{Hephaestus. Requisitos no funcionales}
-	\label{tab:hephaestus-req-nfunc} \\
+	\label{tab:hephaestus-req-nfunc}
 \end{tabularx}
+}
 
 \subsection{Casos de uso}
 
-Una vez se han determinado los requisitos de esta parte del proyecto, se acotan los casos de uso a implementar durante el transcurso de todo el proyecto. Los diagramas \ref{fig:chap4_motor_casos_uso_1}, \ref{fig:chap4_motor_casos_uso_2} y \ref{fig:chap4_motor_casos_uso_3} muestran los casos de uso del motor Hephaestus. Se divide el diagrama en varios subdiagramas debido al tamaño que tendría un único diagrama con todos los casos de uso de Hephaestus, de esta manera se consigue una mejor legibilidad de los casos de uso. Gracias a los casos de uso se puede tomar un métrica del estado del proyecto, si todos los casos de uso están implementados este se puede dar por finalizado.
+Una vez se han determinado los requisitos de esta parte del proyecto, se acotan los casos de uso a implementar durante el transcurso de todo el proyecto. Las Figuras \ref{fig:chap4_motor_casos_uso_1}, \ref{fig:chap4_motor_casos_uso_2} y \ref{fig:chap4_motor_casos_uso_3} muestran los casos de uso del motor Hephaestus. Se divide el diagrama en varios subdiagramas debido al tamaño que tendría un único diagrama con todos los casos de uso de Hephaestus, de esta manera se consigue una mejor legibilidad de los casos de uso. Gracias a los casos de uso se puede tomar un métrica del estado del proyecto, si todos los casos de uso están implementados este se puede dar por finalizado. 
+
+Además de los diagramas mostrados se proporciona una serie de tablas que describen en profundidad cada uno de los casos de uso. Existen múltiples opciones para realizar este tipo de tablas, pero en este caso se opta por tablas pequeñas, que no incluyen mucha información sobre el caso de uso, debido a la cantidad de casos de uso presentes en el proyecto. Las tablas cuentan con el identificador y el nombre del caso de uso, un listado de referencias a los requisitos funcionales u otros casos de uso afectados por el caso de uso en cuestión y una descripción del caso de uso. De este forma se consigue resumir la información más importante que no pudiera quedar clara mediante los diagramas mencionados anteriormente.
+
+\begin{table}[H]
+	\centering
+	\small	
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-01} & Crear usuario \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-13, RF-29} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita crear un nuevo usuario proporcionando el nombre de usuario y la definición del nuevo personaje asociado al nuevo usuario.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-01}
+	\label{tab:hephaestus-cu-01}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-02} & Autenticar usuario \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita comprobar si la identidad del usuario proporcionado existe en el sistema. Esta comprobación se hace mediante el uso de usuario y contraseña.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-02}
+	\label{tab:hephaestus-cu-02}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-03} & Guardar estado \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-26} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita guardar su estado actual en la base de datos. Debe solicitar el estado de todos los actores del sistema para poder guardarlos en la base de datos.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-03}
+	\label{tab:hephaestus-cu-03}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-04} & Cargar estado \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-03} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita el estado de las entidades que conforman el juego almacenados en la base de datos.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-04}
+	\label{tab:hephaestus-cu-04}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-05} & Crear entidad \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-03, CU-04} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita la creación y puesta en funcionamiento de las entidades que conforman el juego.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-05}
+	\label{tab:hephaestus-cu-05}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-06} & Consultar estado \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-05} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita el estado actual del actor entidad correspondiente al tipo e identificador proporcionados por el juego.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-06}
+	\label{tab:hephaestus-cu-06}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-07} & Obtener daño de ataque \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-05, RF-15} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita el valor de ataque de una entidad perteneciente al juego que cuente con vida (Enemigo o Personaje).} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-07}
+	\label{tab:hephaestus-cu-07}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-08} & Consultar si está vivo \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-05, RF-10} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego consulta si la entidad solicitada cuenta con un valor de vida superior a cero y por lo tanto si se considera que está con vida. Solo se asocia a entidades que tienen vida (Enemigo o Personaje).} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-08}
+	\label{tab:hephaestus-cu-08}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-09} & Herir \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-10} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego indica la entidad con vida (Enemigo o Personaje) que debe reducir una cantidad, también indicada por el juego, de su campo de vida.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-09}
+	\label{tab:hephaestus-cu-09}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-10} & Consultar recompensa \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-05, RF-14, CU-08} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego consulta la cantidad correspondiente a la recompensa entregada por la entidad Enemigo si se cumple la condición de que su vida se encuentra a cero.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-10}
+	\label{tab:hephaestus-cu-10}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-11} & Consultar siguiente ubicación \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-05, RF-19} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego consulta la siguiente ubicación de una entidad Conexión dada una de las dos ubicaciones que almacena esta.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-11}
+	\label{tab:hephaestus-cu-11}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-12} & Consultar valor de la estadística \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-05, RF-24, RF-25} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego consulta el valor de la estadística asociada a la entidad Objeto objetivo.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-12}
+	\label{tab:hephaestus-cu-12}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-13} & Equipar objeto \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-06, RF-07} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona el identificador de una entidad Objeto en el inventario de la entidad Personaje para equiparlo en el espacio correspondiente.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-13}
+	\label{tab:hephaestus-cu-13}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-14} & Cambiar ubicación \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-12} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego indica la entidad Ubicación a la cual la entidad Personaje ha de moverse.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-14}
+	\label{tab:hephaestus-cu-14}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-15} & Entrar en combate \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-11} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El motor cambia el estado de la entidad Personaje para que esta se encuentre en estado de combate.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-15}
+	\label{tab:hephaestus-cu-15}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-16} & Añadir experiencia \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-08, RF-09} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona una cantidad de experiencia a la entidad Personaje, la cual puede subir de nivel si sobrepasa el umbral del nivel.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-16}
+	\label{tab:hephaestus-cu-16}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-17} & Añadir al inventario \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-06} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona una entidad Objeto la cual se añade al inventario de la entidad Personaje.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-17}
+	\label{tab:hephaestus-cu-17}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-18} & Consultar enemigos \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-05, RF-34} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita el listado de entidades Enemigo que se encuentran en la entidad Ubicación sobre la cual se piden los datos.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-18}
+	\label{tab:hephaestus-cu-18}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-19} & Añadir objeto \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-30} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona una entidad Objeto la cual se añade a la entidad Ubicación objetivo.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-19}
+	\label{tab:hephaestus-cu-19}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-20} & Eliminar objeto \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-30} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona una entidad Objeto la cual se elimina de la entidad Ubicación objetivo.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-20}
+	\label{tab:hephaestus-cu-20}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-21} & Añadir conexión \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-31} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona una entidad Conexión la cual se añade a la entidad Ubicación objetivo.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-21}
+	\label{tab:hephaestus-cu-21}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-22} & Añadir conexión \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-32} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona una entidad NPC la cual se añade a la entidad Ubicación objetivo.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-22}
+	\label{tab:hephaestus-cu-22}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-23} & Añadir enemigo \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-33} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona una entidad Enemigo la cual se añade a la entidad Ubicación objetivo.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-23}
+	\label{tab:hephaestus-cu-23}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-24} & Interactuar \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-16} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita interactuar con una entidad NPC.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-24}
+	\label{tab:hephaestus-cu-24}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-25} & Modificar límite de interacción \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-17} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita la modificación de los límites puestos por la entidad NPC para que una interacción con dicha entidad sea considerada como válida.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso de Hephaestus CU-25}
+	\label{tab:hephaestus-cu-25}
+\end{table}
 
 \begin{figure}[p]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/casos_uso_motor_1.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/casos_uso_motor_1.pdf}
 	\caption{Diagrama de casos de uso de Hephaestus (Base de datos y Enemigo)}
 	\label{fig:chap4_motor_casos_uso_1}
 \end{figure}
 
 \begin{figure}[p]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/casos_uso_motor_2.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/casos_uso_motor_2.pdf}
 	\caption{Diagrama de casos de uso de Hephaestus (Conexión, Objeto y Personaje)}
 	\label{fig:chap4_motor_casos_uso_2}
 \end{figure}
 
 \begin{figure}[p]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/casos_uso_motor_3.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/casos_uso_motor_3.pdf}
 	\caption{Diagrama de casos de uso de Hephaestus (Ubicación y NPC)}
 	\label{fig:chap4_motor_casos_uso_3}
 \end{figure}
@@ -99,7 +520,7 @@ En primer lugar, en el diagrama \ref{fig:chap4_motor_completo} se muestra un con
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/analisis_inicial_motor.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/analisis_inicial_motor.pdf}
 	\caption{Diagrama de análisis Hephaestus completo}
 	\label{fig:chap4_motor_completo}
 \end{figure}
@@ -121,7 +542,7 @@ A partir de la eliminación de estos elementos se crea el diagrama de análisis 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/analisis_motor.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_motor/analisis_motor.pdf}
 	\caption{Diagrama de análisis de Hephaestus}
 	\label{fig:chap4_motor_final}
 \end{figure}
@@ -134,6 +555,22 @@ El mayor cambio conceptual que se aprecia en el análisis final sobre el inicial
 
 Al tratarse de un foco menor respecto a Hephaestus, el análisis del juego didáctico no es tan extenso y profundo como lo es el del motor. Pese a ello, el análisis es suficiente para que el diseño posterior cumpla con las condiciones suficientes para el correcto funcionamiento de las prácticas.
 
+\subsection{Análisis inicial}
+
+Tal y como se ha realizado con Hephaestus, el juego didáctico requiere de un análisis inicial de los entregables planificados en el Capítulo \ref{Cap2}, mediante el cual definir los requisitos y casos de uso necesarios para la correcta ejecución de esta parte del proyecto.
+
+\subsubsection{Servidor}
+
+La estructura del proyecto obliga al jugador a emplear uno o varios clientes para comunicarse con el juego. Por lo tanto el juego ha de ser un servidor que pueda recibir instrucciones por parte de los clientes. Las características de este servidor incluyen admitir peticiones mediante TCP/IP, emplear el protocolo JSON-RPC y estar preparado para un entorno profesional con varias peticiones concurrentes y múltiples usuarios.
+
+\subsubsection{Handlers}
+
+Los handlers son los encargados de resolver un mensaje concreto recibido por el servidor, dados los datos necesarios para la labor. El servidor es el encargado de solicitar la resolución de un mensaje al handler específico y estos devuelven el resultado al servidor, por lo tanto, toda la lógica de negocio para poder superar el videojuego recae sobre los handlers. A la hora de resolver el resultado los handlers tienen que interactuar con el motor y mandarle instrucciones para modificar el estado de la partida.
+
+\subsubsection{Gestores de elementos remotos}
+
+Uno de los objetivos del juego es enseñar a los alumnos el funcionamiento de sistemas distribuidos y, para ello, el juego se trata como uno de estos sistemas. Los actores del juego están distribuidos entre varias máquinas independientes, tal y como se requiere en un sistema distribuido, y para poder mantener la comunicación con los actores alojados en máquinas diferentes a la que está alojado el juego este requiere de la ayuda de un gestor de elementos remotos. Estos gestores se encargan de buscar a los actores por la red que se les indique, comprobar que estos están conectados, enviar la petición que requiera el handler y devolver la respuesta que reciban del elemento remoto.
+
 \subsection{Requisitos}
 
 El juego didáctico se caracteriza por actuar como servidor para clientes creados por los alumnos, mediante los cuales se puede resolver el juego. Es fundamental que se adapte a las necesidades del curso en el que se emplea.
@@ -142,47 +579,219 @@ Por lo tanto las siguientes listas muestran los requisitos funcionales y no func
 
 \vspace{1cm}
 
-\begin{tabularx}{\textwidth}{|X|}
+{\footnotesize
+\begin{tabularx}{\textwidth}{|l|X|}
 	\hline
 	\rowcolor[HTML]{C0C0C0}
-	\textbf{Requisito} \\ \hline
-	Tiene que implementar un servidor de tipo TCP que admita comunicaciones concurrentes. \\ \hline
-	El cliente tiene que poder conectarse empleando el puerto 3000 TCP. \\ \hline
-	Tiene que admitir, únicamente, comunicaciones que empleen el protocolo JSON-RPC. \\ \hline
-	Tiene que controlar todos los actores de tipo personaje y enemigo de forma remota. \\ \hline
-	Tiene que definir las rutas de las máquinas en la que los actores de tipo personaje y enemigo se van a ejecutar. \\ \hline
-	Tiene que contar con los suficientes procedimientos remotos para ser completado. \\ \hline
-	Tiene que contar con un procedimiento remoto que devuelva la información correcta para la ejecución del resto de procedimientos. \\ \hline
-	Toda gestión de la base de datos se tiene que delegar al motor Hephaestus. \\ \hline
-	Tiene que implementar un procedimiento que ejecute un guardado del estado del juego de manera permanente. \\ \hline
-	Los procedimientos tienen que delegar la gestión de estados de los actores al motor Hephaestus. \\ \hline
-	Tiene que desarrollarse sobre un mundo compartido. Esto es, en caso de que se conecten dos personajes, las acciones de uno de los personajes sobre el mundo afecta al mundo que ve el otro personaje, es decir, es el mismo mundo. \\ \hline
-	Tiene que implementar un procedimiento para la autenticación de usuarios. \\ \hline
+	\textbf{Identificador} & \textbf{Requisito} \\ \hline
+	RF-01 & Tiene que implementar un servidor de tipo TCP que admita comunicaciones concurrentes. \\ \hline
+	RF-02 & El cliente tiene que poder conectarse empleando el puerto 3000 TCP. \\ \hline
+	RF-03 & Tiene que admitir, únicamente, comunicaciones que empleen el protocolo JSON-RPC. \\ \hline
+	RF-04 & Tiene que controlar todos los actores de tipo personaje y enemigo de forma remota. \\ \hline
+	RF-05 & Tiene que definir las rutas de las máquinas en la que los actores de tipo personaje y enemigo se van a ejecutar. \\ \hline
+	RF-06 & Tiene que contar con los suficientes procedimientos remotos para ser completado. \\ \hline
+	RF-07 & Tiene que contar con un procedimiento remoto que devuelva la información correcta para la ejecución del resto de procedimientos. \\ \hline
+	RF-08 & Toda gestión de la base de datos se tiene que delegar al motor Hephaestus. \\ \hline
+	RF-09 & Tiene que implementar un procedimiento que ejecute un guardado del estado del juego de manera permanente. \\ \hline
+	RF-10 & Los procedimientos tienen que delegar la gestión de estados de los actores al motor Hephaestus. \\ \hline
+	RF-11 & Tiene que desarrollarse sobre un mundo compartido. Esto es, en caso de que se conecten dos personajes, las acciones de uno de los personajes sobre el mundo afecta al mundo que ve el otro personaje, es decir, es el mismo mundo. \\ \hline
+	RF-12 & Tiene que implementar un procedimiento para la autenticación de usuarios. \\ \hline
+	RF-13 & Al iniciar su ciclo de vida tiene que cargar de forma automática todos los actores no correspondientes a un personaje. \\ \hline
+	RF-14 & Tiene que contar con un procedimiento mediante el cual el jugador se pueda autenticar \\ \hline
 	
 	\caption{Juego didáctico. Requisitos funcionales}
 	\label{tab:juego-req-func}
 \end{tabularx}
+}
 
-\begin{tabularx}{\textwidth}{|X|}
+{\footnotesize
+\begin{tabularx}{\textwidth}{|l|X|}
 	\hline
 	\rowcolor[HTML]{C0C0C0}
-	\textbf{Requisito} \\ \hline
-	Tiene que estar escrito en el lenguaje de programación Elixir. \\ \hline
-	Tiene que hacer uso del motor Hephaestus. \\ \hline
-	La definición del juego tiene que estar escrita en JSON. \\ \hline
-	Su longitud tiene que estar adaptada para el contexto de la asignatura en el que es utilizado. \\ \hline
+	\textbf{Identificador} & \textbf{Requisito} \\ \hline
+	RNF-01 & Tiene que estar escrito en el lenguaje de programación Elixir. \\ \hline
+	RNF-02 & Tiene que hacer uso del motor Hephaestus. \\ \hline
+	RNF-03 & La definición del juego tiene que estar escrita en JSON. \\ \hline
+	RNF-04 & Su longitud tiene que estar adaptada para el contexto de la asignatura en el que es utilizado. \\ \hline
 	
 	\caption{Juego didáctico. Requisitos no funcionales}
 	\label{tab:juego-req-nfunc}
 \end{tabularx}
+}
 
 \subsection{Casos de uso}
 
 Al igual que se ha hecho con Hephaestus, esta parte del proyecto cuenta con su diagrama de casos de uso derivado de los requisitos acotados para el juego didáctico y a partir del cual se realiza el análisis completo del mismo en la siguiente sección. En la figura \ref{fig:chap4_juego_casos_uso} se muestra dicho diagrama.
 
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-01} & Iniciar sesión de juego \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-13, RF-08} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego, de forma automática, obtiene todos los datos guardados en la base de datos sobre el último mundo de juego e inicia todos las entidades del motor que conforma dicho mundo.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso del juego didáctico CU-01}
+	\label{tab:juego-cu-01}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-02} & Iniciar sesión \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-08, RF-14} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada, la cual contiene su nombre de usuario y contraseña, mediante la cual inicia sesión en el mundo del juego con su personaje.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso del juego didáctico CU-02}
+	\label{tab:juego-cu-02}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-03} & Guardar partida \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-08, RF-09} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada, a partir de la cual se realiza un proceso para guardar el estado actual del juego y de la entidad Personaje asociada a ese jugador.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso del juego didáctico CU-03}
+	\label{tab:juego-cu-03}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-04} & Inspeccionar personaje \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-06, RF-08} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual se le devuelve la información sobre su entidad Personaje.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso del juego didáctico CU-04}
+	\label{tab:juego-cu-04}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-05} & Inspeccionar ubicación \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-06, RF-08} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual se le devuelve la información sobre la entidad Ubicación en la que se encuentra la entidad Personaje del jugador.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso del juego didáctico CU-05}
+	\label{tab:juego-cu-05}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-06} & Inspeccionar conexión \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-06, RF-08} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual se le devuelve la información sobre la entidad Conexión solicitada.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso del juego didáctico CU-06}
+	\label{tab:juego-cu-06}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-07} & Equipar objeto \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-06, RF-08} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual la entidad Personaje del jugador se equipa una de las entidades Objeto que se encuentran en su inventario.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso del juego didáctico CU-07}
+	\label{tab:juego-cu-07}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-08} & Coger objeto \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-06, RF-08} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual la entidad Personaje del jugador recoge una entidad Objeto y la almacena en su inventario. La entidad Objeto se ha de encontrar en la misma entidad Ubicación que el personaje y, una vez recogida, se debe eliminar de esta.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso del juego didáctico CU-08}
+	\label{tab:juego-cu-08}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-09} & Moverse \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-06, RF-08} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual la entidad Personaje del jugador se mueve a una nueva entidad Ubicación adyacente a la que se encuentra. Si en la nueva ubicación se haya una o varias entidades Enemigo se modifica el estado del personaje del jugador a estar en combate.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso del juego didáctico CU-09}
+	\label{tab:juego-cu-09}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-10} & Interactuar con NPC \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-06, RF-08} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual se interactúa con una entidad NPC ubicada en la misma entidad Ubicación que el personaje del jugador.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso del juego didáctico CU-10}
+	\label{tab:juego-cu-10}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\small
+	\begin{tabularx}{\linewidth}{|l|cc|}
+		\hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-10} & Interactuar con NPC \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-06, RF-08} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual la entidad Personaje del jugador ataca a una de las entidades Enemigo que se encuentren en la misma ubicación que el personaje. Los enemigos de la ubicación también realizan su ataque el cual resta puntos de vida al personaje.} \\ \hline
+	\end{tabularx}
+	
+	\vspace{0.5cm}
+	\caption{Caso de uso del juego didáctico CU-11}
+	\label{tab:juego-cu-11}
+\end{table}
+
+
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_juego/casos_uso_juego.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_juego/casos_uso_juego.pdf}
 	\caption{Diagrama de casos de uso del juego didáctico}
 	\label{fig:chap4_juego_casos_uso}
 \end{figure}
@@ -195,7 +804,77 @@ En este diagrama se aprecia cómo el juego no supone un análisis tan profundo c
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_juego/analisis_juego.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_4/images/diagrama_analisis_juego/analisis_juego.pdf}
 	\caption{Diagrama de análisis juego didáctico}
 	\label{fig:chap4_juego_final}
 \end{figure}
+
+\section{Otras partes del proyecto}
+
+Llegados a este punto del análisis del proyecto completo quedan por ser analizados todos los elementos cuyo valor al proyecto no incluye programación, véase la documentación o las prácticas para los alumnos, o cuya programación es tan sencilla, véase la solución de las prácticas, que someter el entregable a un proceso de análisis con requisitos y casos de uso conllevaría más tiempo que la propia ejecución del entregable. No por ello se tiene que obviar el análisis de estos entregables y partes del proyecto, por lo tanto en esta sección se realiza un análisis sencillo y básico de todos los componentes del proyecto que no han sido mencionados en las dos secciones anteriores.
+
+\subsection{Hephaestus}
+
+Aunque Hephaestus cuenta, en su mayor parte, con entregables de código, existe un entregable de esta parte del proyecto que no se ubica dentro de esta categoría. Por lo tanto, se requiere de un análisis básico para guiar el diseño posterior. Este entregable mencionado es la imagen Docker del propio motor.
+
+\subsubsection{Imagen de Hephaestus}
+
+Con el fin de levantar un contenedor y que ejecute el programa correspondiente es necesario crear una imagen de dicho contenedor primero. Esta imagen permite a Docker saber que comandos tiene que ejecutar y en que orden con el fin de poner en funcionamiento el contenedor. La imagen contiene también el código necesario para la ejecución. Para poder crear esta imagen se requiere de un fichero especial que contiene las instrucciones que debe seguir Docker a la hora de construir la imagen. Este fichero se denomina Dockerfile.
+
+En el caso de Hephaestus, la imagen final debe tener una serie de características que permita levantar un contenedor Docker con un motor de Hephaestus funcional. Además la imagen debe ocupar el menor espacio posible para facilitar su distribución. Por ello la técnica recomendada en estos casos es compilar el código en una etapa auxiliar y transferir el código compilado a la imagen final ejecutable. Todo ello en el entorno "alpine", el cual se trata de una distribución de Linux diseñada específicamente para estos casos poniendo como prioridad una ocupación de disco mínima.
+
+\subsection{Juego didáctico}
+
+Al igual que el motor Hephaestus, el juego didáctico contiene dos entregables que siguen la misma filosofía que la imagen del motor al tratarse de dos imágenes Docker. En este caso la imagen del juego didáctico y la imagen de la base de datos necesaria para almacenar el estado del juego de permanentemente.
+
+\subsubsection{Imagen del juego}
+
+Al igual que sucede con la imagen del motor, la imagen del juego didáctico tiene como función poder distribuir de forma sencilla el juego y que el despliegue en los equipos de los alumnos pueda ser fácilmente reproducible. Sigue la misma filosofía que la imagen ya mencionada y, por lo tanto, se emplean las mismas técnicas ya mencionadas con el fin de reducir el tamaño final al mínimo posible.
+
+\subsubsection{Imagen de la base de datos}
+
+El juego didáctico requiere de una base de datos para poder almacenar de forma permanente el estado del juego. El estado almacenado consiste en el estado inicial del juego, el estado del último punto de guardado de la partida de los jugadores y toda la información necesaria para la autenticación de los ya mencionado jugadores. Por lo tanto es necesario modificar la imagen por defecto que proporcionan los desarrolladores de Postgresql. Esta labor es trivial y está ampliamente documentada.
+
+\subsection{Prácticas}
+
+Hasta este punto todo el análisis se ha centrado en las dos partes principales del proyecto: Hephaestus y el juego didáctico. Pero todavía falta una tercera parte, menor en importancia y tamaño, que complementa a las dos anteriores y facilita el trabajo del personal docente que haga uso de este proyecto. Las prácticas proporcionadas en esta parte pretenden simplificar el trabajo del docente proporcionando un punto de partida para que los alumnos realicen en los laboratorios de la asignatura. Aunque el docente tiene en su poder el modificar las prácticas como sea más conveniente, estas están pensadas para poder ser usadas sin hacer ninguna modificación, siguiendo un hilo conductor entre ellas y con una dificultad incremental.
+
+\subsubsection{Práctica introductoria}
+
+La primera práctica con la que se encuentra el alumno no se trata de una práctica per se. Consiste en un documento introductorio que incluye un resumen del resto de las prácticas, dando una visión global al alumno de lo que se va a encontrar a lo largo de las sesiones. Complementando la introducción a las prácticas, este documento ofrece un listado de todas las tecnologías necesarias para poder desarrollar las prácticas, así como las instrucciones para operar el despliegue del juego en una máquina local.
+
+\subsubsection{Práctica 1}
+
+En esta práctica se le presentan al alumno elementos fundamentales de la comunicación cliente-servidor que se emplea durante todas las prácticas, de esta manera el alumno adquiere los conocimientos básicos necesarios para superarlas. Entre estos conocimientos básicos se encuentra también el funcionamiento del protocolo JSON-RPC, la otra pieza fundamental en la comunicación entre los cliente Java y el juego, que actúa como servidor.
+
+\subsubsection{Práctica 2}
+
+Continuando con el hilo de la primera práctica se le muestra a los alumnos el funcionamiento interno de los actores en un sistema distribuido. Esto enmarca la segunda práctica y el segundo entregable del proyecto. Un actor en un sistema distribuido son unidades de cómputo que representan una parte de la lógica de la aplicación. El control de estos actores recae sobre el motor y el juego hace uso de dicho motor para enviar mensajes a los actores. Son un elemento fundamental en muchos sistemas distribuidos y, por lo tanto, parte del temario de la asignatura. Mediante esta práctica se pretende que el alumno afiance los conocimientos obtenidos sobre los actores mediante la puesta en práctica.
+
+\subsubsection{Práctica 3}
+
+En esta última práctica se pretende enseñar al alumno un poco más sobre el funcionamiento interno de Hephaestus. Esto permite una ligera introducción al lenguaje de programación Elixir, al que el alumno no se ha enfrentado previamente, con un paradigma completamente diferente a lo habitual durante la carrera. Además muestra al alumno como se implementan los actores en un caso real, poniendo en perspectiva lo aprendido y mostrando la utilidad real de la teoría vista en clase.
+
+\subsubsection{Soluciones}
+
+Al igual que se proporciona documentación para proponer unas prácticas de laboratorio a los alumnos, es también necesario proporcionar una posible solución al docente con el fin de facilitar la labor de corrección. Al igual que con las prácticas, las soluciones son simples guías para poder solucionar la práctica, esto no significa que sean las únicas soluciones correctas. Cada práctica cuenta con su solución, la cual consiste en un cliente Java que envía los mensajes necesarios para solucionar la práctica.
+
+La elección de Java como lenguaje de programación para estas soluciones se realiza para que la realización de estas prácticas no suponga un cambio radical para el alumno. Hasta este momento el lenguaje empleado por las prácticas de la asignatura es Java y, al tratarse estas prácticas parte de todo el conjunto de prácticas de la asignatura, de esta manera se continua haciendo uso del mismo lenguaje.
+
+\subsection{Documentación web}
+
+Una vez analizadas las partes que conforman el conjunto funcional del proyecto, queda por analizar las partes del proyecto que complementan a las partes anteriores. El primer componente de estos complementos es la página web destinada a los desarrolladores de videojuegos que vayan a hacer uso del motor Hephaestus para desarrollar sus videojuegos.
+
+\subsubsection{Documentación para el desarrollo de videojuegos}
+
+Esta parte del proyecto no consiste en documentar todo el código de Hephaestus, sino seleccionar las partes que son necesarias para el desarrollo de un videojuego y describir sus capacidades y el funcionamiento. No se pretende detallar el funcionamiento exacto a nivel técnico de todos y cada uno de los módulos que componen el motor.
+
+El empleo de la biblioteca \textit{docsify} permite la escritura de la documentación en markdown, además todo lo relacionado con la navegación propia de una página web también lo autogenera la propia biblioteca. Esto reduce en gran medida las decisiones a tomar en áreas como aspecto de la página web o reactividad de los diferentes componentes que conforman la página web, decisiones naturales a la hora de enfrentar un desarrollo web. Todo lo relacionado con la parte web se genera mediante la biblioteca, dejando únicamente como incertidumbre la estructura que va a seguir la documentación.
+
+\subsection{Distribución}
+
+Finalmente, el otro componente complementario al resto del proyecto consiste en distribuir al alumno los archivos necesarios, que no forman parte de otras partes del proyecto, para poner en funcionamiento el sistema del juego y el motor, simulando un sistema distribuido y de manera sencilla. Con este objetivo se proporciona un archivo que permite realizar todas estas acciones mediante un único comando.
+
+\subsubsection{Archivo docker-compose}
+
+La tecnología que permite a Docker ser reproducible en cualquier entorno que tenga instalado su motor se denomina Docker Compose. Con el fin de que los alumnos tengan todos el mismo punto de inicio para realizar las prácticas, ya configurado y preparado para estas mismas, se tiene que crear un fichero docker-compose que reproduzca la misma secuencia de inicio de contenedores para todos los alumnos. Este fichero debe levantar y configurar dos contenedores del motor que actúen como máquinas remotas al juego, un contenedor del juego que permita recibir peticiones por el puerto correspondiente y un contenedor de la base de datos para almacenar el estado del juego de forma permanente.

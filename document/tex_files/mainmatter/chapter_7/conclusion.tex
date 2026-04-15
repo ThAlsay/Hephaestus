@@ -1,6 +1,14 @@
 \chapter{Conclusión}\label{Cap7}
 
-Una vez finalizado el proyecto, se analizan los problemas encontrados durante el desarrollo del mismo y el desarrollo futuro del mismo tras el estado en el que termina con este documento.
+Una vez finalizado el proyecto, se analizan los problemas encontrados durante el desarrollo del mismo y el desarrollo futuro del mismo tras el estado en el que termina con este documento. Se evalúan de nuevo los riesgos planteados en la planificación, enfocándose en aquellos riesgos que han sucedido y las medidas tomadas para su resolución.
+
+\section{Evaluación de los riesgos}
+
+Los riesgos se muestran en el documento mediante tablas en el Capítulo \ref{Cap2} y, una vez finalizado el proyecto, se pueden evaluar los riesgos que han sucedido durante el desarrollo del mismo. El primer riesgo planificado se describe en la Tabla \ref{tab:riesgo_1} y ocurre durante el desarrollo, en este riesgo se plantea la posibilidad de que surjan imprevistos que retrasen el desarrollo del proyecto. La mayor parte de los imprevistos surgidos durante el desarrollo afectaron a las reuniones programadas, no pudiéndose hacer en el momento planeado, siendo solucionado mediante el adelantamiento o el retraso de dicha reunión. Pese a esta mitigación del riesgo, estos no fueron suficientes para no afectar a la planificación inicial.
+
+El siguiente riesgo surgido durante el desarrollo se muestra en la Tabla \ref{tab:riesgo_4}. Este riesgo abarca la novedad de algunas de las tecnologías empleadas como Elixir. Debido a la novedad, el mayor efecto surge a la hora de identificar los errores que surgen en la ejecución y la frecuencia de estos, debido al escaso conocimiento en el lenguaje. Al final, aunque el riesgo surge en contadas ocasiones, no provoca un retraso perceptible al total del tiempo de desarrollo.
+
+Finalmente el mayor causante de retrasos en el proyecto es el riesgo descrito en la Tabla \ref{tab:riesgo_3}, el cual tiene en cuenta los errores de estimación que pudieran darse en la planificación del proyecto. Ha sido con diferencia el mayor causante de retrasos en el proyecto debido a la gran inexperiencia del alumno, lo que da lugar a malas estimaciones de tiempo, no teniendo en cuenta los tiempos disponibles en la realidad y siendo demasiado optimista, en general, a la hora de asignar prototipos a las diferentes partes del proyecto. Todo esto en conjunto provoca el mayor retraso de todo el proyecto, pudiendo haber sido peor de no haberse aplicado el plan de contingencia, y, aún con eso, se produce un retraso de varias semanas sobre las fecha estimada de finalización del proyecto.
 
 \section{Problemas en la implementación del código}
 
@@ -32,7 +40,7 @@ Una vez se finaliza el desarrollo del proyecto descrito en este documento dicho 
 
 \subsection{Mejora en el proceso de pruebas}
 
-Como ya se ha mencionado en el capítulo \ref{Cap6}, debido a la falta de tiempo, las pruebas realizadas sobre el motor Hephaestus y el juego didáctico solamente aseguran el correcto funcionamiento de estos. 
+Como ya se ha mencionado en el Capítulo \ref{Cap6}, debido a la falta de tiempo, las pruebas realizadas sobre el motor Hephaestus y el juego didáctico solamente aseguran el correcto funcionamiento de estos. 
 
 Con el fin de mejorar la calidad del código se plantea la introducción de un mayor número de pruebas unitarias que mejoren la integridad de Hephaestus, así como la integración de este tipo de pruebas en el juego didáctico.
 
@@ -40,7 +48,7 @@ Con el fin de mejorar la calidad del código se plantea la introducción de un m
 
 Desde el principio se ha declarado que el motor debe ser ampliable y tener la capacidad de añadir más módulos para crear juegos más complejos o incluir una mayor cantidad de utilidades para los desarrolladores.
 
-En el capítulo \ref{Cap4} se muestra una serie de elementos que fueron descartados por la falta de tiempo. Estos elementos se pueden ver en la figura \ref{fig:chap4_motor_completo} y son un buen punto de inicio para una futura expansión del motor Hephaestus.
+En el Capítulo \ref{Cap4} se muestra una serie de elementos que fueron descartados por la falta de tiempo. Estos elementos se pueden ver en la figura \ref{fig:chap4_motor_completo} y son un buen punto de inicio para una futura expansión del motor Hephaestus.
 
 \subsection{Separación en motores más pequeños}
 
@@ -61,3 +69,92 @@ Una futura modificación del motor puede generalizar tanto el género de juegos 
 Los motores de videojuegos modernos cuentan con entornos de desarrollo gráficos los cuales aportan mejoras a la experiencia de desarrollo de los desarrolladores de videojuegos. Entre estas mejores se pueden mencionar: Desarrollo gráfico mediante cuadros de comandos, bibliotecas de \textit{assets}, editor integrado de código, \textit{debugger} integrado...
 
 Como proyecto se puede plantear crear un entorno con alguna de estas características para el motor Hephaestus. Para el cual no serían necesarias todas las que ofrecen motores comerciales como Unity o Unreal, ya que estos soportan gráficos en 2D y 3D entre otras muchas características, con el fin de poder ser empleados para la mayor variedad de tipos de videojuegos.
+
+\section{Tiempo de desarrollo}
+
+En el Capítulo \ref{Cap2} se desarrolla el proceso y resultado de la planificación del proyecto. Durante este proceso se menciona que se realizan una serie de reuniones durante el desarrollo que no pueden ser representadas en el diagrama de Gantt al igual que los periodos de vacaciones impuestos por la universidad. Con el fin de expandir la gestión temporal acometida durante el proceso de desarrollo del proyecto la Tabla \ref{tab:sprints} muestra las reuniones planeadas teniendo en cuenta además los periodos de pausa. De esta forma, además, se explica porque, en el diagrama de Gantt, algunos entregables se alargan más en el tiempo, puesto que coinciden con periodos vacacionales.
+
+{\small
+\begin{longtable}[c]{|l|cc|}
+	\hline
+	\rowcolor[HTML]{C0C0C0}
+	\textbf{Evento} & \multicolumn{1}{c|}{\textbf{Fecha Inicio}} & \textbf{Fecha Fin} \\ \hline
+	\endfirsthead
+	%
+	\endhead
+	%
+	Reunión inicial sobre el proyecto & \multicolumn{2}{c|}{13/02/2025} \\ \hline
+	Investigación inicial & \multicolumn{1}{c|}{13/02/2025} & 27/02/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{27/02/2025} \\ \hline
+	Hephaestus, Módulo personaje & \multicolumn{1}{c|}{27/02/2025} & 03/04/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{06/03/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{13/03/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{20/03/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{27/03/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{03/04/2025} \\ \hline
+	Hephaestus, Módulo enemigo & \multicolumn{1}{c|}{03/04/2025} & 24/04/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{10/04/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{24/04/2025} \\ \hline
+	Hephaestus, Módulo NPC & \multicolumn{1}{c|}{24/04/2025} & 08/05/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{30/04/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{08/05/2025} \\ \hline
+	Hephaestus, Módulo objeto & \multicolumn{1}{c|}{08/05/2025} & 22/05/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{15/05/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{22/05/2025} \\ \hline
+	Hephaestus, Módulo ubicación & \multicolumn{1}{c|}{22/05/2025} & 05/06/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{29/05/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{05/06/2025} \\ \hline
+	Hephaestus, Módulo conexión & \multicolumn{1}{c|}{05/06/2025} & 19/06/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{12/06/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{19/06/2025} \\ \hline
+	Hephaestus, Persistencia & \multicolumn{1}{c|}{19/06/2025} & 10/07/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{26/06/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{03/06/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{10/07/2025} \\ \hline
+	Hephaestus, Utilidades & \multicolumn{1}{c|}{10/07/2025} & 24/07/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{17/06/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{24/07/2025} \\ \hline
+	Juego didáctico, Servidor & \multicolumn{1}{c|}{24/07/2025} & 11/09/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{31/07/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{11/09/2025} \\ \hline
+	Parón de verano & \multicolumn{1}{c|}{01/08/2025} & 09/09/2025 \\ \hline
+	Juego didáctico, Handlers & \multicolumn{1}{c|}{11/09/2025} & 09/10/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{18/09/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{25/09/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{02/10/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{09/10/2025} \\ \hline
+	Juego didáctico, Gestores elementos remotos & \multicolumn{1}{c|}{09/10/2025} & 30/10/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{16/10/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{23/10/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{30/10/2025} \\ \hline
+	Prácticas, Práctica introductoria & \multicolumn{1}{c|}{30/10/2025} & 13/11/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{06/11/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{13/11/2025} \\ \hline
+	Prácticas, Práctica 1 & \multicolumn{1}{c|}{13/11/2025} & 20/11/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{20/11/2025} \\ \hline
+	Prácticas, Práctica 2 & \multicolumn{1}{c|}{20/11/2025} & 27/11/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{27/11/2025} \\ \hline
+	Prácticas, Práctica 3 & \multicolumn{1}{c|}{27/11/2025} & 04/12/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{04/12/2025} \\ \hline
+	Prácticas, Soluciones & \multicolumn{1}{c|}{04/12/2025} & 18/12/2025 \\ \hline
+	Reunión & \multicolumn{2}{c|}{11/12/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{18/12/2025} \\ \hline
+	Parón de Navidad & \multicolumn{1}{c|}{22/12/2025} & 08/01/2026 \\ \hline
+	Prácticas, Soluciones & \multicolumn{1}{c|}{18/12/2025} & 08/01/2026 \\ \hline
+	Reunión & \multicolumn{2}{c|}{08/01/2026} \\ \hline
+	Documentación web, Documentación & \multicolumn{1}{c|}{08/01/2026} & 22/01/2026 \\ \hline
+	Reunión & \multicolumn{2}{c|}{15/01/2026} \\ \hline
+	Reunión & \multicolumn{2}{c|}{22/01/2026} \\ \hline
+	Hephaestus, Imagen Hephaestus & \multicolumn{1}{c|}{22/01/2026} & 05/02/2026 \\ \hline
+	Reunión & \multicolumn{2}{c|}{29/01/2026} \\ \hline
+	Reunión & \multicolumn{2}{c|}{05/02/2026} \\ \hline
+	Juego didáctico, Imagen juego didáctico & \multicolumn{1}{c|}{05/02/2026} & 12/02/2026 \\ \hline
+	Reunión & \multicolumn{2}{c|}{12/02/2026} \\ \hline
+	Juego didáctico, Imagen base de datos & \multicolumn{1}{c|}{12/02/2026} & 19/02/2026 \\ \hline
+	Reunión & \multicolumn{2}{c|}{19/02/2026} \\ \hline
+	Distribución, Archivo docker-compose & \multicolumn{1}{c|}{19/02/2026} & 26/02/2026 \\ \hline
+	Reunión & \multicolumn{2}{c|}{26/02/2026} \\ \hline
+	\caption{Planificación en el tiempo del proyecto}
+	\label{tab:sprints}
+\end{longtable}
+}

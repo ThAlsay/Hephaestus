@@ -47,6 +47,11 @@ docker build -f DockerfileGame . -t game:latest
 docker build -f DockerfileEngine . -t engine:latest
 ```
 
+```bash
+cd database
+docker build . -t database:latest
+```
+
 ### Run docker containers
 
 In the project directory (where the docker files are located) execute:

@@ -8,7 +8,7 @@ En primer lugar se realiza el diagrama de clases del diseño completo del motor.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_engine/diseno_motor_final.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_engine/diseno_motor_final.pdf}
 	\caption{Diagrama de clases del motor Hephaestus}
 	\label{fig:chap5_engine_class_diagram}
 \end{figure}
@@ -23,7 +23,7 @@ El proceso de comunicación entre el juego y las piezas que conforman el motor s
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_engine/secuence_diagrams/change_location.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_engine/secuence_diagrams/change_location.pdf}
 	\caption{Diagrama de secuencia del caso de uso cambiar ubicación}
 	\label{fig:chap5_change_location_secuence_diagram}
 \end{figure}
@@ -34,7 +34,7 @@ Hay que destacar en este punto también, el comportamiento del "GenServer", el c
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_engine/secuence_diagrams/hit.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_engine/secuence_diagrams/hit.pdf}
 	\caption{Diagrama de secuencia del caso de uso herir}
 	\label{fig:chap5_hit_secuence_diagram}
 \end{figure}
@@ -47,7 +47,7 @@ El diseño de la misma, por lo tanto, refleja la sencillez de esta labor a la ve
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_database/diseno_base_datos.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_database/diseno_base_datos.pdf}
 	\caption{Diagrama entidad-relación de la base de datos}
 	\label{fig:chap5_base_datos}
 \end{figure}
@@ -60,7 +60,7 @@ Hasta este momento el juego didáctico se ha nombrado así, como juego didáctic
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_game/diseno_juego.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_game/diseno_juego.pdf}
 	\caption{Diagrama de clases de Alfa}
 	\label{fig:chap5_game_class_diagram}
 \end{figure}
@@ -71,7 +71,7 @@ Al igual que sucede con Hephaestus, Alfa requiere de varios diagramas de secuenc
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_game/secuence_diagrams/inspect_current_location.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_game/secuence_diagrams/inspect_current_location.pdf}
 	\caption{Diagrama de secuencia del caso de uso inspeccionar ubicación actual}
 	\label{fig:chap5_inspect_current_location_secuence_diagram}
 \end{figure}
@@ -82,7 +82,7 @@ Uno de los puntos claves de cualquier videojuego es el inicio del propio juego, 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_game/secuence_diagrams/start_game_session.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_5/images/design_game/secuence_diagrams/start_game_session.pdf}
 	\caption{Diagrama de secuencia del caso de uso iniciar sesión de juego}
 	\label{fig:chap5_start_game_session_secuence_diagram}
 \end{figure}
@@ -114,6 +114,7 @@ Una vez se hacen las introducciones a los dos conceptos anteriores, la práctica
 Con el fin de facilitar al alumno la resolución de la práctica, tanto en esta como en las siguientes prácticas, se proporciona un listado con todas las primitivas necesarias para la resolución de la misma. A su vez, como ya se vio en el capitulo de análisis (\ref{Cap4}) y en la sección anterior sobre el diseño del juego didáctico, este cuenta con una primitiva la cual devuelve todas las primitivas disponibles en el juego y como llamarlas.
 \\
 
+{\footnotesize
 \begin{lstlisting}[language=Java, caption=Snippet cliente Java entregado a los alumnos, label=cod:ejemplo_cliente_java, breaklines, showstringspaces=false, captionpos=b]
 public class JavaClient {
   public static void main(String[] args) throws IOException {
@@ -157,6 +158,7 @@ public class JavaClient {
   }
 }
 \end{lstlisting}
+}
 
 \subsection{Segunda práctica}
 
@@ -169,6 +171,7 @@ Con el contexto de estos conceptos, se prepara la práctica para los alumnos. Al
 Con todo lo entregado en esta práctica y lo mostrado en la práctica anterior el alumno debe ser capaz de resolver la premisa de la práctica. Los conocimientos que el alumno adquiere de esta práctica son el funcionamiento y uso de los actores y las colas de mensajes, dentro de estos, en un sistema distribuido y la programación asíncrona.
 \\
 
+{\footnotesize
 \begin{lstlisting}[language=Java, caption=Snippet codigo asíncrono Java entregado a los alumnos, label=cod:ejemplo_asincrono_java, breaklines, showstringspaces=false, captionpos=b]
 private static void interactWithNpc(Gson jsonParser) throws IOException, InterruptedException, ExecutionException {
   // Parametros comunes a todas las llamadas
@@ -205,6 +208,7 @@ private static void interactWithNpc(Gson jsonParser) throws IOException, Interru
   executor.shutdown();
 }
 \end{lstlisting}
+}
 
 \subsection{Tercera práctica}
 

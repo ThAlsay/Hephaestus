@@ -1,6 +1,6 @@
 services:
   enemies:
-    image: engine:latest
+    image: thalsay/hephaestus:latest
     restart: always
     container_name: enemies_node
     depends_on:
@@ -13,7 +13,7 @@ services:
       - elixir_net
 
   character:
-    image: engine:latest
+    image: thalsay/hephaestus:latest
     restart: always
     container_name: character_node
     depends_on:
@@ -26,7 +26,7 @@ services:
       - elixir_net
     
   game:
-    image: game:latest
+    image: thalsay/alfa:latest
     restart: always
     container_name: game_node
     depends_on:
@@ -44,7 +44,7 @@ services:
       - elixir_net
 
   db:
-    image: postgres:17
+    image: thalsay/alfadb:latest
     container_name: database
     restart: always
     environment:

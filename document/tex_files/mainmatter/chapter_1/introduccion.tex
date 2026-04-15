@@ -2,7 +2,7 @@
 
 Todos los alumnos que cursan alguna carrera universitaria o de grado superior se encuentran con una gran diversidad de métodos de aprendizaje. Durante esos años, los alumnos pueden enfrentar pruebas escritas, orales o prácticas de diversos estilos, algunos más antiguos, otros más modernos.
 
-La docencia, al igual que otras muchas áreas, está en constante evolución, adaptándose a las necesidades del alumnado según las épocas y la tecnología avanzan. Una de las últimas incorporaciones al mundo docente es la gamificación de los conceptos. Esta metodología consiste en emplear juegos, diseñados para el caso concreto, con el fin de que el alumno interiorice el concepto que se trata de explicar de una forma más sencilla.
+La docencia, al igual que otras muchas áreas, está en constante evolución, adaptándose a las necesidades del alumnado según las épocas y las tecnologías avanzan. Una de las últimas incorporaciones al mundo docente es la gamificación de los conceptos. Esta metodología consiste en emplear juegos, diseñados para el caso concreto, con el fin de que el alumno interiorice el concepto que se trata de explicar de una forma más sencilla.
 
 A raíz de esta gamificación surge el problema de cómo implementarla en el ámbito educativo. Este proyecto trata de resolver ese problema para la asignatura de Sistemas Distribuidos de la Escuela de Ingeniería Informática de Valladolid.
 
@@ -16,7 +16,7 @@ Con todo esto en cuenta, la premisa del proyecto es crear un motor de videojuego
 
 La motivación aparece a partir de los retos que plantea el proyecto. Dichos retos incluyen el diseño de un motor de videojuegos distribuidos, el diseño de un videojuego pensado para el aprendizaje de un alumno o el empleo de lenguajes de programación que siguen el paradigma funcional.
 
-Todos estos retos suponen un aprendizaje que difícilmente se presentaría en otro contexto y, también, obligan a adoptar el paradigma funcional frente al imperativo, el cual sigue un mapa mental más natural, ya que así lo requieren los lenguajes empleados durante el proyecto.
+Todos estos retos suponen un aprendizaje que difícilmente se presentaría en otro contexto y, también, obligan a adoptar el paradigma funcional frente al imperativo, el cual sigue un mapa mental más natural, ya que la mayor parte del proyecto se realiza en Elixir, el cual sigue el paradigma funcional.
 
 \section{Objetivos} \label{objetivos}
 
@@ -28,11 +28,11 @@ El proyecto consta de varios objetivos. El primero se trata de diseñar y progra
 	\item Debe estar especializado en juegos de tipo rol. 
 \end{itemize}
 
-El lenguaje empleado, que sigue el paradigma funcional, es Elixir. Está elección se basa en la buena sinergia que tiene el lenguaje con este tipo de sistemas. Gracias a la máquina virtual BEAM o la tolerancia nativa a fallos, le hacen un lenguaje muy completo para diseñar sistemas distribuidos. Todas estas características y muchas más, que lo hacen idóneo para el proyecto, se detallan más adelante en este documento.
+El lenguaje empleado, como ya se ha mencionado, es Elixir. Está elección se basa en la buena sinergia que tiene el lenguaje con este tipo de sistemas. Gracias a la máquina virtual BEAM o la tolerancia nativa a fallos, le hacen un lenguaje muy completo para diseñar sistemas distribuidos. Todas estas características y muchas más, que lo hacen idóneo para el proyecto, se detallan más adelante en este documento.
 
-Los juegos de rol o RPGs, permiten ser jugados sin necesidad de desarrollar una interfaz gráfica, esto los hace especialmente adecuados para el proyecto, simplificando la arquitectura tanto del motor como del juego.
+Los juegos de rol o RPGs, debido a su alto contenido narrativo, permiten ser jugados sin necesidad de desarrollar una interfaz gráfica, esto los hace especialmente adecuados para el proyecto, simplificando la arquitectura tanto del motor como del juego. El motor no tiene que implementar el renderizado de píxeles en pantalla, y el juego no tiene que tener en cuenta el aspecto visual del desarrollo de un videojuego, como puede ser la composición estética o los fallos ocasionados por las colisiones de objetos.
 
-Una vez se cuenta con el motor, el siguiente objetivo es emplear dicho motor y crear un videojuego. El videojuego, al igual que el motor, cuenta con una serie de características que se deben cumplir:
+Una vez se cuenta con el motor, el siguiente objetivo es emplear dicho motor y crear un videojuego, el cual permita a los alumnos interiorizar los conocimientos vistos en la asignatura de Sistemas Distribuidos. El videojuego, al igual que el motor, cuenta con una serie de características que se deben cumplir:
 
 \begin{itemize}
 	\item Se debe diseñar con el fin de enseñar conceptos de los sistemas distribuidos.
@@ -51,20 +51,20 @@ Como último objetivo del proyecto se debe proporcionar una serie de prácticas,
 
 \section{Arquitectura de alto nivel}
 
-Se muestra la arquitectura final del proyecto. Esta arquitectura es de alto nivel y por lo tanto no se centra en los detalles, estos se pueden ver en los capítulos \ref{Cap4} y \ref{Cap5}, dedicados al análisis y diseño del proyecto respectivamente.
+Se muestra la arquitectura final del proyecto. Esta arquitectura es de alto nivel y por lo tanto no se centra en los detalles concretos del proyecto, estos se pueden ver en los Capítulos \ref{Cap4} y \ref{Cap5}, dedicados al análisis y diseño del proyecto respectivamente.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_1/diagrama_alto_nivel/arquitectura_alto_nivel.png}
+	\includegraphics[width=0.9\textwidth]{tex_files/mainmatter/chapter_1/diagrama_alto_nivel/arquitectura_alto_nivel.pdf}
 	\caption{Diagrama de bloques de la arquitectura del proyecto}
 	\label{fig:chap1_architecture}
 \end{figure}
 
 El despliegue y la orquestación de los componentes del proyecto se realizan mediante Docker, esto permite la simulación de sistemas distribuidos en una única máquina y la posibilidad de desplegar la misma imagen en un sistema verdaderamente distribuido, es decir, en varias máquinas distintas. Todo ello sin necesidad de modificar ningún aspecto de la imagen Docker.
 
-Tal y como se muestra en la figura \ref{fig:chap1_architecture}, el alumno interactúa, mediante un cliente Java, con la imagen Docker del videojuego mediante el puerto 3000. La conexión entre el cliente y el juego se realiza mediante TCP/IP, lo cual permite una comunicación segura hacia máquinas externas de ser necesario. Dicha imagen contiene el código Elixir del juego y del motor Hephaestus. Esta imagen forma parte de la plataforma Docker encargada de la organización de los contenedores, en los cuales se ejecuta el código de las imágenes. Además de la imagen del juego, la plataforma Docker cuenta con dos imágenes de Hephaestus, las cuales son controladas por la imagen del juego y contienen, únicamente, el código del motor Hephaestus. A la plataforma también se le añade una base de datos PostgreSQL a la cual se puede acceder desde el juego.
+Tal y como se muestra en la Figura \ref{fig:chap1_architecture}, el alumno interactúa, mediante un cliente Java, con el videojuego mediante el puerto 3000. La conexión entre el cliente y el juego se realiza mediante TCP/IP, lo cual permite una comunicación segura hacia máquinas externas de ser necesario. El juego didáctico controla el motor Hephaestus a partir de las instrucciones que le llegan desde el cliente Java del jugador, este a su vez modifica y controla el escenario y la base de datos asociada al juego. Tras los cambios producidos por Hephaestus, el juego comunica el resultado de la ejecución al jugador de vuelta.
 
-De esta forma se da una visión total de la arquitectura de despliegue final del proyecto. Una plataforma Docker pensada para ser ejecutada en las máquinas de los alumnos, con todo lo necesario para el funcionamiento del proyecto incluido.
+De esta forma se da una visión total de la arquitectura final del proyecto. Todos estos componentes se ejecutan mediante Docker de manera es necesario tener las imágenes Docker correspondientes tanto el motor, como al juego y una base de datos ya configurada y poblada con los datos necesarios.
 
 \section{Organización de la memoria}
 
@@ -81,6 +81,14 @@ Siguiendo el orden mostrado en el índice de este documento, los capítulos que 
 	\item \textbf{Pruebas}. Capítulo dedicado a las pruebas de calidad realizadas sobre todo el proyecto, centrando la mayor parte sobre el motor.
 	\item \textbf{Conclusión}. Capítulo final, últimas reflexiones sobre el proyecto y su ejecución, puntos de enfoque para el desarrollo futuro del mismo y problemas encontrados durante la implementación del código.
 \end{itemize}
+
+\section{Sobre el uso de la IA}
+
+La inteligencia artificial (IA) es una herramienta cada más habitual en todos los trabajos modernos, en especial en el desarrollo de software, para el cual destaca en los momentos de escribir este documento. Por ese motivo es importante aclarar la influencia y alcance de su uso en el desarrollo de este proyecto.
+
+Como autor de este documento y este proyecto declaro que el empleo de la IA ha sido meramente auxiliar, siendo empleada para ubicar y corregir errores de ortografía en este documento o encontrar errores dentro del código de una manera más rápida. Su ayuda se extiende a su vez a la búsqueda de la información necesaria para la realización del proyecto.
+
+Añadir que tanto todo el código del proyecto, como este documento, ha sido escrito por mi, el autor, sin influencia de al inteligencia artificial y que todo el desarrollo de las ideas es proveniente de seres humanos, en concreto, una vez más, de mí, el autor, y de mi tutor, el Dr César Llamas Bello.
 
 \section{Agradecimientos}
 

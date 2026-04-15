@@ -14,7 +14,7 @@
 % \usepackage{svg-inkscape}       % útil con inkscape
 \usepackage{xurl}                  % para que latex pueda partir URLs
 \usepackage{xcolor}     % Texto en color diferente
-
+\usepackage{pdfpages}
 
 \usepackage[newfloat]{minted}
 \usepackage{listings} 
@@ -31,6 +31,7 @@
 \usepackage{ltablex}
 \usepackage{multirow}   % Para tablas con multifilas
 \usepackage{array}      % Para los nuevos tipos de columnas en tabla
+\usepackage{float}
 
 % caption para gestionar los listados en floats -como figuras o tablas-
 \usepackage{caption}              % con mejor control de captions
@@ -77,6 +78,7 @@
 		
 		\appendix\setcounter{chapter}{0}
 		\include{tex_files/backmatter/appendix_a}
+		\include{tex_files/backmatter/appendix_b}
 		
 		\bibliographystyle{unsrt}
 		\bibliography{refs}

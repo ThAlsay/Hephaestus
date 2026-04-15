@@ -3,6 +3,10 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 Reallocating 'name_of_file' (item size: 1) to 32 items.
 A level-1 auxiliary file: tex_files/frontmatter/title.aux
+Reallocating 'name_of_file' (item size: 1) to 42 items.
+A level-1 auxiliary file: tex_files/frontmatter/agradecimientos.aux
+Reallocating 'name_of_file' (item size: 1) to 34 items.
+A level-1 auxiliary file: tex_files/frontmatter/resumen.aux
 Reallocating 'name_of_file' (item size: 1) to 48 items.
 A level-1 auxiliary file: tex_files/mainmatter/chapter_1/introduccion.aux
 Reallocating 'name_of_file' (item size: 1) to 49 items.
@@ -17,48 +21,52 @@ Reallocating 'name_of_file' (item size: 1) to 43 items.
 A level-1 auxiliary file: tex_files/mainmatter/chapter_6/pruebas.aux
 Reallocating 'name_of_file' (item size: 1) to 46 items.
 A level-1 auxiliary file: tex_files/mainmatter/chapter_7/conclusion.aux
+Reallocating 'name_of_file' (item size: 1) to 36 items.
+A level-1 auxiliary file: tex_files/backmatter/appendix_a.aux
 Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: unsrt.bst
 Reallocating 'name_of_file' (item size: 1) to 5 items.
 Database file #1: refs.bib
-You've used 22 entries,
+Warning--empty journal in kirk2006design
+You've used 24 entries,
             1791 wiz_defined-function locations,
-            553 strings with 6695 characters,
-and the built_in function-call counts, 3065 in all, are:
-= -- 282
-> -- 88
+            565 strings with 6991 characters,
+and the built_in function-call counts, 3331 in all, are:
+= -- 305
+> -- 96
 < -- 0
-+ -- 44
-- -- 22
-* -- 30
-:= -- 499
-add.period$ -- 85
-call.type$ -- 22
-change.case$ -- 20
++ -- 48
+- -- 24
+* -- 34
+:= -- 544
+add.period$ -- 92
+call.type$ -- 24
+change.case$ -- 22
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 123
-empty$ -- 395
-format.name$ -- 22
-if$ -- 726
+cite$ -- 25
+duplicate$ -- 136
+empty$ -- 427
+format.name$ -- 24
+if$ -- 786
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 5
-newline$ -- 132
-num.names$ -- 22
-pop$ -- 131
+int.to.str$ -- 24
+missing$ -- 6
+newline$ -- 143
+num.names$ -- 24
+pop$ -- 142
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 44
+skip$ -- 49
 stack$ -- 0
 substring$ -- 0
-swap$ -- 22
+swap$ -- 23
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 22
-width$ -- 24
-write$ -- 260
+warning$ -- 1
+while$ -- 24
+width$ -- 26
+write$ -- 281
+(There was 1 warning)
