@@ -1,6 +1,6 @@
 \chapter{Introducción}\label{Cap1}
 
-Todos los alumnos que cursan alguna carrera universitaria o de grado superior se encuentran con una gran diversidad de métodos de aprendizaje. Durante esos años, los alumnos pueden enfrentar pruebas escritas, orales o prácticas de diversos estilos, algunos más antiguos, otros más modernos.
+Todos los alumnos que cursan alguna carrera universitaria o un ciclo de grado superior se encuentran con una gran diversidad de métodos de aprendizaje. Durante esos años, los alumnos pueden enfrentar pruebas escritas, orales o prácticas de diversos estilos, algunos más antiguos y otros más modernos.
 
 La docencia, al igual que otras muchas áreas, está en constante evolución, adaptándose a las necesidades del alumnado según las épocas y las tecnologías avanzan. Una de las últimas incorporaciones al mundo docente es la gamificación de los conceptos. Esta metodología consiste en emplear juegos, diseñados para el caso concreto, con el fin de que el alumno interiorice el concepto que se trata de explicar de una forma más sencilla.
 
@@ -10,11 +10,11 @@ Los sistemas distribuidos adquieren más importancia en un mundo en el que todo 
 
 Debido a la complejidad que supone todo lo mencionado, la enseñanza de estos tipos de sistemas acarrea una dificultad inherente al simple hecho de que algunas de las características de estos sistemas, como pueden ser la concurrencia o la tolerancia a fallos, son abstractas o se esconden detrás de múltiples capas de abstracción que dificultan el aprendizaje. Muchas veces esto lleva a una situación de creérselo por el simple hecho de que te lo cuentan, sin llegar a comprender los conceptos correctamente. Al hacer uso de un videojuego, algunos de estos conceptos pasan a afectar al alumno directamente. Para cumplir con este objetivo, el juego debe presentar situaciones, que obliguen a emplear alguno de los conceptos que se quieren enseñar para resolver el problema planteado dentro del mundo del videojuego.
 
-Con todo esto en cuenta, la premisa del proyecto es crear un motor de videojuegos que permita arquitecturas tanto de sistemas distribuidos como de no distribuidos. Alrededor del motor, nombrado como \textbf{Hephaestus}, se crea un juego, diseñado para el aprendizaje de conceptos de los sistemas distribuidos, haciendo uso del motor y una serie de prácticas para la asignatura, basadas en lo que permite el videojuego.
+Con todo esto en cuenta, la premisa del proyecto es crear un motor de videojuegos que permita arquitecturas de sistemas distribuidos y no distribuidos. Alrededor del motor, nombrado como \textbf{Hephaestus}, se crea un juego, diseñado para el aprendizaje de conceptos de los sistemas distribuidos, haciendo uso del motor y una serie de prácticas para la asignatura, basadas en lo que permite el videojuego.
 
 \section{Motivación}
 
-La motivación aparece a partir de los retos que plantea el proyecto. Dichos retos incluyen el diseño de un motor de videojuegos distribuidos, el diseño de un videojuego pensado para el aprendizaje de un alumno o el empleo de lenguajes de programación que siguen el paradigma funcional.
+La motivación aparece a partir de los retos que plantea el proyecto. Dichos retos incluyen el diseño de un motor de videojuegos con arquitectura variable entre distribuida y no distribuida, el diseño de un videojuego pensado para el aprendizaje del alumnado o el empleo de lenguajes de programación que siguen el paradigma funcional.
 
 Todos estos retos suponen un aprendizaje que difícilmente se presentaría en otro contexto y, también, obligan a adoptar el paradigma funcional frente al imperativo, el cual sigue un mapa mental más natural, ya que la mayor parte del proyecto se realiza en Elixir, el cual sigue el paradigma funcional.
 
@@ -37,7 +37,7 @@ Una vez se cuenta con el motor, el siguiente objetivo es emplear dicho motor y c
 \begin{itemize}
 	\item Se debe diseñar con el fin de enseñar conceptos de los sistemas distribuidos.
 	\item Debido a la restricción del motor, debe estar escrito en Elixir.
-	\item La longitud y complejidad del mismo tiene que estar adaptadas al contexto de los escenarios que se le plantean a los alumnos.
+	\item La longitud y complejidad del mismo tienen que estar adaptadas al contexto de los escenarios que se le plantean a los alumnos.
 \end{itemize}
 
 Como último objetivo del proyecto se debe proporcionar una serie de prácticas, ya mencionadas en el último punto del listado de características anterior, mediante las cuales el alumno pueda adquirir conocimientos nuevos sobre los sistemas distribuidos y pueda reforzar o comprender conceptos vistos en la teoría de la asignatura. Por ello, estas prácticas o escenarios cuentan también con una serie de restricciones:
@@ -64,7 +64,7 @@ El despliegue y la orquestación de los componentes del proyecto se realizan med
 
 Tal y como se muestra en la Figura \ref{fig:chap1_architecture}, el alumno interactúa, mediante un cliente Java, con el videojuego mediante el puerto 3000. La conexión entre el cliente y el juego se realiza mediante TCP/IP, lo cual permite una comunicación segura hacia máquinas externas de ser necesario. El juego didáctico controla el motor Hephaestus a partir de las instrucciones que le llegan desde el cliente Java del jugador, este a su vez modifica y controla el escenario y la base de datos asociada al juego. Tras los cambios producidos por Hephaestus, el juego comunica el resultado de la ejecución al jugador de vuelta.
 
-De esta forma se da una visión total de la arquitectura final del proyecto. Todos estos componentes se ejecutan mediante Docker de manera es necesario tener las imágenes Docker correspondientes tanto el motor, como al juego y una base de datos ya configurada y poblada con los datos necesarios.
+De esta forma se da una visión total de la arquitectura final del proyecto. Todos estos componentes se ejecutan mediante Docker. Por lo tanto es necesario tener las imágenes Docker correspondientes tanto al motor, como al juego y una base de datos ya configurada y poblada con los datos necesarios.
 
 \section{Organización de la memoria}
 
@@ -75,7 +75,7 @@ Siguiendo el orden mostrado en el índice de este documento, los capítulos que 
 \begin{itemize}
 	\item \textbf{Introducción}. Introducción al proyecto, motivación que provoca la realización de dicho proyecto y objetivos del proyecto para que se pueda concluir satisfactoriamente. Dentro de los objetivos se incluyen algunas explicaciones sobre elementos centrales del proyecto, con el fin de brindar mayor claridad al porqué de la elección de los objetivos mostrados.
 	\item \textbf{Planificación}. Se describe la metodología empleada durante la ejecución del proyecto, los artefactos producidos por la metodología empleada y cómo se ha organizado el trabajo a lo largo del tiempo empleado. También se realiza el análisis de riesgos del proyecto y el análisis de costes, tanto aquellos a la hora de ejecutar el proyecto, como los recurrentes por ejecución a lo largo del tiempo.
-	\item \textbf{Estado del arte}. Capítulo sobre otros proyectos con índole similar que hayan podido servir de inspiración. Se describen los proyecto referenciados de manera general y a partir de los aportes realizados a este proyecto. También se describen las tecnologías empleadas en el proyecto, las características de las mismas y los motivos para su uso.
+	\item \textbf{Estado del arte}. Capítulo sobre otros proyectos de índole similar que hayan podido servir de inspiración. Se describen los proyectos referenciados de manera general y a partir de los aportes realizados a este proyecto. También se describen las tecnologías empleadas en el proyecto, las características de las mismas y los motivos para su uso.
 	\item \textbf{Análisis}. Se centra en el análisis del proyecto. Se incluye un listado de los requisitos funcionales y no funcionales del proyecto, centrado en la pieza principal del mismo, el motor Hephaestus. También incluye una descripción escrita y gráfica de la arquitectura del motor y del sistema completo.
 	\item \textbf{Diseño}. Se centra en el diseño software del sistema, incluyendo la descripción escrita y gráfica del diseño final del motor. También se incluye en el capítulo, una descripción del diseño del juego y las decisiones tomadas para dicho diseño, así como, una descripción de las prácticas diseñadas para reforzar conocimientos de la asignatura Sistemas Distribuidos.
 	\item \textbf{Pruebas}. Capítulo dedicado a las pruebas de calidad realizadas sobre todo el proyecto, centrando la mayor parte sobre el motor.
@@ -92,4 +92,4 @@ Añadir que tanto todo el código del proyecto, como este documento, ha sido esc
 
 \section{Agradecimientos}
 
-Este trabajo no podría haber salido adelante sin el apoyo emocional y económico de mi familia. Les agradezco a mis padres el haber estado ahí en todos los momentos en los que los necesite durante estos años de carrera, animándome a continuar en los momentos más duros. A mi hermana por apoyarme siempre, ya sea desde la lejanía o desde cerca. A mis amigos, por aguantar todo este tiempo cuando no podía quedar con ellos por estar haciendo este trabajo. Por último, agradecer a mi tutor, por guiarme cuando me encontraba perdido y permitirme dar forma a su idea inicial dándole un toque personal.
+Este trabajo no podría haber salido adelante sin el apoyo emocional y económico de mi familia. Les agradezco a mis padres el haber estado ahí en todos los momentos en los que los necesité durante estos años de carrera, animándome a continuar en los momentos más duros. A mi hermana por apoyarme siempre, ya sea desde la lejanía o desde cerca. A mis amigos, por su paciencia durante este tiempo cuando no podía quedar con ellos por estar haciendo este trabajo. Por último, agradecer a mi tutor, por guiarme cuando me encontraba perdido y permitirme dar forma a su idea inicial dándole un toque personal.

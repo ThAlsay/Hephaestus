@@ -1,14 +1,14 @@
 \chapter{Conclusión}\label{Cap7}
 
-Una vez finalizado el proyecto, se analizan los problemas encontrados durante el desarrollo del mismo y el desarrollo futuro del mismo tras el estado en el que termina con este documento. Se evalúan de nuevo los riesgos planteados en la planificación, enfocándose en aquellos riesgos que han sucedido y las medidas tomadas para su resolución.
+Una vez finalizado el proyecto, se analizan los problemas encontrados durante el desarrollo del mismo y su desarrollo futuro tras el estado en el que termina con este documento. Se evalúan de nuevo los riesgos planteados en la planificación, enfocándose en aquellos riesgos que han sucedido y las medidas tomadas para su resolución.
 
 \section{Evaluación de los riesgos}
 
-Los riesgos se muestran en el documento mediante tablas en el Capítulo \ref{Cap2} y, una vez finalizado el proyecto, se pueden evaluar los riesgos que han sucedido durante el desarrollo del mismo. El primer riesgo planificado se describe en la Tabla \ref{tab:riesgo_1} y ocurre durante el desarrollo, en este riesgo se plantea la posibilidad de que surjan imprevistos que retrasen el desarrollo del proyecto. La mayor parte de los imprevistos surgidos durante el desarrollo afectaron a las reuniones programadas, no pudiéndose hacer en el momento planeado, siendo solucionado mediante el adelantamiento o el retraso de dicha reunión. Pese a esta mitigación del riesgo, estos no fueron suficientes para no afectar a la planificación inicial.
+Los riesgos se muestran en el documento mediante tablas en el Capítulo \ref{Cap2} y, una vez finalizado el proyecto, se pueden evaluar los riesgos que han sucedido durante el desarrollo del mismo. El primer riesgo planificado se describe en la Tabla \ref{tab:riesgo_1} y ocurre durante el desarrollo, en este riesgo se plantea la posibilidad de que surjan imprevistos que retrasen el desarrollo del proyecto. La mayor parte de los imprevistos surgidos durante el desarrollo afectaron a las reuniones programadas, no pudiéndose hacer en el momento planeado, siendo solucionados mediante el adelantamiento o el retraso de dicha reunión. Pese a esta mitigación del riesgo, estos no fueron suficientes para no afectar a la planificación inicial.
 
 El siguiente riesgo surgido durante el desarrollo se muestra en la Tabla \ref{tab:riesgo_4}. Este riesgo abarca la novedad de algunas de las tecnologías empleadas como Elixir. Debido a la novedad, el mayor efecto surge a la hora de identificar los errores que surgen en la ejecución y la frecuencia de estos, debido al escaso conocimiento en el lenguaje. Al final, aunque el riesgo surge en contadas ocasiones, no provoca un retraso perceptible al total del tiempo de desarrollo.
 
-Finalmente el mayor causante de retrasos en el proyecto es el riesgo descrito en la Tabla \ref{tab:riesgo_3}, el cual tiene en cuenta los errores de estimación que pudieran darse en la planificación del proyecto. Ha sido con diferencia el mayor causante de retrasos en el proyecto debido a la gran inexperiencia del alumno, lo que da lugar a malas estimaciones de tiempo, no teniendo en cuenta los tiempos disponibles en la realidad y siendo demasiado optimista, en general, a la hora de asignar prototipos a las diferentes partes del proyecto. Todo esto en conjunto provoca el mayor retraso de todo el proyecto, pudiendo haber sido peor de no haberse aplicado el plan de contingencia, y, aún con eso, se produce un retraso de varias semanas sobre las fecha estimada de finalización del proyecto.
+Finalmente, el mayor causante de retrasos en el proyecto es el riesgo descrito en la Tabla \ref{tab:riesgo_3}, el cual tiene en cuenta los errores de estimación que pudieran darse en la planificación del proyecto. Ha sido, con diferencia, el mayor causante de retrasos en el proyecto debido a la gran inexperiencia del alumno, lo que da lugar a malas estimaciones de tiempo, no teniendo en cuenta los tiempos disponibles en la realidad y siendo demasiado optimista, en general, a la hora de asignar prototipos a las diferentes partes del proyecto. Todo esto en conjunto provoca el mayor retraso de todo el proyecto, pudiendo haber sido peor de no haberse aplicado el plan de contingencia, y, aún con eso, se produce un retraso de varias semanas sobre la fecha estimada de finalización del proyecto.
 
 \section{Problemas en la implementación del código}
 
@@ -20,19 +20,19 @@ Por lo tanto, los focos de problemas durante la implementación del código se c
 
 \subsection{Elixir}
 
-Al ser Elixir un lenguaje de programación que sigue el paradigma de programación funcional y no cuenta con herramientas para la programación orientada a objetos. Estas dos características del diseño del lenguaje desarrollan los dos primeros problemas a la hora de implementar el código. El cambio de paradigma del imperativo al funcional supone el mayor coste temporal al proyecto, debido a que las diferencias son demasiado pronunciadas. Respecto a la programación orientada a objetos, se adapta el código empleando los elementos que ofrece el lenguaje, esto no supone tanto costo temporal al proyecto.
+Al ser Elixir un lenguaje de programación que sigue el paradigma de programación funcional y no cuenta con herramientas para la programación orientada a objetos, estas dos características del diseño del lenguaje desarrollan los dos primeros problemas a la hora de implementar el código. El cambio de paradigma del imperativo al funcional supone el mayor coste temporal al proyecto, debido a que las diferencias son demasiado pronunciadas. Respecto a la programación orientada a objetos, se adapta el código empleando los elementos que ofrece el lenguaje, esto no supone tanto costo temporal al proyecto.
 
 El siguiente elemento del lenguaje que se presenta problemático son los \textit{GenServer}. Estos elementos presentan unas características que los hacen buenos candidatos a representar actores distribuidos dentro del sistema. Tras algunas vueltas se acaba por decidir por ellos para hacer esta labor, además de ser la solución a la adaptación del problema de la programación orientada a objetos. Debido a las características de los \textit{GenServer} pueden actuar como una especie de objetos tradicionales, de esta manera se consigue una simulación parcial, no pudiendo conseguir la composición y la herencia características de este paradigma. Por lo tanto no se puede evitar cierta repetición de código.
 
 Una vez se superan estos problemas ya descritos, el siguiente problema que surge es la transformación de estructuras de Elixir a JSON. Debido a que el estado del juego se almacena como JSON en la base de datos, es fundamental poder transformar estructuras de Elixir a JSON. Elixir cuenta con mapas como estructura para el almacenamiento de datos en tiempo de ejecución, estos mapas tienen transformación directa a JSON al emplear la biblioteca con la que se hace uso de la base de datos desde el motor. Por lo tanto es un problema con fácil solución y que no supone ningún retraso.
 
-Finalmente, el último problema que se presenta por usar Elixir son los monitores. Los monitores son un elemento de Elixir que sirven para vigilar la ejecución de procesos hijos, en el caso de Hephaestus se emplean para vigilar la ejecución de los \textit{GenServer}. Los monitores no solo vigilan los procesos sino que actúan sobre ellos en caso de que se produzca un error, pudiendo reiniciarlos o eliminarlos dependiendo de las instrucciones que tengan. El problema surge de los diferentes tipos de monitores que existen y de como se relacionan entre sí. Se evalúan todas las opciones y se opta por emplear monitores dinámicos por la sencillez que supone su uso. Este tipo de monitores es adecuado para juegos pequeños como lo es el juego didáctico, pero para su uso en juegos más grandes el desarrollador debe evaluar si merece la pena emplear monitores estáticos, los cuales permiten más opciones.
+Finalmente, el último problema que se presenta por usar Elixir son los monitores. Los monitores son un elemento de Elixir que sirven para vigilar la ejecución de procesos hijos, en el caso de Hephaestus se emplean para vigilar la ejecución de los \textit{GenServer}. Los monitores no solo vigilan los procesos sino que actúan sobre ellos en caso de que se produzca un error, pudiendo reiniciarlos o eliminarlos dependiendo de las instrucciones que tengan. El problema surge de los diferentes tipos de monitores que existen y de cómo se relacionan entre sí. Se evalúan todas las opciones y se opta por emplear monitores dinámicos por la sencillez que supone su uso. Este tipo de monitores es adecuado para juegos pequeños como lo es el juego didáctico, pero para su uso en juegos más grandes el desarrollador debe evaluar si merece la pena emplear monitores estáticos, los cuales permiten más opciones.
 
 \subsection{Docker}
 
-Los problemas surgidos por el empleo de Docker son derivados de Elixir. La distribución de Elixir difiere en gran medida del proceso de desarrollo, por lo tanto la construcción de las imágenes es más complicado de lo que sería en caso de ser un entorno de desarrollo. Otro factor determinante es la falta de documentación, Elixir es un lenguaje relativamente pequeño en lo que respecta a comunidad y, por lo tanto, hay ciertas tareas que no son tan populares y que no cuentan con la suficiente documentación para su ejecución.
+Los problemas surgidos por el empleo de Docker son derivados de Elixir. La distribución de Elixir difiere en gran medida del proceso de desarrollo, por lo tanto la construcción de las imágenes es más complicada de lo que sería en caso de ser un entorno de desarrollo. Otro factor determinante es la falta de documentación, Elixir es un lenguaje relativamente pequeño en lo que respecta a comunidad y, por lo tanto, hay ciertas tareas que no son tan populares y que no cuentan con la suficiente documentación para su ejecución.
 
-En este caso la solución pasa por adaptar los pocos ejemplos existentes, sin relación con la tarea específica, y emplear herramientas de inteligencia artificial para generar el código restante. Finalmente, se hace uso de estos métodos para solucionar el problema, costando bastante tiempo de proyecto.
+En este caso la solución pasa por adaptar los pocos ejemplos existentes, sin relación con la tarea específica, y emplear herramientas de inteligencia artificial para generar el código restante. Finalmente, se hace uso de estos métodos para solucionar el problema, lo que costó bastante tiempo de proyecto.
 
 \section{Desarrollo a futuro}
 
@@ -62,7 +62,7 @@ Este aumento de la complejidad de la arquitectura y la mantenibilidad del códig
 
 Al final del proyecto, el motor Hephaestus es un motor diseñado para crear videojuegos distribuidos de tipo RPG basados en Dungeons and Dragons. Se trata de una especialización muy concreta que reduce el mercado en el que se puede emplear dicho motor.
 
-Una futura modificación del motor puede generalizar tanto el género de juegos RPG al que afecta, no solo a los que están basados en Dungeons and Dragons, cómo el tipo de juego que se puede construir con dicho motor. De esta manera se avanza hacia un motor más generalista como pueden ser Godot, Unity o Unreal Engine.
+Una futura modificación del motor puede generalizar tanto el género de juegos RPG al que afecta, no solo a los que están basados en Dungeons and Dragons, como el tipo de juego que se puede construir con dicho motor. De esta manera se avanza hacia un motor más generalista como pueden ser Godot, Unity o Unreal Engine.
 
 \subsection{Entorno de desarrollo gráfico}
 
@@ -72,7 +72,7 @@ Como proyecto se puede plantear crear un entorno con alguna de estas caracterís
 
 \section{Tiempo de desarrollo}
 
-En el Capítulo \ref{Cap2} se desarrolla el proceso y resultado de la planificación del proyecto. Durante este proceso se menciona que se realizan una serie de reuniones durante el desarrollo que no pueden ser representadas en el diagrama de Gantt al igual que los periodos de vacaciones impuestos por la universidad. Con el fin de expandir la gestión temporal acometida durante el proceso de desarrollo del proyecto la Tabla \ref{tab:sprints} muestra las reuniones planeadas teniendo en cuenta además los periodos de pausa. De esta forma, además, se explica porque, en el diagrama de Gantt, algunos entregables se alargan más en el tiempo, puesto que coinciden con periodos vacacionales.
+En el Capítulo \ref{Cap2} se desarrolla el proceso y resultado de la planificación del proyecto. Durante este proceso se menciona que se realizan una serie de reuniones durante el desarrollo que no pueden ser representadas en el diagrama de Gantt al igual que los periodos de vacaciones impuestos por la universidad. Con el fin de expandir la gestión temporal acometida durante el proceso de desarrollo del proyecto la Tabla \ref{tab:sprints} muestra las reuniones planeadas teniendo en cuenta además los periodos de pausa. De esta forma, además, se explica por qué, en el diagrama de Gantt, algunos entregables se alargan más en el tiempo, puesto que coinciden con periodos vacacionales.
 
 {\small
 \begin{longtable}[c]{|l|cc|}
@@ -109,10 +109,10 @@ En el Capítulo \ref{Cap2} se desarrolla el proceso y resultado de la planificac
 	Reunión & \multicolumn{2}{c|}{19/06/2025} \\ \hline
 	Hephaestus, Persistencia & \multicolumn{1}{c|}{19/06/2025} & 10/07/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{26/06/2025} \\ \hline
-	Reunión & \multicolumn{2}{c|}{03/06/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{03/07/2025} \\ \hline
 	Reunión & \multicolumn{2}{c|}{10/07/2025} \\ \hline
 	Hephaestus, Utilidades & \multicolumn{1}{c|}{10/07/2025} & 24/07/2025 \\ \hline
-	Reunión & \multicolumn{2}{c|}{17/06/2025} \\ \hline
+	Reunión & \multicolumn{2}{c|}{17/07/2025} \\ \hline
 	Reunión & \multicolumn{2}{c|}{24/07/2025} \\ \hline
 	Juego didáctico, Servidor & \multicolumn{1}{c|}{24/07/2025} & 11/09/2025 \\ \hline
 	Reunión & \multicolumn{2}{c|}{31/07/2025} \\ \hline

@@ -2,7 +2,7 @@
 
 \bibitem{agilemanifesto}
 {Firmantes del manifiesto}.
-\newblock Manifesto for agile software development.
+\newblock Manifesto for {A}gile {S}oftware {D}evelopment.
 \newblock \url{https://agilemanifesto.org/}, 2001.
 \newblock [Online; último acceso 27-Diciembre-2025].
 
@@ -13,7 +13,7 @@ Bob~Hughes y~Mike~Cotterell.
 
 \bibitem{docsify}
 docsifyjs.
-\newblock Biblioteca docsify.
+\newblock Biblioteca {D}ocsify.
 \newblock \url{https://docsify.js.org/#/}, 2025.
 \newblock [Online; último acceso 28-Diciembre-2025].
 
@@ -24,7 +24,7 @@ Ian Sommerville.
 
 \bibitem{salario}
 {Ministerio de Trabajo y Economía Socila, Gobierno de España}.
-\newblock El boe publica el smi para 2025 que se establece en 1.184 euros.
+\newblock El {BOE} publica el {SMI} para 2025 que se establece en 1.184 euros.
 \newblock
   \url{https://www.sepe.es/HomeSepe/es/que-es-el-sepe/comunicacion-institucional/noticias/detalle-noticia.html?folder=/SEPE/2025/Febrero/&detail=boe-publica-smi-2025-se-establece-1184-euros},
   2025.
@@ -32,7 +32,7 @@ Ian Sommerville.
 
 \bibitem{salario12pagas}
 {Taxfix}.
-\newblock Salario mínimo interprofesional (smi).
+\newblock Salario mínimo interprofesional ({SMI}).
 \newblock
   \url{https://taxfix.com/es-es/diccionario/salario-minimo-interprofesional-smi/#:~:text=Gracias%20al%20acuerdo%20en%202025%20del%20Gobierno,trabajadores%20a%20jornada%20completa%20(40%20horas%20semanales).},
   2025.
@@ -40,7 +40,7 @@ Ian Sommerville.
 
 \bibitem{amortizacion}
 {Banco Santander}.
-\newblock ¿qué es la amortización, qué tipos hay y cómo se calcula?
+\newblock {¿Q}u{é} es la amortización, qué tipos hay y cómo se calcula?
 \newblock \url{https://www.bancosantander.es/glosario/amortizacion}, 2026.
 \newblock [Online; último acceso 5-Febrero-2026].
 
@@ -54,7 +54,7 @@ Ian Sommerville.
 
 \bibitem{secondlife}
 {Wikipedia}.
-\newblock Second life.
+\newblock Second {L}ife.
 \newblock \url{https://en.wikipedia.org/wiki/Second_Life}, 2025.
 \newblock [Online; último acceso 31-Diciembre-2025].
 
@@ -84,7 +84,7 @@ Michael R. Cantrell y Mike~Holmes Whitson John Kirk~III.
 
 \bibitem{erlangotp}
 {El equipo de Erlang}.
-\newblock Otp.
+\newblock {OTP}.
 \newblock \url{https://www.erlang.org/}, 2026.
 \newblock [Online; último acceso 06-Abril-2026].
 
@@ -96,7 +96,7 @@ El~equipo~de Phoenix.
 
 \bibitem{thousand_island}
 mtrudel.
-\newblock Biblioteca thousand island.
+\newblock Biblioteca {T}housand {I}sland.
 \newblock \url{https://hexdocs.pm/thousand_island/ThousandIsland.html}, 2025.
 \newblock [Online; último acceso 28-Diciembre-2025].
 
@@ -108,25 +108,25 @@ mtrudel.
 
 \bibitem{sql}
 {Wikipedia}.
-\newblock Sql.
+\newblock {SQL}.
 \newblock \url{https://en.wikipedia.org/wiki/SQL}, 2025.
 \newblock [Online; último acceso 01-Julio-2025].
 
 \bibitem{json}
 {Douglas Crockford}.
-\newblock Json.
+\newblock {JSON}.
 \newblock \url{https://www.json.org/json-en.html}, 2001.
 \newblock [Online; último acceso 01-Julio-2025].
 
 \bibitem{javascript}
 {Mozilla foundation}.
-\newblock Javascript.
+\newblock Java{S}cript.
 \newblock \url{https://developer.mozilla.org/es/docs/Web/JavaScript}, 2025.
 \newblock [Online; último acceso 01-Julio-2025].
 
 \bibitem{postgres}
-{El equipo de Postgresql}.
-\newblock Postgresql.
+{El equipo de PostgreSQL}.
+\newblock Postgre{SQL}.
 \newblock \url{https://www.postgresql.org/}, 2025.
 \newblock [Online; último acceso 01-Julio-2025].
 
@@ -144,7 +144,7 @@ mtrudel.
 
 \bibitem{jsonrpc}
 {Matt Morley}.
-\newblock Json-rpc.
+\newblock {JSON-RPC}.
 \newblock \url{https://www.jsonrpc.org/}, 2005.
 \newblock [Online; último acceso 03-Enero-2026].
 

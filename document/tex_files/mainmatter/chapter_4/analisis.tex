@@ -8,7 +8,7 @@ Se trata del foco principal del proyecto, por lo tanto el grueso del análisis s
 
 \subsection{Análisis inicial}
 
-En la planificación del proyecto se mostraron los entregables planeados para la ejecución del proyecto. Estos entregables se dividen en las cinco partes con la que cuenta el proyecto y marcan la pauta de desarrollo del mismo. Por lo tanto, al realizar el análisis de cada una de las partes se requiere de un análisis inicial de todos los entregables que contienen código y que forman cada una de estas, con el objetivo de determinar los requisitos y casos de uso necesarios para poder finalizar el proyecto. El motor Hephaestus cuenta con nueve entregables los cuales, en conjunto, conforman el motor al completo.
+En la planificación del proyecto se mostraron los entregables planeados para la ejecución del proyecto. Estos entregables se dividen en las cinco partes con las que cuenta el proyecto y marcan la pauta de desarrollo del mismo. Por lo tanto, al realizar el análisis de cada una de las partes se requiere de un análisis inicial de todos los entregables que contienen código y que forman cada una de estas, con el objetivo de determinar los requisitos y casos de uso necesarios para poder finalizar el proyecto. El motor Hephaestus cuenta con nueve entregables los cuales, en conjunto, conforman el motor al completo.
 
 \subsubsection{Módulo Personaje}
 
@@ -16,7 +16,7 @@ El personaje representa la entidad jugable del sistema, toda modificación del e
 
 \subsubsection{Módulo Enemigo}
 
-Un enemigo representa una entidad opuesta al personaje, al entrar ambos en contacto dentro del juego estos pueden, a elección del desarrollador del videojuego, entrar en un estado de combate y reducir al vida que tienen ambos a base de golpes al contrario. Por ello estos dos actores son los únicos que cuentan con una estadística de vida. Por estos motivos, tanto el personaje como el enemigo son actores que deben contar con la posibilidad de recibir mensajes que permitan al contrario modificar su estado interno.
+Un enemigo representa una entidad opuesta al personaje, al entrar ambos en contacto dentro del juego estos pueden, a elección del desarrollador del videojuego, entrar en un estado de combate y reducir la vida que tienen ambos a base de golpes al contrario. Por ello estos dos actores son los únicos que cuentan con una estadística de vida. Por estos motivos, tanto el personaje como el enemigo son actores que deben contar con la posibilidad de recibir mensajes que permitan al contrario modificar su estado interno.
  
 \subsubsection{Módulo NPC}
 
@@ -24,7 +24,7 @@ Un NPC representa un personaje no jugable con el cual se puede interactuar. Por 
 
 \subsubsection{Módulo Objeto}
 
-Un objeto es una entidad que puede ser entregada por otra entidad y que se puede almacenar en el inventario del actor personaje. Además un objeto puede ser volátil, una vez usado desaparece, o equipable, no desaparece una vez empleado y puede desequiparse y volver al inventario. Dependiendo del tipo de objeto utilizará una estadísticas u otras para desempeñar su papel, teniendo en cuenta que el tipo y utilidad del objeto se dejan a valoración del desarrollador del videojuego.
+Un objeto es una entidad que puede ser entregada por otra entidad y que se puede almacenar en el inventario del actor personaje. Además un objeto puede ser volátil, una vez usado desaparece, o equipable, no desaparece una vez empleado y puede desequiparse y volver al inventario. Dependiendo del tipo de objeto utilizará unas estadísticas u otras para desempeñar su papel, teniendo en cuenta que el tipo y utilidad del objeto se dejan a valoración del desarrollador del videojuego.
 
 \subsubsection{Módulo Ubicación}
 
@@ -113,9 +113,9 @@ Con esta descripción como base, a continuación se muestran las tablas de requi
 
 \subsection{Casos de uso}
 
-Una vez se han determinado los requisitos de esta parte del proyecto, se acotan los casos de uso a implementar durante el transcurso de todo el proyecto. Las Figuras \ref{fig:chap4_motor_casos_uso_1}, \ref{fig:chap4_motor_casos_uso_2} y \ref{fig:chap4_motor_casos_uso_3} muestran los casos de uso del motor Hephaestus. Se divide el diagrama en varios subdiagramas debido al tamaño que tendría un único diagrama con todos los casos de uso de Hephaestus, de esta manera se consigue una mejor legibilidad de los casos de uso. Gracias a los casos de uso se puede tomar un métrica del estado del proyecto, si todos los casos de uso están implementados este se puede dar por finalizado. 
+Una vez se han determinado los requisitos de esta parte del proyecto, se acotan los casos de uso a implementar durante el transcurso de todo el proyecto. Las Figuras \ref{fig:chap4_motor_casos_uso_1}, \ref{fig:chap4_motor_casos_uso_2} y \ref{fig:chap4_motor_casos_uso_3} muestran los casos de uso del motor Hephaestus. Se divide el diagrama en varios subdiagramas debido al tamaño que tendría un único diagrama con todos los casos de uso de Hephaestus, de esta manera se consigue una mejor legibilidad de los casos de uso. Gracias a los casos de uso se puede tomar una métrica del estado del proyecto, si todos los casos de uso están implementados este se puede dar por finalizado. 
 
-Además de los diagramas mostrados se proporciona una serie de tablas que describen en profundidad cada uno de los casos de uso. Existen múltiples opciones para realizar este tipo de tablas, pero en este caso se opta por tablas pequeñas, que no incluyen mucha información sobre el caso de uso, debido a la cantidad de casos de uso presentes en el proyecto. Las tablas cuentan con el identificador y el nombre del caso de uso, un listado de referencias a los requisitos funcionales u otros casos de uso afectados por el caso de uso en cuestión y una descripción del caso de uso. De este forma se consigue resumir la información más importante que no pudiera quedar clara mediante los diagramas mencionados anteriormente.
+Además de los diagramas mostrados se proporciona una serie de tablas que describen en profundidad cada uno de los casos de uso. Existen múltiples opciones para realizar este tipo de tablas, pero en este caso se opta por tablas pequeñas, que no incluyen mucha información sobre el caso de uso, debido a la cantidad de casos de uso presentes en el proyecto. Las tablas cuentan con el identificador y el nombre del caso de uso, un listado de referencias a los requisitos funcionales u otros casos de uso afectados por el caso de uso en cuestión y una descripción del caso de uso. De esta forma se consigue resumir la información más importante que no pudiera quedar clara mediante los diagramas mencionados anteriormente.
 
 \begin{table}[H]
 	\centering
@@ -123,7 +123,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 	\begin{tabularx}{\linewidth}{|l|cc|}
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-01} & Crear usuario \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-13, RF-29} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita crear un nuevo usuario proporcionando el nombre de usuario y la definición del nuevo personaje asociado al nuevo usuario.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita crear un nuevo usuario proporcionando el nombre de usuario y la definición del nuevo personaje asociado al nuevo usuario. Al crear el usuario se establece una contraseña por defecto asociada al nuevo usuario. La definición del personaje debe seguir la estructura de una entidad Personaje.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -138,7 +138,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-02} & Autenticar usuario \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita comprobar si la identidad del usuario proporcionado existe en el sistema. Esta comprobación se hace mediante el uso de usuario y contraseña.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita comprobar si la identidad del usuario proporcionado existe en el sistema. Esta comprobación se hace mediante el uso de usuario y contraseña. Si la comprobación es correcta se devuelve la definición del personaje asociado al usuario.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -153,7 +153,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-03} & Guardar estado \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-26} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita guardar su estado actual en la base de datos. Debe solicitar el estado de todos los actores del sistema para poder guardarlos en la base de datos.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita guardar su estado actual en la base de datos. Para ello el motor debe solicitar el estado de todos los actores del sistema para poder guardarlos en la base de datos. La estructura por defecto empleada consiste en un objeto JSON con listas para cada tipo de entidad, dentro de estas listas se almacena el estado actual de la entidad en el momento de realizar el guardado.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -168,7 +168,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-04} & Cargar estado \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-03} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita el estado de las entidades que conforman el juego almacenados en la base de datos.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita el estado de las entidades que conforman el juego almacenados en la base de datos. El motor realiza una llamada a la base de datos que devuelve el último estado guardado con el formato descrito en el caso de uso CU-03.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -183,7 +183,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-05} & Crear entidad \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-03, CU-04} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita la creación y puesta en funcionamiento de las entidades que conforman el juego.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita la creación y puesta en funcionamiento de las entidades que conforman el juego. Para que el motor pueda realizar la acción es necesario proporcionar el estado con el que se crea la entidad. Cada tipo de entidad debe contar con su función de creación propia. Si el estado proporcionado no coincide con el tipo de entidad inicializada, la acción fallará.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -198,7 +198,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-06} & Consultar estado \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-05} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita el estado actual del actor entidad correspondiente al tipo e identificador proporcionados por el juego.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita el estado actual del actor entidad correspondiente al identificador proporcionado por el juego. Cada tipo de entidad debe contar con su propia función para obtener el estado a partir del identificador proporcionado. En caso de no encontrar la entidad del tipo cuya función ha sido empleada, mediante el identificador, se lanzará un error, siguiendo las buenas prácticas de Elixir.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -213,7 +213,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-07} & Obtener daño de ataque \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-05, RF-15} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita el valor de ataque de una entidad perteneciente al juego que cuente con vida (Enemigo o Personaje).} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita el valor de ataque de una entidad perteneciente al juego que cuente con vida (Enemigo o Personaje). La solicitud se hace mediante el identificador de la entidad. Si se trata de una entidad Personaje, tendrá que tener en cuenta las estadísticas de los objetos equipados. Si se trata de una entidad Enemigo el valor de ataque estará asociado a una de las estadísticas del enemigo.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -243,7 +243,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-09} & Herir \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-10} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego indica la entidad con vida (Enemigo o Personaje) que debe reducir una cantidad, también indicada por el juego, de su campo de vida.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego indica la entidad con vida (Enemigo o Personaje) que debe reducir una cantidad, también indicada como parámetro, de su campo de vida. El campo de vida de este tipo de entidad puede ser menor que cero. En caso de bajar de cero la entidad pasará a declararse como muerta tal y como se describe en el caso de uso CU-08.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -273,7 +273,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-11} & Consultar siguiente ubicación \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-05, RF-19} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego consulta la siguiente ubicación de una entidad Conexión dada una de las dos ubicaciones que almacena esta.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego consulta la siguiente ubicación de una entidad Conexión dada una de las dos ubicaciones que almacena esta. Para realizar la consulta, el juego debe proporcionar al motor el identificador de la ubicación contraria, además del identificador de la conexión que se quiere consultar.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -288,7 +288,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-12} & Consultar valor de la estadística \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-05, RF-24, RF-25} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego consulta el valor de la estadística asociada a la entidad Objeto objetivo.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego consulta el valor de la estadística asociada a la entidad Objeto objetivo. Para poder realizar la consulta, el juego debe proporcionar al motor el identificador del objeto.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -303,7 +303,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-13} & Equipar objeto \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-06, RF-07} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona el identificador de una entidad Objeto en el inventario de la entidad Personaje para equiparlo en el espacio correspondiente.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona el identificador de una entidad Objeto en el inventario de la entidad Personaje para equiparlo en el espacio correspondiente. El objeto se equipa automáticamente en el espacio correspondiente. Si el tipo del objeto no corresponde a ningún espacio equipable este no se equipará. Si el espacio estaba previamente ocupado el objeto ya equipado se enviará al inventario y se equipará el objeto nuevo.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -318,7 +318,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-14} & Cambiar ubicación \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-12} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego indica la entidad Ubicación a la cual la entidad Personaje ha de moverse.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego indica la entidad Ubicación a la cual la entidad Personaje ha de moverse. Para que el motor realice la acción se le debe indicar los identificadores del personaje a trasladar y de la nueva ubicación.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -348,7 +348,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-16} & Añadir experiencia \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-08, RF-09} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona una cantidad de experiencia a la entidad Personaje, la cual puede subir de nivel si sobrepasa el umbral del nivel.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona una cantidad de experiencia a la entidad Personaje, la cual puede subir de nivel si sobrepasa el umbral del nivel. Una vez llegado al nivel máximo añadir experiencia deja de tener efecto.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -363,7 +363,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-17} & Añadir al inventario \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-06} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona una entidad Objeto la cual se añade al inventario de la entidad Personaje.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona una entidad Objeto la cual se añade al inventario de la entidad Personaje. El inventario del personaje no puede contener dos objetos con el mismo identificador.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -378,7 +378,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-18} & Consultar enemigos \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-05, RF-34} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita el listado de entidades Enemigo que se encuentran en la entidad Ubicación sobre la cual se piden los datos.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita el listado de entidades Enemigo que se encuentran en la entidad Ubicación. Como parámetro, el juego debe proporcionar el identificador de la ubicación.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -436,7 +436,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 	\small
 	\begin{tabularx}{\linewidth}{|l|cc|}
 		\hline
-		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-22} & Añadir conexión \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-22} & Añadir NPC \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-32} \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego proporciona una entidad NPC la cual se añade a la entidad Ubicación objetivo.} \\ \hline
 	\end{tabularx}
@@ -468,7 +468,7 @@ Además de los diagramas mostrados se proporciona una serie de tablas que descri
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-24} & Interactuar \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-16} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita interactuar con una entidad NPC.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego solicita interactuar con una entidad NPC. El resultado de la interacción dependerá del límite de interacciones del NPC. En caso de no tener límite la interacción será siempre la misma.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -549,7 +549,7 @@ A partir de la eliminación de estos elementos se crea el diagrama de análisis 
 
 Se puede apreciar el cambio que sufre el análisis final, mostrado en el diagrama de la figura \ref{fig:chap4_motor_final}, respecto al diagrama inicial, mostrado en la figura \ref{fig:chap4_motor_completo}. El análisis inicial del motor, al tratarse de una primera iteración sobre lo que se quiere conseguir al finalizar el proyecto, cuenta con una distribución de clases la cual difiere de la distribución final. Este análisis final cuenta ya con una estructura completamente adaptada a los requisitos funcionales y no funcionales de esta parte del proyecto. Por ende, prescinde de clases no necesarias y adapta la herencia de todas ellas para cumplir con las restricciones del lenguaje empleado.
 
-El mayor cambio conceptual que se aprecia en el análisis final sobre el inicial es la transformación del concepto de entidad. Al iniciar el análisis \textit{Entity} hace referencia a los elementos del videojuego, de los cuales el motor está encargado, que se encuentran en una ubicación (\textit{Location}). Una vez se profundiza el análisis el concepto de \textit{Entity} se transforma y pasa a representar todo elemento del cual el motor está a cargo. Por ello, toda entidad cuenta con un identificador único, por el cual puede ser referenciada desde el contexto del videojuego y, que el motor sepa sobre que entidad se debe ejecutar la acción solicitada por dicho contexto.
+El mayor cambio conceptual que se aprecia en el análisis final sobre el inicial es la transformación del concepto de entidad. Al iniciar el análisis \textit{Entity} hace referencia a los elementos del videojuego, de los cuales el motor está encargado, que se encuentran en una ubicación (\textit{Location}). Una vez se profundiza el análisis el concepto de \textit{Entity} se transforma y pasa a representar todo elemento del cual el motor está a cargo. Por ello, toda entidad cuenta con un identificador único, por el cual puede ser referenciada desde el contexto del videojuego y, que el motor sepa sobre qué entidad se debe ejecutar la acción solicitada por dicho contexto.
 
 \section{Juego didáctico}
 
@@ -630,7 +630,7 @@ Al igual que se ha hecho con Hephaestus, esta parte del proyecto cuenta con su d
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-01} & Iniciar sesión de juego \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-13, RF-08} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego, de forma automática, obtiene todos los datos guardados en la base de datos sobre el último mundo de juego e inicia todos las entidades del motor que conforma dicho mundo.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El juego, de forma automática, solicita al motor todos los datos guardados en la base de datos sobre el último mundo de juego y la creación de todas las entidades del motor que conforma dicho mundo.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -675,7 +675,7 @@ Al igual que se ha hecho con Hephaestus, esta parte del proyecto cuenta con su d
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-04} & Inspeccionar personaje \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-06, RF-08} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual se le devuelve la información sobre su entidad Personaje.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual se le devuelve la información sobre su entidad Personaje. Al realizar la llamada el jugador debe proporcionar el identificador del personaje como parámetro, de no ser así la llamada falla.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -690,7 +690,7 @@ Al igual que se ha hecho con Hephaestus, esta parte del proyecto cuenta con su d
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-05} & Inspeccionar ubicación \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-06, RF-08} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual se le devuelve la información sobre la entidad Ubicación en la que se encuentra la entidad Personaje del jugador.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual se le devuelve la información sobre la entidad Ubicación en la que se encuentra la entidad Personaje del jugador. La llamada falla si no se proporciona el identificador del personaje.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -705,7 +705,7 @@ Al igual que se ha hecho con Hephaestus, esta parte del proyecto cuenta con su d
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-06} & Inspeccionar conexión \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-06, RF-08} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual se le devuelve la información sobre la entidad Conexión solicitada.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual se le devuelve la información sobre la entidad Conexión solicitada. Si el identificador de la conexión no es válido la llamada falla.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -720,7 +720,7 @@ Al igual que se ha hecho con Hephaestus, esta parte del proyecto cuenta con su d
 		\hline
 		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-07} & Equipar objeto \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-06, RF-08} \\ \hline
-		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual la entidad Personaje del jugador se equipa una de las entidades Objeto que se encuentran en su inventario.} \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual la entidad Personaje del jugador se equipa una de las entidades Objeto que se encuentran en su inventario. El objeto debe poder equiparse en alguno de los huecos del personaje.} \\ \hline
 	\end{tabularx}
 	
 	\vspace{0.5cm}
@@ -778,7 +778,7 @@ Al igual que se ha hecho con Hephaestus, esta parte del proyecto cuenta con su d
 	\small
 	\begin{tabularx}{\linewidth}{|l|cc|}
 		\hline
-		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-10} & Interactuar con NPC \\ \hline
+		{\cellcolor[HTML]{C0C0C0} Caso de uso} & \multicolumn{1}{l|}{CU-10} & Atacar enemigo \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Referencias} & \multicolumn{2}{l|}{RF-01, RF-02, RF-06, RF-08} \\ \hline
 		{\cellcolor[HTML]{C0C0C0} Descripción} & \multicolumn{2}{X|}{El actor jugador realiza una llamada mediante la cual la entidad Personaje del jugador ataca a una de las entidades Enemigo que se encuentren en la misma ubicación que el personaje. Los enemigos de la ubicación también realizan su ataque el cual resta puntos de vida al personaje.} \\ \hline
 	\end{tabularx}

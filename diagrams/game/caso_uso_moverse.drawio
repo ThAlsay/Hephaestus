@@ -1,6 +1,6 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36">
   <diagram name="Página-1" id="s3fkcFK7SNIMKZN0mFcY">
-    <mxGraphModel dx="1426" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1350" pageHeight="1600" math="0" shadow="0">
+    <mxGraphModel dx="2551" dy="1044" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1350" pageHeight="1600" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -8,7 +8,7 @@
           <mxGeometry height="1480" width="40" x="80" y="40" as="geometry" />
         </mxCell>
         <mxCell id="J_exec" parent="J" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="1360" width="10" x="15" y="80" as="geometry" />
+          <mxGeometry height="1380" width="10" x="15" y="80" as="geometry" />
         </mxCell>
         <mxCell id="R" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Game.RpcHandler" vertex="1">
           <mxGeometry height="1480" width="120" x="330" y="40" as="geometry" />
@@ -45,6 +45,9 @@
         </mxCell>
         <mxCell id="L" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Engine.Location" vertex="1">
           <mxGeometry height="1480" width="120" x="1160" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L_exec" parent="L" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
+          <mxGeometry height="42.06896551724138" width="10" x="55" y="1079.998275862069" as="geometry" />
         </mxCell>
         <mxCell id="m1" edge="1" parent="1" source="J" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="R" value="Request JSON-RPC cross_connection">
           <mxGeometry relative="1" as="geometry">
@@ -211,28 +214,35 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Alt1" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" value="alt" vertex="1">
-          <mxGeometry height="580" width="1120" x="50" y="860" as="geometry" />
+          <mxGeometry height="610" width="1120" x="50" y="860" as="geometry" />
         </mxCell>
         <mxCell id="Alt1_Cond1" parent="Alt1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="[next_location !== &quot;error&quot;]" vertex="1">
-          <mxGeometry height="20" width="160" x="70" y="10" as="geometry" />
+          <mxGeometry height="21.03448275862069" width="160" x="70" y="10.517241379310345" as="geometry" />
         </mxCell>
         <mxCell id="Alt1_Line" parent="Alt1" style="line;strokeWidth=1;dashed=1;html=1;whiteSpace=wrap;" value="" vertex="1">
-          <mxGeometry height="10" width="1120" y="500" as="geometry" />
+          <mxGeometry height="10.517241379310345" width="1120" y="525.8620689655172" as="geometry" />
         </mxCell>
         <mxCell id="Alt1_Cond2" parent="Alt1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="[else]" vertex="1">
-          <mxGeometry height="20" width="50" x="50" y="505" as="geometry" />
+          <mxGeometry height="21.03448275862069" width="50" x="60" y="536.3806896551724" as="geometry" />
         </mxCell>
         <mxCell id="U_exec5" parent="Alt1" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="595" y="20" as="geometry" />
+          <mxGeometry height="42.06896551724138" width="10" x="595" y="21.03448275862069" as="geometry" />
         </mxCell>
         <mxCell id="RM_exec3" parent="Alt1" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="800" y="100" as="geometry" />
+          <mxGeometry height="42.06896551724138" width="10" x="800" y="100.00241379310344" as="geometry" />
         </mxCell>
         <mxCell id="U_exec6" parent="Alt1" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="595" y="180" as="geometry" />
+          <mxGeometry height="42.06896551724138" width="10" x="595" y="180.0003448275862" as="geometry" />
         </mxCell>
-        <mxCell id="L_exec" parent="Alt1" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="1165" y="260" as="geometry" />
+        <mxCell id="m31" edge="1" parent="Alt1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="JSON-RPC Error Response">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="250.37" y="590" />
+              <mxPoint x="50.370000000000005" y="590" />
+            </Array>
+            <mxPoint x="339.87" y="590" as="sourcePoint" />
+            <mxPoint x="50.00043478260852" y="590" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="m19" edge="1" parent="1" source="R" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="U" value="advanced_to_atom(character_name)">
           <mxGeometry relative="1" as="geometry">
@@ -299,19 +309,29 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Alt2" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=60;height=30;" value="alt" vertex="1">
-          <mxGeometry height="160" width="1050" x="70" y="1180" as="geometry" />
+          <mxGeometry height="200" width="1050" x="70" y="1180" as="geometry" />
         </mxCell>
         <mxCell id="Alt2_Cond1" parent="Alt2" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="[enemy !== []]" vertex="1">
-          <mxGeometry height="20" width="100" x="70" y="10" as="geometry" />
+          <mxGeometry height="25" width="100" x="70" y="12.5" as="geometry" />
         </mxCell>
         <mxCell id="Alt2_Line" parent="Alt2" style="line;strokeWidth=1;dashed=1;html=1;whiteSpace=wrap;" value="" vertex="1">
-          <mxGeometry height="10" width="1050" y="110" as="geometry" />
+          <mxGeometry height="12.5" width="1050" y="137.5" as="geometry" />
         </mxCell>
         <mxCell id="Alt2_Cond2" parent="Alt2" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="[else]" vertex="1">
-          <mxGeometry height="20" width="50" x="50" y="125" as="geometry" />
+          <mxGeometry height="25" width="50" x="40" y="137.5" as="geometry" />
         </mxCell>
         <mxCell id="RM_exec4" parent="Alt2" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="780" y="20" as="geometry" />
+          <mxGeometry height="50" width="10" x="780" y="12.5" as="geometry" />
+        </mxCell>
+        <mxCell id="m30" edge="1" parent="Alt2" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="JSON-RPC Success Response (Normal travel)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="181.25" />
+              <mxPoint x="30" y="181.25" />
+            </Array>
+            <mxPoint x="319.5" y="181.25" as="sourcePoint" />
+            <mxPoint x="29.630434782608518" y="181.25" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="m27" edge="1" parent="1" source="R" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="RM" value="change_combat_status(char_atom, true)">
           <mxGeometry relative="1" as="geometry">
@@ -334,22 +354,6 @@
             <Array as="points">
               <mxPoint x="300" y="1280" />
               <mxPoint x="100" y="1280" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m30" edge="1" parent="1" source="R" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="J" value="JSON-RPC Success Response (Normal travel)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="300" y="1320" />
-              <mxPoint x="100" y="1320" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m31" edge="1" parent="1" source="R" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="J" value="JSON-RPC Error Response">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="300" y="1400" />
-              <mxPoint x="100" y="1400" />
             </Array>
           </mxGeometry>
         </mxCell>

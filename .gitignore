@@ -30,3 +30,6 @@ tfg_umbrella/tmp/
 # Web directory
 /web/node_modules
 /web/.astro
+
+# Disgrams bkp files
+/diagrams/*/*.bkp
