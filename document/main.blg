@@ -30,45 +30,45 @@ The style file: unsrt.bst
 Reallocating 'name_of_file' (item size: 1) to 5 items.
 Database file #1: refs.bib
 Warning--empty journal in kirk2006design
-You've used 24 entries,
+You've used 28 entries,
             1791 wiz_defined-function locations,
-            566 strings with 7062 characters,
-and the built_in function-call counts, 3331 in all, are:
-= -- 305
-> -- 96
+            580 strings with 7346 characters,
+and the built_in function-call counts, 3883 in all, are:
+= -- 357
+> -- 112
 < -- 0
-+ -- 48
-- -- 24
-* -- 34
-:= -- 544
-add.period$ -- 92
-call.type$ -- 24
-change.case$ -- 22
++ -- 56
+- -- 28
+* -- 38
+:= -- 632
+add.period$ -- 108
+call.type$ -- 28
+change.case$ -- 26
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 136
-empty$ -- 427
-format.name$ -- 24
-if$ -- 786
+cite$ -- 29
+duplicate$ -- 156
+empty$ -- 499
+format.name$ -- 28
+if$ -- 918
 int.to.chr$ -- 0
-int.to.str$ -- 24
+int.to.str$ -- 28
 missing$ -- 6
-newline$ -- 143
-num.names$ -- 24
-pop$ -- 142
+newline$ -- 167
+num.names$ -- 28
+pop$ -- 166
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 49
+skip$ -- 57
 stack$ -- 0
 substring$ -- 0
-swap$ -- 23
+swap$ -- 27
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 24
-width$ -- 26
-write$ -- 281
+while$ -- 28
+width$ -- 30
+write$ -- 329
 (There was 1 warning)
