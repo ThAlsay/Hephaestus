@@ -1,77 +1,26 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36">
   <diagram name="Página-1" id="wt3Maz3-so1JgGFsbeP7">
-    <mxGraphModel dx="1426" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1350" pageHeight="1200" math="0" shadow="0">
+    <mxGraphModel dx="2023" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1350" pageHeight="1200" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="J" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;size=60;" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;Cliente&lt;/font&gt;" vertex="1">
-          <mxGeometry height="1060" width="40" x="80" y="40" as="geometry" />
+          <mxGeometry height="360" width="40" x="80" y="40" as="geometry" />
         </mxCell>
         <mxCell id="J_exec" parent="J" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="920" width="10" x="15" y="80" as="geometry" />
+          <mxGeometry height="250" width="10" x="15" y="80" as="geometry" />
         </mxCell>
         <mxCell id="R" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Game.RpcHandler" vertex="1">
-          <mxGeometry height="1060" width="100" x="230" y="40" as="geometry" />
+          <mxGeometry height="360" width="100" x="230" y="40" as="geometry" />
         </mxCell>
         <mxCell id="R_exec" parent="R" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="920" width="10" x="45" y="80" as="geometry" />
+          <mxGeometry height="220" width="10" x="45" y="80" as="geometry" />
         </mxCell>
         <mxCell id="D" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Engine.Db" vertex="1">
-          <mxGeometry height="1060" width="100" x="430" y="40" as="geometry" />
+          <mxGeometry height="360" width="100" x="430" y="40" as="geometry" />
         </mxCell>
         <mxCell id="D_exec" parent="D" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="840" width="10" x="45" y="120" as="geometry" />
-        </mxCell>
-        <mxCell id="Rep" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Engine.Repo" vertex="1">
-          <mxGeometry height="1060" width="100" x="550" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Rep_exec1" parent="Rep" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="45" y="160" as="geometry" />
-        </mxCell>
-        <mxCell id="Rep_exec2" parent="Rep" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="45" y="640" as="geometry" />
-        </mxCell>
-        <mxCell id="Rep_exec3" parent="Rep" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="45" y="720" as="geometry" />
-        </mxCell>
-        <mxCell id="Rep_exec4" parent="Rep" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="45" y="880" as="geometry" />
-        </mxCell>
-        <mxCell id="Conn" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Engine.Connection" vertex="1">
-          <mxGeometry height="1060" width="110" x="670" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Conn_exec" parent="Conn" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="50" y="240" as="geometry" />
-        </mxCell>
-        <mxCell id="Ene" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Engine.Enemy" vertex="1">
-          <mxGeometry height="1060" width="100" x="800" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Ene_exec" parent="Ene" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="45" y="320" as="geometry" />
-        </mxCell>
-        <mxCell id="Obj" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Engine.Object" vertex="1">
-          <mxGeometry height="1060" width="100" x="920" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Obj_exec" parent="Obj" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="45" y="400" as="geometry" />
-        </mxCell>
-        <mxCell id="Loc" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Engine.Location" vertex="1">
-          <mxGeometry height="1060" width="100" x="1040" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Loc_exec" parent="Loc" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="45" y="480" as="geometry" />
-        </mxCell>
-        <mxCell id="Npc" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Engine.Npc" vertex="1">
-          <mxGeometry height="1060" width="100" x="1160" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Npc_exec" parent="Npc" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="45" y="560" as="geometry" />
-        </mxCell>
-        <mxCell id="Char" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Engine.Character" vertex="1">
-          <mxGeometry height="1060" width="110" x="1280" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Char_exec" parent="Char" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
-          <mxGeometry height="40" width="10" x="50" y="800" as="geometry" />
+          <mxGeometry height="140" width="10" x="45" y="120" as="geometry" />
         </mxCell>
         <mxCell id="m1" edge="1" parent="1" source="J" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="R" value="Request JSON-RPC save">
           <mxGeometry relative="1" as="geometry">
@@ -89,180 +38,24 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="m3" edge="1" parent="1" source="D" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="Rep" value="get(Safe, &quot;current&quot;)">
+        <mxCell id="m23" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="Return :ok">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="480" y="200" />
-              <mxPoint x="600" y="200" />
+              <mxPoint x="420" y="300" />
+              <mxPoint x="280" y="300" />
             </Array>
+            <mxPoint x="479.5" y="300" as="sourcePoint" />
+            <mxPoint x="279.5" y="300" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="m4" edge="1" parent="1" source="Rep" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="D" value="Return Safe">
+        <mxCell id="m24" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="JSON-RPC Success Response">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="600" y="240" />
-              <mxPoint x="480" y="240" />
+              <mxPoint x="250" y="340" />
+              <mxPoint x="100" y="340" />
             </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m5" edge="1" parent="1" source="D" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="Conn" value="get_state(pid)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="480" y="280" />
-              <mxPoint x="725" y="280" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m6" edge="1" parent="1" source="Conn" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="D" value="Return connection state">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="725" y="320" />
-              <mxPoint x="480" y="320" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m7" edge="1" parent="1" source="D" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="Ene" value="get_state(pid)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="480" y="360" />
-              <mxPoint x="850" y="360" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m8" edge="1" parent="1" source="Ene" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="D" value="Return enemy state">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="850" y="400" />
-              <mxPoint x="480" y="400" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m9" edge="1" parent="1" source="D" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="Obj" value="get_state(pid)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="480" y="440" />
-              <mxPoint x="970" y="440" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m10" edge="1" parent="1" source="Obj" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="D" value="Return object state">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="970" y="480" />
-              <mxPoint x="480" y="480" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m11" edge="1" parent="1" source="D" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="Loc" value="get_state(pid)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="480" y="520" />
-              <mxPoint x="1090" y="520" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m12" edge="1" parent="1" source="Loc" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="D" value="Return location state">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1090" y="560" />
-              <mxPoint x="480" y="560" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m13" edge="1" parent="1" source="D" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="Npc" value="get_state(pid)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="480" y="600" />
-              <mxPoint x="1210" y="600" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m14" edge="1" parent="1" source="Npc" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="D" value="Return npc state">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1210" y="640" />
-              <mxPoint x="480" y="640" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m15" edge="1" parent="1" source="D" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="Rep" value="update(Safe)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="480" y="680" />
-              <mxPoint x="600" y="680" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m16" edge="1" parent="1" source="Rep" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="D" value="Return">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="600" y="720" />
-              <mxPoint x="480" y="720" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m17" edge="1" parent="1" source="D" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="Rep" value="get(User, username)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="480" y="760" />
-              <mxPoint x="600" y="760" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m18" edge="1" parent="1" source="Rep" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="D" value="Return User">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="600" y="800" />
-              <mxPoint x="480" y="800" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m19" edge="1" parent="1" source="D" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="Char" value="get_state(pid)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="480" y="840" />
-              <mxPoint x="1335" y="840" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m20" edge="1" parent="1" source="Char" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="D" value="Return character state">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1335" y="880" />
-              <mxPoint x="480" y="880" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m21" edge="1" parent="1" source="D" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="Rep" value="update(User)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="480" y="920" />
-              <mxPoint x="600" y="920" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m22" edge="1" parent="1" source="Rep" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="D" value="Return">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="600" y="960" />
-              <mxPoint x="480" y="960" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m23" edge="1" parent="1" source="D" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="R" value="Return">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="420" y="1000" />
-              <mxPoint x="280" y="1000" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m24" edge="1" parent="1" source="R" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="J" value="JSON-RPC Success Response">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="250" y="1040" />
-              <mxPoint x="100" y="1040" />
-            </Array>
+            <mxPoint x="279.5" y="340" as="sourcePoint" />
+            <mxPoint x="99.5" y="340" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
