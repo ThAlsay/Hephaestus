@@ -1,9 +1,45 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36">
   <diagram name="Página-1" id="nwcxEOUNd_o8mWtZAyVg">
-    <mxGraphModel dx="3773" dy="2370" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2504" dy="1855" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="Msg_8" edge="1" parent="1" source="Obj_Rpc" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" target="Obj_Loc" value="get_state(location_id)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="497" y="360" />
+            </Array>
+            <mxPoint x="252" y="360" as="sourcePoint" />
+            <mxPoint x="787" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Msg_6" edge="1" parent="1" source="Act_Rpc" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;exitX=0.79;exitY=0.295;exitDx=0;exitDy=0;exitPerimeter=0;" target="Obj_Loc" value="get_enemy(location_id)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="497" y="250" />
+            </Array>
+            <mxPoint x="257" y="250" as="sourcePoint" />
+            <mxPoint x="787" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Msg_2" edge="1" parent="1" source="Obj_Rpc" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" target="Obj_RemChar" value="get_current_location(char_name)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="337" y="150" />
+            </Array>
+            <mxPoint x="252" y="150" as="sourcePoint" />
+            <mxPoint x="427" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Msg_9" edge="1" parent="1" source="Obj_Loc" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" value="{:reply, state}">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="527" y="400" />
+            </Array>
+            <mxPoint x="787" y="400" as="sourcePoint" />
+            <mxPoint x="250" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="Actor_Player" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Jugador" vertex="1">
           <mxGeometry height="60" width="30" x="60" y="40" as="geometry" />
         </mxCell>
@@ -13,8 +49,8 @@
             <mxPoint x="80" y="600" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Obj_Rpc" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":Game.RpcHandler" vertex="1">
-          <mxGeometry height="560" width="140" x="180" y="40" as="geometry" />
+        <mxCell id="Obj_Rpc" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Game.RpcHandler" vertex="1">
+          <mxGeometry height="560" width="140" x="177" y="40" as="geometry" />
         </mxCell>
         <mxCell id="Act_Rpc" parent="Obj_Rpc" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
           <mxGeometry height="440" width="10" x="65" y="80" as="geometry" />
@@ -24,52 +60,52 @@
         </mxCell>
         <mxCell id="Msg_11" edge="1" parent="Obj_Rpc" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;elbow=vertical;rounded=0;" value="send(socket, json_resp)">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="70" y="510" as="sourcePoint" />
+            <mxPoint x="60" y="510" as="sourcePoint" />
             <mxPoint x="-100" y="510" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Obj_RemChar" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":Game.Remote&#xa;CharacterManager" vertex="1">
-          <mxGeometry height="560" width="140" x="360" y="40" as="geometry" />
+        <mxCell id="Obj_RemChar" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Game.CharacterManager" vertex="1">
+          <mxGeometry height="560" width="140" x="373" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Msg_5" edge="1" parent="Obj_RemChar" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" value="location_id">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="75" y="180" as="sourcePoint" />
+            <mxPoint x="-120" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Msg_4" edge="1" parent="Obj_RemChar" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;elbow=vertical;rounded=0;" value="{:reply, location_id}">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="254.69" y="160" as="sourcePoint" />
+            <mxPoint x="77" y="161" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="Act_Rem" parent="Obj_RemChar" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
           <mxGeometry height="80" width="10" x="65" y="110" as="geometry" />
         </mxCell>
-        <mxCell id="Msg_4" edge="1" parent="Obj_RemChar" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;elbow=vertical;rounded=0;entryX=0.743;entryY=0.634;entryDx=0;entryDy=0;entryPerimeter=0;" target="Act_Rem" value="{:reply, location_id}">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="254.69" y="160" as="sourcePoint" />
-            <mxPoint x="80" y="160" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="Obj_Char" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="&amp;lt;&amp;lt;Engine&amp;gt;&amp;gt;&lt;div&gt;[Character] GenServer&lt;/div&gt;" vertex="1">
+          <mxGeometry height="560" width="140" x="553" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="Msg_5" edge="1" parent="Obj_RemChar" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0.5;entryY=0.227;entryDx=0;entryDy=0;entryPerimeter=0;" target="Act_Rpc" value="location_id">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="75" y="180" as="sourcePoint" />
-            <mxPoint x="-104.47619047619048" y="180" as="targetPoint" />
+        <mxCell id="Msg_3" edge="1" parent="Obj_Char" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" value="call(pid, :get_current_location)">
+          <mxGeometry relative="1" x="-0.0024" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="-103" y="130" as="sourcePoint" />
+            <mxPoint x="65" y="130.31333333333336" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="Obj_Char" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":Engine.Character&#xa;(GenServer)" vertex="1">
-          <mxGeometry height="560" width="140" x="540" y="40" as="geometry" />
         </mxCell>
         <mxCell id="Act_Char" parent="Obj_Char" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
           <mxGeometry height="40" width="10" x="65" y="130" as="geometry" />
         </mxCell>
-        <mxCell id="Msg_7" edge="1" parent="Obj_Char" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" value="{:reply, [enemies]}">
+        <mxCell id="Msg_7" edge="1" parent="Obj_Char" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0.924;entryY=0.364;entryDx=0;entryDy=0;entryPerimeter=0;" target="Act_Rpc" value="{:reply, [enemies]}">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="-10.019999999999982" y="240" />
             </Array>
             <mxPoint x="249.48000000000002" y="240" as="sourcePoint" />
-            <mxPoint x="-289.99619047619046" y="240" as="targetPoint" />
+            <mxPoint x="-287" y="240" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Msg_3" edge="1" parent="Obj_Char" source="Act_Rem" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;exitX=0.5;exitY=0.254;exitDx=0;exitDy=0;exitPerimeter=0;" value="call(pid, :get_current_location)">
-          <mxGeometry relative="1" x="-0.0024" as="geometry">
-            <mxPoint as="offset" />
-            <mxPoint x="-100" y="130" as="sourcePoint" />
-            <mxPoint x="65" y="130.31333333333336" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Obj_Loc" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":Engine.Location&#xa;(GenServer)" vertex="1">
-          <mxGeometry height="560" width="140" x="720" y="40" as="geometry" />
+        <mxCell id="Obj_Loc" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="&amp;lt;&amp;lt;Engine&amp;gt;&amp;gt;&lt;div&gt;[Location] GenServer&lt;/div&gt;" vertex="1">
+          <mxGeometry height="560" width="140" x="733" y="40" as="geometry" />
         </mxCell>
         <mxCell id="Act_Loc1" parent="Obj_Loc" style="html=1;points=[];perimeter=orthogonalPerimeter;" value="" vertex="1">
           <mxGeometry height="60" width="10" x="65" y="210" as="geometry" />
@@ -83,50 +119,14 @@
               <mxPoint x="150" y="130" />
             </Array>
             <mxPoint x="80" y="130" as="sourcePoint" />
-            <mxPoint x="249.5" y="130" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Msg_2" edge="1" parent="1" source="Obj_Rpc" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" target="Obj_RemChar" value="get_current_location(char_name)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="340" y="150" />
-            </Array>
-            <mxPoint x="255" y="150" as="sourcePoint" />
-            <mxPoint x="430" y="150" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Msg_6" edge="1" parent="1" source="Act_Rpc" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;exitX=0.79;exitY=0.295;exitDx=0;exitDy=0;exitPerimeter=0;" target="Obj_Loc" value="get_enemy(location_id)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="500" y="250" />
-            </Array>
-            <mxPoint x="260" y="250" as="sourcePoint" />
-            <mxPoint x="790" y="250" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Msg_8" edge="1" parent="1" source="Obj_Rpc" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" target="Obj_Loc" value="get_state(location_id)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="500" y="360" />
-            </Array>
-            <mxPoint x="255" y="360" as="sourcePoint" />
-            <mxPoint x="790" y="360" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Msg_9" edge="1" parent="1" source="Obj_Loc" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" target="Obj_Rpc" value="{:reply, state}">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="530" y="400" />
-            </Array>
-            <mxPoint x="790" y="400" as="sourcePoint" />
-            <mxPoint x="255" y="400" as="targetPoint" />
+            <mxPoint x="240" y="130" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Msg_Self" edge="1" parent="1" source="Act_Rpc_Build" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Act_Rpc_Build" value="build_response_map">
           <mxGeometry relative="1" y="60" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="260" y="430" as="sourcePoint" />
-            <mxPoint x="260" y="460" as="targetPoint" />
+            <mxPoint x="257" y="430" as="sourcePoint" />
+            <mxPoint x="257" y="460" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="CqLn1oo27I8dWyMB9D8n-1" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=190;height=30;" value="sd inspeccionar ubicacion" vertex="1">
